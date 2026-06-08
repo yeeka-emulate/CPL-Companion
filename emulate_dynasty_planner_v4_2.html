@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>emuLate! Dynasty Planner V4.2</title>
+<style>
+:root{
+  --bg:#080b0f;--panel:#101720;--panel2:#0c1117;--line:#26313d;--line2:#18212b;
+  --txt:#e8edf2;--muted:#98a2ad;--orange:#ff6b00;--orange2:#ff8a1c;--blue:#28a8ff;
+  --purple:#a855f7;--green:#37d45b;--gold:#ffbf22;--red:#ef4444;--heart:#ff5a1f;
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 15% 0%,#17212c 0,#080b0f 44%,#05070a 100%);color:var(--txt);font-family:Inter,Segoe UI,Arial,sans-serif;font-size:14px}
+button,input,select{font:inherit}
+.app{max-width:1600px;margin:auto;padding:12px}
+.top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line2);padding:0 6px 10px}
+.brand{display:flex;align-items:center;gap:12px}
+.brandmark{width:42px;height:42px;background:linear-gradient(135deg,#ff6b00,#9b2700);clip-path:polygon(0 20%,70% 20%,55% 40%,100% 40%,85% 60%,38% 60%,25% 80%,0 80%,18% 50%)}
+.brand h1{margin:0;font-size:25px;line-height:1}.brand span{font-size:11px;color:var(--orange);letter-spacing:1.4px;font-weight:800}
+.tabs{display:flex;gap:8px;align-items:center}
+.tab{background:#0e141b;color:#d7dde3;border:1px solid var(--line);border-radius:5px;padding:11px 18px;text-transform:uppercase;font-weight:800;font-size:13px;cursor:pointer}
+.tab.active{background:linear-gradient(180deg,#3a2718,#1a120c);border-color:#7d3a0e;color:var(--orange)}
+.season{background:#0e141b;border:1px solid var(--line);border-radius:5px;color:#fff;padding:10px 14px}
+.page{display:none}.page.active{display:block}
+.grid{display:grid;gap:10px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.panel{background:linear-gradient(180deg,#101720,#0a0f14);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:10px}
+.panel h2{margin:0;padding:12px 14px;color:var(--orange);font-size:16px;text-transform:uppercase;border-bottom:1px solid var(--line2)}
+.panel h3{margin:0 0 10px;color:var(--orange);font-size:14px;text-transform:uppercase}
+.body{padding:14px}
+table{width:100%;border-collapse:collapse}
+th{font-size:11px;color:#bcc4cc;text-transform:uppercase;letter-spacing:.45px;text-align:left;padding:10px 9px;background:#0b1016;border-bottom:1px solid var(--line)}
+td{padding:9px;border-bottom:1px solid #1a232d;border-right:1px solid #171f28;vertical-align:middle}
+tr.clickable{cursor:pointer}tr.clickable:hover{background:rgba(255,107,0,.08)}tr.selected{background:linear-gradient(90deg,rgba(255,107,0,.18),rgba(255,107,0,.04))}
+.num{text-align:center;width:36px;color:#ddd}
+.player{display:flex;align-items:center;gap:8px;font-weight:900}.avatar{width:30px;height:30px;border-radius:50%;background:linear-gradient(180deg,#d9b08c,#322018);border:1px solid #3b4652;position:relative;overflow:hidden}.avatar:before{content:"";position:absolute;left:8px;top:7px;width:14px;height:14px;border-radius:50%;background:#d9a37d}.avatar:after{content:"";position:absolute;left:4px;bottom:-2px;width:22px;height:14px;background:#111;border-radius:10px 10px 0 0}.silhouette{background:#080a0d}.silhouette:before{background:#151922}.silhouette:after{background:#050608}
+.fire{color:#ff5a1f}.big{color:#35d354}.medium{color:#239ee9}.golden{color:#ffc72c}.diamond{color:#3bd6ff}.potential{color:#a855f7}.orange{color:var(--orange)}.blue{color:var(--blue)}.purple{color:var(--purple)}.green{color:var(--green)}.gold{color:var(--gold)}.muted{color:var(--muted)}.red{color:var(--red)}
+.rating{font-size:17px;font-weight:900;text-align:right}.center{text-align:center}.small{font-size:12px;color:var(--muted)}.pill{display:inline-block;border:1px solid currentColor;border-radius:5px;padding:3px 7px;font-weight:900}
+.blocks{display:inline-flex;gap:3px;vertical-align:middle;margin-left:6px}.blocks i{width:13px;height:7px;background:#28313a;border-radius:2px}.blocks i.on{background:linear-gradient(90deg,#ff6b00,#ff9a2f)}.blocks.blue i.on{background:linear-gradient(90deg,#2088ff,#35c6ff)}.blocks.purple i.on{background:linear-gradient(90deg,#7c3aed,#b05cff)}
+.detail{display:grid;grid-template-columns:310px 1fr 1fr;gap:10px}
+.hero{display:grid;grid-template-columns:115px 1fr;gap:12px;padding:14px;background:radial-gradient(circle at 25% 70%,rgba(255,91,31,.38),transparent 38%);border:1px solid var(--line);border-radius:8px}
+.heroPic{height:210px;border-radius:60px 60px 14px 14px;background:linear-gradient(180deg,#e6b38e 0 28%,#111 29% 100%);border:1px solid #2a333d;box-shadow:0 0 26px rgba(255,91,31,.25);align-self:end}
+.bigScore{font-size:35px;font-weight:950;line-height:1}
+.skillRow{display:grid;grid-template-columns:92px 1fr 35px 35px;gap:8px;align-items:center;margin:8px 0}.bar{height:5px;background:#26313b;border-radius:20px;overflow:hidden}.bar i{height:100%;display:block;background:var(--orange)}
+.heartLine{display:flex;align-items:center;justify-content:space-between;gap:8px}.timeline{display:flex;gap:14px;align-items:center;margin:16px 0}.node{text-align:center;color:var(--muted)}.node .icon{font-size:20px}.node.current{color:var(--orange);font-weight:900}.line{height:2px;background:#28313a;flex:1}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.kpi{background:#0c1117;border:1px solid var(--line);border-radius:7px;padding:12px}.kpi b{font-size:29px}
+select,input{background:#0b1016;color:#fff;border:1px solid var(--line);border-radius:5px;padding:7px 9px}
+.planTable select{width:60px}
+.warning{background:rgba(255,107,0,.08);border:1px solid #70360d;border-radius:7px;padding:12px;color:#ffd9bd}
+.chart{height:240px;border-left:1px solid #26313d;border-bottom:1px solid #26313d;background:linear-gradient(180deg,rgba(255,255,255,.03),transparent);position:relative;padding:8px}.chart svg{width:100%;height:100%;overflow:visible}.legend{display:flex;gap:14px;margin-top:10px}
+.subtabs{display:flex;gap:8px;margin-bottom:12px}.subtab{padding:8px 12px;border:1px solid var(--line);border-radius:5px;background:#0b1016;color:#ddd;cursor:pointer}.subtab.active{border-color:var(--orange);color:var(--orange)}
+.settingsGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.settingRow{display:grid;grid-template-columns:1fr 90px;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid #18212b}
+.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{background:linear-gradient(180deg,#8a3b08,#25140a);border:1px solid #8a3b08;color:#ff8a1c;border-radius:6px;padding:10px 14px;font-weight:900;text-transform:uppercase}.btn.secondary{background:#0b1016;color:#ddd;border-color:var(--line)}
+.footer{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-top:8px}
+@media(max-width:900px){.top{display:block}.tabs{overflow:auto;margin-top:10px}.grid2,.grid3,.detail,.settingsGrid,.kpis{grid-template-columns:1fr}table{min-width:900px}.panel{overflow:auto}.app{padding:8px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand"><div class="brandmark"></div><div><h1>emuLate!</h1><span>DYNASTY PLANNER</span></div></div>
+    <nav class="tabs">
+      <button class="tab active" onclick="showPage('home',this)">Home</button>
+      <button class="tab" onclick="showPage('training',this)">Training Plan</button>
+      <button class="tab" onclick="showPage('analysis',this)">Analysis Planner</button>
+      <button class="tab" onclick="showPage('settings',this)">Settings</button>
+      <select class="season" id="season" onchange="renderAll()"><option value="12">Season 12</option><option value="13">Season 13</option><option value="14">Season 14</option></select>
+    </nav>
+  </header>
+
+  <section id="home" class="page active">
+    <div class="panel"><h2>Roster overview</h2><div class="body"><table><thead><tr><th class="num">#</th><th>Player</th><th>Role</th><th>Heart</th><th>LS</th><th>Rating now</th><th>S15 projected</th><th>S18 projected</th><th>S20 projected</th><th>Potential remaining</th></tr></thead><tbody id="homeRows"></tbody></table></div></div>
+    <div class="panel"><h2>Player details</h2><div class="body detail" id="playerDetail"></div><div class="footer"><span>Dernière mise à jour : projection locale</span><span>Rating Bastien™ + Hearts + Leadership</span></div></div>
+  </section>
+
+  <section id="training" class="page">
+    <div class="panel"><h2>Training plan</h2><div class="body">
+      <p class="small">Affecte les semaines d’analyse par saison et par joueur. Règles : 5 semaines max par saison, 2 semaines max par joueur.</p>
+      <table class="planTable"><thead id="planHead"></thead><tbody id="planRows"></tbody></table>
+    </div></div>
+    <div class="grid2">
+      <div class="panel"><h2>Season overview</h2><div class="body" id="planOverview"></div></div>
+      <div class="panel"><h2>Actions</h2><div class="body actions"><button class="btn" onclick="savePlan()">Sauvegarder le plan</button><button class="btn secondary" onclick="copySeason()">Copier S13 → S14</button><button class="btn secondary" onclick="resetPlan()">Réinitialiser</button></div></div>
+    </div>
+  </section>
+
+  <section id="analysis" class="page">
+    <div class="panel"><h2>Analysis planner</h2><div class="body">
+      <div class="subtabs"><button class="subtab active" onclick="showAnalysis('team',this)">Team projection</button><button class="subtab" onclick="showAnalysis('players',this)">Player projection</button><button class="subtab" onclick="showAnalysis('skills',this)">Skill projection</button></div>
+      <div id="analysisTeam"></div><div id="analysisPlayers" style="display:none"></div><div id="analysisSkills" style="display:none"></div>
+    </div></div>
+  </section>
+
+  <section id="settings" class="page">
+    <div class="settingsGrid">
+      <div class="panel"><h2>Rating Bastien™ coefficients</h2><div class="body" id="coefSettings"></div></div>
+      <div class="panel"><h2>Engine parameters</h2><div class="body" id="engineSettings"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="panel"><h2>Heart system</h2><div class="body" id="heartSettings"></div></div>
+      <div class="panel"><h2>Data management</h2><div class="body actions"><button class="btn secondary" onclick="exportData()">Exporter</button><button class="btn secondary" onclick="importData()">Importer</button><button class="btn" onclick="renderAll()">Recalculer</button></div></div>
+    </div>
+  </section>
+</div>
+
+<script>
+const players = [{"name": "HaRTS", "role": "LURKER", "games": 0, "heartFixed": "Fire", "ls": 13, "skills": {"aim": 93, "hand": 93, "quick": 92, "det": 93, "awa": 90, "mov": 63, "gms": 64, "tp": 64}, "limits": {"aim": 94, "hand": 96, "quick": 97, "det": 94, "awa": 97, "mov": 93, "gms": 90, "tp": 91}}, {"name": "mSx", "role": "AWPER", "games": 438, "heartFixed": null, "ls": 1, "skills": {"aim": 95, "hand": 92, "quick": 94, "det": 94, "awa": 94, "mov": 91, "gms": 95, "tp": 90}, "limits": {"aim": 95, "hand": 92, "quick": 94, "det": 94, "awa": 94, "mov": 91, "gms": 95, "tp": 90}}, {"name": "ZywOo", "role": "AWPER", "games": 166, "heartFixed": null, "ls": 6, "skills": {"aim": 92, "hand": 92, "quick": 93, "det": 90, "awa": 70, "mov": 66, "gms": 40, "tp": 39}, "limits": {"aim": 95, "hand": 92, "quick": 93, "det": 94, "awa": 97, "mov": 100, "gms": 91, "tp": 89}}, {"name": "MaT", "role": "SUPPORT", "games": 258, "heartFixed": null, "ls": 1, "skills": {"aim": 94, "hand": 91, "quick": 94, "det": 95, "awa": 93, "mov": 90, "gms": 59, "tp": 76}, "limits": {"aim": 94, "hand": 91, "quick": 94, "det": 95, "awa": 93, "mov": 90, "gms": 99, "tp": 93}}, {"name": "R!Go", "role": "ENTRY", "games": 381, "heartFixed": null, "ls": 1, "skills": {"aim": 91, "hand": 93, "quick": 91, "det": 91, "awa": 96, "mov": 98, "gms": 93, "tp": 96}, "limits": {"aim": 91, "hand": 93, "quick": 91, "det": 91, "awa": 96, "mov": 98, "gms": 93, "tp": 96}}, {"name": "Recrue #1", "role": "FLEX", "games": 0, "heartFixed": null, "ls": 1, "skills": {"aim": 86, "hand": 84, "quick": 86, "det": 85, "awa": 84, "mov": 82, "gms": 70, "tp": 70}, "limits": {"aim": 96, "hand": 95, "quick": 96, "det": 95, "awa": 95, "mov": 95, "gms": 90, "tp": 90}}, {"name": "Recrue #2", "role": "FLEX", "games": 0, "heartFixed": null, "ls": 1, "skills": {"aim": 84, "hand": 83, "quick": 85, "det": 84, "awa": 84, "mov": 81, "gms": 70, "tp": 70}, "limits": {"aim": 96, "hand": 95, "quick": 96, "det": 95, "awa": 95, "mov": 95, "gms": 91, "tp": 91}}];
+const seasons = [12,13,14,15,16,17,18,19,20];
+let selected = 0;
+let analysisPlan = {};
+let coef = {aim:1.4, quick:1.4, det:1.3, awa:1.2, hand:1, mov:1, gms:.5, tp:.4};
+let engine = {matchesPerSeason:65, trainingPerDay:.8, analysisBonus:2.6, daysPerSeason:35, daysPerWeek:7, lsGrowth:1.25};
+let hearts = {Small:.005, Medium:.01, Big:.03, Golden:.05, Diamond:.08, Fire:.04};
+const order = ["aim","hand","quick","det","awa","mov","gms","tp"];
+const labels = {aim:"Aim",hand:"Handling",quick:"Quickness",det:"Determination",awa:"Awareness",mov:"Movement",gms:"Gamesense",tp:"Teamplay"};
+const priorities = [["aim","hand"],["quick","det"],["awa","mov"],["gms","tp"]];
+
+function initPlan(){
+  seasons.forEach(s=>{
+    if(!analysisPlan[s]) analysisPlan[s]={};
+    players.forEach(p=>{
+      if(analysisPlan[s][p.name]===undefined){
+        analysisPlan[s][p.name] = p.name==="HaRTS" ? 2 : p.name==="ZywOo" ? 2 : p.name==="MaT" ? 1 : 0;
+      }
+    });
+  });
+}
+function showPage(id,btn){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  btn.classList.add("active");
+}
+function showAnalysis(id,btn){
+  ["team","players","skills"].forEach(x=>document.getElementById("analysis"+cap(x)).style.display=x===id?"block":"none");
+  document.querySelectorAll(".subtab").forEach(t=>t.classList.remove("active"));
+  btn.classList.add("active");
+}
+function cap(s){return s[0].toUpperCase()+s.slice(1)}
+function heartFromGames(g,fixed){
+  if(fixed==="Fire") return {name:"Fire",bonus:hearts.Fire,icon:"🔥",cls:"fire",next:"Permanent"};
+  if(g>=800) return {name:"Diamond",bonus:hearts.Diamond,icon:"💎",cls:"diamond",next:"Max"};
+  if(g>=400) return {name:"Golden",bonus:hearts.Golden,icon:"⭐",cls:"golden",next:800};
+  if(g>=200) return {name:"Big",bonus:hearts.Big,icon:"💚",cls:"big",next:400};
+  if(g>=100) return {name:"Medium",bonus:hearts.Medium,icon:"💙",cls:"medium",next:200};
+  if(g>=50) return {name:"Small",bonus:hearts.Small,icon:"🤍",cls:"muted",next:100};
+  return {name:"None",bonus:0,icon:"♡",cls:"muted",next:50};
+}
+function rawRating(skills){
+  let t=0,w=0; for(const k in coef){t+=skills[k]*coef[k]; w+=coef[k];} return t/w;
+}
+function distribute(sk,lim,pts){
+  for(const pair of priorities){
+    while(pts>.0001){
+      const open = pair.filter(k=>sk[k]<lim[k]-.0001);
+      if(!open.length) break;
+      const step = pts/open.length; let used=0;
+      open.forEach(k=>{const add=Math.min(step,lim[k]-sk[k]); sk[k]+=add; used+=add;});
+      pts-=used; if(used<.0001) break;
+    }
+  }
+}
+function leaderBonusAt(season){
+  const cur=+document.getElementById("season").value;
+  return (players[0].ls + Math.max(0,season-cur)*engine.lsGrowth)*.002;
+}
+function project(p,season){
+  const cur=+document.getElementById("season").value;
+  let sk=JSON.parse(JSON.stringify(p.skills)), lim=JSON.parse(JSON.stringify(p.limits)), games=p.games, ls=p.ls;
+  for(let s=cur;s<season;s++){
+    const weeks=(analysisPlan[s]&&analysisPlan[s][p.name])||0;
+    distribute(sk,lim,engine.trainingPerDay*engine.daysPerSeason + engine.analysisBonus*engine.daysPerWeek*weeks);
+    games += engine.matchesPerSeason;
+    if(p.name==="HaRTS") ls += engine.lsGrowth;
+  }
+  const h=heartFromGames(games,p.heartFixed);
+  const rb=rawRating(sk);
+  const lb=p.name==="HaRTS"?0:leaderBonusAt(season);
+  const eff=rb*(1+h.bonus+lb);
+  const pot=Object.values(lim).reduce((a,b)=>a+b,0)-Object.values(sk).reduce((a,b)=>a+b,0);
+  return {skills:sk,limits:lim,games,ls,heart:h,raw:rb,eff,potential:pot};
+}
+function blocks(pot,cls=""){
+  const f=Math.min(6,Math.ceil(Math.max(0,pot)/20));
+  return `<span class="blocks ${cls}">${Array.from({length:6},(_,i)=>`<i class="${i<f?'on':''}"></i>`).join("")}</span>`;
+}
+function renderHome(){
+  const s=+season.value;
+  homeRows.innerHTML=players.map((p,i)=>{
+    const n=project(p,s), s15=project(p,15), s18=project(p,18), s20=project(p,20);
+    return `<tr class="clickable ${i===selected?'selected':''}" onclick="selected=${i};renderAll()">
+      <td class="num">${i+1}</td>
+      <td><div class="player"><div class="avatar ${p.name.includes("Recrue")?'silhouette':''}"></div><span class="${n.heart.cls}">${n.heart.icon} ${p.name}</span></div></td>
+      <td>${p.role}</td>
+      <td><span class="${n.heart.cls}">${n.heart.icon} ${n.heart.name} +${(n.heart.bonus*100).toFixed(n.heart.bonus<.01?1:0)}%</span></td>
+      <td class="center">${Math.round(n.ls)}</td><td class="rating orange">${n.eff.toFixed(1)}</td>
+      <td class="rating blue">${s15.eff.toFixed(1)}</td><td class="rating purple">${s18.eff.toFixed(1)}</td><td class="rating orange">${s20.eff.toFixed(1)}</td>
+      <td>+${Math.max(0,n.potential).toFixed(0)} ${blocks(n.potential,p.name.includes("ZywOo")?"blue":p.name.includes("Recrue")?"purple":"")}</td>
+    </tr>`;
+  }).join("");
+  renderDetail();
+}
+function renderDetail(){
+  const p=players[selected], n=project(p,+season.value), s15=project(p,15), s18=project(p,18), s20=project(p,20);
+  playerDetail.innerHTML = `
+    <div class="hero"><div class="heroPic ${p.name.includes("Recrue")?'silhouette':''}"></div><div>
+      <h3>${p.name}</h3><div class="${n.heart.cls}" style="font-weight:900;font-size:18px">${n.heart.icon} ${n.heart.name.toUpperCase()}</div>
+      <p><span class="small">Rating now</span><br><span class="bigScore orange">${n.eff.toFixed(1)}</span></p>
+      <p><span class="small">S15</span> <b class="blue">${s15.eff.toFixed(1)}</b> &nbsp; <span class="small">S18</span> <b class="purple">${s18.eff.toFixed(1)}</b> &nbsp; <span class="small">S20</span> <b class="orange">${s20.eff.toFixed(1)}</b></p>
+      <p><span class="small">LS</span> <b>${Math.round(n.ls)}</b> <span class="green">(+${(leaderBonusAt(+season.value)*100).toFixed(1)}%)</span><br><span class="small">Games</span> <b>${Math.round(n.games)}</b></p>
+    </div></div>
+    <div><h3>Skills now</h3>${order.map(k=>`<div class="skillRow"><div>${labels[k]}</div><div class="bar"><i style="width:${Math.min(100,n.skills[k]/n.limits[k]*100)}%"></i></div><div>${Math.round(n.skills[k])}</div><div class="muted">${n.limits[k]}</div></div>`).join("")}</div>
+    <div><h3>Heart progression</h3><div class="timeline">
+      ${["Small","Medium","Big","Golden","Diamond"].map(h=>`<div class="node ${h===n.heart.name?'current':''}"><div class="icon">${h==="Small"?"🤍":h==="Medium"?"💙":h==="Big"?"💚":h==="Golden"?"⭐":"💎"}</div><div>${h}</div></div>`).join('<div class="line"></div>')}
+    </div>
+    <div class="warning">${n.heart.name==="Fire"?"Fire Heart permanent (+4%)": n.heart.next==="Max"?"Diamond atteint.": `${Math.max(0,n.heart.next-n.games).toFixed(0)} games remaining avant ${n.heart.next}`}</div>
+    <br><div class="small">Potential remaining</div><div class="bigScore orange">+${Math.max(0,n.potential).toFixed(0)}</div></div>`;
+}
+function renderTraining(){
+  planHead.innerHTML="<tr><th>Player</th><th>Heart</th>"+seasons.slice(1).map(s=>`<th>S${s}</th>`).join("")+"</tr>";
+  planRows.innerHTML=players.map(p=>{
+    const h=heartFromGames(p.games,p.heartFixed);
+    return `<tr><td><b>${p.name}</b></td><td class="${h.cls}">${h.icon} ${h.name}</td>`+seasons.slice(1).map(s=>`<td><select onchange="analysisPlan[${s}]['${p.name}']=+this.value;renderAll()">${[0,1,2].map(v=>`<option value="${v}" ${analysisPlan[s][p.name]===v?'selected':''}>${v}</option>`).join("")}</select></td>`).join("")+"</tr>";
+  }).join("");
+  const checks=seasons.slice(1).map(s=>{
+    const total=players.reduce((a,p)=>a+(analysisPlan[s][p.name]||0),0);
+    return `<div class="kpi"><span class="small">S${s}</span><br><b class="${total>5?'red':'orange'}">${total}/5</b><br>${blocks(total*20)}</div>`;
+  }).join("");
+  planOverview.innerHTML=`<div class="kpis">${checks}</div><br><div class="warning">Les semaines non utilisées sont perdues. Si une saison dépasse 5/5, elle est signalée en rouge.</div>`;
+}
+function teamRating(seasonTarget){
+  return players.slice(0,5).reduce((a,p)=>a+project(p,seasonTarget).eff,0)/5;
+}
+function renderAnalysis(){
+  const pts=seasons.map((s,i)=>`${i*12.5},${220-(teamRating(s)-80)*4.2}`).join(" ");
+  analysisTeam.innerHTML=`<div class="grid2"><div><h3>Team rating projection</h3><div class="chart"><svg viewBox="0 0 100 240" preserveAspectRatio="none"><polyline points="${pts}" fill="none" stroke="#ff6b00" stroke-width="2"/></svg></div><div class="legend">${seasons.map(s=>`<span>S${s} <b class="orange">${teamRating(s).toFixed(1)}</b></span>`).join("")}</div></div><div><h3>Team overview</h3><table><tr><th>Season</th><th>Team rating</th><th>Gain</th></tr>${seasons.map(s=>`<tr><td>S${s}</td><td class="rating orange">${teamRating(s).toFixed(1)}</td><td class="green">+${(teamRating(s)-teamRating(12)).toFixed(1)}</td></tr>`).join("")}</table></div></div>`;
+  analysisPlayers.innerHTML=`<h3>Player rating projection</h3><table><tr><th>Player</th>${seasons.map(s=>`<th>S${s}</th>`).join("")}</tr>${players.map(p=>`<tr><td><b>${p.name}</b></td>${seasons.map(s=>`<td class="rating ${s===18?'purple':s===15?'blue':'orange'}">${project(p,s).eff.toFixed(1)}</td>`).join("")}</tr>`).join("")}</table>`;
+  const p=players[selected];
+  analysisSkills.innerHTML=`<h3>Skill projection — ${p.name}</h3><p class="small">Sélection du joueur via la Home.</p><table><tr><th>Season</th>${order.map(k=>`<th>${labels[k]}</th>`).join("")}<th>Total</th><th>Rating</th></tr>${seasons.map(s=>{const r=project(p,s);return `<tr><td>S${s}</td>${order.map(k=>`<td>${Math.round(r.skills[k])}/${r.limits[k]}</td>`).join("")}<td class="rating">${Object.values(r.skills).reduce((a,b)=>a+b,0).toFixed(0)}</td><td class="rating orange">${r.eff.toFixed(1)}</td></tr>`}).join("")}</table>`;
+}
+function renderSettings(){
+  coefSettings.innerHTML=Object.keys(coef).map(k=>`<div class="settingRow"><label>${labels[k]}</label><input type="number" step="0.1" value="${coef[k]}" onchange="coef['${k}']=+this.value;renderAll()"></div>`).join("");
+  engineSettings.innerHTML=Object.keys(engine).map(k=>`<div class="settingRow"><label>${k}</label><input type="number" step="0.05" value="${engine[k]}" onchange="engine['${k}']=+this.value;renderAll()"></div>`).join("");
+  heartSettings.innerHTML=Object.keys(hearts).map(k=>`<div class="settingRow"><label>${k}</label><input type="number" step="0.005" value="${hearts[k]}" onchange="hearts['${k}']=+this.value;renderAll()"></div>`).join("");
+}
+function renderAll(){initPlan();renderHome();renderTraining();renderAnalysis();renderSettings();}
+function savePlan(){localStorage.setItem("dynastyPlan",JSON.stringify({analysisPlan,coef,engine,hearts}));alert("Plan sauvegardé dans le navigateur.");}
+function resetPlan(){analysisPlan={};initPlan();renderAll();}
+function copySeason(){players.forEach(p=>analysisPlan[14][p.name]=analysisPlan[13][p.name]);renderAll();}
+function exportData(){const blob=new Blob([JSON.stringify({analysisPlan,coef,engine,hearts},null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="emulate_dynasty_plan.json";a.click();}
+function importData(){alert("Import manuel prévu en V4.3.");}
+try{const saved=JSON.parse(localStorage.getItem("dynastyPlan")||"null");if(saved){analysisPlan=saved.analysisPlan||{};coef=saved.coef||coef;engine=saved.engine||engine;hearts=saved.hearts||hearts;}}catch(e){}
+renderAll();
+</script>
+</body>
+</html>
