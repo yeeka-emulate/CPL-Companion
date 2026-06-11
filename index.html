@@ -2578,27 +2578,6 @@ body.editing .gaugeMiniWrap{
   display:none!important;
 }
 
-
-/* ===== RC7_4 small patch: center Games column ===== */
-.mainTable td.gamesCol,
-.mainTable th.gamesCol,
-.gamesCol{
-  text-align:center!important;
-  vertical-align:middle!important;
-}
-.gamesCol .rating,
-.gamesCol input,
-.gamesCol span{
-  display:inline-flex!important;
-  align-items:center!important;
-  justify-content:center!important;
-  margin-left:auto!important;
-  margin-right:auto!important;
-}
-.gamesCol input.tiny{
-  text-align:center!important;
-}
-
 </style>
 </head>
 <body>
@@ -3061,19 +3040,13 @@ function normalizeAnalysisBlockSequence(){
 }
 function validateAnalysisPlan(){
   const occupied=new Map();
-  const perPlayerStartSeason={};
-
+  const perPlayerSeason={};
   for(const b of state.analysisBlocks){
     const p=playerById(b.playerId);
     if(!p)return{ok:false,msg:'One analysis block references a missing player.'};
-
     const len=+state.seasonLength||35;
-    const duration=Math.max(1,+b.durationDays||1);
-
     if(+b.startDay<1||+b.startDay>len)return{ok:false,msg:`Start day must be between D1 and D${len}.`};
     if(blockStartAbs(b)<0)return{ok:false,msg:`This date is before the current planner window. Start from S${state.currentSeason} D${state.currentDay} or later.`};
-
-    // One-analysis-at-a-time still uses real calendar days.
     for(const d of blockDays(b).filter(x=>x>=0)){
       if(occupied.has(d)){
         const other=playerById(occupied.get(d));
@@ -3081,15 +3054,12 @@ function validateAnalysisPlan(){
         return{ok:false,msg:`Conflict: ${other?other.name:'another player'} is already under analysis on S${dd.season} D${dd.day}. Only one player can be analyzed at a time.`};
       }
       occupied.set(d,b.playerId);
-    }
-
-    // RC7_4 patch:
-    // The 14-day / 2-week quota is counted against the block START season.
-    // A S12 D32 → S13 D3 block remains a S12 analysis week.
-    const key=b.playerId+'|'+(+b.startSeason);
-    perPlayerStartSeason[key]=(perPlayerStartSeason[key]||0)+duration;
-    if(perPlayerStartSeason[key]>14){
-      return{ok:false,msg:`Limit exceeded: ${p.name} would have ${perPlayerStartSeason[key]} analysis days starting in S${b.startSeason}. Max is 14 days / 2 weeks per player and per season.`};
+      const dd=fromAbsoluteDay(d);
+      const key=b.playerId+'|'+dd.season;
+      perPlayerSeason[key]=(perPlayerSeason[key]||0)+1;
+      if(perPlayerSeason[key]>14){
+        return{ok:false,msg:`Limit exceeded: ${p.name} would have ${perPlayerSeason[key]} analysis days in S${dd.season}. Max is 14 days / 2 weeks per player and per season.`};
+      }
     }
   }
   return{ok:true,msg:''};
@@ -3219,11 +3189,12 @@ function validateAnalysisBlock(candidate,ignoreId=null){
 }
 
 function analysisDaysForPlayerSeason(playerId,season){
-  let n=0;
+  let n=0, len=+state.seasonLength||35;
+  const seasonStart=absoluteDay(season,1), seasonEnd=seasonStart+len-1;
   state.analysisBlocks.forEach(b=>{
     if(b.playerId!==playerId)return;
-    if(+b.startSeason!==+season)return;
-    n+=Math.max(1,+b.durationDays||1);
+    const a=blockStartAbs(b), z=blockEndAbs(b);
+    n+=Math.max(0,Math.min(z,seasonEnd)-Math.max(a,seasonStart)+1);
   });
   return n;
 }
@@ -4070,14 +4041,21 @@ function lifecycleEvents(){
 
     const age=+p.age;
     if(!isNaN(age)){
-      const start=+state.engine.declineStartAge||28;
-      const rate=+state.engine.declinePerAge||.2;
-      const train=+state.engine.trainingPerDay||.8;
-      // Regression starts when regular training no longer compensates age decay.
-      // With +0.8/day and 0.2*(age-28), this becomes negative after 32yo, so practical marker is 33yo.
-      const regressionAge=Math.floor(start+(train/rate))+1;
-      const regressionSeason=+state.currentSeason+Math.max(0,Math.ceil(regressionAge-age));
-      if(seasons().includes(regressionSeason))out.push({season:regressionSeason,type:'risk',icon:'📉',text:`${p.name} skill regression`,lane:'top',sub:`around ${regressionAge}yo`});
+      // RC7_4 patch:
+      // Regression warning must be plan-aware.
+      // Previous logic was age-only and ignored analysis blocks, so it could warn even when analysis compensates decline.
+      const regressionSeason=seasons().find(s=>seasonNetTrainingPoints(p,s).net<-.0001);
+      if(regressionSeason){
+        const net=seasonNetTrainingPoints(p,regressionSeason);
+        out.push({
+          season:regressionSeason,
+          type:'risk',
+          icon:'📉',
+          text:`${p.name} skill regression`,
+          lane:'top',
+          sub:''
+        });
+      }
 
       const retStart=+state.currentSeason+Math.max(0,Math.ceil(38-age));
       if(seasons().some(s=>s>=retStart&&s<=retStart+4))out.push({season:retStart,type:'risk',icon:'🚪',text:`${p.name} retirement window`,lane:'top',sub:'38–42yo risk zone'});
