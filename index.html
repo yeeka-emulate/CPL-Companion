@@ -15,7 +15,7 @@
 </script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%0A%3Ctext%20x%3D%2250%22%20y%3D%2268%22%20font-size%3D%2272%22%20text-anchor%3D%22middle%22%3E%F0%9F%8E%AF%3C/text%3E%0A%3C/svg%3E" type="image/svg+xml">
 <link rel="manifest" href="./manifest.webmanifest">
-<meta name="theme-color" content="#171717">
+<meta name="theme-color" content="#101014">
 <link rel="apple-touch-icon" href="./icons/icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="CPL Companion">
@@ -610,8 +610,8 @@ body.editing #addPlayerEditBtn{
   height:10px;
   border-radius:999px;
   flex:0 0 auto;
-  background:hsl(var(--h),75%,56%);
-  box-shadow:0 0 0 3px hsla(var(--h),75%,56%,.12);
+  background:var(--playerColor,hsl(var(--h),92%,62%));
+  box-shadow:0 0 0 3px hsla(var(--h),92%,62%,.18),0 0 12px hsla(var(--h),92%,62%,.32);
 }
 .analysisCell{
   position:relative;
@@ -633,9 +633,9 @@ body.editing #addPlayerEditBtn{
   top:7px;
   height:24px;
   border-radius:8px;
-  background:linear-gradient(90deg,hsl(var(--h),75%,42%),hsl(var(--h),75%,58%));
+  background:linear-gradient(90deg,hsl(var(--h),92%,48%),hsl(var(--h),92%,64%));
   box-shadow:0 5px 15px rgba(0,0,0,.32);
-  border:1px solid rgba(255,255,255,.22);
+  border:1px solid rgba(255,255,255,.32);
   cursor:grab;
   z-index:3;
 }
@@ -717,7 +717,7 @@ body.editing #addPlayerEditBtn{
   width:10px;
   height:10px;
   border-radius:999px;
-  background:hsl(var(--h),75%,56%);
+  background:var(--playerColor,hsl(var(--h),92%,62%));
 }
 .legendChip .deltaPlus{color:#22c55e}
 .legendChip .deltaMinus{color:#ff4d4d}
@@ -770,7 +770,7 @@ body.editing #addPlayerEditBtn{
   color:#fff;
 }
 .trajectoryLegend .legendChip .miniDot{
-  box-shadow:0 0 0 3px hsla(var(--h),75%,56%,.12);
+  box-shadow:0 0 0 3px hsla(var(--h),92%,62%,.18),0 0 12px hsla(var(--h),92%,62%,.32);
 }
 
 
@@ -2698,7 +2698,7 @@ body.editing .gaugeMiniWrap{
   color:#dce6f1!important;
 }
 .apexLegendChip .miniDot{
-  box-shadow:0 0 0 3px hsla(var(--h),75%,56%,.12);
+  box-shadow:0 0 0 3px hsla(var(--h),92%,62%,.18),0 0 12px hsla(var(--h),92%,62%,.32);
 }
 
 
@@ -2761,7 +2761,7 @@ body.editing .gaugeMiniWrap{
 }
 
 
-/* ===== v1.0.0-rc.8.9 PWA install prompt ===== */
+/* ===== v1.0.0-rc.8.9.2 PWA install prompt ===== */
 .pwaInstallBox{
   position:fixed;
   left:16px;
@@ -2810,6 +2810,7 @@ body.editing .gaugeMiniWrap{
 .pwaInstallActions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
 .pwaInstallActions .btn{white-space:nowrap;padding:9px 12px}
 .pwaInstallActions .pwaInstallClose{background:#161616!important;color:#a7a7a7!important;border-color:#303030!important}
+.pwaInstallActions .pwaInstallNever{background:#101014!important;color:#87919a!important;border-color:#2a2f35!important}
 .pwaInstallHelpPanel{
   position:fixed;
   inset:0;
@@ -2857,8 +2858,153 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
   .pwaInstallBox{grid-template-columns:1fr;padding:13px;gap:12px}
   .pwaInstallActions{justify-content:stretch;display:grid;grid-template-columns:1fr 1fr}
   .pwaInstallActions .btn{width:100%}
-  .pwaInstallActions .pwaInstallClose{grid-column:1/-1}
   .pwaInstallIcon{width:38px;height:38px;flex-basis:38px;border-radius:11px;font-size:19px}
+}
+
+
+/* ===== v1 RC8.13 trajectory color sync + punchier planner colors ===== */
+.apexLegendChip .miniDot{
+  background:var(--playerColor,hsl(var(--h),92%,62%))!important;
+  box-shadow:0 0 0 3px hsla(var(--h),92%,62%,.18),0 0 12px hsla(var(--h),92%,62%,.35)!important;
+}
+.apexLegendChip{
+  border-color:rgba(255,255,255,.14)!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018))!important;
+}
+.apexLegendChip.off{
+  opacity:.38;
+  filter:saturate(.55);
+}
+.analysisBlock{
+  filter:saturate(1.18) brightness(1.08);
+}
+.analysisPlayerName .miniDot{
+  box-shadow:0 0 0 3px hsla(var(--h),92%,62%,.14),0 0 10px hsla(var(--h),92%,62%,.22)!important;
+}
+.skillTrajectoryChart .apexcharts-series path.apexcharts-line{
+  filter:drop-shadow(0 0 5px rgba(255,255,255,.10));
+}
+
+
+/* ===== v1 RC8.13 CPL core palette + modern planner tint ===== */
+.analysisPlayerRow{
+  position:relative;
+  border-bottom:1px solid rgba(255,255,255,.045)!important;
+}
+.analysisPlayerName{
+  color:hsl(var(--h),92%,64%)!important;
+  background:
+    linear-gradient(90deg,hsla(var(--h),86%,18%,.82) 0%, hsla(var(--h),82%,12%,.48) 68%, rgba(18,18,18,.92) 100%)!important;
+  border-right:1px solid hsla(var(--h),88%,62%,.18)!important;
+  box-shadow:inset 3px 0 0 hsl(var(--h),92%,64%), inset -1px 0 0 rgba(255,255,255,.02)!important;
+}
+.analysisPlayerName span:last-child{
+  color:hsl(var(--h),92%,64%)!important;
+}
+.analysisCell{
+  background:
+    linear-gradient(90deg,hsla(var(--h),88%,16%,.24) 0%, hsla(var(--h),88%,11%,.12) 42%, rgba(24,24,24,.98) 78%),
+    #181818!important;
+}
+.analysisCell:hover{
+  background:
+    linear-gradient(90deg,hsla(var(--h),92%,22%,.34) 0%, hsla(var(--h),90%,14%,.18) 50%, rgba(255,122,0,.06) 100%),
+    #1b1b1b!important;
+}
+.analysisCell .weekHint{
+  color:hsla(var(--h),48%,78%,.16)!important;
+}
+.analysisBlock{
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.00) 28%),
+    linear-gradient(90deg,hsl(var(--h),94%,58%) 0%, hsl(var(--h),90%,50%) 100%)!important;
+  border:1px solid hsla(var(--h),95%,74%,.34)!important;
+  box-shadow:
+    0 8px 18px hsla(var(--h),90%,34%,.24),
+    inset 0 1px 0 rgba(255,255,255,.18)!important;
+}
+.analysisBlock.selected{
+  outline:2px solid hsla(var(--h),96%,82%,.95)!important;
+  box-shadow:
+    0 0 0 4px hsla(var(--h),88%,48%,.18),
+    0 10px 24px hsla(var(--h),90%,34%,.30),
+    inset 0 1px 0 rgba(255,255,255,.22)!important;
+}
+.apexLegendChip{
+  background:
+    linear-gradient(180deg,hsla(var(--h),62%,18%,.34),rgba(255,255,255,.025))!important;
+  border-color:hsla(var(--h),72%,60%,.18)!important;
+}
+.apexLegendChip .miniDot{
+  box-shadow:0 0 0 3px hsla(var(--h),92%,62%,.16),0 0 12px hsla(var(--h),92%,62%,.28)!important;
+}
+
+
+/* ===== v1 RC8.13 calmer CPL palette + unique extra player colors ===== */
+.avatar{
+  border-width:1px!important;
+  color:#fff!important;
+  text-shadow:0 1px 2px rgba(0,0,0,.45)!important;
+}
+
+.analysisPlayerName{
+  color:hsl(var(--h),78%,68%)!important;
+  background:
+    linear-gradient(90deg,hsla(var(--h),62%,17%,.48) 0%, hsla(var(--h),54%,12%,.28) 66%, rgba(18,18,18,.94) 100%)!important;
+  border-right:1px solid hsla(var(--h),62%,58%,.14)!important;
+  box-shadow:inset 3px 0 0 hsl(var(--h),78%,58%), inset -1px 0 0 rgba(255,255,255,.018)!important;
+}
+.analysisPlayerName span:last-child{
+  color:hsl(var(--h),78%,68%)!important;
+}
+.analysisPlayerName .miniDot{
+  background:hsl(var(--h),78%,58%)!important;
+  box-shadow:0 0 0 3px hsla(var(--h),70%,56%,.10),0 0 8px hsla(var(--h),70%,56%,.16)!important;
+}
+
+.analysisCell{
+  background:
+    linear-gradient(90deg,hsla(var(--h),54%,15%,.13) 0%, hsla(var(--h),45%,10%,.065) 46%, rgba(24,24,24,.99) 82%),
+    #181818!important;
+}
+.analysisCell:hover{
+  background:
+    linear-gradient(90deg,hsla(var(--h),58%,18%,.20) 0%, hsla(var(--h),50%,11%,.10) 52%, rgba(255,122,0,.045) 100%),
+    #1a1a1a!important;
+}
+.analysisCell .weekHint{
+  color:hsla(var(--h),36%,76%,.105)!important;
+}
+
+.analysisBlock{
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.00) 34%),
+    linear-gradient(90deg,hsl(var(--h),78%,52%) 0%, hsl(var(--h),74%,46%) 100%)!important;
+  border:1px solid hsla(var(--h),72%,68%,.24)!important;
+  box-shadow:
+    0 7px 15px rgba(0,0,0,.30),
+    0 4px 12px hsla(var(--h),64%,34%,.16),
+    inset 0 1px 0 rgba(255,255,255,.14)!important;
+}
+.analysisBlock.selected{
+  outline:2px solid hsla(var(--h),80%,76%,.78)!important;
+  box-shadow:
+    0 0 0 4px hsla(var(--h),64%,48%,.12),
+    0 9px 20px rgba(0,0,0,.36),
+    inset 0 1px 0 rgba(255,255,255,.18)!important;
+}
+
+.apexLegendChip{
+  background:
+    linear-gradient(180deg,hsla(var(--h),46%,16%,.22),rgba(255,255,255,.020))!important;
+  border-color:hsla(var(--h),54%,58%,.15)!important;
+}
+.apexLegendChip .miniDot{
+  background:var(--playerColor,hsl(var(--h),78%,58%))!important;
+  box-shadow:0 0 0 3px hsla(var(--h),64%,56%,.11),0 0 9px hsla(var(--h),64%,56%,.18)!important;
+}
+.skillTrajectoryChart .apexcharts-series path.apexcharts-line{
+  filter:drop-shadow(0 0 3px rgba(255,255,255,.07))!important;
 }
 
 </style>
@@ -2868,7 +3014,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 <header class="header heroHeader">
   <div class="heroCard" id="heroCard"><img id="heroBannerImg" class="heroBannerImg" alt="">
     <div class="heroOverlay">
-      <div class="brand heroBrand"><div id="logoBox" class="logoBox heroLogo"><div class="brandmark"></div></div><div><h1><span id="brandTeam">emuLate!</span> <span class="badge">v1.0 RC8.9</span></h1><div class="subtitle" id="brandCommunity">TEAM PLANNER</div></div></div>
+      <div class="brand heroBrand"><div id="logoBox" class="logoBox heroLogo"><div class="brandmark"></div></div><div><h1><span id="brandTeam">emuLate!</span> <span class="badge">v1 RC8.13</span></h1><div class="subtitle" id="brandCommunity">TEAM PLANNER</div></div></div>
       <div class="heroRight"><div class="cplDate" id="cplDateBadge">S12 · D22/35</div><div class="dataStatus" id="dataStatusBadge">DATA CHECK</div></div>
       <nav class="tabs heroTabs">
   <button class="tab active" data-page-target="overview" onclick="showPage('overview',this)">Overview</button>
@@ -2994,7 +3140,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 <section id="settings" class="page"><div class="grid2"><div class="panel"><h2>Branding</h2><div class="body"><div class="settingRow"><label>Community</label><input id="communityNameInput" onchange="state.communityName=this.value;saveLocal();renderAll()"></div><div class="settingRow"><label>Team name</label><input id="teamNameInput" onchange="state.teamName=this.value;saveLocal();renderAll()"></div><div class="settingRow"><label>Team logo URL</label><input id="teamLogoUrlInput" onchange="state.teamLogoUrl=this.value;saveLocal();renderAll()"></div><div class="settingRow"><label>Logo upload</label><input type="file" accept="image/*" onchange="uploadLogo(event)"></div><div class="settingRow"><label>Banner image URL</label><input id="teamBannerUrlInput" onchange="state.teamBannerUrl=this.value;saveLocal();renderAll()"></div><div class="settingRow"><label>Banner upload</label><input type="file" accept="image/*" onchange="uploadBanner(event)"></div><div class="actions"><button class="btn secondary" onclick="clearLogo()">Clear logo</button><button class="btn secondary" onclick="clearBanner()">Clear banner</button></div></div></div><div class="panel"><h2>Data freshness</h2><div class="body"><div class="settingRow"><label>Current season</label><input id="currentSeasonInput" type="number" onchange="state.currentSeason=+this.value;selectedSeason=state.currentSeason;saveLocal();renderAll()"></div><div class="settingRow"><label>Current day</label><input id="currentDayInput" type="number" onchange="state.currentDay=+this.value;saveLocal();renderAll()"></div><div class="settingRow"><label>Season length</label><input id="seasonLengthInput" type="number" onchange="state.seasonLength=+this.value;saveLocal();renderAll()"></div><div class="settingRow"><label>Projection horizon</label><input id="horizonInput" type="number" onchange="state.projectionHorizon=+this.value;selectedSeason=state.currentSeason;saveLocal();renderAll()"></div><div class="settingRow"><label>Data season</label><input id="dataSeasonInput" type="number" onchange="state.dataSeason=+this.value;saveLocal();renderAll()"></div><div class="settingRow"><label>Data day</label><input id="dataDayInput" type="number" onchange="state.dataDay=+this.value;saveLocal();renderAll()"></div><div class="actions"><button class="btn" onclick="markDataUpToDate()">Data is up to date</button><button class="btn secondary" onclick="resetAnalysisPlanner()">Reset analysis planner</button></div><br><div class="warning" id="freshnessWarning">Freshness status pending.</div></div></div></div><div class="grid2"><div class="panel"><h2>Import / Export</h2><div class="body actions"><button class="btn" onclick="exportJSON()">Export JSON</button><button class="btn secondary" onclick="document.getElementById('jsonFile').click()">Import JSON file</button><input id="jsonFile" type="file" accept=".json,application/json" style="display:none" onchange="importJSONFile(event)"><button class="btn secondary" onclick="importJSONText()">Import JSON text</button><button class="btn secondary" onclick="loadDefaults()">Load default roster</button></div></div><div class="panel"><h2>Import CPL copy/paste</h2><div class="body grid2"><div><textarea id="cplPaste" placeholder="Paste one or several CPL player blocks here..."></textarea><br><br><div class="actions"><button class="btn" onclick="parseCPL()">Parse CPL text</button><button class="btn secondary" onclick="addParsedPlayers()">Add / update players</button></div></div><div class="importResult" id="parseResult">No parsed import yet.</div></div></div></div><div class="settingsGrid"><div class="panel"><h2>Rating coefficients</h2><div class="body" id="coefSettings"></div></div><div class="panel"><h2>Engine parameters</h2><div class="body" id="engineSettings"></div></div></div><div class="grid2"><div class="panel"><h2>Heart system</h2><div class="body" id="heartSettings"></div></div><div class="panel"><h2>Danger zone</h2><div class="body actions"><button class="btn danger" onclick="factoryReset()">Factory reset</button><button class="btn secondary" onclick="loadDefaults()">Load default roster</button></div></div></div></section>
 </div>
 
-<!-- ===== v1.0.0-rc.8.9 PWA install prompt ===== -->
+<!-- ===== v1.0.0-rc.8.9.2 PWA install prompt ===== -->
 <div id="pwaInstallBox" class="pwaInstallBox hidden" role="region" aria-label="Install CPL Companion">
   <div class="pwaInstallLead">
     <div class="pwaInstallIcon" aria-hidden="true">📲</div>
@@ -3008,6 +3154,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
     <button id="pwaInstallBtn" class="btn" type="button">Install app</button>
     <button id="pwaHelpBtn" class="btn secondary" type="button">How to install</button>
     <button id="pwaLaterBtn" class="btn secondary pwaInstallClose" type="button">Later</button>
+    <button id="pwaNeverBtn" class="btn secondary pwaInstallNever" type="button">Don’t show again</button>
   </div>
 </div>
 
@@ -3074,7 +3221,7 @@ function uid(){return'p_'+Math.random().toString(36).slice(2,10)}function season
   }catch(e){console.error('showPage render failed',id,e);}
 }
 
-function saveLocal(){state.version='1.0.0-rc.8.9';localStorage.setItem('teamPlannerStable',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC8_9',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC8_7',JSON.stringify(state));localStorage.setItem('teamPlannerV6260',JSON.stringify(state));localStorage.setItem('teamPlannerV6250',JSON.stringify(state));localStorage.setItem('teamPlannerV6240',JSON.stringify(state));localStorage.setItem('teamPlannerV6230',JSON.stringify(state));localStorage.setItem('teamPlannerV6220',JSON.stringify(state));localStorage.setItem('teamPlannerV6210',JSON.stringify(state));localStorage.setItem('teamPlannerV6200',JSON.stringify(state));localStorage.setItem('teamPlannerV6180',JSON.stringify(state));localStorage.setItem('teamPlannerV6170',JSON.stringify(state));localStorage.setItem('teamPlannerV6160',JSON.stringify(state));localStorage.setItem('teamPlannerV6150',JSON.stringify(state));localStorage.setItem('teamPlannerV6140',JSON.stringify(state));localStorage.setItem('teamPlannerV6130',JSON.stringify(state));localStorage.setItem('teamPlannerV6120',JSON.stringify(state));localStorage.setItem('teamPlannerV6110',JSON.stringify(state));localStorage.setItem('teamPlannerV6100',JSON.stringify(state));localStorage.setItem('teamPlannerV615',JSON.stringify(state))}function normalizeStateAfterLoad(){
+function saveLocal(){state.version='1.0.0-rc.8.9.2';localStorage.setItem('teamPlannerStable',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC8_9_2',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC8_9_1',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC8_9',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC8_7',JSON.stringify(state));localStorage.setItem('teamPlannerV6260',JSON.stringify(state));localStorage.setItem('teamPlannerV6250',JSON.stringify(state));localStorage.setItem('teamPlannerV6240',JSON.stringify(state));localStorage.setItem('teamPlannerV6230',JSON.stringify(state));localStorage.setItem('teamPlannerV6220',JSON.stringify(state));localStorage.setItem('teamPlannerV6210',JSON.stringify(state));localStorage.setItem('teamPlannerV6200',JSON.stringify(state));localStorage.setItem('teamPlannerV6180',JSON.stringify(state));localStorage.setItem('teamPlannerV6170',JSON.stringify(state));localStorage.setItem('teamPlannerV6160',JSON.stringify(state));localStorage.setItem('teamPlannerV6150',JSON.stringify(state));localStorage.setItem('teamPlannerV6140',JSON.stringify(state));localStorage.setItem('teamPlannerV6130',JSON.stringify(state));localStorage.setItem('teamPlannerV6120',JSON.stringify(state));localStorage.setItem('teamPlannerV6110',JSON.stringify(state));localStorage.setItem('teamPlannerV6100',JSON.stringify(state));localStorage.setItem('teamPlannerV615',JSON.stringify(state))}function normalizeStateAfterLoad(){
   if(!state.players || !Array.isArray(state.players) || state.players.length===0){
     state.players = structuredClone(defaultPlayers);
   }
@@ -3094,7 +3241,7 @@ function saveLocal(){state.version='1.0.0-rc.8.9';localStorage.setItem('teamPlan
     if(p.xp===undefined)p.xp=0;if(!Array.isArray(p.specials))p.specials=[];p.specials=[...new Set(p.specials.filter(id=>specialById[id]))].slice(0,2);
   });
   if(state.editMode===undefined)state.editMode=false;/* v1.0.0-rc.8.9 keep edit state during render */
-  state.version='1.0.0-rc.8.9';
+  state.version='1.0.0-rc.8.9.2';
   if(!state.analysisPlan || typeof state.analysisPlan!=="object")state.analysisPlan={};if(!Array.isArray(state.analysisBlocks))state.analysisBlocks=[];if(!state.trainingDraft)state.trainingDraft=null;if(state.selectedAnalysisBlock===undefined)state.selectedAnalysisBlock=null;if(state.analysisBlocksOpen===undefined)state.analysisBlocksOpen=false;if(!Array.isArray(state.hiddenTrajectoryPlayers))state.hiddenTrajectoryPlayers=[];
   if(!Array.isArray(state.candidatePool))state.candidatePool=[];
   if(state.rosterPlanOpen===undefined)state.rosterPlanOpen=false;
@@ -3126,7 +3273,7 @@ function saveLocal(){state.version='1.0.0-rc.8.9';localStorage.setItem('teamPlan
   if(state.teamBannerData===undefined)state.teamBannerData='';
 }
 function loadLocal(){
-  const keys=["teamPlannerV100RC8_9","teamPlannerV100RC8_7","teamPlannerV100RC8_6","teamPlannerV100RC8_5","teamPlannerV100RC8_4","teamPlannerV100RC8_3","teamPlannerV100RC8_2","teamPlannerV100RC7_8","teamPlannerV100RC7_7","teamPlannerV100RC7_4","teamPlannerV100RC7_3","teamPlannerV100RC7_2","teamPlannerV100RC7_1","teamPlannerV100RC6","teamPlannerV100RC5","teamPlannerStable","teamPlannerV100RC4","teamPlannerV100RC3","teamPlannerV100RC2","teamPlannerV100RC1","teamPlannerV6430","teamPlannerV6420","teamPlannerV6410","teamPlannerV6400","teamPlannerV63150","teamPlannerV63140","teamPlannerV63130","teamPlannerV63110","teamPlannerV63100","teamPlannerV6390","teamPlannerV6380","teamPlannerV6360","teamPlannerV6350","teamPlannerV6340","teamPlannerV6330","teamPlannerV6320","teamPlannerV6310","teamPlannerV6300","teamPlannerV6260","teamPlannerV6250","teamPlannerV6240","teamPlannerV6230","teamPlannerV6220","teamPlannerV6210","teamPlannerV6200","teamPlannerV6180","teamPlannerV6170","teamPlannerV6160","teamPlannerV6150","teamPlannerV6140","teamPlannerV6130","teamPlannerV6120","teamPlannerV6110","teamPlannerV6100","teamPlannerV615","teamPlannerV614","teamPlannerV612","teamPlannerV611","teamPlannerV610","teamPlannerV609","teamPlannerV608","teamPlannerV607","teamPlannerV606","teamPlannerV605","teamPlannerV604","teamPlannerV603","teamPlannerV602","teamPlannerV6","teamPlannerV51","dynastyPlannerV5","dynastyPlannerV44"];
+  const keys=["teamPlannerV100RC8_9_2","teamPlannerV100RC8_9_1","teamPlannerV100RC8_9","teamPlannerV100RC8_7","teamPlannerV100RC8_6","teamPlannerV100RC8_5","teamPlannerV100RC8_4","teamPlannerV100RC8_3","teamPlannerV100RC8_2","teamPlannerV100RC7_8","teamPlannerV100RC7_7","teamPlannerV100RC7_4","teamPlannerV100RC7_3","teamPlannerV100RC7_2","teamPlannerV100RC7_1","teamPlannerV100RC6","teamPlannerV100RC5","teamPlannerStable","teamPlannerV100RC4","teamPlannerV100RC3","teamPlannerV100RC2","teamPlannerV100RC1","teamPlannerV6430","teamPlannerV6420","teamPlannerV6410","teamPlannerV6400","teamPlannerV63150","teamPlannerV63140","teamPlannerV63130","teamPlannerV63110","teamPlannerV63100","teamPlannerV6390","teamPlannerV6380","teamPlannerV6360","teamPlannerV6350","teamPlannerV6340","teamPlannerV6330","teamPlannerV6320","teamPlannerV6310","teamPlannerV6300","teamPlannerV6260","teamPlannerV6250","teamPlannerV6240","teamPlannerV6230","teamPlannerV6220","teamPlannerV6210","teamPlannerV6200","teamPlannerV6180","teamPlannerV6170","teamPlannerV6160","teamPlannerV6150","teamPlannerV6140","teamPlannerV6130","teamPlannerV6120","teamPlannerV6110","teamPlannerV6100","teamPlannerV615","teamPlannerV614","teamPlannerV612","teamPlannerV611","teamPlannerV610","teamPlannerV609","teamPlannerV608","teamPlannerV607","teamPlannerV606","teamPlannerV605","teamPlannerV604","teamPlannerV603","teamPlannerV602","teamPlannerV6","teamPlannerV51","dynastyPlannerV5","dynastyPlannerV44"];
   let loaded=null;
   for(const key of keys){
     try{
@@ -3617,7 +3764,43 @@ function moveAnalysisBlock(id,targetPlayerId,targetAbs){
   state.selectedAnalysisBlock=id;
   saveLocal();renderAll();
 }
-function playerColorHue(p,i){return playerHue(p?.name||'P')}
+const CPL_CORE_POSITION_HUES=[132,8,58,214,34];
+function cplCorePositionHue(i){
+  return Number.isInteger(i)&&i>=0&&i<CPL_CORE_POSITION_HUES.length?CPL_CORE_POSITION_HUES[i]:null;
+}
+function hueDistance(a,b){
+  const d=Math.abs(((+a||0)-(+b||0)+540)%360-180);
+  return d;
+}
+function playerColorHue(p,i){
+  i=Number(i);
+  const fixed=cplCorePositionHue(i);
+  if(fixed!==null)return fixed;
+
+  const name=String(p?.name||('Player '+i));
+  let h=(playerHue(name)+(i*47))%360;
+
+  // Extras must stay distinct from CPL core colors and from previous extra players.
+  const used=[...CPL_CORE_POSITION_HUES];
+  const players=Array.isArray(state?.players)?state.players:[];
+  for(let j=5;j<i;j++){
+    const prevName=String(players[j]?.name||('Player '+j));
+    let ph=(playerHue(prevName)+(j*47))%360;
+    let guard=0;
+    while(used.some(u=>hueDistance(ph,u)<24)&&guard<16){
+      ph=(ph+37)%360;
+      guard++;
+    }
+    used.push(ph);
+  }
+
+  let guard=0;
+  while(used.some(u=>hueDistance(h,u)<24)&&guard<24){
+    h=(h+37)%360;
+    guard++;
+  }
+  return h;
+}
 function projectedAgeAtSeason(p,s){if(p.age===null||p.age===undefined||p.age==='')return null;return (+p.age||0)+Math.max(0,+s-+state.currentSeason)}
 function declineRateAtAge(age,p=null){if(age===null||age===undefined||age==='—')return 0;return Math.max(0,(+age-playerDeclineStartAge(p))*(+state.engine.declinePerAgeDay||.2))}
 function declineSkills(sk,pts){pts=Math.max(0,+pts||0);const keys=skillOrder.filter(k=>(+sk[k]||0)>0);while(pts>.0001&&keys.some(k=>sk[k]>.0001)){const open=keys.filter(k=>sk[k]>.0001);const step=pts/open.length;let used=0;open.forEach(k=>{const sub=Math.min(step,sk[k]);sk[k]-=sub;used+=sub});pts-=used;if(used<.0001)break}}
@@ -3662,7 +3845,7 @@ function distribute(sk,lim,pts){for(const pair of priorities){while(pts>.0001){c
     effTotal:sum(calcSk)*boost,
     potential:sum(lim)-sum(sk)
   }
-}function playerHue(name){return [...String(name||'P')].reduce((a,c)=>a+c.charCodeAt(0),0)%360}function avatar(p){const h=playerHue(p.name);return`<div class="avatar" style="background:linear-gradient(145deg,hsl(${h} 52% 34%),hsl(${(h+38)%360} 58% 15%));border-color:hsl(${h} 40% 45% / .65)">${(p.name||'?').slice(0,2).toUpperCase()}</div>`}
+}function playerHue(name){return [...String(name||'P')].reduce((a,c)=>a+c.charCodeAt(0),0)%360}function avatar(p){const idx=state?.players?.findIndex?.(x=>x.id===p?.id)??-1;const h=playerColorHue(p,idx);return`<div class="avatar" style="background:linear-gradient(145deg,hsl(${h} 62% 34%),hsl(${(h+16)%360} 68% 17%));border-color:hsl(${h} 78% 58% / .58);box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 0 0 3px hsla(${h},76%,54%,.12),0 8px 16px rgba(0,0,0,.20)">${(p.name||'?').slice(0,2).toUpperCase()}</div>`}
 function skillCell(raw,lim,boost,editable,pIndex,k,gear=0){const eff=(+raw||0)*boost,rawPct=Math.min(100,raw/110*100),boostPct=Math.max(0,Math.min(100,eff/110*100)-rawPct);const tip=gear?`${labels[k]}\nBase: ${Math.round(raw)}\nGear: +${gear} (included in Eff. Total only)`:`${labels[k]}\nBase: ${Math.round(raw)}`;const inputAttrs=`onclick="event.stopPropagation()" onmousedown="event.stopPropagation()" onkeydown="event.stopPropagation()" oninput="this.dataset.dirty='1'"`;const display=editable?`<input class="tiny" title="${labels[k]} skill" type="number" inputmode="numeric" value="${Math.round(raw)}" ${inputAttrs} onchange="setSkill(${pIndex},'skills','${k}',this.value)">`:`<span class="skillEff">${eff.toFixed(1)}</span>`;const limit=editable?`<input class="tiny" title="${labels[k]} limit" type="number" inputmode="numeric" value="${lim}" ${inputAttrs} onchange="setSkill(${pIndex},'limits','${k}',this.value)">`:`<span class="skillRaw">(${Math.round(raw)}/${lim})</span>`;return`<td class="skillCell" title="${tip}"><div class="skillTop">${display}${limit}</div><div class="bar"><div class="barWrap"><div class="rawFill" style="width:${rawPct}%"></div><div class="boostFill" style="width:${boostPct}%"></div></div></div></td>`}
 function blocks(pot){const f=Math.min(5,Math.ceil(Math.max(0,pot)/20));return`<span>${Array.from({length:5},(_,i)=>`<i style="display:inline-block;width:14px;height:7px;background:${i<f?'linear-gradient(90deg,#ff6b00,#ff9a2f)':'#28313a'};border-radius:2px;margin-left:3px"></i>`).join('')}</span>`}function setPlayer(i,path,val){const p=state.players[i];if(path==='name')p.name=val;else if(path==='games'||path==='ls'||path==='age'||path==='day'||path==='xp')p[path]=+val||0;else if(path==='heartFixed')p.heartFixed=val==='Fire'?'Fire':null;saveLocal();renderAll()}function setSkill(i,type,k,val){state.players[i][type][k]=+val||0;saveLocal();renderAll()}function movePlayer(i,d){const j=i+d;if(j<0||j>=state.players.length)return;[state.players[i],state.players[j]]=[state.players[j],state.players[i]];selected=j;saveLocal();renderAll()}function deletePlayer(i){
   if(state.players.length<=1){
@@ -3870,9 +4053,11 @@ function formatApexSkill(v){
   return Number(v).toFixed(1).replace('.0','');
 }
 
-function cplChartColor(index){
-  const palette=['#9db8ff','#5ed7ff','#7ee787','#c084fc','#ff6fae','#ff9f43','#4ade80','#f87171','#38bdf8','#facc15'];
-  return palette[index%palette.length];
+function cplTrajectoryColor(h){
+  return hslToHex((+h||0),92,62);
+}
+function cplChartColor(index,h){
+  return cplTrajectoryColor(h ?? ((index*47)%360));
 }
 function sampledTrajectoryForApex(data,weeks){
   if(!data.length)return[];
@@ -3915,13 +4100,16 @@ function renderSkillTrajectory(){
   const el=document.getElementById('skillTrajectoryChart');
   if(!el)return;
 
-  const allSeries=state.players.map((p,i)=>({
-    p,
-    i,
-    h:playerColorHue(p,i),
-    color:cplChartColor(i),
-    data:simulatePlayerDaily(p)
-  }));
+  const allSeries=state.players.map((p,i)=>{
+    const h=playerColorHue(p,i);
+    return {
+      p,
+      i,
+      h,
+      color:cplChartColor(i,h),
+      data:simulatePlayerDaily(p)
+    };
+  });
 
   let visible=allSeries.filter(s=>!state.hiddenTrajectoryPlayers.includes(s.p.id));
   if(!visible.length)visible=allSeries;
@@ -4056,7 +4244,7 @@ function renderSkillTrajectory(){
     const first=s.data[0]?.total||0,last=s.data[s.data.length-1]?.total||0,delta=last-first;
     const off=state.hiddenTrajectoryPlayers.includes(s.p.id);
     const active=false;
-    return`<div class="legendChip apexLegendChip ${off?'off':''}" style="--h:${s.h}" onclick="toggleTrajectoryPlayer('${s.p.id}')" title="${off?'Show':'Hide'} ${escapeHtml(s.p.name)}"><span class="miniDot"></span>${escapeHtml(s.p.name)} <span class="${delta>=0?'deltaPlus':'deltaMinus'}">${delta>=0?'+':''}${delta.toFixed(1)}</span></div>`
+    return`<div class="legendChip apexLegendChip ${off?'off':''}" style="--h:${s.h};--playerColor:${s.color}" onclick="toggleTrajectoryPlayer('${s.p.id}')" title="${off?'Show':'Hide'} ${escapeHtml(s.p.name)}"><span class="miniDot"></span>${escapeHtml(s.p.name)} <span class="${delta>=0?'deltaPlus':'deltaMinus'}">${delta>=0?'+':''}${delta.toFixed(1)}</span></div>`
   }).join('');
 }
 
@@ -4915,13 +5103,15 @@ function renderTeamBuilder(){
 }
 
 function renderSettings(){coefSettings.innerHTML=Object.keys(state.coef).map(k=>`<div class="settingRow"><label>${labels[k]}</label><input type="number" step="0.1" value="${state.coef[k]}" onchange="state.coef['${k}']=+this.value;saveLocal();renderAll()"></div>`).join('');engineSettings.innerHTML=Object.keys(state.engine).map(k=>`<div class="settingRow"><label>${k}</label><input type="number" step="0.05" value="${state.engine[k]}" onchange="state.engine['${k}']=+this.value;saveLocal();renderAll()"></div>`).join('');heartSettings.innerHTML=Object.keys(state.hearts).filter(k=>k!=='Platinium').map(k=>`<div class="settingRow"><label>${k}</label><input type="number" step="0.005" value="${state.hearts[k]}" onchange="state.hearts['${k}']=+this.value;if(k==='Platinum')state.hearts.Platinium=state.hearts.Platinum;saveLocal();renderAll()"></div>`).join('')}
-function renderAll(){normalizeStateAfterLoad();ensureGear();ensurePlayerMeta();initPlan();wireEditButton();safeRender('Brand',renderBrand);safeRender('CPL date',renderCplDate);safeRender('Timeline',renderTimeline,['timeline']);safeRender('Overview',renderOverview,['overviewRows']);safeRender('Training',renderTraining,['analysisTimelineWrap','analysisBlocksRows','analysisSummary','skillTrajectorySvg']);safeRender('Gear',renderGear,['gearRows','gearDetails']);safeRender('Team Builder',renderTeamBuilder,['candidateRows','candidateComparison','teamBuilderTimeline','rosterPlanWrap']);safeRender('Settings',renderSettings,['coefSettings','engineSettings','heartSettings']);saveLocal()}function uploadLogo(e){const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{state.teamLogoData=reader.result;saveLocal();renderAll()};reader.readAsDataURL(f)}function uploadBanner(e){const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{state.teamBannerData=reader.result;saveLocal();renderAll()};reader.readAsDataURL(f)}function clearLogo(){state.teamLogoUrl='';state.teamLogoData='';saveLocal();renderAll()}function clearBanner(){state.teamBannerUrl='';state.teamBannerData='';saveLocal();renderAll()}function exportJSON(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(state.teamName||'team').replaceAll(' ','_')+'_cpl_team_planner_v1_0_0_rc8_9.json';a.click()}function importJSONFile(e){const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{try{state=JSON.parse(reader.result);saveLocal();renderAll();alert('JSON imported.')}catch(err){alert('Invalid JSON')}};reader.readAsText(f)}function importJSONText(){const txt=prompt('Paste full JSON here');if(!txt)return;try{state=JSON.parse(txt);saveLocal();renderAll();alert('JSON imported.')}catch(e){alert('Invalid JSON')}}function factoryReset(){
+function renderAll(){normalizeStateAfterLoad();ensureGear();ensurePlayerMeta();initPlan();wireEditButton();safeRender('Brand',renderBrand);safeRender('CPL date',renderCplDate);safeRender('Timeline',renderTimeline,['timeline']);safeRender('Overview',renderOverview,['overviewRows']);safeRender('Training',renderTraining,['analysisTimelineWrap','analysisBlocksRows','analysisSummary','skillTrajectorySvg']);safeRender('Gear',renderGear,['gearRows','gearDetails']);safeRender('Team Builder',renderTeamBuilder,['candidateRows','candidateComparison','teamBuilderTimeline','rosterPlanWrap']);safeRender('Settings',renderSettings,['coefSettings','engineSettings','heartSettings']);saveLocal()}function uploadLogo(e){const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{state.teamLogoData=reader.result;saveLocal();renderAll()};reader.readAsDataURL(f)}function uploadBanner(e){const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{state.teamBannerData=reader.result;saveLocal();renderAll()};reader.readAsDataURL(f)}function clearLogo(){state.teamLogoUrl='';state.teamLogoData='';saveLocal();renderAll()}function clearBanner(){state.teamBannerUrl='';state.teamBannerData='';saveLocal();renderAll()}function exportJSON(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(state.teamName||'team').replaceAll(' ','_')+'_cpl_team_planner_v1_0_0_rc8_13.json';a.click()}function importJSONFile(e){const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{try{state=JSON.parse(reader.result);saveLocal();renderAll();alert('JSON imported.')}catch(err){alert('Invalid JSON')}};reader.readAsText(f)}function importJSONText(){const txt=prompt('Paste full JSON here');if(!txt)return;try{state=JSON.parse(txt);saveLocal();renderAll();alert('JSON imported.')}catch(e){alert('Invalid JSON')}}function factoryReset(){
   if(!confirm('Factory reset all local data and restore embedded emuLate! baseline?'))return;
   localStorage.removeItem('teamPlannerStable');
+  localStorage.removeItem('teamPlannerV100RC8_9_2');
+  localStorage.removeItem('teamPlannerV100RC8_9_1');
   localStorage.removeItem('teamPlannerV100RC8_9');
   localStorage.removeItem('teamPlannerV100RC8_7');
   state=structuredClone(defaultState);
-  state.version='1.0.0-rc.8.9';
+  state.version='1.0.0-rc.8.9.2';
   selected=0;
   selectedCandidateId=null;
   saveLocal();
@@ -4931,14 +5121,38 @@ function renderAll(){normalizeStateAfterLoad();ensureGear();ensurePlayerMeta();i
 }function loadDefaults(){
   if(!confirm('Restore the embedded emuLate! baseline data? This will replace current roster, builder candidates, analysis plan and settings.'))return;
   state=structuredClone(defaultState);
-  state.version='1.0.0-rc.8.9';
+  state.version='1.0.0-rc.8.9.2';
   selected=0;
   selectedCandidateId=null;
   saveLocal();
   initPlan();
   selectedSeason=state.currentSeason;
   renderAll();
-}function normalizePlayer(p){if(!p.id)p.id=uid();if(!p.skills)p.skills={};if(!p.limits)p.limits={};for(const k of skillOrder){p.skills[k]=+p.skills[k]||0;p.limits[k]=+p.limits[k]||p.skills[k]||0}p.games=+p.games||0;p.ls=+p.ls||1;p.age=(p.age===undefined||p.age==='')?null:+p.age;p.day=+p.day||state.currentDay||1;p.xp=+p.xp||0;p.heartFixed=p.heartFixed||null;return p}function addOrUpdate(p){p=normalizePlayer(p);const idx=state.players.findIndex(x=>x.name.toLowerCase()===p.name.toLowerCase());if(idx>=0)state.players[idx]={...state.players[idx],...p,id:state.players[idx].id};else state.players.push(p)}function parseCPL(){
+}function normalizePlayer(p){if(!p.id)p.id=uid();if(!p.skills)p.skills={};if(!p.limits)p.limits={};for(const k of skillOrder){p.skills[k]=+p.skills[k]||0;p.limits[k]=+p.limits[k]||p.skills[k]||0}p.games=+p.games||0;p.ls=+p.ls||1;p.age=(p.age===undefined||p.age==='')?null:+p.age;p.day=+p.day||state.currentDay||1;p.xp=+p.xp||0;p.heartFixed=p.heartFixed||null;return p}
+function addOrUpdate(p){
+  const incomingHadGames = Object.prototype.hasOwnProperty.call(p,'games');
+  const incomingHadSpecials = Object.prototype.hasOwnProperty.call(p,'specials');
+  const incomingHadHeartFixed = Object.prototype.hasOwnProperty.call(p,'heartFixed');
+  const isCplClipboardImport = !!p.raw;
+  p=normalizePlayer(p);
+  const idx=state.players.findIndex(x=>(x.name||'').toLowerCase()===(p.name||'').toLowerCase());
+  if(idx>=0){
+    const existing=state.players[idx];
+    const merged={...existing,...p,id:existing.id};
+
+    // Smart partial import:
+    // CPL roster clipboard blocks do not expose Games, Heart or Special abilities.
+    // When those fields are absent from the source, keep the existing manual values instead of resetting them.
+    if(isCplClipboardImport || !incomingHadGames)merged.games=existing.games;
+    if(isCplClipboardImport || !incomingHadHeartFixed)merged.heartFixed=existing.heartFixed;
+    if(isCplClipboardImport || !incomingHadSpecials)merged.specials=Array.isArray(existing.specials)?[...existing.specials]:[];
+
+    state.players[idx]=merged;
+  }else{
+    if(!Array.isArray(p.specials))p.specials=[];
+    state.players.push(p);
+  }
+}function parseCPL(){
   const txt=cplPaste.value;
   parsedPlayers=[];
   try{
@@ -4969,6 +5183,7 @@ function renderAll(){normalizeStateAfterLoad();ensureGear();ensurePlayerMeta();i
 <script>
 (function(){
   const DISMISS_KEY = "cplCompanionPwaInstallDismissedAt";
+  const NEVER_KEY = "cplCompanionPwaInstallNever";
   const INSTALL_SEEN_KEY = "cplCompanionPwaInstallSeen";
   const DISMISS_DAYS = 7;
   let deferredInstallPrompt = null;
@@ -4978,6 +5193,7 @@ function renderAll(){normalizeStateAfterLoad();ensureGear();ensurePlayerMeta();i
   const installBtn = document.getElementById("pwaInstallBtn");
   const helpBtn = document.getElementById("pwaHelpBtn");
   const laterBtn = document.getElementById("pwaLaterBtn");
+  const neverBtn = document.getElementById("pwaNeverBtn");
   const title = document.getElementById("pwaInstallTitle");
   const text = document.getElementById("pwaInstallText");
   const hint = document.getElementById("pwaInstallHint");
@@ -5009,6 +5225,7 @@ function renderAll(){normalizeStateAfterLoad();ensureGear();ensurePlayerMeta();i
   }
 
   function dismissedRecently(){
+    if(localStorage.getItem(NEVER_KEY) === "1") return true;
     const raw = localStorage.getItem(DISMISS_KEY);
     if(!raw) return false;
     const last = Number(raw);
@@ -5072,11 +5289,12 @@ function renderAll(){normalizeStateAfterLoad();ensureGear();ensurePlayerMeta();i
     track("pwa_install_prompt_shown", { mode: promptMode, mobile: deviceInfo().isMobile });
   }
 
-  function hideBox({dismiss=false}={}){
+  function hideBox({dismiss=false, never=false}={}){
     if(!box) return;
     box.classList.remove("show");
     setTimeout(() => box.classList.add("hidden"), 230);
     if(dismiss) localStorage.setItem(DISMISS_KEY, String(Date.now()));
+    if(never) localStorage.setItem(NEVER_KEY, "1");
   }
 
   function helpMarkup(){
@@ -5125,7 +5343,11 @@ function renderAll(){normalizeStateAfterLoad();ensureGear();ensurePlayerMeta();i
     isMobile: () => deviceInfo().isMobile,
     deviceInfo,
     show: () => showBox(deferredInstallPrompt ? "native" : "manual"),
-    reset: () => localStorage.removeItem(DISMISS_KEY)
+    reset: () => {
+      localStorage.removeItem(DISMISS_KEY);
+      localStorage.removeItem(NEVER_KEY);
+      showBox(deferredInstallPrompt ? "native" : "manual");
+    }
   };
 
   setDeviceClasses();
@@ -5155,6 +5377,10 @@ function renderAll(){normalizeStateAfterLoad();ensureGear();ensurePlayerMeta();i
     track("pwa_install_later_clicked", { mode: promptMode, mobile: deviceInfo().isMobile });
     hideBox({ dismiss:true });
   });
+  neverBtn?.addEventListener("click", () => {
+    track("pwa_install_never_clicked", { mode: promptMode, mobile: deviceInfo().isMobile });
+    hideBox({ never:true });
+  });
   helpCloseBtn?.addEventListener("click", closeHelp);
   helpPanel?.addEventListener("click", event => {
     if(event.target === helpPanel) closeHelp();
@@ -5165,7 +5391,7 @@ function renderAll(){normalizeStateAfterLoad();ensureGear();ensurePlayerMeta();i
 
   window.addEventListener("appinstalled", () => {
     track("pwa_installed", { mobile: deviceInfo().isMobile });
-    localStorage.setItem(DISMISS_KEY, String(Date.now()));
+    localStorage.setItem(NEVER_KEY, "1");
     hideBox();
   });
 
