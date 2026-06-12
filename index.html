@@ -3397,6 +3397,14 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
   background:rgba(255,122,0,.06)!important;
 }
 
+
+
+/* ===== v1.1 RC12 visual week alignment fix ===== */
+.analysisGrid.weekMode .analysisHeader,
+.analysisGrid.weekMode .analysisPlayerRow{
+  grid-template-columns:var(--week-cols)!important;
+}
+
 </style>
 </head>
 <body>
@@ -4917,7 +4925,11 @@ function renderAnalysisForm(){
 function renderAnalysisTimeline(){
   const weeks=plannerWeeks();
   const weekForAbs=(abs)=>weeks.find(w=>abs>=w.abs && abs<=w.abs+(w.len||7)-1);
-  let html=`<div class="analysisGrid weekMode" style="--weeks:${weeks.length}">`;
+  // RC12 visual fix: week columns must scale with their real duration.
+  // The first bucket can be shorter than 7 days; if columns stay equal width,
+  // blocks appear visually misaligned with the visible week headers.
+  const weekCols=weeks.map(w=>`${Math.max(18,(w.len||7)*6)}px`).join(' ');
+  let html=`<div class="analysisGrid weekMode" style="--weeks:${weeks.length};--week-cols:104px ${weekCols}">`;
   html+=`<div class="analysisHeader"><div class="analysisCorner">Player / Week</div>${weeks.map((w,wi)=>`<div class="analysisWeekHead ${w.isGap?'gapBucket ':''}${wi===0||w.season!==weeks[wi-1].season?'seasonStart':''}" title="Start S${w.season} D${w.day}"><div class="weekTitle">${w.label}</div><div class="weekDays">${w.range}</div></div>`).join('')}</div>`;
   state.players.forEach((p,i)=>{
     const hue=playerColorHue(p,i);
