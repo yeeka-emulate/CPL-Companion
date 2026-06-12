@@ -57,11 +57,11 @@
 
 @media(max-width:1100px){.header{position:static;display:block}.tabs{margin-top:12px}.detailGrid,.grid2,.settingsGrid,.kpis{grid-template-columns:1fr}.panel{overflow:auto}.mainTable{min-width:1400px}.seasonDetail{min-width:1100px}.timeline{min-width:820px}.timelineWrap{overflow:auto}}
 
-/* ===== v1.1.0-rc.12 stabilisation header + responsive fixes ===== */
+/* ===== v1.1.0-rc.11 stabilisation header + responsive fixes ===== */
 body{background:#071019}.app{max-width:1760px;margin:auto;padding:14px}.heroHeader{position:static;background:transparent;backdrop-filter:none;border-bottom:0;padding:0;margin-bottom:14px}.heroCard{min-height:168px;border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;background:linear-gradient(90deg,rgba(5,15,23,.94),rgba(14,24,32,.70) 48%,rgba(40,18,10,.55)),radial-gradient(circle at left,#11314a,#071019 60%);box-shadow:0 18px 42px rgba(0,0,0,.28);background-position:center;background-size:cover}.heroOverlay{min-height:168px;padding:18px;display:grid;grid-template-columns:1fr auto;grid-template-rows:auto 1fr auto;gap:12px;align-items:start}.heroBrand{grid-column:1;align-self:start}.heroLogo{width:74px;height:74px;border-radius:16px}.heroRight{grid-column:2;display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}.heroTabs{grid-column:1 / -1;align-self:end;width:max-content;background:rgba(5,14,21,.62);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:8px;box-shadow:none}.tabs.heroTabs{margin-top:0}.heroTabs .tab{padding:10px 16px}.mainTable tr.clickable{height:94px}.playerCell{min-width:250px}.playerMain{display:flex;flex-direction:column;gap:6px}.playerMainTop{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.tag{margin-left:0}.avatar{width:52px;height:52px;border-radius:14px;font-size:21px;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}.gaugeMiniWrap{margin-top:0}.gaugeMiniBlock{width:42px}.gaugeMini{width:38px;height:38px}.gaugeMini:after{inset:5px}.gaugeMini span{font-size:10px}.gaugeMiniLabel{font-size:8px}.skillCell{min-width:88px}.rating,.potential{font-size:20px}.playerActions{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}.playerActions .btn{padding:9px 10px;min-width:40px}.playerActions .btn.iconDanger{background:#2a0d0d;border:1px solid #712323;color:#ff8c8c}.detailGrid{display:grid;grid-template-columns:minmax(300px,340px) minmax(0,1fr);gap:16px;align-items:start}.detailGrid>*{min-width:0}#playerSeasonDetail{overflow:auto}.seasonDetail{min-width:1160px}.kpis.compact{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi b.smallNumber{font-size:22px}.cardTable{width:100%;table-layout:fixed}.cardTable th,.cardTable td{padding:9px 8px}.sectionScroller{overflow:auto}@media(max-width:1100px){.heroOverlay{grid-template-columns:1fr}.heroRight{grid-column:1;justify-content:flex-start}.heroTabs{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.heroTabs .tab{text-align:center}.detailGrid{grid-template-columns:1fr}.mainTable{min-width:1560px}}@media(max-width:720px){.app{padding:10px}.heroCard,.heroOverlay{min-height:190px}.heroOverlay{padding:14px}.heroBrand{align-items:flex-start}.heroLogo{width:62px;height:62px}h1{font-size:25px}.heroRight{width:100%}.cplDate,.dataStatus{flex:1;text-align:center;padding:9px 8px}.heroTabs .tab{padding:10px 8px}.playerCell{min-width:220px}}
 
 
-/* ===== v1.1.0-rc.12 clean stabilization ===== */
+/* ===== v1.1.0-rc.11 clean stabilization ===== */
 :root{
   --bg:#171717;
   --panel:#202020;
@@ -142,7 +142,7 @@ body.editing .mainTable th:nth-child(n+2):nth-child(-n+9){width:132px}
 }
 
 
-/* ===== v1.1.0-rc.12 click/header hotfix ===== */
+/* ===== v1.1.0-rc.11 click/header hotfix ===== */
 .heroCard{
   position:relative!important;
   isolation:isolate;
@@ -180,7 +180,7 @@ body.editing .mainTable th:nth-child(n+2):nth-child(-n+9){width:132px}
 }
 
 
-/* ===== v1.1.0-rc.12 focused hotfix from v12 ===== */
+/* ===== v1.1.0-rc.11 focused hotfix from v12 ===== */
 /* Banner: keep the whole banner visible inside the header frame */
 .heroCard{
   background:#1f1f1f!important;
@@ -203,7 +203,7 @@ body.editing .mainTable th:nth-child(n+2):nth-child(-n+9){width:132px}
 }
 
 
-/* ===== v1.1.0-rc.12 banner + edit defaults ===== */
+/* ===== v1.1.0-rc.11 banner + edit defaults ===== */
 /* Hero banner should fill the header. This crops slightly instead of leaving side blanks. */
 .heroBannerImg{
   object-fit:cover!important;
@@ -215,12 +215,12 @@ body.editing .mainTable th:nth-child(n+2):nth-child(-n+9){width:132px}
 }
 
 
-/* ===== v1.1.0-rc.12 Gear page + mobile edit fix ===== */
+/* ===== v1.1.0-rc.11 Gear page + mobile edit fix ===== */
 .editToolbar{position:relative;z-index:30;pointer-events:auto!important}.editToolbar *{pointer-events:auto!important}#editToggle{touch-action:manipulation;-webkit-tap-highlight-color:rgba(255,122,0,.35);position:relative;z-index:31;min-height:42px;min-width:88px}
 .gearTableWrap{width:100%;overflow-x:auto;padding-bottom:8px}.gearTable{width:100%;min-width:1120px;table-layout:fixed}.gearTable th:nth-child(1){width:245px}.gearTable th:nth-child(6){width:135px}.gearPlayer{display:flex;align-items:center;gap:12px}.gearPlayer .meta{font-size:12px;color:var(--muted)}.gearSelectBox{display:flex;align-items:center;gap:8px}.gearSelectBox select{width:100%;min-width:170px}.gearBoostTag{display:inline-flex;align-items:center;justify-content:center;min-width:42px;height:28px;padding:0 8px;border-radius:999px;background:rgba(255,122,0,.12);border:1px solid rgba(255,122,0,.32);color:#ff8a1c;font-weight:900}.gearTotal{font-size:24px;font-weight:950;color:#ff7a00}.gearTotal.zero{color:#777}.gearDetailsGrid{display:grid;grid-template-columns:minmax(250px,320px) 1fr;gap:18px}.selectedGearCard{border:1px solid #333;border-radius:14px;background:#1b1b1b;padding:14px}.gearCurrent{display:grid;grid-template-columns:repeat(4,minmax(120px,1fr));gap:10px}.gearItemCard{border:1px solid #343434;border-radius:12px;background:#202020;padding:12px;text-align:center}.gearItemCard .slot{font-size:11px;text-transform:uppercase;color:#9fb0bb;font-weight:900;margin-bottom:6px}.gearItemCard .name{font-weight:900}.gearItemCard .boost{color:#ff8a1c;font-weight:950;margin-top:4px}.boostBreakdown{display:grid;grid-template-columns:repeat(8,minmax(74px,1fr));gap:8px}.boostStat{border:1px solid #343434;border-radius:12px;background:#202020;padding:10px;text-align:center}.boostStat .ico{font-size:19px}.boostStat .lbl{font-size:11px;color:#cbd6dd;margin-top:5px}.boostStat .val{font-size:22px;font-weight:950;color:#ff7a00;margin-top:4px}.gearNote{margin-top:12px;color:#9fb0bb;font-size:12px}.gearGrandTotal{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:14px;padding:13px;border-top:1px solid #333;font-weight:900}.gearGrandTotal b{font-size:25px;color:#ff7a00}@media(max-width:760px){#editToggle{min-height:48px;min-width:96px}.editToolbar{align-items:stretch}.gearDetailsGrid{grid-template-columns:1fr}.gearCurrent{grid-template-columns:repeat(2,minmax(0,1fr))}.boostBreakdown{grid-template-columns:repeat(2,minmax(0,1fr))}.gearTable{min-width:980px}}
 
 
-/* ===== v1.1.0-rc.12 Edit button instant response ===== */
+/* ===== v1.1.0-rc.11 Edit button instant response ===== */
 #editToggle{
   touch-action:manipulation!important;
   -webkit-tap-highlight-color:transparent!important;
@@ -228,7 +228,7 @@ body.editing .mainTable th:nth-child(n+2):nth-child(-n+9){width:132px}
 }
 
 
-/* ===== v1.1.0-rc.12 Gear polish ===== */
+/* ===== v1.1.0-rc.11 Gear polish ===== */
 .gearPlayer .meta{display:none!important}
 .gearSelectBox select{
   min-width:190px;
@@ -263,7 +263,7 @@ body.editing .mainTable th:nth-child(n+2):nth-child(-n+9){width:132px}
 }
 
 
-/* ===== v1.1.0-rc.12 edit mode polish ===== */
+/* ===== v1.1.0-rc.11 edit mode polish ===== */
 body.editing .playerCell{
   align-items:flex-start;
 }
@@ -321,7 +321,7 @@ body.editing .mainTable{min-width:1720px!important}
 }
 
 
-/* ===== v1.1.0-rc.12 UI polish ===== */
+/* ===== v1.1.0-rc.11 UI polish ===== */
 /* Remove remaining blue tint from timeline/menu buttons */
 .tab,
 .tPoint,
@@ -394,7 +394,7 @@ body.editing .addPlayerEditBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 timeline + edit toolbar hotfix from v1.1.0-rc.12 ===== */
+/* ===== v1.1.0-rc.11 timeline + edit toolbar hotfix from v1.1.0-rc.11 ===== */
 
 /* Timeline: keep the original dot-line structure, but remove the last blue/black leftovers */
 .timelineWrap{
@@ -466,7 +466,7 @@ body.editing .addPlayerEditBtn{
   color:#ff8a1c!important;
 }
 
-/* Override the broad v1.1.0-rc.12 button recolor only for timeline buttons */
+/* Override the broad v1.1.0-rc.11 button recolor only for timeline buttons */
 .tPoint,
 .tPoint.active{
   background:transparent!important;
@@ -517,7 +517,7 @@ body.editing #addPlayerEditBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 Analysis Planner ===== */
+/* ===== v1.1.0-rc.11 Analysis Planner ===== */
 .analysisSummary{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
@@ -731,7 +731,7 @@ body.editing #addPlayerEditBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 Analysis Planner rules / block selection ===== */
+/* ===== v1.1.0-rc.11 Analysis Planner rules / block selection ===== */
 .analysisError{
   display:none;
   margin:8px 0 12px;
@@ -774,15 +774,9 @@ body.editing #addPlayerEditBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 weekly analysis planner + chart polish ===== */
+/* ===== v1.1.0-rc.11 weekly analysis planner + chart polish ===== */
 .analysisForm{
   grid-template-columns:1.3fr .75fr .75fr .75fr auto auto!important;
-}
-
-/* ===== RC12 final timeline grid/header alignment ===== */
-.analysisGrid.weekMode .analysisHeader,
-.analysisGrid.weekMode .analysisPlayerRow{
-  grid-template-columns:var(--week-cols)!important;
 }
 .analysisGrid.weekMode{
   display:grid;
@@ -863,7 +857,7 @@ body.editing #addPlayerEditBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 planner edit mode ===== */
+/* ===== v1.1.0-rc.11 planner edit mode ===== */
 #analysisSubmitBtn.editing{
   background:rgba(255,122,0,.15)!important;
   border-color:#ff6b00!important;
@@ -878,7 +872,7 @@ body.editing #addPlayerEditBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 in-place polish: compact planner + usable trajectory chart ===== */
+/* ===== v1.1.0-rc.11 in-place polish: compact planner + usable trajectory chart ===== */
 .analysisHeader,
 .analysisPlayerRow{
   grid-template-columns:126px repeat(var(--weeks),58px)!important;
@@ -1000,7 +994,7 @@ body.editing #addPlayerEditBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 in-place polish #2: denser planner + larger integrated chart ===== */
+/* ===== v1.1.0-rc.11 in-place polish #2: denser planner + larger integrated chart ===== */
 .analysisHeader,
 .analysisPlayerRow{
   grid-template-columns:104px repeat(var(--weeks),42px)!important;
@@ -1097,7 +1091,7 @@ body.editing #addPlayerEditBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 collapsible analysis blocks ===== */
+/* ===== v1.1.0-rc.11 collapsible analysis blocks ===== */
 .analysisBlocksPanel{
   overflow:hidden;
 }
@@ -1145,7 +1139,7 @@ body.editing #addPlayerEditBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 integrated planner scrollbar ===== */
+/* ===== v1.1.0-rc.11 integrated planner scrollbar ===== */
 .analysisTimelineWrap{
   padding-bottom:6px!important;
   scrollbar-width:thin;
@@ -1200,7 +1194,7 @@ body.editing #addPlayerEditBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 compact planner width restore ===== */
+/* ===== v1.1.0-rc.11 compact planner width restore ===== */
 .analysisHeader,
 .analysisPlayerRow{
   grid-template-columns:104px repeat(var(--weeks),42px)!important;
@@ -1249,7 +1243,7 @@ body.editing #addPlayerEditBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 planner width balance +25% ===== */
+/* ===== v1.1.0-rc.11 planner width balance +25% ===== */
 .analysisHeader,
 .analysisPlayerRow{
   grid-template-columns:116px repeat(var(--weeks),52px)!important;
@@ -1301,7 +1295,7 @@ body.editing #addPlayerEditBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 Team Builder ===== */
+/* ===== v1.1.0-rc.11 Team Builder ===== */
 .tbHeroGrid{display:grid;grid-template-columns:minmax(300px,420px) minmax(0,1fr);gap:14px;align-items:start}
 .tbSplit{display:grid;grid-template-columns:minmax(310px,400px) minmax(0,1fr);gap:14px}
 .tbImportBox{display:grid;grid-template-columns:1fr 250px;gap:12px}
@@ -1350,7 +1344,7 @@ body.editing #addPlayerEditBtn{
 @media(max-width:1100px){.tbHeroGrid,.tbSplit,.tbImportBox,.tbCompareGrid{grid-template-columns:1fr}.tbMetricGrid{grid-template-columns:repeat(2,1fr)}}
 
 
-/* ===== v1.1.0-rc.12 Timeline rail redesign ===== */
+/* ===== v1.1.0-rc.11 Timeline rail redesign ===== */
 .tbTimelineRailV2{position:relative;overflow-x:auto;padding:24px 8px 18px}
 .tbRailCanvas{position:relative;min-width:1050px;height:330px}
 .tbRailLine{position:absolute;left:54px;right:54px;top:158px;height:3px;background:linear-gradient(90deg,rgba(255,122,0,.2),rgba(255,122,0,.75),rgba(255,122,0,.2));border-radius:999px;box-shadow:0 0 22px rgba(255,122,0,.12)}
@@ -1376,7 +1370,7 @@ body.editing #addPlayerEditBtn{
 .tbRailLegend span{font-size:11px;color:#9fb0bb;border:1px solid #2d4858;background:#0a1720;border-radius:999px;padding:5px 8px}
 
 
-/* ===== v1.1.0-rc.12 Timeline cleanup + mobile order ===== */
+/* ===== v1.1.0-rc.11 Timeline cleanup + mobile order ===== */
 .tbRailYear .tbRailLabel{display:none}
 .tbRailDot{font-size:12px}
 .tbRailEvent{width:132px;padding:7px 8px}
@@ -1402,7 +1396,7 @@ body.editing #addPlayerEditBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 Mobile tabs fix ===== */
+/* ===== v1.1.0-rc.11 Mobile tabs fix ===== */
 .heroTabs{
   width:100%;
   max-width:100%;
@@ -1446,7 +1440,7 @@ body.editing #addPlayerEditBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 Hard page routing fix ===== */
+/* ===== v1.1.0-rc.11 Hard page routing fix ===== */
 section.page{display:none}
 section.page.active{display:block}
 section.page[hidden]{display:none!important}
@@ -1463,7 +1457,7 @@ section.page[hidden]{display:none!important}
 }
 
 
-/* ===== v1.1.0-rc.12 polish from clean v6.3.6 ===== */
+/* ===== v1.1.0-rc.11 polish from clean v6.3.6 ===== */
 .sectionScroller,.gearTableWrap,.tbRosterWrap,.tbTimeline,.tbTimelineRailV2,.analysisTimelineWrap,.analysisBlocksWrap,.tableWrap,.rosterTableWrap{
   scrollbar-width:thin;
   scrollbar-color:rgba(255,122,0,.78) rgba(255,255,255,.06);
@@ -1505,7 +1499,7 @@ section.page[hidden]{display:none!important}
 }
 
 
-/* ===== v1.1.0-rc.12 layout polish patch: PC two-column builder + tighter timeline ===== */
+/* ===== v1.1.0-rc.11 layout polish patch: PC two-column builder + tighter timeline ===== */
 @media(min-width:761px){
   #teamBuilder{
     display:grid!important;
@@ -1595,7 +1589,7 @@ section.page[hidden]{display:none!important}
 }
 
 
-/* ===== v1.1.0-rc.12 Team Builder cleanup ===== */
+/* ===== v1.1.0-rc.11 Team Builder cleanup ===== */
 
 /* Hard page isolation: prevents Team Builder panels leaking under every page */
 section.page{display:none}
@@ -1734,7 +1728,7 @@ section.page[hidden]{display:none!important}
 .sectionScroller::-webkit-scrollbar-thumb,.gearTableWrap::-webkit-scrollbar-thumb,.tbRosterWrap::-webkit-scrollbar-thumb,.tbTimeline::-webkit-scrollbar-thumb,.tbTimelineRailV2::-webkit-scrollbar-thumb,.analysisTimelineWrap::-webkit-scrollbar-thumb,.analysisBlocksWrap::-webkit-scrollbar-thumb,.tableWrap::-webkit-scrollbar-thumb,.rosterTableWrap::-webkit-scrollbar-thumb{background:linear-gradient(90deg,#ff7a00,#ffb15f);border-radius:999px;border:2px solid rgba(8,17,24,.92)}
 
 
-/* ===== v1.1.0-rc.12 hard page visibility fix ===== */
+/* ===== v1.1.0-rc.11 hard page visibility fix ===== */
 section.page:not(.active){
   display:none!important;
 }
@@ -1762,7 +1756,7 @@ section.page.active{
 }
 
 
-/* ===== v1.1.0-rc.12 Modern dropdown styling ===== */
+/* ===== v1.1.0-rc.11 Modern dropdown styling ===== */
 select{
   appearance:none;
   -webkit-appearance:none;
@@ -1898,7 +1892,7 @@ select option{
 }
 
 
-/* ===== v1.1.0-rc.12 role tags + timeline subtitle cleanup ===== */
+/* ===== v1.1.0-rc.11 role tags + timeline subtitle cleanup ===== */
 .tag.roleTag{
   margin-left:0;
   border:1px solid rgba(255,255,255,.10);
@@ -1928,7 +1922,7 @@ select option{
 }
 
 
-/* ===== v1.1.0-rc.12 hotfix: edit controls inside Player header ===== */
+/* ===== v1.1.0-rc.11 hotfix: edit controls inside Player header ===== */
 .editToolbar{
   display:none!important;
 }
@@ -1970,7 +1964,7 @@ body.editing .iconAddBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 hotfix v2: tighter Player header buttons ===== */
+/* ===== v1.1.0-rc.11 hotfix v2: tighter Player header buttons ===== */
 .playerHeadInner{
   min-width:145px!important;
 }
@@ -2018,7 +2012,7 @@ body.editing .iconAddBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 hotfix v3: auto-width Player header buttons ===== */
+/* ===== v1.1.0-rc.11 hotfix v3: auto-width Player header buttons ===== */
 .playerHeadInner{
   min-width:190px!important;
   gap:10px!important;
@@ -2069,7 +2063,7 @@ body.editing .iconAddBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 hotfix v4: optical button alignment ===== */
+/* ===== v1.1.0-rc.11 hotfix v4: optical button alignment ===== */
 .playerHeadInner{
   min-width:205px!important;
 }
@@ -2125,7 +2119,7 @@ body.editing #addPlayerEditBtn.iconAddBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 hotfix v5: JS-safe Player header buttons ===== */
+/* ===== v1.1.0-rc.11 hotfix v5: JS-safe Player header buttons ===== */
 .playerHeadInner{
   min-width:220px!important;
 }
@@ -2179,7 +2173,7 @@ body.editing #addPlayerEditBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 hotfix: selected player projection table ===== */
+/* ===== v1.1.0-rc.11 hotfix: selected player projection table ===== */
 .projectionSeasonDetail{
   min-width:1580px!important;
   table-layout:fixed;
@@ -2200,7 +2194,7 @@ body.editing #addPlayerEditBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 hotfix: styled Overview scrollbars ===== */
+/* ===== v1.1.0-rc.11 hotfix: styled Overview scrollbars ===== */
 .timelineWrap,
 .mainTableWrap,
 .sectionScroller{
@@ -2239,7 +2233,7 @@ body.editing #addPlayerEditBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 hotfix: tighter selected projection columns ===== */
+/* ===== v1.1.0-rc.11 hotfix: tighter selected projection columns ===== */
 .projectionSeasonDetail{
   min-width:1460px!important;
 }
@@ -2266,7 +2260,7 @@ body.editing #addPlayerEditBtn{
 }
 
 
-/* ===== v1.1.0-rc.12 Special abilities ===== */
+/* ===== v1.1.0-rc.11 Special abilities ===== */
 .avatar{
   width:52px!important;
   height:42px!important;
@@ -2362,7 +2356,7 @@ body.editing #addPlayerEditBtn{
 body.editing .mainTable th:nth-child(17){width:54px!important}
 
 
-/* ===== v1.1.0-rc.12 hotfix: sober specials + avatar 42x52 ===== */
+/* ===== v1.1.0-rc.11 hotfix: sober specials + avatar 42x52 ===== */
 .avatar{
   width:42px!important;
   height:52px!important;
@@ -2431,7 +2425,7 @@ body.editing .mainTable th:nth-child(17){width:54px!important}
 }
 
 
-/* ===== v1.1.0-rc.12 hotfix v3: edit-mode specials placement ===== */
+/* ===== v1.1.0-rc.11 hotfix v3: edit-mode specials placement ===== */
 body.editing .playerCell{
   align-items:flex-start!important;
 }
@@ -2505,7 +2499,7 @@ body.editing .skillCell{
 }
 
 
-/* ===== v1.1.0-rc.12 hotfix v4: specials in bottom-right edit cell ===== */
+/* ===== v1.1.0-rc.11 hotfix v4: specials in bottom-right edit cell ===== */
 body.editing .editMetaGrid{
   display:grid!important;
   grid-template-columns:92px 1fr!important;
@@ -2556,7 +2550,7 @@ body.editing .editMetaGrid > label input{
 }
 
 
-/* ===== v1.1.0-rc.12 hotfix v6: specials as 4th mini stat ===== */
+/* ===== v1.1.0-rc.11 hotfix v6: specials as 4th mini stat ===== */
 .playerCell{
   align-items:center!important;
 }
@@ -2600,7 +2594,7 @@ body.editing .gaugeMiniWrap{
 }
 
 
-/* ===== RC12_7 small patch: center Games column ===== */
+/* ===== RC11_7 small patch: center Games column ===== */
 .mainTable td.gamesCol,
 .mainTable th.gamesCol,
 .gamesCol{
@@ -2621,7 +2615,7 @@ body.editing .gaugeMiniWrap{
 }
 
 
-/* ===== v1.1.0-rc.12 ApexCharts trajectory ===== */
+/* ===== v1.1.0-rc.11 ApexCharts trajectory ===== */
 .apexTrajectoryWrap{
   position:relative!important;
   min-height:420px!important;
@@ -2692,7 +2686,7 @@ body.editing .gaugeMiniWrap{
 }
 
 
-/* ===== v1.1.0-rc.12 Apex chart readability pass ===== */
+/* ===== v1.1.0-rc.11 Apex chart readability pass ===== */
 .skillTrajectoryChart .apexcharts-series path.apexcharts-line{
   filter:drop-shadow(0 0 2px rgba(157,184,255,.12));
 }
@@ -2708,7 +2702,7 @@ body.editing .gaugeMiniWrap{
 }
 
 
-/* ===== v1.1.0-rc.12 season trend chart ===== */
+/* ===== v1.1.0-rc.11 season trend chart ===== */
 .apexCplTooltip .ttMetaLine{
   color:#7ee787;
   font-size:10px;
@@ -2720,7 +2714,7 @@ body.editing .gaugeMiniWrap{
 }
 
 
-/* ===== v1.1.0-rc.12 Team Builder Apex comparison trend ===== */
+/* ===== v1.1.0-rc.11 Team Builder Apex comparison trend ===== */
 .apexTbMiniChart{
   height:250px!important;
   min-height:250px!important;
@@ -2756,7 +2750,7 @@ body.editing .gaugeMiniWrap{
 }
 
 
-/* ===== v1.1.0-rc.12 Team Builder chart render fix ===== */
+/* ===== v1.1.0-rc.11 Team Builder chart render fix ===== */
 .tbChartFallback{
   height:250px;
   display:grid;
@@ -2767,7 +2761,7 @@ body.editing .gaugeMiniWrap{
 }
 
 
-/* ===== v1.1.0-rc.12 PWA install prompt ===== */
+/* ===== v1.1.0-rc.11 PWA install prompt ===== */
 .pwaInstallBox{
   position:fixed;
   left:16px;
@@ -2868,7 +2862,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 }
 
 
-/* ===== v1.1 RC12 trajectory color sync + punchier planner colors ===== */
+/* ===== v1.1 RC11 trajectory color sync + punchier planner colors ===== */
 .apexLegendChip .miniDot{
   background:var(--playerColor,hsl(var(--h),92%,62%))!important;
   box-shadow:0 0 0 3px hsla(var(--h),92%,62%,.18),0 0 12px hsla(var(--h),92%,62%,.35)!important;
@@ -2892,7 +2886,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 }
 
 
-/* ===== v1.1 RC12 CPL core palette + modern planner tint ===== */
+/* ===== v1.1 RC11 CPL core palette + modern planner tint ===== */
 .analysisPlayerRow{
   position:relative;
   border-bottom:1px solid rgba(255,255,255,.045)!important;
@@ -2946,7 +2940,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 }
 
 
-/* ===== v1.1 RC12 calmer CPL palette + unique extra player colors ===== */
+/* ===== v1.1 RC11 calmer CPL palette + unique extra player colors ===== */
 .avatar{
   border-width:1px!important;
   color:#fff!important;
@@ -3014,7 +3008,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 }
 
 
-/* ===== v1.1 RC12 calmer analysis blocks ===== */
+/* ===== v1.1 RC11 calmer analysis blocks ===== */
 .analysisBlock{
   background:
     linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.00) 38%),
@@ -3042,7 +3036,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 }
 
 
-/* ===== v1.1 RC12 balanced analysis blocks ===== */
+/* ===== v1.1 RC11 balanced analysis blocks ===== */
 .analysisBlock{
   background:
     linear-gradient(180deg,rgba(255,255,255,.095),rgba(255,255,255,.00) 35%),
@@ -3072,7 +3066,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 }
 
 
-/* ===== v1.1 RC12 date/data freshness + Team Builder action column ===== */
+/* ===== v1.1 RC11 date/data freshness + Team Builder action column ===== */
 .dataStatus{appearance:none;cursor:pointer;white-space:nowrap}
 .dataStatus.ok{border-color:#1f7a3b;color:#37d45b;background:#0b1710}
 .dataStatus.warn{
@@ -3104,7 +3098,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 .tbMainBtn:hover{border-color:#ff7a00!important;color:#fff!important}
 
 
-/* ===== v1.1 RC12 training suggestion engine ===== */
+/* ===== v1.1 RC11 training suggestion engine ===== */
 .trainingAiBar{
   display:flex;
   justify-content:space-between;
@@ -3184,7 +3178,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 }
 
 
-/* ===== v1.1.0-rc.12 training assistant layout ===== */
+/* ===== v1.1.0-rc.11 training assistant layout ===== */
 .trainingAiBar{
   display:grid!important;
   grid-template-columns:minmax(0,1fr) auto!important;
@@ -3271,7 +3265,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 }
 
 
-/* ===== v1.1.0-rc.12 Timeline planner IA button layout ===== */
+/* ===== v1.1.0-rc.11 Timeline planner IA button layout ===== */
 .timelinePlannerTop{
   display:grid;
   grid-template-columns:minmax(0,1fr) auto;
@@ -3385,40 +3379,10 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 }
 
 
-/* ===== v1.1.0-rc.12 overview timeline click + maintenance signal polish ===== */
+/* ===== v1.1.0-rc.11 overview timeline click + maintenance signal polish ===== */
 .timelineWrap,.timeline,.tPoint{pointer-events:auto!important}
 .tPoint{touch-action:manipulation!important}
 .trainingSuggestionItem .trainingSuggestionScore .small{color:#ffd0a6!important}
-
-
-/* ===== v1.1.0-rc.12 analysis timeline fixed-current-day anchor ===== */
-.analysisWeekHead.gapBucket{
-  background:rgba(255,255,255,.035)!important;
-  box-shadow:inset 2px 0 0 rgba(255,255,255,.16)!important;
-}
-.analysisCell.gapBucket{
-  background:rgba(255,255,255,.018)!important;
-}
-.analysisCell.gapBucket:hover{
-  background:rgba(255,122,0,.06)!important;
-}
-
-
-
-/* ===== v1.1 RC12 header/grid alignment fix ===== */
-.analysisGrid.weekMode .analysisHeader,
-.analysisGrid.weekMode .analysisPlayerRow{
-  grid-template-columns:var(--week-cols)!important;
-}
-.analysisGrid.weekMode .analysisWeekHead .weekTitle{
-  font-size:8.8px!important;
-  line-height:1!important;
-}
-.analysisGrid.weekMode .analysisWeekHead .weekDays{
-  font-size:7.7px!important;
-  line-height:1.05!important;
-  letter-spacing:-.02em;
-}
 
 </style>
 </head>
@@ -3427,7 +3391,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 <header class="header heroHeader">
   <div class="heroCard" id="heroCard"><img id="heroBannerImg" class="heroBannerImg" alt="">
     <div class="heroOverlay">
-      <div class="brand heroBrand"><div id="logoBox" class="logoBox heroLogo"><div class="brandmark"></div></div><div><h1><span id="brandTeam">emuLate!</span> <span class="badge">v1.1 RC12</span></h1><div class="subtitle" id="brandCommunity">TEAM PLANNER</div></div></div>
+      <div class="brand heroBrand"><div id="logoBox" class="logoBox heroLogo"><div class="brandmark"></div></div><div><h1><span id="brandTeam">emuLate!</span> <span class="badge">v1.1 RC11</span></h1><div class="subtitle" id="brandCommunity">TEAM PLANNER</div></div></div>
       <div class="heroRight"><div class="cplDate" id="cplDateBadge">S12 · D22/35</div><button class="dataStatus" id="dataStatusBadge" type="button" onclick="confirmDataUpToDate()" title="Click after updating/importing your data">DATA CHECK</button></div>
       <nav class="tabs heroTabs">
   <button class="tab active" data-page-target="overview" onclick="showPage('overview',this)">Overview</button>
@@ -3558,7 +3522,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 <section id="settings" class="page"><div class="grid2"><div class="panel"><h2>Branding</h2><div class="body"><div class="settingRow"><label>Community</label><input id="communityNameInput" onchange="state.communityName=this.value;saveLocal();renderAll()"></div><div class="settingRow"><label>Team name</label><input id="teamNameInput" onchange="state.teamName=this.value;saveLocal();renderAll()"></div><div class="settingRow"><label>Team logo URL</label><input id="teamLogoUrlInput" onchange="state.teamLogoUrl=this.value;saveLocal();renderAll()"></div><div class="settingRow"><label>Logo upload</label><input type="file" accept="image/*" onchange="uploadLogo(event)"></div><div class="settingRow"><label>Banner image URL</label><input id="teamBannerUrlInput" onchange="state.teamBannerUrl=this.value;saveLocal();renderAll()"></div><div class="settingRow"><label>Banner upload</label><input type="file" accept="image/*" onchange="uploadBanner(event)"></div><div class="actions"><button class="btn secondary" onclick="clearLogo()">Clear logo</button><button class="btn secondary" onclick="clearBanner()">Clear banner</button></div></div></div><div class="panel"><h2>Data freshness</h2><div class="body"><div class="settingRow"><label>Current CPL date</label><div class="badge" id="currentCplDateSetting">Auto-calculated</div></div><div class="settingRow"><label>Date anchor</label><div class="small">12/06/2026 = S12 D26/35. The planner date is forced from this anchor and no longer comes from JSON/settings.</div></div><div class="settingRow"><label>Projection horizon</label><input id="horizonInput" type="number" onchange="state.projectionHorizon=+this.value;selectedSeason=state.currentSeason;saveLocal();renderAll()"></div><div class="settingRow"><label>Data season</label><input id="dataSeasonInput" type="number" onchange="state.dataSeason=+this.value;saveLocal();renderAll()"></div><div class="settingRow"><label>Data day</label><input id="dataDayInput" type="number" onchange="state.dataDay=+this.value;saveLocal();renderAll()"></div><div class="actions"><button class="btn" onclick="markDataUpToDate()">Data is up to date</button><button class="btn secondary" onclick="resetAnalysisPlanner()">Reset analysis planner</button></div><br><div class="warning" id="freshnessWarning">Freshness status pending.</div></div></div></div><div class="grid2"><div class="panel"><h2>Import / Export</h2><div class="body actions"><button class="btn" onclick="exportJSON()">Export JSON</button><button class="btn secondary" onclick="document.getElementById('jsonFile').click()">Import JSON file</button><input id="jsonFile" type="file" accept=".json,application/json" style="display:none" onchange="importJSONFile(event)"><button class="btn secondary" onclick="importJSONText()">Import JSON text</button><button class="btn secondary" onclick="loadDefaults()">Load default roster</button></div></div><div class="panel"><h2>Import CPL copy/paste</h2><div class="body grid2"><div><textarea id="cplPaste" placeholder="Paste one or several CPL player blocks here..."></textarea><br><br><div class="actions"><button class="btn" onclick="parseCPL()">Parse CPL text</button><button class="btn secondary" onclick="addParsedPlayers()">Add / update players</button></div></div><div class="importResult" id="parseResult">No parsed import yet.</div></div></div></div><div class="settingsGrid"><div class="panel"><h2>Rating coefficients</h2><div class="body" id="coefSettings"></div></div><div class="panel"><h2>Engine parameters</h2><div class="body" id="engineSettings"></div></div></div><div class="grid2"><div class="panel"><h2>Heart system</h2><div class="body" id="heartSettings"></div></div><div class="panel"><h2>Danger zone</h2><div class="body actions"><button class="btn danger" onclick="factoryReset()">Factory reset</button><button class="btn secondary" onclick="loadDefaults()">Load default roster</button></div></div></div></section>
 </div>
 
-<!-- ===== v1.1.0-rc.12 PWA install prompt ===== -->
+<!-- ===== v1.1.0-rc.11 PWA install prompt ===== -->
 <div id="pwaInstallBox" class="pwaInstallBox hidden" role="region" aria-label="Install CPL Companion">
   <div class="pwaInstallLead">
     <div class="pwaInstallIcon" aria-hidden="true">📲</div>
@@ -3588,7 +3552,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 
 <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.49.2"></script>
 <script>
-const defaultState={"version":"1.1.0-rc.12","editMode":false,"communityName":"","teamName":"emuLate!","teamLogoUrl":"https://media.cplmanager.com/teams/3207/logo_1778591724706.png","teamLogoData":"","teamBannerUrl":"https://media.cplmanager.com/teams/3207/banner_1778600601663.png","teamBannerData":"","currentSeason":12,"currentDay":26,"seasonLength":35,"projectionHorizon":8,"dataSeason":12,"dataDay":22,"players":[{"id":"p_jno9bx5v","name":"HaRtS-","realName":"Kristjan Koppel","raw":"HaRtS-\n\nKristjan Koppel\n26yo (day 12)\n\nC\nPL\n740\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nArmageddon\nGemini\nAlnitak\n\nTotal skill\n\n669\n/752\nAim\n\n93\n/94\nHandling\n\n93\n/96\nQuickness\n\n94\n/97\nDetermination\n\n94\n/94\n101\n\nAwareness\n\n97\n/97\n103\n\nTeamplay\n\n64\n/91\nGamesense\n\n64\n/90\nMovement\n\n70\n/93\nExperience\n25\n12 TO LVL 26\n\nLeadership\n13\n391 TO LVL 14\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\n\nFavorite map\ntrain","games":6,"heartFixed":"Fire","ls":13,"skills":{"aim":93,"hand":93,"quick":94,"det":94,"awa":97,"tp":64,"gms":64,"mov":70},"limits":{"aim":94,"hand":96,"quick":97,"det":94,"awa":97,"tp":91,"gms":90,"mov":93},"age":26,"day":12,"xp":25,"detectedTotal":669,"detectedLimit":752,"gear":{"mouse":"aurora","mousepad":"armageddon","headset":"gemini","keyboard":"alnitak"}},{"id":"p_rn3ommq9","name":"mSx-","realName":"Raimonds Mezs","raw":"mSx-\n\nRaimonds Mezs\n24yo (day 13)\n\nC\nPL\n1,082\nKick player\n\nSell player\n\nPrimary skills\nHero\nNoctron\nEnigma\nAlnitak\n\nTotal skill\n\n745\n/745\nAim\n\n95\n/95\n104\n\nHandling\n\n92\n/92\nQuickness\n\n94\n/94\n104\n\nDetermination\n\n94\n/94\n104\n\nAwareness\n\n94\n/94\n104\n\nTeamplay\n\n90\n/90\nGamesense\n\n95\n/95\n102\n\nMovement\n\n91\n/91\nExperience\n28\n354 TO LVL 29\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":451,"heartFixed":null,"ls":1,"skills":{"aim":95,"hand":92,"quick":94,"det":94,"awa":94,"tp":90,"gms":95,"mov":91},"limits":{"aim":95,"hand":92,"quick":94,"det":94,"awa":94,"tp":90,"gms":95,"mov":91},"age":24,"day":13,"xp":28,"detectedTotal":745,"detectedLimit":745,"gear":{"mouse":"hero","mousepad":"noctron","headset":"enigma","keyboard":"alnitak"}},{"id":"p_hdg9jjef","name":"R!Go-","realName":"Florian Koch","raw":"R!Go-\n\nFlorian Koch\n24yo (day 13)\n\nC\nPL\n861\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nCitus\nEnigma\nAlnitak\n\nTotal skill\n\n749\n/749\nAim\n\n91\n/91\nHandling\n\n93\n/93\nQuickness\n\n91\n/91\n101\n\nDetermination\n\n91\n/91\n100\n\nAwareness\n\n96\n/96\n103\n\nTeamplay\n\n96\n/96\n102\n\nGamesense\n\n93\n/93\nMovement\n\n98\n/98\n104\n\nExperience\n26\n324 TO LVL 27\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":394,"heartFixed":null,"ls":1,"skills":{"aim":91,"hand":93,"quick":91,"det":91,"awa":96,"tp":96,"gms":93,"mov":98},"limits":{"aim":91,"hand":93,"quick":91,"det":91,"awa":96,"tp":96,"gms":93,"mov":98},"age":24,"day":13,"xp":26,"detectedTotal":749,"detectedLimit":749,"gear":{"mouse":"aurora","mousepad":"citus","headset":"enigma","keyboard":"alnitak"}},{"id":"p_au4mk7f4","name":"MaT","realName":"Hiroshi Takahashi","raw":"MaT\n\nHiroshi Takahashi\n21yo (day 12)\n\nC\nPL\n884\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nArmageddon\nEnigma\nAlnitak\n\nTotal skill\n\n699\n/749\nAim\n\n94\n/94\n101\n\nHandling\n\n91\n/91\nQuickness\n\n94\n/94\n101\n\nDetermination\n\n95\n/95\n103\n\nAwareness\n\n93\n/93\n100\n\nTeamplay\n\n79\n/93\nGamesense\n\n63\n/99\nMovement\n\n90\n/90\nExperience\n21\n354 TO LVL 22\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":271,"heartFixed":null,"ls":1,"skills":{"aim":94,"hand":91,"quick":94,"det":95,"awa":93,"tp":79,"gms":63,"mov":90},"limits":{"aim":94,"hand":91,"quick":94,"det":95,"awa":93,"tp":93,"gms":99,"mov":90},"age":21,"day":12,"xp":21,"detectedTotal":699,"detectedLimit":749,"gear":{"mouse":"aurora","mousepad":"armageddon","headset":"enigma","keyboard":"alnitak"}},{"id":"p_n7msuog3","name":"ZywOo-","realName":"Frederick Scott","raw":"ZywOo- (370)\n\nFrederick Scott\n20yo (day 24)\n\nC\nPL\n844\nKick player\n\nSell player\n\nPrimary skills\n\n\n\n\n\nTotal skill\n\n590\n/752\nAim\n\n93\n/95\nHandling\n\n92\n/92\nQuickness\n\n93\n/94\nDetermination\n\n94\n/94\nAwareness\n\n70\n/97\nTeamplay\n\n39\n/89\nGamesense\n\n40\n/91\nMovement\n\n69\n/100\nExperience\n19\n209 TO LVL 20\n\nLeadership\n7\n418 TO LVL 8\n\nFame\nTalents\n18 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\nmill","games":163,"heartFixed":null,"ls":7,"skills":{"aim":93,"hand":92,"quick":93,"det":94,"awa":70,"tp":39,"gms":40,"mov":69},"limits":{"aim":95,"hand":92,"quick":94,"det":94,"awa":97,"tp":89,"gms":91,"mov":100},"age":20,"day":24,"xp":19,"detectedTotal":590,"detectedLimit":752,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"}},{"id":"p_od6l3e4n","name":"Happy-","realName":"Gabriel Rojas","raw":"Happy-\n\nGabriel Rojas\n34yo (day 6)\n\nC\nPL\n1,389\nstart bid\n\nC\nPL\n5,000\ndeadline\n\n2026-06-10 - 09:03\nPrimary skills\nAurora 3330\nNoctron\nEnigma\nAlnitak\n\nTotal skill\n\n740\n/746\nAim\n\n94\n/96\n101\n\nHandling\n\n96\n/96\n101\n\nQuickness\n\n92\n/92\n101\n\nDetermination\n\n93\n/93\n101\n\nAwareness\n\n94\n/95\n101\n\nTeamplay\n\n90\n/91\nGamesense\n\n87\n/89\nMovement\n\n94\n/94\n100\n\nExperience\n38\n448 TO LVL 39\n\nLeadership\n16\n83 TO LVL 17\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":355,"heartFixed":null,"ls":16,"skills":{"aim":94,"hand":96,"quick":92,"det":93,"awa":94,"tp":90,"gms":87,"mov":94},"limits":{"aim":96,"hand":96,"quick":92,"det":93,"awa":95,"tp":91,"gms":89,"mov":94},"age":34,"day":6,"xp":38,"detectedTotal":740,"detectedLimit":746,"gear":{"mouse":"aurora","mousepad":"noctron","headset":"enigma","keyboard":"alnitak"}}],"analysisPlan":{"12":{"p_harts":2,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"13":{"p_harts":2,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"14":{"p_harts":1,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"15":{"p_harts":0,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"16":{"p_harts":0,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"17":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"18":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"19":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"20":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0}},"analysisBlocks":[{"id":"b_7swzdfc2","playerId":"p_jno9bx5v","startSeason":12,"startDay":22,"durationDays":7},{"id":"b_jhppvgzi","playerId":"p_n7msuog3","startSeason":12,"startDay":29,"durationDays":7},{"id":"b_qccd5gub","playerId":"p_jno9bx5v","startSeason":13,"startDay":1,"durationDays":7},{"id":"b_39np5wm6","playerId":"p_n7msuog3","startSeason":13,"startDay":8,"durationDays":7},{"id":"b_t4qaaj0o","playerId":"p_n7msuog3","startSeason":13,"startDay":15,"durationDays":7},{"id":"b_c0haucit","playerId":"p_au4mk7f4","startSeason":13,"startDay":22,"durationDays":7},{"id":"b_fwkfaui4","playerId":"p_jno9bx5v","startSeason":13,"startDay":29,"durationDays":7},{"id":"b_z2k452z8","playerId":"p_n7msuog3","startSeason":14,"startDay":1,"durationDays":7},{"id":"b_t7bfvu3y","playerId":"p_n7msuog3","startSeason":14,"startDay":8,"durationDays":7},{"id":"b_2kg06jtn","playerId":"p_n7msuog3","startSeason":15,"startDay":1,"durationDays":7}],"trainingDraft":{"playerId":"p_jno9bx5v","startSeason":12,"startDay":22,"durationDays":7},"selectedAnalysisBlock":null,"analysisBlocksOpen":false,"hiddenTrajectoryPlayers":[],"candidatePool":[{"id":"p_nrn4dwo9","name":"Domagoj","realName":"from Chinelo Vuitton","raw":"Domagoj\nfrom Chinelo Vuitton\nDomagoj Zoric\n20yo (day 17)\n\nC\nPL\n639\n0\nlast bid\n\nC\nPL\n22,000\nby\nCyber rpa4u\n\ndeadline\n\n2026-06-10 - 07:26 (1m left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n608\n/732\nAim\n\n90\n/92\nHandling\n\n95\n/95\nQuickness\n\n91\n/93\nDetermination\n\n96\n/96\nAwareness\n\n98\n/99\nTeamplay\n\n26\n/85\nGamesense\n\n23\n/83\nMovement\n\n89\n/89\nExperience\n20\n481 TO LVL 21\n\nLeadership\n5\n453 TO LVL 6\n\nFame\nTalents\n19 points\nSpecial abilities\nFavorite weapon\n\nFavorite map\nmill","games":0,"heartFixed":null,"ls":5,"skills":{"aim":90,"hand":95,"quick":91,"det":96,"awa":98,"tp":26,"gms":23,"mov":89},"limits":{"aim":92,"hand":95,"quick":93,"det":96,"awa":99,"tp":85,"gms":83,"mov":89},"age":20,"day":17,"xp":20,"detectedTotal":608,"detectedLimit":732,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_e2fynz1x","name":"Player #211341","realName":"from Free agent","raw":"Player #211341\nfrom Free agent\nElias Svensson\n33yo (day 28)\n\nC\nPL\n734\n0\nstart bid\n\nC\nPL\n1\ndeadline\n\n2026-06-10 - 10:00 (1hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n707\n/750\nAim\n\n88\n/95\nHandling\n\n89\n/97\nQuickness\n\n93\n/93\nDetermination\n\n93\n/94\nAwareness\n\n89\n/91\nTeamplay\n\n89\n/95\nGamesense\n\n85\n/94\nMovement\n\n81\n/91\nExperience\n38\n215 TO LVL 39\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n37 points\nSpecial abilities\nNo special skill\nFavorite weapon\n\nFavorite map\nmill","games":0,"heartFixed":null,"ls":1,"skills":{"aim":88,"hand":89,"quick":93,"det":93,"awa":89,"tp":89,"gms":85,"mov":81},"limits":{"aim":95,"hand":97,"quick":93,"det":94,"awa":91,"tp":95,"gms":94,"mov":91},"age":33,"day":28,"xp":38,"detectedTotal":707,"detectedLimit":750,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"starter","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_ogjybm6r","name":"Player #211343","realName":"from Free agent","raw":"Player #211343\nfrom Free agent\nJi-ho Seo\n32yo (day 17)\n\nC\nPL\n687\n0\nstart bid\n\nC\nPL\n1\ndeadline\n\n2026-06-10 - 10:32 (1hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n688\n/742\nAim\n\n75\n/95\nHandling\n\n81\n/90\nQuickness\n\n84\n/93\nDetermination\n\n87\n/94\nAwareness\n\n95\n/95\nTeamplay\n\n84\n/92\nGamesense\n\n89\n/90\nMovement\n\n93\n/93\nExperience\n36\n225 TO LVL 37\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n35 points\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle","games":0,"heartFixed":null,"ls":1,"skills":{"aim":75,"hand":81,"quick":84,"det":87,"awa":95,"tp":84,"gms":89,"mov":93},"limits":{"aim":95,"hand":90,"quick":93,"det":94,"awa":95,"tp":92,"gms":90,"mov":93},"age":32,"day":17,"xp":36,"detectedTotal":688,"detectedLimit":742,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_gx24irah","name":"Leone™","realName":"from Bandits","raw":"Leone™\nfrom Bandits\nEdoardo Leone\n25yo (day 22)\n\nC\nPL\n876\n15\nlast bid\n\nC\nPL\n8\nby\nᴄʏʙᴇʀᴋᴏɴɢᴢ\n\ndeadline\n\n2026-06-10 - 12:01 (3hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n745\n/744\nAim\n\n92\n/92\nHandling\n\n91\n/91\nQuickness\n\n92\n/92\nDetermination\n\n93\n/93\nAwareness\n\n96\n/96\nTeamplay\n\n95\n/95\nGamesense\n\n96\n/96\nMovement\n\n90\n/90\nExperience\n23\n35 TO LVL 24\n\nLeadership\n15\n406 TO LVL 16\n\nFame\nTalents\n22 points\nSpecial abilities\nFavorite weapon\n\nFavorite map\ntrain","games":0,"heartFixed":null,"ls":15,"skills":{"aim":92,"hand":91,"quick":92,"det":93,"awa":96,"tp":95,"gms":96,"mov":90},"limits":{"aim":92,"hand":91,"quick":92,"det":93,"awa":96,"tp":95,"gms":96,"mov":90},"age":25,"day":22,"xp":23,"detectedTotal":745,"detectedLimit":744,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_cqp45ywc","name":"Player #211355","realName":"from Free agent","raw":"Player #211355\nfrom Free agent\nJuraj Kiss\n30yo (day 9)\n\nC\nPL\n695\n0\nstart bid\n\nC\nPL\n1\ndeadline\n\n2026-06-10 - 13:44 (4hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n658\n/743\nAim\n\n87\n/92\nHandling\n\n73\n/90\nQuickness\n\n88\n/95\nDetermination\n\n70\n/93\nAwareness\n\n79\n/90\nTeamplay\n\n87\n/94\nGamesense\n\n81\n/94\nMovement\n\n93\n/95\nExperience\n33\n479 TO LVL 34\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n32 points\nSpecial abilities\nNo special skill\nFavorite weapon\n\nFavorite map\ncastle","games":0,"heartFixed":null,"ls":1,"skills":{"aim":87,"hand":73,"quick":88,"det":70,"awa":79,"tp":87,"gms":81,"mov":93},"limits":{"aim":92,"hand":90,"quick":95,"det":93,"awa":90,"tp":94,"gms":94,"mov":95},"age":30,"day":9,"xp":33,"detectedTotal":658,"detectedLimit":743,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_64rljmhi","name":"ioRek- (361)","realName":"Noah Nielsen","raw":"ioRek- (361)\n\nNoah Nielsen\n19yo (day 29)\n\nDrop rookie\nPrimary skills\nTotal skill\n\n568\n/741\nAim\n\n87\n/92\nHandling\n\n88\n/88\nQuickness\n\n92\n/92\nDetermination\n\n91\n/92\nAwareness\n\n67\n/98\nTeamplay\n\n28\n/92\nGamesense\n\n45\n/90\nMovement\n\n70\n/97\nExperience\n18\n222 TO LVL 19\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":0,"heartFixed":null,"ls":1,"skills":{"aim":87,"hand":88,"quick":92,"det":91,"awa":67,"tp":28,"gms":45,"mov":70},"limits":{"aim":92,"hand":88,"quick":92,"det":92,"awa":98,"tp":92,"gms":90,"mov":97},"age":19,"day":29,"xp":18,"detectedTotal":568,"detectedLimit":741,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"academy","intent":"starter","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_xtg47adm","name":"OzStriker (361)","realName":"Rimantas Juknevicius","raw":"OzStriker (361)\n\nRimantas Juknevicius\n19yo (day 10)\n\nDrop rookie\nPrimary skills\nTotal skill\n\n532\n/740\nAim\n\n91\n/92\nHandling\n\n81\n/88\nQuickness\n\n94\n/94\nDetermination\n\n91\n/91\nAwareness\n\n62\n/95\nTeamplay\n\n36\n/93\nGamesense\n\n29\n/96\nMovement\n\n48\n/91\nExperience\n17\n235 TO LVL 18\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":0,"heartFixed":null,"ls":1,"skills":{"aim":91,"hand":81,"quick":94,"det":91,"awa":62,"tp":36,"gms":29,"mov":48},"limits":{"aim":92,"hand":88,"quick":94,"det":91,"awa":95,"tp":93,"gms":96,"mov":91},"age":19,"day":10,"xp":17,"detectedTotal":532,"detectedLimit":740,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"academy","intent":"undecided","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_td0loqei","name":"Maarek- (370)","realName":"Eymen Polat","raw":"Maarek- (370)\n\nEymen Polat\n16yo (day 1)\n\nDrop rookie\nPrimary skills\nTotal skill\n\n378\n/746\nAim\n\n93\n/93\nHandling\n\n76\n/92\nQuickness\n\n27\n/94\nDetermination\n\n35\n/92\nAwareness\n\n34\n/92\nTeamplay\n\n31\n/97\nGamesense\n\n36\n/99\nMovement\n\n46\n/87\nExperience\n7\n479 TO LVL 8\n\nLeadership\n1\n63 TO LVL 2\n\nFame\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle","games":0,"heartFixed":null,"ls":1,"skills":{"aim":93,"hand":76,"quick":27,"det":35,"awa":34,"tp":31,"gms":36,"mov":46},"limits":{"aim":93,"hand":92,"quick":94,"det":92,"awa":92,"tp":97,"gms":99,"mov":87},"age":16,"day":1,"xp":7,"detectedTotal":378,"detectedLimit":746,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"academy","intent":"undecided","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}}],"compareView":"ceiling","coef":{"aim":1.4,"quick":1.4,"det":1.3,"awa":1.2,"hand":1,"mov":1,"gms":0.5,"tp":0.4},"engine":{"matchesPerSeason":65,"trainingPerDay":0.8,"analysisBonus":2.6,"daysPerSeason":35,"daysPerWeek":7,"lsGrowth":1.25,"xpLevelsPerSeason":1.75,"declineStartAge":28,"declinePerAgeDay":0.2},"hearts":{"Small":0.005,"Medium":0.01,"Big":0.03,"Golden":0.05,"Fire":0.04,"Platinium":0.08,"Platinum":0.08},"rosterPlanOpen":false};
+const defaultState={"version":"1.1.0-rc.11","editMode":false,"communityName":"","teamName":"emuLate!","teamLogoUrl":"https://media.cplmanager.com/teams/3207/logo_1778591724706.png","teamLogoData":"","teamBannerUrl":"https://media.cplmanager.com/teams/3207/banner_1778600601663.png","teamBannerData":"","currentSeason":12,"currentDay":26,"seasonLength":35,"projectionHorizon":8,"dataSeason":12,"dataDay":22,"players":[{"id":"p_jno9bx5v","name":"HaRtS-","realName":"Kristjan Koppel","raw":"HaRtS-\n\nKristjan Koppel\n26yo (day 12)\n\nC\nPL\n740\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nArmageddon\nGemini\nAlnitak\n\nTotal skill\n\n669\n/752\nAim\n\n93\n/94\nHandling\n\n93\n/96\nQuickness\n\n94\n/97\nDetermination\n\n94\n/94\n101\n\nAwareness\n\n97\n/97\n103\n\nTeamplay\n\n64\n/91\nGamesense\n\n64\n/90\nMovement\n\n70\n/93\nExperience\n25\n12 TO LVL 26\n\nLeadership\n13\n391 TO LVL 14\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\n\nFavorite map\ntrain","games":6,"heartFixed":"Fire","ls":13,"skills":{"aim":93,"hand":93,"quick":94,"det":94,"awa":97,"tp":64,"gms":64,"mov":70},"limits":{"aim":94,"hand":96,"quick":97,"det":94,"awa":97,"tp":91,"gms":90,"mov":93},"age":26,"day":12,"xp":25,"detectedTotal":669,"detectedLimit":752,"gear":{"mouse":"aurora","mousepad":"armageddon","headset":"gemini","keyboard":"alnitak"}},{"id":"p_rn3ommq9","name":"mSx-","realName":"Raimonds Mezs","raw":"mSx-\n\nRaimonds Mezs\n24yo (day 13)\n\nC\nPL\n1,082\nKick player\n\nSell player\n\nPrimary skills\nHero\nNoctron\nEnigma\nAlnitak\n\nTotal skill\n\n745\n/745\nAim\n\n95\n/95\n104\n\nHandling\n\n92\n/92\nQuickness\n\n94\n/94\n104\n\nDetermination\n\n94\n/94\n104\n\nAwareness\n\n94\n/94\n104\n\nTeamplay\n\n90\n/90\nGamesense\n\n95\n/95\n102\n\nMovement\n\n91\n/91\nExperience\n28\n354 TO LVL 29\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":451,"heartFixed":null,"ls":1,"skills":{"aim":95,"hand":92,"quick":94,"det":94,"awa":94,"tp":90,"gms":95,"mov":91},"limits":{"aim":95,"hand":92,"quick":94,"det":94,"awa":94,"tp":90,"gms":95,"mov":91},"age":24,"day":13,"xp":28,"detectedTotal":745,"detectedLimit":745,"gear":{"mouse":"hero","mousepad":"noctron","headset":"enigma","keyboard":"alnitak"}},{"id":"p_hdg9jjef","name":"R!Go-","realName":"Florian Koch","raw":"R!Go-\n\nFlorian Koch\n24yo (day 13)\n\nC\nPL\n861\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nCitus\nEnigma\nAlnitak\n\nTotal skill\n\n749\n/749\nAim\n\n91\n/91\nHandling\n\n93\n/93\nQuickness\n\n91\n/91\n101\n\nDetermination\n\n91\n/91\n100\n\nAwareness\n\n96\n/96\n103\n\nTeamplay\n\n96\n/96\n102\n\nGamesense\n\n93\n/93\nMovement\n\n98\n/98\n104\n\nExperience\n26\n324 TO LVL 27\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":394,"heartFixed":null,"ls":1,"skills":{"aim":91,"hand":93,"quick":91,"det":91,"awa":96,"tp":96,"gms":93,"mov":98},"limits":{"aim":91,"hand":93,"quick":91,"det":91,"awa":96,"tp":96,"gms":93,"mov":98},"age":24,"day":13,"xp":26,"detectedTotal":749,"detectedLimit":749,"gear":{"mouse":"aurora","mousepad":"citus","headset":"enigma","keyboard":"alnitak"}},{"id":"p_au4mk7f4","name":"MaT","realName":"Hiroshi Takahashi","raw":"MaT\n\nHiroshi Takahashi\n21yo (day 12)\n\nC\nPL\n884\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nArmageddon\nEnigma\nAlnitak\n\nTotal skill\n\n699\n/749\nAim\n\n94\n/94\n101\n\nHandling\n\n91\n/91\nQuickness\n\n94\n/94\n101\n\nDetermination\n\n95\n/95\n103\n\nAwareness\n\n93\n/93\n100\n\nTeamplay\n\n79\n/93\nGamesense\n\n63\n/99\nMovement\n\n90\n/90\nExperience\n21\n354 TO LVL 22\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":271,"heartFixed":null,"ls":1,"skills":{"aim":94,"hand":91,"quick":94,"det":95,"awa":93,"tp":79,"gms":63,"mov":90},"limits":{"aim":94,"hand":91,"quick":94,"det":95,"awa":93,"tp":93,"gms":99,"mov":90},"age":21,"day":12,"xp":21,"detectedTotal":699,"detectedLimit":749,"gear":{"mouse":"aurora","mousepad":"armageddon","headset":"enigma","keyboard":"alnitak"}},{"id":"p_n7msuog3","name":"ZywOo-","realName":"Frederick Scott","raw":"ZywOo- (370)\n\nFrederick Scott\n20yo (day 24)\n\nC\nPL\n844\nKick player\n\nSell player\n\nPrimary skills\n\n\n\n\n\nTotal skill\n\n590\n/752\nAim\n\n93\n/95\nHandling\n\n92\n/92\nQuickness\n\n93\n/94\nDetermination\n\n94\n/94\nAwareness\n\n70\n/97\nTeamplay\n\n39\n/89\nGamesense\n\n40\n/91\nMovement\n\n69\n/100\nExperience\n19\n209 TO LVL 20\n\nLeadership\n7\n418 TO LVL 8\n\nFame\nTalents\n18 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\nmill","games":163,"heartFixed":null,"ls":7,"skills":{"aim":93,"hand":92,"quick":93,"det":94,"awa":70,"tp":39,"gms":40,"mov":69},"limits":{"aim":95,"hand":92,"quick":94,"det":94,"awa":97,"tp":89,"gms":91,"mov":100},"age":20,"day":24,"xp":19,"detectedTotal":590,"detectedLimit":752,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"}},{"id":"p_od6l3e4n","name":"Happy-","realName":"Gabriel Rojas","raw":"Happy-\n\nGabriel Rojas\n34yo (day 6)\n\nC\nPL\n1,389\nstart bid\n\nC\nPL\n5,000\ndeadline\n\n2026-06-10 - 09:03\nPrimary skills\nAurora 3330\nNoctron\nEnigma\nAlnitak\n\nTotal skill\n\n740\n/746\nAim\n\n94\n/96\n101\n\nHandling\n\n96\n/96\n101\n\nQuickness\n\n92\n/92\n101\n\nDetermination\n\n93\n/93\n101\n\nAwareness\n\n94\n/95\n101\n\nTeamplay\n\n90\n/91\nGamesense\n\n87\n/89\nMovement\n\n94\n/94\n100\n\nExperience\n38\n448 TO LVL 39\n\nLeadership\n16\n83 TO LVL 17\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":355,"heartFixed":null,"ls":16,"skills":{"aim":94,"hand":96,"quick":92,"det":93,"awa":94,"tp":90,"gms":87,"mov":94},"limits":{"aim":96,"hand":96,"quick":92,"det":93,"awa":95,"tp":91,"gms":89,"mov":94},"age":34,"day":6,"xp":38,"detectedTotal":740,"detectedLimit":746,"gear":{"mouse":"aurora","mousepad":"noctron","headset":"enigma","keyboard":"alnitak"}}],"analysisPlan":{"12":{"p_harts":2,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"13":{"p_harts":2,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"14":{"p_harts":1,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"15":{"p_harts":0,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"16":{"p_harts":0,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"17":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"18":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"19":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"20":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0}},"analysisBlocks":[{"id":"b_7swzdfc2","playerId":"p_jno9bx5v","startSeason":12,"startDay":22,"durationDays":7},{"id":"b_jhppvgzi","playerId":"p_n7msuog3","startSeason":12,"startDay":29,"durationDays":7},{"id":"b_qccd5gub","playerId":"p_jno9bx5v","startSeason":13,"startDay":1,"durationDays":7},{"id":"b_39np5wm6","playerId":"p_n7msuog3","startSeason":13,"startDay":8,"durationDays":7},{"id":"b_t4qaaj0o","playerId":"p_n7msuog3","startSeason":13,"startDay":15,"durationDays":7},{"id":"b_c0haucit","playerId":"p_au4mk7f4","startSeason":13,"startDay":22,"durationDays":7},{"id":"b_fwkfaui4","playerId":"p_jno9bx5v","startSeason":13,"startDay":29,"durationDays":7},{"id":"b_z2k452z8","playerId":"p_n7msuog3","startSeason":14,"startDay":1,"durationDays":7},{"id":"b_t7bfvu3y","playerId":"p_n7msuog3","startSeason":14,"startDay":8,"durationDays":7},{"id":"b_2kg06jtn","playerId":"p_n7msuog3","startSeason":15,"startDay":1,"durationDays":7}],"trainingDraft":{"playerId":"p_jno9bx5v","startSeason":12,"startDay":22,"durationDays":7},"selectedAnalysisBlock":null,"analysisBlocksOpen":false,"hiddenTrajectoryPlayers":[],"candidatePool":[{"id":"p_nrn4dwo9","name":"Domagoj","realName":"from Chinelo Vuitton","raw":"Domagoj\nfrom Chinelo Vuitton\nDomagoj Zoric\n20yo (day 17)\n\nC\nPL\n639\n0\nlast bid\n\nC\nPL\n22,000\nby\nCyber rpa4u\n\ndeadline\n\n2026-06-10 - 07:26 (1m left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n608\n/732\nAim\n\n90\n/92\nHandling\n\n95\n/95\nQuickness\n\n91\n/93\nDetermination\n\n96\n/96\nAwareness\n\n98\n/99\nTeamplay\n\n26\n/85\nGamesense\n\n23\n/83\nMovement\n\n89\n/89\nExperience\n20\n481 TO LVL 21\n\nLeadership\n5\n453 TO LVL 6\n\nFame\nTalents\n19 points\nSpecial abilities\nFavorite weapon\n\nFavorite map\nmill","games":0,"heartFixed":null,"ls":5,"skills":{"aim":90,"hand":95,"quick":91,"det":96,"awa":98,"tp":26,"gms":23,"mov":89},"limits":{"aim":92,"hand":95,"quick":93,"det":96,"awa":99,"tp":85,"gms":83,"mov":89},"age":20,"day":17,"xp":20,"detectedTotal":608,"detectedLimit":732,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_e2fynz1x","name":"Player #211341","realName":"from Free agent","raw":"Player #211341\nfrom Free agent\nElias Svensson\n33yo (day 28)\n\nC\nPL\n734\n0\nstart bid\n\nC\nPL\n1\ndeadline\n\n2026-06-10 - 10:00 (1hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n707\n/750\nAim\n\n88\n/95\nHandling\n\n89\n/97\nQuickness\n\n93\n/93\nDetermination\n\n93\n/94\nAwareness\n\n89\n/91\nTeamplay\n\n89\n/95\nGamesense\n\n85\n/94\nMovement\n\n81\n/91\nExperience\n38\n215 TO LVL 39\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n37 points\nSpecial abilities\nNo special skill\nFavorite weapon\n\nFavorite map\nmill","games":0,"heartFixed":null,"ls":1,"skills":{"aim":88,"hand":89,"quick":93,"det":93,"awa":89,"tp":89,"gms":85,"mov":81},"limits":{"aim":95,"hand":97,"quick":93,"det":94,"awa":91,"tp":95,"gms":94,"mov":91},"age":33,"day":28,"xp":38,"detectedTotal":707,"detectedLimit":750,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"starter","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_ogjybm6r","name":"Player #211343","realName":"from Free agent","raw":"Player #211343\nfrom Free agent\nJi-ho Seo\n32yo (day 17)\n\nC\nPL\n687\n0\nstart bid\n\nC\nPL\n1\ndeadline\n\n2026-06-10 - 10:32 (1hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n688\n/742\nAim\n\n75\n/95\nHandling\n\n81\n/90\nQuickness\n\n84\n/93\nDetermination\n\n87\n/94\nAwareness\n\n95\n/95\nTeamplay\n\n84\n/92\nGamesense\n\n89\n/90\nMovement\n\n93\n/93\nExperience\n36\n225 TO LVL 37\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n35 points\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle","games":0,"heartFixed":null,"ls":1,"skills":{"aim":75,"hand":81,"quick":84,"det":87,"awa":95,"tp":84,"gms":89,"mov":93},"limits":{"aim":95,"hand":90,"quick":93,"det":94,"awa":95,"tp":92,"gms":90,"mov":93},"age":32,"day":17,"xp":36,"detectedTotal":688,"detectedLimit":742,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_gx24irah","name":"Leone™","realName":"from Bandits","raw":"Leone™\nfrom Bandits\nEdoardo Leone\n25yo (day 22)\n\nC\nPL\n876\n15\nlast bid\n\nC\nPL\n8\nby\nᴄʏʙᴇʀᴋᴏɴɢᴢ\n\ndeadline\n\n2026-06-10 - 12:01 (3hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n745\n/744\nAim\n\n92\n/92\nHandling\n\n91\n/91\nQuickness\n\n92\n/92\nDetermination\n\n93\n/93\nAwareness\n\n96\n/96\nTeamplay\n\n95\n/95\nGamesense\n\n96\n/96\nMovement\n\n90\n/90\nExperience\n23\n35 TO LVL 24\n\nLeadership\n15\n406 TO LVL 16\n\nFame\nTalents\n22 points\nSpecial abilities\nFavorite weapon\n\nFavorite map\ntrain","games":0,"heartFixed":null,"ls":15,"skills":{"aim":92,"hand":91,"quick":92,"det":93,"awa":96,"tp":95,"gms":96,"mov":90},"limits":{"aim":92,"hand":91,"quick":92,"det":93,"awa":96,"tp":95,"gms":96,"mov":90},"age":25,"day":22,"xp":23,"detectedTotal":745,"detectedLimit":744,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_cqp45ywc","name":"Player #211355","realName":"from Free agent","raw":"Player #211355\nfrom Free agent\nJuraj Kiss\n30yo (day 9)\n\nC\nPL\n695\n0\nstart bid\n\nC\nPL\n1\ndeadline\n\n2026-06-10 - 13:44 (4hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n658\n/743\nAim\n\n87\n/92\nHandling\n\n73\n/90\nQuickness\n\n88\n/95\nDetermination\n\n70\n/93\nAwareness\n\n79\n/90\nTeamplay\n\n87\n/94\nGamesense\n\n81\n/94\nMovement\n\n93\n/95\nExperience\n33\n479 TO LVL 34\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n32 points\nSpecial abilities\nNo special skill\nFavorite weapon\n\nFavorite map\ncastle","games":0,"heartFixed":null,"ls":1,"skills":{"aim":87,"hand":73,"quick":88,"det":70,"awa":79,"tp":87,"gms":81,"mov":93},"limits":{"aim":92,"hand":90,"quick":95,"det":93,"awa":90,"tp":94,"gms":94,"mov":95},"age":30,"day":9,"xp":33,"detectedTotal":658,"detectedLimit":743,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_64rljmhi","name":"ioRek- (361)","realName":"Noah Nielsen","raw":"ioRek- (361)\n\nNoah Nielsen\n19yo (day 29)\n\nDrop rookie\nPrimary skills\nTotal skill\n\n568\n/741\nAim\n\n87\n/92\nHandling\n\n88\n/88\nQuickness\n\n92\n/92\nDetermination\n\n91\n/92\nAwareness\n\n67\n/98\nTeamplay\n\n28\n/92\nGamesense\n\n45\n/90\nMovement\n\n70\n/97\nExperience\n18\n222 TO LVL 19\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":0,"heartFixed":null,"ls":1,"skills":{"aim":87,"hand":88,"quick":92,"det":91,"awa":67,"tp":28,"gms":45,"mov":70},"limits":{"aim":92,"hand":88,"quick":92,"det":92,"awa":98,"tp":92,"gms":90,"mov":97},"age":19,"day":29,"xp":18,"detectedTotal":568,"detectedLimit":741,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"academy","intent":"starter","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_xtg47adm","name":"OzStriker (361)","realName":"Rimantas Juknevicius","raw":"OzStriker (361)\n\nRimantas Juknevicius\n19yo (day 10)\n\nDrop rookie\nPrimary skills\nTotal skill\n\n532\n/740\nAim\n\n91\n/92\nHandling\n\n81\n/88\nQuickness\n\n94\n/94\nDetermination\n\n91\n/91\nAwareness\n\n62\n/95\nTeamplay\n\n36\n/93\nGamesense\n\n29\n/96\nMovement\n\n48\n/91\nExperience\n17\n235 TO LVL 18\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":0,"heartFixed":null,"ls":1,"skills":{"aim":91,"hand":81,"quick":94,"det":91,"awa":62,"tp":36,"gms":29,"mov":48},"limits":{"aim":92,"hand":88,"quick":94,"det":91,"awa":95,"tp":93,"gms":96,"mov":91},"age":19,"day":10,"xp":17,"detectedTotal":532,"detectedLimit":740,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"academy","intent":"undecided","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_td0loqei","name":"Maarek- (370)","realName":"Eymen Polat","raw":"Maarek- (370)\n\nEymen Polat\n16yo (day 1)\n\nDrop rookie\nPrimary skills\nTotal skill\n\n378\n/746\nAim\n\n93\n/93\nHandling\n\n76\n/92\nQuickness\n\n27\n/94\nDetermination\n\n35\n/92\nAwareness\n\n34\n/92\nTeamplay\n\n31\n/97\nGamesense\n\n36\n/99\nMovement\n\n46\n/87\nExperience\n7\n479 TO LVL 8\n\nLeadership\n1\n63 TO LVL 2\n\nFame\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle","games":0,"heartFixed":null,"ls":1,"skills":{"aim":93,"hand":76,"quick":27,"det":35,"awa":34,"tp":31,"gms":36,"mov":46},"limits":{"aim":93,"hand":92,"quick":94,"det":92,"awa":92,"tp":97,"gms":99,"mov":87},"age":16,"day":1,"xp":7,"detectedTotal":378,"detectedLimit":746,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"academy","intent":"undecided","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}}],"compareView":"ceiling","coef":{"aim":1.4,"quick":1.4,"det":1.3,"awa":1.2,"hand":1,"mov":1,"gms":0.5,"tp":0.4},"engine":{"matchesPerSeason":65,"trainingPerDay":0.8,"analysisBonus":2.6,"daysPerSeason":35,"daysPerWeek":7,"lsGrowth":1.25,"xpLevelsPerSeason":1.75,"declineStartAge":28,"declinePerAgeDay":0.2},"hearts":{"Small":0.005,"Medium":0.01,"Big":0.03,"Golden":0.05,"Fire":0.04,"Platinium":0.08,"Platinum":0.08},"rosterPlanOpen":false};
 const defaultPlayers=[{"id":"p_jno9bx5v","name":"HaRtS-","realName":"Kristjan Koppel","raw":"HaRtS-\n\nKristjan Koppel\n26yo (day 12)\n\nC\nPL\n740\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nArmageddon\nGemini\nAlnitak\n\nTotal skill\n\n669\n/752\nAim\n\n93\n/94\nHandling\n\n93\n/96\nQuickness\n\n94\n/97\nDetermination\n\n94\n/94\n101\n\nAwareness\n\n97\n/97\n103\n\nTeamplay\n\n64\n/91\nGamesense\n\n64\n/90\nMovement\n\n70\n/93\nExperience\n25\n12 TO LVL 26\n\nLeadership\n13\n391 TO LVL 14\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\n\nFavorite map\ntrain","games":6,"heartFixed":"Fire","ls":13,"skills":{"aim":93,"hand":93,"quick":94,"det":94,"awa":97,"tp":64,"gms":64,"mov":70},"limits":{"aim":94,"hand":96,"quick":97,"det":94,"awa":97,"tp":91,"gms":90,"mov":93},"age":26,"day":12,"xp":25,"detectedTotal":669,"detectedLimit":752,"gear":{"mouse":"aurora","mousepad":"armageddon","headset":"gemini","keyboard":"alnitak"}},{"id":"p_rn3ommq9","name":"mSx-","realName":"Raimonds Mezs","raw":"mSx-\n\nRaimonds Mezs\n24yo (day 13)\n\nC\nPL\n1,082\nKick player\n\nSell player\n\nPrimary skills\nHero\nNoctron\nEnigma\nAlnitak\n\nTotal skill\n\n745\n/745\nAim\n\n95\n/95\n104\n\nHandling\n\n92\n/92\nQuickness\n\n94\n/94\n104\n\nDetermination\n\n94\n/94\n104\n\nAwareness\n\n94\n/94\n104\n\nTeamplay\n\n90\n/90\nGamesense\n\n95\n/95\n102\n\nMovement\n\n91\n/91\nExperience\n28\n354 TO LVL 29\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":451,"heartFixed":null,"ls":1,"skills":{"aim":95,"hand":92,"quick":94,"det":94,"awa":94,"tp":90,"gms":95,"mov":91},"limits":{"aim":95,"hand":92,"quick":94,"det":94,"awa":94,"tp":90,"gms":95,"mov":91},"age":24,"day":13,"xp":28,"detectedTotal":745,"detectedLimit":745,"gear":{"mouse":"hero","mousepad":"noctron","headset":"enigma","keyboard":"alnitak"}},{"id":"p_hdg9jjef","name":"R!Go-","realName":"Florian Koch","raw":"R!Go-\n\nFlorian Koch\n24yo (day 13)\n\nC\nPL\n861\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nCitus\nEnigma\nAlnitak\n\nTotal skill\n\n749\n/749\nAim\n\n91\n/91\nHandling\n\n93\n/93\nQuickness\n\n91\n/91\n101\n\nDetermination\n\n91\n/91\n100\n\nAwareness\n\n96\n/96\n103\n\nTeamplay\n\n96\n/96\n102\n\nGamesense\n\n93\n/93\nMovement\n\n98\n/98\n104\n\nExperience\n26\n324 TO LVL 27\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":394,"heartFixed":null,"ls":1,"skills":{"aim":91,"hand":93,"quick":91,"det":91,"awa":96,"tp":96,"gms":93,"mov":98},"limits":{"aim":91,"hand":93,"quick":91,"det":91,"awa":96,"tp":96,"gms":93,"mov":98},"age":24,"day":13,"xp":26,"detectedTotal":749,"detectedLimit":749,"gear":{"mouse":"aurora","mousepad":"citus","headset":"enigma","keyboard":"alnitak"}},{"id":"p_au4mk7f4","name":"MaT","realName":"Hiroshi Takahashi","raw":"MaT\n\nHiroshi Takahashi\n21yo (day 12)\n\nC\nPL\n884\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nArmageddon\nEnigma\nAlnitak\n\nTotal skill\n\n699\n/749\nAim\n\n94\n/94\n101\n\nHandling\n\n91\n/91\nQuickness\n\n94\n/94\n101\n\nDetermination\n\n95\n/95\n103\n\nAwareness\n\n93\n/93\n100\n\nTeamplay\n\n79\n/93\nGamesense\n\n63\n/99\nMovement\n\n90\n/90\nExperience\n21\n354 TO LVL 22\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":271,"heartFixed":null,"ls":1,"skills":{"aim":94,"hand":91,"quick":94,"det":95,"awa":93,"tp":79,"gms":63,"mov":90},"limits":{"aim":94,"hand":91,"quick":94,"det":95,"awa":93,"tp":93,"gms":99,"mov":90},"age":21,"day":12,"xp":21,"detectedTotal":699,"detectedLimit":749,"gear":{"mouse":"aurora","mousepad":"armageddon","headset":"enigma","keyboard":"alnitak"}},{"id":"p_n7msuog3","name":"ZywOo-","realName":"Frederick Scott","raw":"ZywOo- (370)\n\nFrederick Scott\n20yo (day 24)\n\nC\nPL\n844\nKick player\n\nSell player\n\nPrimary skills\n\n\n\n\n\nTotal skill\n\n590\n/752\nAim\n\n93\n/95\nHandling\n\n92\n/92\nQuickness\n\n93\n/94\nDetermination\n\n94\n/94\nAwareness\n\n70\n/97\nTeamplay\n\n39\n/89\nGamesense\n\n40\n/91\nMovement\n\n69\n/100\nExperience\n19\n209 TO LVL 20\n\nLeadership\n7\n418 TO LVL 8\n\nFame\nTalents\n18 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\nmill","games":163,"heartFixed":null,"ls":7,"skills":{"aim":93,"hand":92,"quick":93,"det":94,"awa":70,"tp":39,"gms":40,"mov":69},"limits":{"aim":95,"hand":92,"quick":94,"det":94,"awa":97,"tp":89,"gms":91,"mov":100},"age":20,"day":24,"xp":19,"detectedTotal":590,"detectedLimit":752,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"}},{"id":"p_od6l3e4n","name":"Happy-","realName":"Gabriel Rojas","raw":"Happy-\n\nGabriel Rojas\n34yo (day 6)\n\nC\nPL\n1,389\nstart bid\n\nC\nPL\n5,000\ndeadline\n\n2026-06-10 - 09:03\nPrimary skills\nAurora 3330\nNoctron\nEnigma\nAlnitak\n\nTotal skill\n\n740\n/746\nAim\n\n94\n/96\n101\n\nHandling\n\n96\n/96\n101\n\nQuickness\n\n92\n/92\n101\n\nDetermination\n\n93\n/93\n101\n\nAwareness\n\n94\n/95\n101\n\nTeamplay\n\n90\n/91\nGamesense\n\n87\n/89\nMovement\n\n94\n/94\n100\n\nExperience\n38\n448 TO LVL 39\n\nLeadership\n16\n83 TO LVL 17\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":355,"heartFixed":null,"ls":16,"skills":{"aim":94,"hand":96,"quick":92,"det":93,"awa":94,"tp":90,"gms":87,"mov":94},"limits":{"aim":96,"hand":96,"quick":92,"det":93,"awa":95,"tp":91,"gms":89,"mov":94},"age":34,"day":6,"xp":38,"detectedTotal":740,"detectedLimit":746,"gear":{"mouse":"aurora","mousepad":"noctron","headset":"enigma","keyboard":"alnitak"}}];
 const skillOrder=['aim','hand','quick','det','awa','tp','gms','mov'];const labels={aim:'Aim',hand:'Hndlg',quick:'Quick',det:'Detrm',awa:'Awarn',tp:'Tplay',gms:'Gsense',mov:'Move'};const icons={aim:'🎯',hand:'🕹️',quick:'⚡',det:'🛡️',awa:'👁️',tp:'👥',gms:'🧠',mov:'🏃'};const parseNames={Aim:'aim',Handling:'hand',Quickness:'quick',Determination:'det',Awareness:'awa',Teamplay:'tp',Gamesense:'gms',Movement:'mov'};const gearSlots=['mouse','mousepad','headset','keyboard'];const gearSlotLabels={mouse:'Mouse',mousepad:'Mousepad',headset:'Headset',keyboard:'Keyboard'};const gearCatalog=[
 {id:'none',name:'None',slot:'none',boosts:{}},
@@ -3619,7 +3583,7 @@ const specialCatalog=[
   {id:'slow_learner',name:'Slow learner',icon:'🐢',effect:'XP -25%'},
   {id:'prodigy',name:'Prodigy',icon:'💎',effect:'Individual training +25%'}
 ];
-const specialById=Object.fromEntries(specialCatalog.map(s=>[s.id,s]));const priorities=[['aim','hand'],['quick','det'],['awa','mov'],['gms','tp']];let selected=0,selectedSeason=12,parsedPlayers=[],candidateImportBuffer=[],selectedCandidateId=null;let state={"version":"1.1.0-rc.12","editMode":false,"communityName":"","teamName":"emuLate!","teamLogoUrl":"https://media.cplmanager.com/teams/3207/logo_1778591724706.png","teamLogoData":"","teamBannerUrl":"https://media.cplmanager.com/teams/3207/banner_1778600601663.png","teamBannerData":"","currentSeason":12,"currentDay":26,"seasonLength":35,"projectionHorizon":8,"dataSeason":12,"dataDay":22,"players":[{"id":"p_jno9bx5v","name":"HaRtS-","realName":"Kristjan Koppel","raw":"HaRtS-\n\nKristjan Koppel\n26yo (day 12)\n\nC\nPL\n740\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nArmageddon\nGemini\nAlnitak\n\nTotal skill\n\n669\n/752\nAim\n\n93\n/94\nHandling\n\n93\n/96\nQuickness\n\n94\n/97\nDetermination\n\n94\n/94\n101\n\nAwareness\n\n97\n/97\n103\n\nTeamplay\n\n64\n/91\nGamesense\n\n64\n/90\nMovement\n\n70\n/93\nExperience\n25\n12 TO LVL 26\n\nLeadership\n13\n391 TO LVL 14\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\n\nFavorite map\ntrain","games":6,"heartFixed":"Fire","ls":13,"skills":{"aim":93,"hand":93,"quick":94,"det":94,"awa":97,"tp":64,"gms":64,"mov":70},"limits":{"aim":94,"hand":96,"quick":97,"det":94,"awa":97,"tp":91,"gms":90,"mov":93},"age":26,"day":12,"xp":25,"detectedTotal":669,"detectedLimit":752,"gear":{"mouse":"aurora","mousepad":"armageddon","headset":"gemini","keyboard":"alnitak"}},{"id":"p_rn3ommq9","name":"mSx-","realName":"Raimonds Mezs","raw":"mSx-\n\nRaimonds Mezs\n24yo (day 13)\n\nC\nPL\n1,082\nKick player\n\nSell player\n\nPrimary skills\nHero\nNoctron\nEnigma\nAlnitak\n\nTotal skill\n\n745\n/745\nAim\n\n95\n/95\n104\n\nHandling\n\n92\n/92\nQuickness\n\n94\n/94\n104\n\nDetermination\n\n94\n/94\n104\n\nAwareness\n\n94\n/94\n104\n\nTeamplay\n\n90\n/90\nGamesense\n\n95\n/95\n102\n\nMovement\n\n91\n/91\nExperience\n28\n354 TO LVL 29\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":451,"heartFixed":null,"ls":1,"skills":{"aim":95,"hand":92,"quick":94,"det":94,"awa":94,"tp":90,"gms":95,"mov":91},"limits":{"aim":95,"hand":92,"quick":94,"det":94,"awa":94,"tp":90,"gms":95,"mov":91},"age":24,"day":13,"xp":28,"detectedTotal":745,"detectedLimit":745,"gear":{"mouse":"hero","mousepad":"noctron","headset":"enigma","keyboard":"alnitak"}},{"id":"p_hdg9jjef","name":"R!Go-","realName":"Florian Koch","raw":"R!Go-\n\nFlorian Koch\n24yo (day 13)\n\nC\nPL\n861\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nCitus\nEnigma\nAlnitak\n\nTotal skill\n\n749\n/749\nAim\n\n91\n/91\nHandling\n\n93\n/93\nQuickness\n\n91\n/91\n101\n\nDetermination\n\n91\n/91\n100\n\nAwareness\n\n96\n/96\n103\n\nTeamplay\n\n96\n/96\n102\n\nGamesense\n\n93\n/93\nMovement\n\n98\n/98\n104\n\nExperience\n26\n324 TO LVL 27\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":394,"heartFixed":null,"ls":1,"skills":{"aim":91,"hand":93,"quick":91,"det":91,"awa":96,"tp":96,"gms":93,"mov":98},"limits":{"aim":91,"hand":93,"quick":91,"det":91,"awa":96,"tp":96,"gms":93,"mov":98},"age":24,"day":13,"xp":26,"detectedTotal":749,"detectedLimit":749,"gear":{"mouse":"aurora","mousepad":"citus","headset":"enigma","keyboard":"alnitak"}},{"id":"p_au4mk7f4","name":"MaT","realName":"Hiroshi Takahashi","raw":"MaT\n\nHiroshi Takahashi\n21yo (day 12)\n\nC\nPL\n884\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nArmageddon\nEnigma\nAlnitak\n\nTotal skill\n\n699\n/749\nAim\n\n94\n/94\n101\n\nHandling\n\n91\n/91\nQuickness\n\n94\n/94\n101\n\nDetermination\n\n95\n/95\n103\n\nAwareness\n\n93\n/93\n100\n\nTeamplay\n\n79\n/93\nGamesense\n\n63\n/99\nMovement\n\n90\n/90\nExperience\n21\n354 TO LVL 22\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":271,"heartFixed":null,"ls":1,"skills":{"aim":94,"hand":91,"quick":94,"det":95,"awa":93,"tp":79,"gms":63,"mov":90},"limits":{"aim":94,"hand":91,"quick":94,"det":95,"awa":93,"tp":93,"gms":99,"mov":90},"age":21,"day":12,"xp":21,"detectedTotal":699,"detectedLimit":749,"gear":{"mouse":"aurora","mousepad":"armageddon","headset":"enigma","keyboard":"alnitak"}},{"id":"p_n7msuog3","name":"ZywOo-","realName":"Frederick Scott","raw":"ZywOo- (370)\n\nFrederick Scott\n20yo (day 24)\n\nC\nPL\n844\nKick player\n\nSell player\n\nPrimary skills\n\n\n\n\n\nTotal skill\n\n590\n/752\nAim\n\n93\n/95\nHandling\n\n92\n/92\nQuickness\n\n93\n/94\nDetermination\n\n94\n/94\nAwareness\n\n70\n/97\nTeamplay\n\n39\n/89\nGamesense\n\n40\n/91\nMovement\n\n69\n/100\nExperience\n19\n209 TO LVL 20\n\nLeadership\n7\n418 TO LVL 8\n\nFame\nTalents\n18 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\nmill","games":163,"heartFixed":null,"ls":7,"skills":{"aim":93,"hand":92,"quick":93,"det":94,"awa":70,"tp":39,"gms":40,"mov":69},"limits":{"aim":95,"hand":92,"quick":94,"det":94,"awa":97,"tp":89,"gms":91,"mov":100},"age":20,"day":24,"xp":19,"detectedTotal":590,"detectedLimit":752,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"}},{"id":"p_od6l3e4n","name":"Happy-","realName":"Gabriel Rojas","raw":"Happy-\n\nGabriel Rojas\n34yo (day 6)\n\nC\nPL\n1,389\nstart bid\n\nC\nPL\n5,000\ndeadline\n\n2026-06-10 - 09:03\nPrimary skills\nAurora 3330\nNoctron\nEnigma\nAlnitak\n\nTotal skill\n\n740\n/746\nAim\n\n94\n/96\n101\n\nHandling\n\n96\n/96\n101\n\nQuickness\n\n92\n/92\n101\n\nDetermination\n\n93\n/93\n101\n\nAwareness\n\n94\n/95\n101\n\nTeamplay\n\n90\n/91\nGamesense\n\n87\n/89\nMovement\n\n94\n/94\n100\n\nExperience\n38\n448 TO LVL 39\n\nLeadership\n16\n83 TO LVL 17\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":355,"heartFixed":null,"ls":16,"skills":{"aim":94,"hand":96,"quick":92,"det":93,"awa":94,"tp":90,"gms":87,"mov":94},"limits":{"aim":96,"hand":96,"quick":92,"det":93,"awa":95,"tp":91,"gms":89,"mov":94},"age":34,"day":6,"xp":38,"detectedTotal":740,"detectedLimit":746,"gear":{"mouse":"aurora","mousepad":"noctron","headset":"enigma","keyboard":"alnitak"}}],"analysisPlan":{"12":{"p_harts":2,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"13":{"p_harts":2,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"14":{"p_harts":1,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"15":{"p_harts":0,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"16":{"p_harts":0,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"17":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"18":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"19":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"20":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0}},"analysisBlocks":[{"id":"b_7swzdfc2","playerId":"p_jno9bx5v","startSeason":12,"startDay":22,"durationDays":7},{"id":"b_jhppvgzi","playerId":"p_n7msuog3","startSeason":12,"startDay":29,"durationDays":7},{"id":"b_qccd5gub","playerId":"p_jno9bx5v","startSeason":13,"startDay":1,"durationDays":7},{"id":"b_39np5wm6","playerId":"p_n7msuog3","startSeason":13,"startDay":8,"durationDays":7},{"id":"b_t4qaaj0o","playerId":"p_n7msuog3","startSeason":13,"startDay":15,"durationDays":7},{"id":"b_c0haucit","playerId":"p_au4mk7f4","startSeason":13,"startDay":22,"durationDays":7},{"id":"b_fwkfaui4","playerId":"p_jno9bx5v","startSeason":13,"startDay":29,"durationDays":7},{"id":"b_z2k452z8","playerId":"p_n7msuog3","startSeason":14,"startDay":1,"durationDays":7},{"id":"b_t7bfvu3y","playerId":"p_n7msuog3","startSeason":14,"startDay":8,"durationDays":7},{"id":"b_2kg06jtn","playerId":"p_n7msuog3","startSeason":15,"startDay":1,"durationDays":7}],"trainingDraft":{"playerId":"p_jno9bx5v","startSeason":12,"startDay":22,"durationDays":7},"selectedAnalysisBlock":null,"analysisBlocksOpen":false,"hiddenTrajectoryPlayers":[],"candidatePool":[{"id":"p_nrn4dwo9","name":"Domagoj","realName":"from Chinelo Vuitton","raw":"Domagoj\nfrom Chinelo Vuitton\nDomagoj Zoric\n20yo (day 17)\n\nC\nPL\n639\n0\nlast bid\n\nC\nPL\n22,000\nby\nCyber rpa4u\n\ndeadline\n\n2026-06-10 - 07:26 (1m left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n608\n/732\nAim\n\n90\n/92\nHandling\n\n95\n/95\nQuickness\n\n91\n/93\nDetermination\n\n96\n/96\nAwareness\n\n98\n/99\nTeamplay\n\n26\n/85\nGamesense\n\n23\n/83\nMovement\n\n89\n/89\nExperience\n20\n481 TO LVL 21\n\nLeadership\n5\n453 TO LVL 6\n\nFame\nTalents\n19 points\nSpecial abilities\nFavorite weapon\n\nFavorite map\nmill","games":0,"heartFixed":null,"ls":5,"skills":{"aim":90,"hand":95,"quick":91,"det":96,"awa":98,"tp":26,"gms":23,"mov":89},"limits":{"aim":92,"hand":95,"quick":93,"det":96,"awa":99,"tp":85,"gms":83,"mov":89},"age":20,"day":17,"xp":20,"detectedTotal":608,"detectedLimit":732,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_e2fynz1x","name":"Player #211341","realName":"from Free agent","raw":"Player #211341\nfrom Free agent\nElias Svensson\n33yo (day 28)\n\nC\nPL\n734\n0\nstart bid\n\nC\nPL\n1\ndeadline\n\n2026-06-10 - 10:00 (1hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n707\n/750\nAim\n\n88\n/95\nHandling\n\n89\n/97\nQuickness\n\n93\n/93\nDetermination\n\n93\n/94\nAwareness\n\n89\n/91\nTeamplay\n\n89\n/95\nGamesense\n\n85\n/94\nMovement\n\n81\n/91\nExperience\n38\n215 TO LVL 39\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n37 points\nSpecial abilities\nNo special skill\nFavorite weapon\n\nFavorite map\nmill","games":0,"heartFixed":null,"ls":1,"skills":{"aim":88,"hand":89,"quick":93,"det":93,"awa":89,"tp":89,"gms":85,"mov":81},"limits":{"aim":95,"hand":97,"quick":93,"det":94,"awa":91,"tp":95,"gms":94,"mov":91},"age":33,"day":28,"xp":38,"detectedTotal":707,"detectedLimit":750,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"starter","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_ogjybm6r","name":"Player #211343","realName":"from Free agent","raw":"Player #211343\nfrom Free agent\nJi-ho Seo\n32yo (day 17)\n\nC\nPL\n687\n0\nstart bid\n\nC\nPL\n1\ndeadline\n\n2026-06-10 - 10:32 (1hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n688\n/742\nAim\n\n75\n/95\nHandling\n\n81\n/90\nQuickness\n\n84\n/93\nDetermination\n\n87\n/94\nAwareness\n\n95\n/95\nTeamplay\n\n84\n/92\nGamesense\n\n89\n/90\nMovement\n\n93\n/93\nExperience\n36\n225 TO LVL 37\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n35 points\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle","games":0,"heartFixed":null,"ls":1,"skills":{"aim":75,"hand":81,"quick":84,"det":87,"awa":95,"tp":84,"gms":89,"mov":93},"limits":{"aim":95,"hand":90,"quick":93,"det":94,"awa":95,"tp":92,"gms":90,"mov":93},"age":32,"day":17,"xp":36,"detectedTotal":688,"detectedLimit":742,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_gx24irah","name":"Leone™","realName":"from Bandits","raw":"Leone™\nfrom Bandits\nEdoardo Leone\n25yo (day 22)\n\nC\nPL\n876\n15\nlast bid\n\nC\nPL\n8\nby\nᴄʏʙᴇʀᴋᴏɴɢᴢ\n\ndeadline\n\n2026-06-10 - 12:01 (3hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n745\n/744\nAim\n\n92\n/92\nHandling\n\n91\n/91\nQuickness\n\n92\n/92\nDetermination\n\n93\n/93\nAwareness\n\n96\n/96\nTeamplay\n\n95\n/95\nGamesense\n\n96\n/96\nMovement\n\n90\n/90\nExperience\n23\n35 TO LVL 24\n\nLeadership\n15\n406 TO LVL 16\n\nFame\nTalents\n22 points\nSpecial abilities\nFavorite weapon\n\nFavorite map\ntrain","games":0,"heartFixed":null,"ls":15,"skills":{"aim":92,"hand":91,"quick":92,"det":93,"awa":96,"tp":95,"gms":96,"mov":90},"limits":{"aim":92,"hand":91,"quick":92,"det":93,"awa":96,"tp":95,"gms":96,"mov":90},"age":25,"day":22,"xp":23,"detectedTotal":745,"detectedLimit":744,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_cqp45ywc","name":"Player #211355","realName":"from Free agent","raw":"Player #211355\nfrom Free agent\nJuraj Kiss\n30yo (day 9)\n\nC\nPL\n695\n0\nstart bid\n\nC\nPL\n1\ndeadline\n\n2026-06-10 - 13:44 (4hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n658\n/743\nAim\n\n87\n/92\nHandling\n\n73\n/90\nQuickness\n\n88\n/95\nDetermination\n\n70\n/93\nAwareness\n\n79\n/90\nTeamplay\n\n87\n/94\nGamesense\n\n81\n/94\nMovement\n\n93\n/95\nExperience\n33\n479 TO LVL 34\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n32 points\nSpecial abilities\nNo special skill\nFavorite weapon\n\nFavorite map\ncastle","games":0,"heartFixed":null,"ls":1,"skills":{"aim":87,"hand":73,"quick":88,"det":70,"awa":79,"tp":87,"gms":81,"mov":93},"limits":{"aim":92,"hand":90,"quick":95,"det":93,"awa":90,"tp":94,"gms":94,"mov":95},"age":30,"day":9,"xp":33,"detectedTotal":658,"detectedLimit":743,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_64rljmhi","name":"ioRek- (361)","realName":"Noah Nielsen","raw":"ioRek- (361)\n\nNoah Nielsen\n19yo (day 29)\n\nDrop rookie\nPrimary skills\nTotal skill\n\n568\n/741\nAim\n\n87\n/92\nHandling\n\n88\n/88\nQuickness\n\n92\n/92\nDetermination\n\n91\n/92\nAwareness\n\n67\n/98\nTeamplay\n\n28\n/92\nGamesense\n\n45\n/90\nMovement\n\n70\n/97\nExperience\n18\n222 TO LVL 19\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":0,"heartFixed":null,"ls":1,"skills":{"aim":87,"hand":88,"quick":92,"det":91,"awa":67,"tp":28,"gms":45,"mov":70},"limits":{"aim":92,"hand":88,"quick":92,"det":92,"awa":98,"tp":92,"gms":90,"mov":97},"age":19,"day":29,"xp":18,"detectedTotal":568,"detectedLimit":741,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"academy","intent":"starter","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_xtg47adm","name":"OzStriker (361)","realName":"Rimantas Juknevicius","raw":"OzStriker (361)\n\nRimantas Juknevicius\n19yo (day 10)\n\nDrop rookie\nPrimary skills\nTotal skill\n\n532\n/740\nAim\n\n91\n/92\nHandling\n\n81\n/88\nQuickness\n\n94\n/94\nDetermination\n\n91\n/91\nAwareness\n\n62\n/95\nTeamplay\n\n36\n/93\nGamesense\n\n29\n/96\nMovement\n\n48\n/91\nExperience\n17\n235 TO LVL 18\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":0,"heartFixed":null,"ls":1,"skills":{"aim":91,"hand":81,"quick":94,"det":91,"awa":62,"tp":36,"gms":29,"mov":48},"limits":{"aim":92,"hand":88,"quick":94,"det":91,"awa":95,"tp":93,"gms":96,"mov":91},"age":19,"day":10,"xp":17,"detectedTotal":532,"detectedLimit":740,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"academy","intent":"undecided","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_td0loqei","name":"Maarek- (370)","realName":"Eymen Polat","raw":"Maarek- (370)\n\nEymen Polat\n16yo (day 1)\n\nDrop rookie\nPrimary skills\nTotal skill\n\n378\n/746\nAim\n\n93\n/93\nHandling\n\n76\n/92\nQuickness\n\n27\n/94\nDetermination\n\n35\n/92\nAwareness\n\n34\n/92\nTeamplay\n\n31\n/97\nGamesense\n\n36\n/99\nMovement\n\n46\n/87\nExperience\n7\n479 TO LVL 8\n\nLeadership\n1\n63 TO LVL 2\n\nFame\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle","games":0,"heartFixed":null,"ls":1,"skills":{"aim":93,"hand":76,"quick":27,"det":35,"awa":34,"tp":31,"gms":36,"mov":46},"limits":{"aim":93,"hand":92,"quick":94,"det":92,"awa":92,"tp":97,"gms":99,"mov":87},"age":16,"day":1,"xp":7,"detectedTotal":378,"detectedLimit":746,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"academy","intent":"undecided","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}}],"compareView":"ceiling","coef":{"aim":1.4,"quick":1.4,"det":1.3,"awa":1.2,"hand":1,"mov":1,"gms":0.5,"tp":0.4},"engine":{"matchesPerSeason":65,"trainingPerDay":0.8,"analysisBonus":2.6,"daysPerSeason":35,"daysPerWeek":7,"lsGrowth":1.25,"xpLevelsPerSeason":1.75,"declineStartAge":28,"declinePerAgeDay":0.2},"hearts":{"Small":0.005,"Medium":0.01,"Big":0.03,"Golden":0.05,"Fire":0.04,"Platinium":0.08,"Platinum":0.08},"rosterPlanOpen":false};
+const specialById=Object.fromEntries(specialCatalog.map(s=>[s.id,s]));const priorities=[['aim','hand'],['quick','det'],['awa','mov'],['gms','tp']];let selected=0,selectedSeason=12,parsedPlayers=[],candidateImportBuffer=[],selectedCandidateId=null;let state={"version":"1.1.0-rc.11","editMode":false,"communityName":"","teamName":"emuLate!","teamLogoUrl":"https://media.cplmanager.com/teams/3207/logo_1778591724706.png","teamLogoData":"","teamBannerUrl":"https://media.cplmanager.com/teams/3207/banner_1778600601663.png","teamBannerData":"","currentSeason":12,"currentDay":26,"seasonLength":35,"projectionHorizon":8,"dataSeason":12,"dataDay":22,"players":[{"id":"p_jno9bx5v","name":"HaRtS-","realName":"Kristjan Koppel","raw":"HaRtS-\n\nKristjan Koppel\n26yo (day 12)\n\nC\nPL\n740\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nArmageddon\nGemini\nAlnitak\n\nTotal skill\n\n669\n/752\nAim\n\n93\n/94\nHandling\n\n93\n/96\nQuickness\n\n94\n/97\nDetermination\n\n94\n/94\n101\n\nAwareness\n\n97\n/97\n103\n\nTeamplay\n\n64\n/91\nGamesense\n\n64\n/90\nMovement\n\n70\n/93\nExperience\n25\n12 TO LVL 26\n\nLeadership\n13\n391 TO LVL 14\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\n\nFavorite map\ntrain","games":6,"heartFixed":"Fire","ls":13,"skills":{"aim":93,"hand":93,"quick":94,"det":94,"awa":97,"tp":64,"gms":64,"mov":70},"limits":{"aim":94,"hand":96,"quick":97,"det":94,"awa":97,"tp":91,"gms":90,"mov":93},"age":26,"day":12,"xp":25,"detectedTotal":669,"detectedLimit":752,"gear":{"mouse":"aurora","mousepad":"armageddon","headset":"gemini","keyboard":"alnitak"}},{"id":"p_rn3ommq9","name":"mSx-","realName":"Raimonds Mezs","raw":"mSx-\n\nRaimonds Mezs\n24yo (day 13)\n\nC\nPL\n1,082\nKick player\n\nSell player\n\nPrimary skills\nHero\nNoctron\nEnigma\nAlnitak\n\nTotal skill\n\n745\n/745\nAim\n\n95\n/95\n104\n\nHandling\n\n92\n/92\nQuickness\n\n94\n/94\n104\n\nDetermination\n\n94\n/94\n104\n\nAwareness\n\n94\n/94\n104\n\nTeamplay\n\n90\n/90\nGamesense\n\n95\n/95\n102\n\nMovement\n\n91\n/91\nExperience\n28\n354 TO LVL 29\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":451,"heartFixed":null,"ls":1,"skills":{"aim":95,"hand":92,"quick":94,"det":94,"awa":94,"tp":90,"gms":95,"mov":91},"limits":{"aim":95,"hand":92,"quick":94,"det":94,"awa":94,"tp":90,"gms":95,"mov":91},"age":24,"day":13,"xp":28,"detectedTotal":745,"detectedLimit":745,"gear":{"mouse":"hero","mousepad":"noctron","headset":"enigma","keyboard":"alnitak"}},{"id":"p_hdg9jjef","name":"R!Go-","realName":"Florian Koch","raw":"R!Go-\n\nFlorian Koch\n24yo (day 13)\n\nC\nPL\n861\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nCitus\nEnigma\nAlnitak\n\nTotal skill\n\n749\n/749\nAim\n\n91\n/91\nHandling\n\n93\n/93\nQuickness\n\n91\n/91\n101\n\nDetermination\n\n91\n/91\n100\n\nAwareness\n\n96\n/96\n103\n\nTeamplay\n\n96\n/96\n102\n\nGamesense\n\n93\n/93\nMovement\n\n98\n/98\n104\n\nExperience\n26\n324 TO LVL 27\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":394,"heartFixed":null,"ls":1,"skills":{"aim":91,"hand":93,"quick":91,"det":91,"awa":96,"tp":96,"gms":93,"mov":98},"limits":{"aim":91,"hand":93,"quick":91,"det":91,"awa":96,"tp":96,"gms":93,"mov":98},"age":24,"day":13,"xp":26,"detectedTotal":749,"detectedLimit":749,"gear":{"mouse":"aurora","mousepad":"citus","headset":"enigma","keyboard":"alnitak"}},{"id":"p_au4mk7f4","name":"MaT","realName":"Hiroshi Takahashi","raw":"MaT\n\nHiroshi Takahashi\n21yo (day 12)\n\nC\nPL\n884\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nArmageddon\nEnigma\nAlnitak\n\nTotal skill\n\n699\n/749\nAim\n\n94\n/94\n101\n\nHandling\n\n91\n/91\nQuickness\n\n94\n/94\n101\n\nDetermination\n\n95\n/95\n103\n\nAwareness\n\n93\n/93\n100\n\nTeamplay\n\n79\n/93\nGamesense\n\n63\n/99\nMovement\n\n90\n/90\nExperience\n21\n354 TO LVL 22\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":271,"heartFixed":null,"ls":1,"skills":{"aim":94,"hand":91,"quick":94,"det":95,"awa":93,"tp":79,"gms":63,"mov":90},"limits":{"aim":94,"hand":91,"quick":94,"det":95,"awa":93,"tp":93,"gms":99,"mov":90},"age":21,"day":12,"xp":21,"detectedTotal":699,"detectedLimit":749,"gear":{"mouse":"aurora","mousepad":"armageddon","headset":"enigma","keyboard":"alnitak"}},{"id":"p_n7msuog3","name":"ZywOo-","realName":"Frederick Scott","raw":"ZywOo- (370)\n\nFrederick Scott\n20yo (day 24)\n\nC\nPL\n844\nKick player\n\nSell player\n\nPrimary skills\n\n\n\n\n\nTotal skill\n\n590\n/752\nAim\n\n93\n/95\nHandling\n\n92\n/92\nQuickness\n\n93\n/94\nDetermination\n\n94\n/94\nAwareness\n\n70\n/97\nTeamplay\n\n39\n/89\nGamesense\n\n40\n/91\nMovement\n\n69\n/100\nExperience\n19\n209 TO LVL 20\n\nLeadership\n7\n418 TO LVL 8\n\nFame\nTalents\n18 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\nmill","games":163,"heartFixed":null,"ls":7,"skills":{"aim":93,"hand":92,"quick":93,"det":94,"awa":70,"tp":39,"gms":40,"mov":69},"limits":{"aim":95,"hand":92,"quick":94,"det":94,"awa":97,"tp":89,"gms":91,"mov":100},"age":20,"day":24,"xp":19,"detectedTotal":590,"detectedLimit":752,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"}},{"id":"p_od6l3e4n","name":"Happy-","realName":"Gabriel Rojas","raw":"Happy-\n\nGabriel Rojas\n34yo (day 6)\n\nC\nPL\n1,389\nstart bid\n\nC\nPL\n5,000\ndeadline\n\n2026-06-10 - 09:03\nPrimary skills\nAurora 3330\nNoctron\nEnigma\nAlnitak\n\nTotal skill\n\n740\n/746\nAim\n\n94\n/96\n101\n\nHandling\n\n96\n/96\n101\n\nQuickness\n\n92\n/92\n101\n\nDetermination\n\n93\n/93\n101\n\nAwareness\n\n94\n/95\n101\n\nTeamplay\n\n90\n/91\nGamesense\n\n87\n/89\nMovement\n\n94\n/94\n100\n\nExperience\n38\n448 TO LVL 39\n\nLeadership\n16\n83 TO LVL 17\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":355,"heartFixed":null,"ls":16,"skills":{"aim":94,"hand":96,"quick":92,"det":93,"awa":94,"tp":90,"gms":87,"mov":94},"limits":{"aim":96,"hand":96,"quick":92,"det":93,"awa":95,"tp":91,"gms":89,"mov":94},"age":34,"day":6,"xp":38,"detectedTotal":740,"detectedLimit":746,"gear":{"mouse":"aurora","mousepad":"noctron","headset":"enigma","keyboard":"alnitak"}}],"analysisPlan":{"12":{"p_harts":2,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"13":{"p_harts":2,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"14":{"p_harts":1,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"15":{"p_harts":0,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"16":{"p_harts":0,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"17":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"18":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"19":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"20":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0}},"analysisBlocks":[{"id":"b_7swzdfc2","playerId":"p_jno9bx5v","startSeason":12,"startDay":22,"durationDays":7},{"id":"b_jhppvgzi","playerId":"p_n7msuog3","startSeason":12,"startDay":29,"durationDays":7},{"id":"b_qccd5gub","playerId":"p_jno9bx5v","startSeason":13,"startDay":1,"durationDays":7},{"id":"b_39np5wm6","playerId":"p_n7msuog3","startSeason":13,"startDay":8,"durationDays":7},{"id":"b_t4qaaj0o","playerId":"p_n7msuog3","startSeason":13,"startDay":15,"durationDays":7},{"id":"b_c0haucit","playerId":"p_au4mk7f4","startSeason":13,"startDay":22,"durationDays":7},{"id":"b_fwkfaui4","playerId":"p_jno9bx5v","startSeason":13,"startDay":29,"durationDays":7},{"id":"b_z2k452z8","playerId":"p_n7msuog3","startSeason":14,"startDay":1,"durationDays":7},{"id":"b_t7bfvu3y","playerId":"p_n7msuog3","startSeason":14,"startDay":8,"durationDays":7},{"id":"b_2kg06jtn","playerId":"p_n7msuog3","startSeason":15,"startDay":1,"durationDays":7}],"trainingDraft":{"playerId":"p_jno9bx5v","startSeason":12,"startDay":22,"durationDays":7},"selectedAnalysisBlock":null,"analysisBlocksOpen":false,"hiddenTrajectoryPlayers":[],"candidatePool":[{"id":"p_nrn4dwo9","name":"Domagoj","realName":"from Chinelo Vuitton","raw":"Domagoj\nfrom Chinelo Vuitton\nDomagoj Zoric\n20yo (day 17)\n\nC\nPL\n639\n0\nlast bid\n\nC\nPL\n22,000\nby\nCyber rpa4u\n\ndeadline\n\n2026-06-10 - 07:26 (1m left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n608\n/732\nAim\n\n90\n/92\nHandling\n\n95\n/95\nQuickness\n\n91\n/93\nDetermination\n\n96\n/96\nAwareness\n\n98\n/99\nTeamplay\n\n26\n/85\nGamesense\n\n23\n/83\nMovement\n\n89\n/89\nExperience\n20\n481 TO LVL 21\n\nLeadership\n5\n453 TO LVL 6\n\nFame\nTalents\n19 points\nSpecial abilities\nFavorite weapon\n\nFavorite map\nmill","games":0,"heartFixed":null,"ls":5,"skills":{"aim":90,"hand":95,"quick":91,"det":96,"awa":98,"tp":26,"gms":23,"mov":89},"limits":{"aim":92,"hand":95,"quick":93,"det":96,"awa":99,"tp":85,"gms":83,"mov":89},"age":20,"day":17,"xp":20,"detectedTotal":608,"detectedLimit":732,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_e2fynz1x","name":"Player #211341","realName":"from Free agent","raw":"Player #211341\nfrom Free agent\nElias Svensson\n33yo (day 28)\n\nC\nPL\n734\n0\nstart bid\n\nC\nPL\n1\ndeadline\n\n2026-06-10 - 10:00 (1hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n707\n/750\nAim\n\n88\n/95\nHandling\n\n89\n/97\nQuickness\n\n93\n/93\nDetermination\n\n93\n/94\nAwareness\n\n89\n/91\nTeamplay\n\n89\n/95\nGamesense\n\n85\n/94\nMovement\n\n81\n/91\nExperience\n38\n215 TO LVL 39\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n37 points\nSpecial abilities\nNo special skill\nFavorite weapon\n\nFavorite map\nmill","games":0,"heartFixed":null,"ls":1,"skills":{"aim":88,"hand":89,"quick":93,"det":93,"awa":89,"tp":89,"gms":85,"mov":81},"limits":{"aim":95,"hand":97,"quick":93,"det":94,"awa":91,"tp":95,"gms":94,"mov":91},"age":33,"day":28,"xp":38,"detectedTotal":707,"detectedLimit":750,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"starter","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_ogjybm6r","name":"Player #211343","realName":"from Free agent","raw":"Player #211343\nfrom Free agent\nJi-ho Seo\n32yo (day 17)\n\nC\nPL\n687\n0\nstart bid\n\nC\nPL\n1\ndeadline\n\n2026-06-10 - 10:32 (1hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n688\n/742\nAim\n\n75\n/95\nHandling\n\n81\n/90\nQuickness\n\n84\n/93\nDetermination\n\n87\n/94\nAwareness\n\n95\n/95\nTeamplay\n\n84\n/92\nGamesense\n\n89\n/90\nMovement\n\n93\n/93\nExperience\n36\n225 TO LVL 37\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n35 points\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle","games":0,"heartFixed":null,"ls":1,"skills":{"aim":75,"hand":81,"quick":84,"det":87,"awa":95,"tp":84,"gms":89,"mov":93},"limits":{"aim":95,"hand":90,"quick":93,"det":94,"awa":95,"tp":92,"gms":90,"mov":93},"age":32,"day":17,"xp":36,"detectedTotal":688,"detectedLimit":742,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_gx24irah","name":"Leone™","realName":"from Bandits","raw":"Leone™\nfrom Bandits\nEdoardo Leone\n25yo (day 22)\n\nC\nPL\n876\n15\nlast bid\n\nC\nPL\n8\nby\nᴄʏʙᴇʀᴋᴏɴɢᴢ\n\ndeadline\n\n2026-06-10 - 12:01 (3hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n745\n/744\nAim\n\n92\n/92\nHandling\n\n91\n/91\nQuickness\n\n92\n/92\nDetermination\n\n93\n/93\nAwareness\n\n96\n/96\nTeamplay\n\n95\n/95\nGamesense\n\n96\n/96\nMovement\n\n90\n/90\nExperience\n23\n35 TO LVL 24\n\nLeadership\n15\n406 TO LVL 16\n\nFame\nTalents\n22 points\nSpecial abilities\nFavorite weapon\n\nFavorite map\ntrain","games":0,"heartFixed":null,"ls":15,"skills":{"aim":92,"hand":91,"quick":92,"det":93,"awa":96,"tp":95,"gms":96,"mov":90},"limits":{"aim":92,"hand":91,"quick":92,"det":93,"awa":96,"tp":95,"gms":96,"mov":90},"age":25,"day":22,"xp":23,"detectedTotal":745,"detectedLimit":744,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_cqp45ywc","name":"Player #211355","realName":"from Free agent","raw":"Player #211355\nfrom Free agent\nJuraj Kiss\n30yo (day 9)\n\nC\nPL\n695\n0\nstart bid\n\nC\nPL\n1\ndeadline\n\n2026-06-10 - 13:44 (4hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n658\n/743\nAim\n\n87\n/92\nHandling\n\n73\n/90\nQuickness\n\n88\n/95\nDetermination\n\n70\n/93\nAwareness\n\n79\n/90\nTeamplay\n\n87\n/94\nGamesense\n\n81\n/94\nMovement\n\n93\n/95\nExperience\n33\n479 TO LVL 34\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n32 points\nSpecial abilities\nNo special skill\nFavorite weapon\n\nFavorite map\ncastle","games":0,"heartFixed":null,"ls":1,"skills":{"aim":87,"hand":73,"quick":88,"det":70,"awa":79,"tp":87,"gms":81,"mov":93},"limits":{"aim":92,"hand":90,"quick":95,"det":93,"awa":90,"tp":94,"gms":94,"mov":95},"age":30,"day":9,"xp":33,"detectedTotal":658,"detectedLimit":743,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_64rljmhi","name":"ioRek- (361)","realName":"Noah Nielsen","raw":"ioRek- (361)\n\nNoah Nielsen\n19yo (day 29)\n\nDrop rookie\nPrimary skills\nTotal skill\n\n568\n/741\nAim\n\n87\n/92\nHandling\n\n88\n/88\nQuickness\n\n92\n/92\nDetermination\n\n91\n/92\nAwareness\n\n67\n/98\nTeamplay\n\n28\n/92\nGamesense\n\n45\n/90\nMovement\n\n70\n/97\nExperience\n18\n222 TO LVL 19\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":0,"heartFixed":null,"ls":1,"skills":{"aim":87,"hand":88,"quick":92,"det":91,"awa":67,"tp":28,"gms":45,"mov":70},"limits":{"aim":92,"hand":88,"quick":92,"det":92,"awa":98,"tp":92,"gms":90,"mov":97},"age":19,"day":29,"xp":18,"detectedTotal":568,"detectedLimit":741,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"academy","intent":"starter","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_xtg47adm","name":"OzStriker (361)","realName":"Rimantas Juknevicius","raw":"OzStriker (361)\n\nRimantas Juknevicius\n19yo (day 10)\n\nDrop rookie\nPrimary skills\nTotal skill\n\n532\n/740\nAim\n\n91\n/92\nHandling\n\n81\n/88\nQuickness\n\n94\n/94\nDetermination\n\n91\n/91\nAwareness\n\n62\n/95\nTeamplay\n\n36\n/93\nGamesense\n\n29\n/96\nMovement\n\n48\n/91\nExperience\n17\n235 TO LVL 18\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":0,"heartFixed":null,"ls":1,"skills":{"aim":91,"hand":81,"quick":94,"det":91,"awa":62,"tp":36,"gms":29,"mov":48},"limits":{"aim":92,"hand":88,"quick":94,"det":91,"awa":95,"tp":93,"gms":96,"mov":91},"age":19,"day":10,"xp":17,"detectedTotal":532,"detectedLimit":740,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"academy","intent":"undecided","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_td0loqei","name":"Maarek- (370)","realName":"Eymen Polat","raw":"Maarek- (370)\n\nEymen Polat\n16yo (day 1)\n\nDrop rookie\nPrimary skills\nTotal skill\n\n378\n/746\nAim\n\n93\n/93\nHandling\n\n76\n/92\nQuickness\n\n27\n/94\nDetermination\n\n35\n/92\nAwareness\n\n34\n/92\nTeamplay\n\n31\n/97\nGamesense\n\n36\n/99\nMovement\n\n46\n/87\nExperience\n7\n479 TO LVL 8\n\nLeadership\n1\n63 TO LVL 2\n\nFame\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle","games":0,"heartFixed":null,"ls":1,"skills":{"aim":93,"hand":76,"quick":27,"det":35,"awa":34,"tp":31,"gms":36,"mov":46},"limits":{"aim":93,"hand":92,"quick":94,"det":92,"awa":92,"tp":97,"gms":99,"mov":87},"age":16,"day":1,"xp":7,"detectedTotal":378,"detectedLimit":746,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"academy","intent":"undecided","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}}],"compareView":"ceiling","coef":{"aim":1.4,"quick":1.4,"det":1.3,"awa":1.2,"hand":1,"mov":1,"gms":0.5,"tp":0.4},"engine":{"matchesPerSeason":65,"trainingPerDay":0.8,"analysisBonus":2.6,"daysPerSeason":35,"daysPerWeek":7,"lsGrowth":1.25,"xpLevelsPerSeason":1.75,"declineStartAge":28,"declinePerAgeDay":0.2},"hearts":{"Small":0.005,"Medium":0.01,"Big":0.03,"Golden":0.05,"Fire":0.04,"Platinium":0.08,"Platinum":0.08},"rosterPlanOpen":false};
 function uid(){return'p_'+Math.random().toString(36).slice(2,10)}function seasons(){return Array.from({length:+state.projectionHorizon+1},(_,i)=>+state.currentSeason+i)}function initPlan(){ensureAnalysisBlocks()}function showPage(id,btn){
   document.querySelectorAll('section.page').forEach(p=>{
     const active=p.id===id;
@@ -3639,7 +3603,7 @@ function uid(){return'p_'+Math.random().toString(36).slice(2,10)}function season
   }catch(e){console.error('showPage render failed',id,e);}
 }
 
-function saveLocal(){state.version='1.1.0-rc.12';localStorage.setItem('teamPlannerStable',JSON.stringify(state));localStorage.setItem('teamPlannerV110RC12',JSON.stringify(state));localStorage.setItem('teamPlannerV110RC1',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC12_9_2',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC12_9_1',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC12_9',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC12_7',JSON.stringify(state));localStorage.setItem('teamPlannerV6260',JSON.stringify(state));localStorage.setItem('teamPlannerV6250',JSON.stringify(state));localStorage.setItem('teamPlannerV6240',JSON.stringify(state));localStorage.setItem('teamPlannerV6230',JSON.stringify(state));localStorage.setItem('teamPlannerV6220',JSON.stringify(state));localStorage.setItem('teamPlannerV6210',JSON.stringify(state));localStorage.setItem('teamPlannerV6200',JSON.stringify(state));localStorage.setItem('teamPlannerV6180',JSON.stringify(state));localStorage.setItem('teamPlannerV6170',JSON.stringify(state));localStorage.setItem('teamPlannerV6160',JSON.stringify(state));localStorage.setItem('teamPlannerV6150',JSON.stringify(state));localStorage.setItem('teamPlannerV6140',JSON.stringify(state));localStorage.setItem('teamPlannerV6130',JSON.stringify(state));localStorage.setItem('teamPlannerV6120',JSON.stringify(state));localStorage.setItem('teamPlannerV6110',JSON.stringify(state));localStorage.setItem('teamPlannerV6100',JSON.stringify(state));localStorage.setItem('teamPlannerV615',JSON.stringify(state))}function normalizeStateAfterLoad(){
+function saveLocal(){state.version='1.1.0-rc.11';localStorage.setItem('teamPlannerStable',JSON.stringify(state));localStorage.setItem('teamPlannerV110RC11',JSON.stringify(state));localStorage.setItem('teamPlannerV110RC1',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC11_9_2',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC11_9_1',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC11_9',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC11_7',JSON.stringify(state));localStorage.setItem('teamPlannerV6260',JSON.stringify(state));localStorage.setItem('teamPlannerV6250',JSON.stringify(state));localStorage.setItem('teamPlannerV6240',JSON.stringify(state));localStorage.setItem('teamPlannerV6230',JSON.stringify(state));localStorage.setItem('teamPlannerV6220',JSON.stringify(state));localStorage.setItem('teamPlannerV6210',JSON.stringify(state));localStorage.setItem('teamPlannerV6200',JSON.stringify(state));localStorage.setItem('teamPlannerV6180',JSON.stringify(state));localStorage.setItem('teamPlannerV6170',JSON.stringify(state));localStorage.setItem('teamPlannerV6160',JSON.stringify(state));localStorage.setItem('teamPlannerV6150',JSON.stringify(state));localStorage.setItem('teamPlannerV6140',JSON.stringify(state));localStorage.setItem('teamPlannerV6130',JSON.stringify(state));localStorage.setItem('teamPlannerV6120',JSON.stringify(state));localStorage.setItem('teamPlannerV6110',JSON.stringify(state));localStorage.setItem('teamPlannerV6100',JSON.stringify(state));localStorage.setItem('teamPlannerV615',JSON.stringify(state))}function normalizeStateAfterLoad(){
   if(!state.players || !Array.isArray(state.players) || state.players.length===0){
     state.players = structuredClone(defaultPlayers);
   }
@@ -3658,8 +3622,8 @@ function saveLocal(){state.version='1.1.0-rc.12';localStorage.setItem('teamPlann
     if(p.day===undefined)p.day=state.currentDay||1;
     if(p.xp===undefined)p.xp=0;if(!Array.isArray(p.specials))p.specials=[];p.specials=[...new Set(p.specials.filter(id=>specialById[id]))].slice(0,2);
   });
-  if(state.editMode===undefined)state.editMode=false;/* v1.1.0-rc.12 keep edit state during render */
-  state.version='1.1.0-rc.12';
+  if(state.editMode===undefined)state.editMode=false;/* v1.1.0-rc.11 keep edit state during render */
+  state.version='1.1.0-rc.11';
   if(!state.analysisPlan || typeof state.analysisPlan!=="object")state.analysisPlan={};if(!Array.isArray(state.analysisBlocks))state.analysisBlocks=[];if(!state.trainingDraft)state.trainingDraft=null;if(state.trainingSuggestion===undefined)state.trainingSuggestion=null;if(!state.trainingSuggestionMode)state.trainingSuggestionMode="safe";if(state.selectedAnalysisBlock===undefined)state.selectedAnalysisBlock=null;if(state.analysisBlocksOpen===undefined)state.analysisBlocksOpen=false;if(!Array.isArray(state.hiddenTrajectoryPlayers))state.hiddenTrajectoryPlayers=[];
   if(!Array.isArray(state.candidatePool))state.candidatePool=[];
   if(state.rosterPlanOpen===undefined)state.rosterPlanOpen=false;
@@ -3679,19 +3643,19 @@ function saveLocal(){state.version='1.1.0-rc.12';localStorage.setItem('teamPlann
   if(state.hearts && state.hearts.Platinium !== undefined && state.hearts.Platinum === undefined)state.hearts.Platinum=state.hearts.Platinium;
   if(state.hearts && state.hearts.Platinum !== undefined && state.hearts.Platinium === undefined)state.hearts.Platinium=state.hearts.Platinum;
   state.players.forEach(p=>{if(p.heartFixed==='Diamond'||p.heartFixed==='Platinium')p.heartFixed=null});
-  /* v1.1.0-rc.12 heart alias */
+  /* v1.1.0-rc.11 heart alias */
 
   state.seasonLength=CPL_DATE_ANCHOR.seasonLength;
   applyAutoGameDate();
   if(!state.projectionHorizon)state.projectionHorizon=8;
   if(!state.dataSeason)state.dataSeason=state.currentSeason;
   if(!state.dataDay)state.dataDay=state.currentDay;
-  resetDateAnchor();if(state.teamLogoUrl===undefined||state.teamLogoUrl==='')state.teamLogoUrl='https://media.cplmanager.com/teams/3207/logo_1778591724706.png';if(state.teamBannerUrl===undefined||state.teamBannerUrl==='')state.teamBannerUrl='https://media.cplmanager.com/teams/3207/banner_1778600601663.png';/* v1.1.0-rc.12 default branding */if(state.teamBannerData===undefined)state.teamBannerData='';
-  if(state.teamLogoUrl===undefined||state.teamLogoUrl==='')state.teamLogoUrl='https://media.cplmanager.com/teams/3207/logo_1778591724706.png';if(state.teamBannerUrl===undefined||state.teamBannerUrl==='')state.teamBannerUrl='https://media.cplmanager.com/teams/3207/banner_1778600601663.png';/* v1.1.0-rc.12 default branding */
+  resetDateAnchor();if(state.teamLogoUrl===undefined||state.teamLogoUrl==='')state.teamLogoUrl='https://media.cplmanager.com/teams/3207/logo_1778591724706.png';if(state.teamBannerUrl===undefined||state.teamBannerUrl==='')state.teamBannerUrl='https://media.cplmanager.com/teams/3207/banner_1778600601663.png';/* v1.1.0-rc.11 default branding */if(state.teamBannerData===undefined)state.teamBannerData='';
+  if(state.teamLogoUrl===undefined||state.teamLogoUrl==='')state.teamLogoUrl='https://media.cplmanager.com/teams/3207/logo_1778591724706.png';if(state.teamBannerUrl===undefined||state.teamBannerUrl==='')state.teamBannerUrl='https://media.cplmanager.com/teams/3207/banner_1778600601663.png';/* v1.1.0-rc.11 default branding */
   if(state.teamBannerData===undefined)state.teamBannerData='';
 }
 function loadLocal(){
-  const keys=["teamPlannerV110RC12","teamPlannerV110RC1","teamPlannerV100RC12_9_2","teamPlannerV100RC12_9_1","teamPlannerV100RC12_9","teamPlannerV100RC12_7","teamPlannerV100RC12_6","teamPlannerV100RC12_5","teamPlannerV100RC12_4","teamPlannerV100RC12_3","teamPlannerV100RC12_2","teamPlannerV100RC12_8","teamPlannerV100RC12_7","teamPlannerV100RC12_4","teamPlannerV100RC12_3","teamPlannerV100RC12_2","teamPlannerV100RC12_1","teamPlannerV100RC6","teamPlannerV100RC6","teamPlannerStable","teamPlannerV100RC6","teamPlannerV100RC6","teamPlannerV100RC6","teamPlannerV100RC1","teamPlannerV6430","teamPlannerV6420","teamPlannerV6410","teamPlannerV6400","teamPlannerV63150","teamPlannerV63140","teamPlannerV63130","teamPlannerV63110","teamPlannerV63100","teamPlannerV6390","teamPlannerV6380","teamPlannerV6360","teamPlannerV6350","teamPlannerV6340","teamPlannerV6330","teamPlannerV6320","teamPlannerV6310","teamPlannerV6300","teamPlannerV6260","teamPlannerV6250","teamPlannerV6240","teamPlannerV6230","teamPlannerV6220","teamPlannerV6210","teamPlannerV6200","teamPlannerV6180","teamPlannerV6170","teamPlannerV6160","teamPlannerV6150","teamPlannerV6140","teamPlannerV6130","teamPlannerV6120","teamPlannerV6110","teamPlannerV6100","teamPlannerV615","teamPlannerV614","teamPlannerV612","teamPlannerV611","teamPlannerV610","teamPlannerV609","teamPlannerV608","teamPlannerV607","teamPlannerV606","teamPlannerV605","teamPlannerV604","teamPlannerV603","teamPlannerV602","teamPlannerV6","teamPlannerV51","dynastyPlannerV5","dynastyPlannerV44"];
+  const keys=["teamPlannerV110RC11","teamPlannerV110RC1","teamPlannerV100RC11_9_2","teamPlannerV100RC11_9_1","teamPlannerV100RC11_9","teamPlannerV100RC11_7","teamPlannerV100RC11_6","teamPlannerV100RC11_5","teamPlannerV100RC11_4","teamPlannerV100RC11_3","teamPlannerV100RC11_2","teamPlannerV100RC11_8","teamPlannerV100RC11_7","teamPlannerV100RC11_4","teamPlannerV100RC11_3","teamPlannerV100RC11_2","teamPlannerV100RC11_1","teamPlannerV100RC6","teamPlannerV100RC6","teamPlannerStable","teamPlannerV100RC6","teamPlannerV100RC6","teamPlannerV100RC6","teamPlannerV100RC1","teamPlannerV6430","teamPlannerV6420","teamPlannerV6410","teamPlannerV6400","teamPlannerV63150","teamPlannerV63140","teamPlannerV63130","teamPlannerV63110","teamPlannerV63100","teamPlannerV6390","teamPlannerV6380","teamPlannerV6360","teamPlannerV6350","teamPlannerV6340","teamPlannerV6330","teamPlannerV6320","teamPlannerV6310","teamPlannerV6300","teamPlannerV6260","teamPlannerV6250","teamPlannerV6240","teamPlannerV6230","teamPlannerV6220","teamPlannerV6210","teamPlannerV6200","teamPlannerV6180","teamPlannerV6170","teamPlannerV6160","teamPlannerV6150","teamPlannerV6140","teamPlannerV6130","teamPlannerV6120","teamPlannerV6110","teamPlannerV6100","teamPlannerV615","teamPlannerV614","teamPlannerV612","teamPlannerV611","teamPlannerV610","teamPlannerV609","teamPlannerV608","teamPlannerV607","teamPlannerV606","teamPlannerV605","teamPlannerV604","teamPlannerV603","teamPlannerV602","teamPlannerV6","teamPlannerV51","dynastyPlannerV5","dynastyPlannerV44"];
   let loaded=null;
   for(const key of keys){
     try{
@@ -3776,7 +3740,7 @@ function daysBetweenDateKeys(a,b){
   return Math.floor((db-da)/86400000);
 }
 function resetDateAnchor(){
-  // v1.1 RC12: kept as a no-op compatibility shim.
+  // v1.1 RC11: kept as a no-op compatibility shim.
   // The current CPL date is forced from CPL_DATE_ANCHOR, not user JSON/settings.
   state.dateAnchorSeason=CPL_DATE_ANCHOR.season;
   state.dateAnchorDay=CPL_DATE_ANCHOR.day;
@@ -3788,7 +3752,7 @@ function normalizeAnalysisBlocksForCurrentDate(){
     const start=blockStartAbs(b);
     const end=blockEndAbs(b);
 
-    // v1.1 RC12: the planner is forward-looking from the forced current CPL date.
+    // v1.1 RC11: the planner is forward-looking from the forced current CPL date.
     // Fully past blocks disappear. Partially past blocks are kept, but shortened
     // and moved to the current day so they stay visible and still impact projections.
     if(end<0)return null;
@@ -3830,7 +3794,7 @@ function applyAutoGameDate(){
   return true;
 }
 function setCurrentGameDate(season,day,manual=false){
-  // v1.1 RC12: current date is not user-editable anymore.
+  // v1.1 RC11: current date is not user-editable anymore.
   applyAutoGameDate();
   saveLocal();renderAll();
 }
@@ -3953,47 +3917,25 @@ function plannerWeeks(){
     .filter(b=>b._end>=0)
     .sort((a,b)=>a._start-b._start);
 
-  // RC12 header/grid fix:
-  // The visual grid starts at current day, but the 7-day cadence is aligned on
-  // the first real analysis block. We rebuild full 7-day buckets backwards from
-  // that anchor. If today cuts a bucket, only the very first bucket is shortened.
-  // Headers display date ranges like D7-D13, not start day + duration.
   let cursor=0;
-  let index=0;
-  const firstBlockStart=futureBlocks.length?Math.max(0,futureBlocks[0]._start):null;
-  const cadenceAnchor=firstBlockStart!==null?firstBlockStart:0;
-
-  const pushBucket=(abs,len)=>{
-    if(len<=0||abs>horizonEnd)return;
-    const start=fromAbsoluteDay(abs);
-    const end=fromAbsoluteDay(Math.min(horizonEnd,abs+len-1));
-    const crosses=start.season!==end.season;
-    const weekInSeason=Math.floor((start.day-1)/7)+1;
-    const label=crosses?`S${start.season}→S${end.season}`:`S${start.season}`;
-    const range=crosses?`D${start.day}→D${end.day}`:`D${start.day}-D${end.day}`;
-    const fullLabel=crosses?`S${start.season} D${start.day} → S${end.season} D${end.day}`:`S${start.season} D${start.day}-D${end.day}`;
-    const cellLabel=range;
-    out.push({index,abs,len,season:start.season,day:start.day,endSeason:end.season,endDay:end.day,week:weekInSeason,label,range,fullLabel,cellLabel,isGap:false});
-    index++;
-  };
-
-  if(cadenceAnchor>0){
-    const firstPartialLen=cadenceAnchor%7;
-    if(firstPartialLen>0){
-      pushBucket(0,firstPartialLen);
-      cursor=firstPartialLen;
-    }
-    while(cursor<cadenceAnchor){
-      const len=Math.min(7,cadenceAnchor-cursor);
-      pushBucket(cursor,len);
-      cursor+=len;
-    }
+  let firstLen=7;
+  if(futureBlocks.length){
+    cursor=Math.max(0,futureBlocks[0]._start);
+    firstLen=Math.max(1,+futureBlocks[0].durationDays||7);
   }
 
+  let index=0;
   while(cursor<=horizonEnd){
-    const len=Math.min(7,horizonEnd-cursor+1);
-    pushBucket(cursor,len);
-    cursor+=7;
+    const len=index===0?firstLen:7;
+    const start=fromAbsoluteDay(cursor);
+    const end=fromAbsoluteDay(Math.min(horizonEnd,cursor+len-1));
+    const crosses=start.season!==end.season;
+    const weekInSeason=Math.floor((start.day-1)/7)+1;
+    const label=index===0&&futureBlocks.length?`Plan start`:`S${start.season} W${weekInSeason}`;
+    const range=crosses?`S${start.season} D${start.day} → S${end.season} D${end.day}`:`D${start.day}–D${end.day}`;
+    out.push({index,abs:cursor,len,season:start.season,day:start.day,endSeason:end.season,endDay:end.day,week:weekInSeason,label,range});
+    cursor+=len;
+    index++;
   }
   return out;
 }
@@ -4033,7 +3975,7 @@ function sortAnalysisBlocks(){
   state.analysisBlocks.sort((a,b)=>blockStartAbs(a)-blockStartAbs(b));
 }
 function normalizeAnalysisBlockSequence(){
-  // RC12_1: intentionally no-op.
+  // RC11_1: intentionally no-op.
   // Previous RC glued every following block to the first one, which destroyed planned gaps.
   sortAnalysisBlocks();
 }
@@ -4099,7 +4041,7 @@ function alignFollowingBlocksToNewAnchor(oldBlocks,editedId,candidate){
   const changed=oldStart!==newStart || oldLen!==newLen;
   if(!changed)return;
 
-  // RC12_4: use oldBlocks only to calculate the previous bucket positions,
+  // RC11_4: use oldBlocks only to calculate the previous bucket positions,
   // but write the new dates into the real state.analysisBlocks objects.
   const currentById=Object.fromEntries((state.analysisBlocks||[]).map(b=>[b.id,b]));
   const placed=[];
@@ -4140,13 +4082,13 @@ function applyAnalysisCandidate(id,candidate){
   if(idx>=0)state.analysisBlocks[idx]=candidate;
   else state.analysisBlocks.push(candidate);
 
-  // RC12_3:
+  // RC11_3:
   // - normal blocks stay independent;
   // - when the first block is edited, followers shift to the matching new grid bucket,
   //   preserving gaps and order instead of being glued to the previous block.
   alignFollowingBlocksToNewAnchor(oldBlocks,id,candidate);
 
-  // RC12.16: existing blocks that already started before today but are still active
+  // RC11.16: existing blocks that already started before today but are still active
   // must remain editable/valid. New backdated blocks are still rejected.
   const allowPastActiveIds=new Set(oldBlocks
     .filter(b=>blockStartAbs(b)<0&&blockEndAbs(b)>=0)
@@ -4885,20 +4827,14 @@ function renderAnalysisForm(){
 function renderAnalysisTimeline(){
   const weeks=plannerWeeks();
   const weekForAbs=(abs)=>weeks.find(w=>abs>=w.abs && abs<=w.abs+(w.len||7)-1);
-
-  // RC12 header/grid fix:
-  // Header and body use the exact same grid-template-columns. A shortened first
-  // bucket gets a shortened column, so labels/cells/blocks all share one scale.
-  const dayPx=16;
-  const weekCols=weeks.map(w=>`${Math.max(22,Math.round((w.len||7)*dayPx))}px`).join(' ');
-  let html=`<div class="analysisGrid weekMode" style="--weeks:${weeks.length};--week-cols:150px ${weekCols}">`;
-  html+=`<div class="analysisHeader"><div class="analysisCorner">Player / Period</div>${weeks.map((w,wi)=>`<div class="analysisWeekHead ${w.isGap?'gapBucket ':''}${wi===0||w.season!==weeks[wi-1].season?'seasonStart':''}" title="${w.fullLabel}"><div class="weekTitle">${w.label}</div><div class="weekDays">${w.range}</div></div>`).join('')}</div>`;
+  let html=`<div class="analysisGrid weekMode" style="--weeks:${weeks.length}">`;
+  html+=`<div class="analysisHeader"><div class="analysisCorner">Player / Week</div>${weeks.map((w,wi)=>`<div class="analysisWeekHead ${wi===0||w.season!==weeks[wi-1].season?'seasonStart':''}" title="Start S${w.season} D${w.day}"><div class="weekTitle">${w.label}</div><div class="weekDays">${w.range}</div></div>`).join('')}</div>`;
   state.players.forEach((p,i)=>{
     const hue=playerColorHue(p,i);
     html+=`<div class="analysisPlayerRow" style="--h:${hue}"><div class="analysisPlayerName"><span class="miniDot"></span><span>${escapeHtml(p.name)}</span></div>`;
     weeks.forEach(w=>{
       const defaultDuration=w.index===0?w.len:7;
-      html+=`<div class="analysisCell ${w.isGap?'gapBucket ':''}${w.index===0||w.season!==weeks[w.index-1].season?'seasonStart':''}" ondragover="event.preventDefault()" ondrop="moveAnalysisBlock(event.dataTransfer.getData('text/plain'),'${p.id}',${w.abs})" onclick="setTrainingDraft('${p.id}',${w.season},${w.day},${defaultDuration})" title="${escapeHtml(p.name)} · S${w.season} D${w.day} → S${w.endSeason} D${w.endDay}"><span class="weekHint">${w.cellLabel||w.range||w.label}</span></div>`;
+      html+=`<div class="analysisCell ${w.index===0||w.season!==weeks[w.index-1].season?'seasonStart':''}" ondragover="event.preventDefault()" ondrop="moveAnalysisBlock(event.dataTransfer.getData('text/plain'),'${p.id}',${w.abs})" onclick="setTrainingDraft('${p.id}',${w.season},${w.day},${defaultDuration})" title="${escapeHtml(p.name)} · ${w.label}"><span class="weekHint">${w.label}</span></div>`;
     });
     html+=`</div>`;
   });
@@ -5421,7 +5357,7 @@ function openCandidateImport(){candidateImportPanel.style.display='block';candid
 function closeCandidateImport(){candidateImportPanel.style.display='none'}
 
 
-/* ===== v1.1.0-rc.12 Robust shared CPL parser ===== */
+/* ===== v1.1.0-rc.11 Robust shared CPL parser ===== */
 const cplSkillAliases=[
   ['Aim','aim'],['AIM','aim'],
   ['Handling','hand'],['HND','hand'],['HAND','hand'],
@@ -5642,7 +5578,7 @@ function lifecycleEvents(){
 
     const age=+p.age;
     if(!isNaN(age)){
-      // RC12_4 patch:
+      // RC11_4 patch:
       // Regression warning must be plan-aware.
       // Previous logic was age-only and ignored analysis blocks, so it could warn even when analysis compensates decline.
       const regressionSeason=seasons().find(s=>seasonNetTrainingPoints(p,s).net<-.0001);
@@ -6048,22 +5984,22 @@ function renderTeamBuilder(){
 }
 
 function renderSettings(){coefSettings.innerHTML=Object.keys(state.coef).map(k=>`<div class="settingRow"><label>${labels[k]}</label><input type="number" step="0.1" value="${state.coef[k]}" onchange="state.coef['${k}']=+this.value;saveLocal();renderAll()"></div>`).join('');engineSettings.innerHTML=Object.keys(state.engine).map(k=>`<div class="settingRow"><label>${k}</label><input type="number" step="0.05" value="${state.engine[k]}" onchange="state.engine['${k}']=+this.value;saveLocal();renderAll()"></div>`).join('');heartSettings.innerHTML=Object.keys(state.hearts).filter(k=>k!=='Platinium').map(k=>`<div class="settingRow"><label>${k}</label><input type="number" step="0.005" value="${state.hearts[k]}" onchange="state.hearts['${k}']=+this.value;if(k==='Platinum')state.hearts.Platinium=state.hearts.Platinum;saveLocal();renderAll()"></div>`).join('')}
-function renderAll(){normalizeStateAfterLoad();applyAutoGameDate();ensureGear();ensurePlayerMeta();initPlan();wireEditButton();safeRender('Brand',renderBrand);safeRender('CPL date',renderCplDate);safeRender('Timeline',renderTimeline,['timeline']);safeRender('Overview',renderOverview,['overviewRows']);safeRender('Training',renderTraining,['analysisTimelineWrap','analysisBlocksRows','analysisSummary','skillTrajectorySvg']);safeRender('Gear',renderGear,['gearRows','gearDetails']);safeRender('Team Builder',renderTeamBuilder,['candidateRows','candidateComparison','teamBuilderTimeline','rosterPlanWrap']);safeRender('Settings',renderSettings,['coefSettings','engineSettings','heartSettings']);saveLocal()}function uploadLogo(e){const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{state.teamLogoData=reader.result;saveLocal();renderAll()};reader.readAsDataURL(f)}function uploadBanner(e){const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{state.teamBannerData=reader.result;saveLocal();renderAll()};reader.readAsDataURL(f)}function clearLogo(){state.teamLogoUrl='';state.teamLogoData='';saveLocal();renderAll()}function clearBanner(){state.teamBannerUrl='';state.teamBannerData='';saveLocal();renderAll()}function exportJSON(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(state.teamName||'team').replaceAll(' ','_')+'_CPL_Companion_v1_1_RC12.json';a.click()}function importJSONFile(e){const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{try{state=JSON.parse(reader.result);saveLocal();renderAll();alert('JSON imported.')}catch(err){alert('Invalid JSON')}};reader.readAsText(f)}function importJSONText(){const txt=prompt('Paste full JSON here');if(!txt)return;try{state=JSON.parse(txt);saveLocal();renderAll();alert('JSON imported.')}catch(e){alert('Invalid JSON')}}function factoryReset(){
+function renderAll(){normalizeStateAfterLoad();applyAutoGameDate();ensureGear();ensurePlayerMeta();initPlan();wireEditButton();safeRender('Brand',renderBrand);safeRender('CPL date',renderCplDate);safeRender('Timeline',renderTimeline,['timeline']);safeRender('Overview',renderOverview,['overviewRows']);safeRender('Training',renderTraining,['analysisTimelineWrap','analysisBlocksRows','analysisSummary','skillTrajectorySvg']);safeRender('Gear',renderGear,['gearRows','gearDetails']);safeRender('Team Builder',renderTeamBuilder,['candidateRows','candidateComparison','teamBuilderTimeline','rosterPlanWrap']);safeRender('Settings',renderSettings,['coefSettings','engineSettings','heartSettings']);saveLocal()}function uploadLogo(e){const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{state.teamLogoData=reader.result;saveLocal();renderAll()};reader.readAsDataURL(f)}function uploadBanner(e){const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{state.teamBannerData=reader.result;saveLocal();renderAll()};reader.readAsDataURL(f)}function clearLogo(){state.teamLogoUrl='';state.teamLogoData='';saveLocal();renderAll()}function clearBanner(){state.teamBannerUrl='';state.teamBannerData='';saveLocal();renderAll()}function exportJSON(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(state.teamName||'team').replaceAll(' ','_')+'_CPL_Companion_v1_1_RC11.json';a.click()}function importJSONFile(e){const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{try{state=JSON.parse(reader.result);saveLocal();renderAll();alert('JSON imported.')}catch(err){alert('Invalid JSON')}};reader.readAsText(f)}function importJSONText(){const txt=prompt('Paste full JSON here');if(!txt)return;try{state=JSON.parse(txt);saveLocal();renderAll();alert('JSON imported.')}catch(e){alert('Invalid JSON')}}function factoryReset(){
   if(!confirm('Factory reset all local data and restore embedded emuLate! baseline?'))return;
   localStorage.removeItem('teamPlannerStable');
-  localStorage.removeItem('teamPlannerV100RC12_9_2');
-  localStorage.removeItem('teamPlannerV100RC12_9_1');
-  localStorage.removeItem('teamPlannerV100RC12_9');
-  localStorage.removeItem('teamPlannerV100RC12_7');
+  localStorage.removeItem('teamPlannerV100RC11_9_2');
+  localStorage.removeItem('teamPlannerV100RC11_9_1');
+  localStorage.removeItem('teamPlannerV100RC11_9');
+  localStorage.removeItem('teamPlannerV100RC11_7');
   state=structuredClone(defaultState);
-  state.version='1.1.0-rc.12';
+  state.version='1.1.0-rc.11';
   selected=0;
   selectedCandidateId=null;
   renderAll();
 }function loadDefaults(){
   if(!confirm('Restore the embedded emuLate! baseline data? This will replace current roster, builder candidates, analysis plan and settings.'))return;
   state=structuredClone(defaultState);
-  state.version='1.1.0-rc.12';
+  state.version='1.1.0-rc.11';
   selected=0;
   selectedCandidateId=null;
   renderAll();
