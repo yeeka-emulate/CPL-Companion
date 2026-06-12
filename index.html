@@ -2862,7 +2862,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 }
 
 
-/* ===== v1 RC8.13 trajectory color sync + punchier planner colors ===== */
+/* ===== v1 RC8.15 trajectory color sync + punchier planner colors ===== */
 .apexLegendChip .miniDot{
   background:var(--playerColor,hsl(var(--h),92%,62%))!important;
   box-shadow:0 0 0 3px hsla(var(--h),92%,62%,.18),0 0 12px hsla(var(--h),92%,62%,.35)!important;
@@ -2886,7 +2886,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 }
 
 
-/* ===== v1 RC8.13 CPL core palette + modern planner tint ===== */
+/* ===== v1 RC8.15 CPL core palette + modern planner tint ===== */
 .analysisPlayerRow{
   position:relative;
   border-bottom:1px solid rgba(255,255,255,.045)!important;
@@ -2940,7 +2940,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 }
 
 
-/* ===== v1 RC8.13 calmer CPL palette + unique extra player colors ===== */
+/* ===== v1 RC8.15 calmer CPL palette + unique extra player colors ===== */
 .avatar{
   border-width:1px!important;
   color:#fff!important;
@@ -3007,6 +3007,64 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
   filter:drop-shadow(0 0 3px rgba(255,255,255,.07))!important;
 }
 
+
+/* ===== v1 RC8.15 calmer analysis blocks ===== */
+.analysisBlock{
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.00) 38%),
+    linear-gradient(90deg,hsl(var(--h),58%,41%) 0%, hsl(var(--h),54%,36%) 100%)!important;
+  border:1px solid hsla(var(--h),52%,62%,.20)!important;
+  box-shadow:
+    0 6px 13px rgba(0,0,0,.30),
+    inset 0 1px 0 rgba(255,255,255,.10)!important;
+  filter:saturate(.86) brightness(.94)!important;
+}
+.analysisBlock span{
+  color:rgba(255,255,255,.92)!important;
+  text-shadow:0 1px 2px rgba(0,0,0,.48)!important;
+}
+.analysisBlock:hover{
+  filter:saturate(.96) brightness(1.02)!important;
+  border-color:hsla(var(--h),58%,68%,.28)!important;
+}
+.analysisBlock.selected{
+  outline:2px solid hsla(var(--h),58%,72%,.62)!important;
+  box-shadow:
+    0 0 0 4px hsla(var(--h),48%,46%,.10),
+    0 9px 18px rgba(0,0,0,.34),
+    inset 0 1px 0 rgba(255,255,255,.13)!important;
+}
+
+
+/* ===== v1 RC8.15 balanced analysis blocks ===== */
+.analysisBlock{
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.095),rgba(255,255,255,.00) 35%),
+    linear-gradient(90deg,hsl(var(--h),68%,46%) 0%, hsl(var(--h),64%,41%) 100%)!important;
+  border:1px solid hsla(var(--h),62%,66%,.24)!important;
+  box-shadow:
+    0 7px 15px rgba(0,0,0,.31),
+    0 4px 10px hsla(var(--h),52%,34%,.12),
+    inset 0 1px 0 rgba(255,255,255,.12)!important;
+  filter:saturate(.98) brightness(.99)!important;
+}
+.analysisBlock span{
+  color:rgba(255,255,255,.94)!important;
+  text-shadow:0 1px 2px rgba(0,0,0,.50)!important;
+}
+.analysisBlock:hover{
+  filter:saturate(1.06) brightness(1.05)!important;
+  border-color:hsla(var(--h),68%,70%,.32)!important;
+}
+.analysisBlock.selected{
+  outline:2px solid hsla(var(--h),68%,74%,.72)!important;
+  box-shadow:
+    0 0 0 4px hsla(var(--h),54%,48%,.13),
+    0 9px 20px rgba(0,0,0,.35),
+    0 4px 13px hsla(var(--h),54%,36%,.16),
+    inset 0 1px 0 rgba(255,255,255,.16)!important;
+}
+
 </style>
 </head>
 <body>
@@ -3014,7 +3072,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 <header class="header heroHeader">
   <div class="heroCard" id="heroCard"><img id="heroBannerImg" class="heroBannerImg" alt="">
     <div class="heroOverlay">
-      <div class="brand heroBrand"><div id="logoBox" class="logoBox heroLogo"><div class="brandmark"></div></div><div><h1><span id="brandTeam">emuLate!</span> <span class="badge">v1 RC8.13</span></h1><div class="subtitle" id="brandCommunity">TEAM PLANNER</div></div></div>
+      <div class="brand heroBrand"><div id="logoBox" class="logoBox heroLogo"><div class="brandmark"></div></div><div><h1><span id="brandTeam">emuLate!</span> <span class="badge">v1 RC8.15</span></h1><div class="subtitle" id="brandCommunity">TEAM PLANNER</div></div></div>
       <div class="heroRight"><div class="cplDate" id="cplDateBadge">S12 · D22/35</div><div class="dataStatus" id="dataStatusBadge">DATA CHECK</div></div>
       <nav class="tabs heroTabs">
   <button class="tab active" data-page-target="overview" onclick="showPage('overview',this)">Overview</button>
@@ -5103,7 +5161,7 @@ function renderTeamBuilder(){
 }
 
 function renderSettings(){coefSettings.innerHTML=Object.keys(state.coef).map(k=>`<div class="settingRow"><label>${labels[k]}</label><input type="number" step="0.1" value="${state.coef[k]}" onchange="state.coef['${k}']=+this.value;saveLocal();renderAll()"></div>`).join('');engineSettings.innerHTML=Object.keys(state.engine).map(k=>`<div class="settingRow"><label>${k}</label><input type="number" step="0.05" value="${state.engine[k]}" onchange="state.engine['${k}']=+this.value;saveLocal();renderAll()"></div>`).join('');heartSettings.innerHTML=Object.keys(state.hearts).filter(k=>k!=='Platinium').map(k=>`<div class="settingRow"><label>${k}</label><input type="number" step="0.005" value="${state.hearts[k]}" onchange="state.hearts['${k}']=+this.value;if(k==='Platinum')state.hearts.Platinium=state.hearts.Platinum;saveLocal();renderAll()"></div>`).join('')}
-function renderAll(){normalizeStateAfterLoad();ensureGear();ensurePlayerMeta();initPlan();wireEditButton();safeRender('Brand',renderBrand);safeRender('CPL date',renderCplDate);safeRender('Timeline',renderTimeline,['timeline']);safeRender('Overview',renderOverview,['overviewRows']);safeRender('Training',renderTraining,['analysisTimelineWrap','analysisBlocksRows','analysisSummary','skillTrajectorySvg']);safeRender('Gear',renderGear,['gearRows','gearDetails']);safeRender('Team Builder',renderTeamBuilder,['candidateRows','candidateComparison','teamBuilderTimeline','rosterPlanWrap']);safeRender('Settings',renderSettings,['coefSettings','engineSettings','heartSettings']);saveLocal()}function uploadLogo(e){const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{state.teamLogoData=reader.result;saveLocal();renderAll()};reader.readAsDataURL(f)}function uploadBanner(e){const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{state.teamBannerData=reader.result;saveLocal();renderAll()};reader.readAsDataURL(f)}function clearLogo(){state.teamLogoUrl='';state.teamLogoData='';saveLocal();renderAll()}function clearBanner(){state.teamBannerUrl='';state.teamBannerData='';saveLocal();renderAll()}function exportJSON(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(state.teamName||'team').replaceAll(' ','_')+'_cpl_team_planner_v1_0_0_rc8_13.json';a.click()}function importJSONFile(e){const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{try{state=JSON.parse(reader.result);saveLocal();renderAll();alert('JSON imported.')}catch(err){alert('Invalid JSON')}};reader.readAsText(f)}function importJSONText(){const txt=prompt('Paste full JSON here');if(!txt)return;try{state=JSON.parse(txt);saveLocal();renderAll();alert('JSON imported.')}catch(e){alert('Invalid JSON')}}function factoryReset(){
+function renderAll(){normalizeStateAfterLoad();ensureGear();ensurePlayerMeta();initPlan();wireEditButton();safeRender('Brand',renderBrand);safeRender('CPL date',renderCplDate);safeRender('Timeline',renderTimeline,['timeline']);safeRender('Overview',renderOverview,['overviewRows']);safeRender('Training',renderTraining,['analysisTimelineWrap','analysisBlocksRows','analysisSummary','skillTrajectorySvg']);safeRender('Gear',renderGear,['gearRows','gearDetails']);safeRender('Team Builder',renderTeamBuilder,['candidateRows','candidateComparison','teamBuilderTimeline','rosterPlanWrap']);safeRender('Settings',renderSettings,['coefSettings','engineSettings','heartSettings']);saveLocal()}function uploadLogo(e){const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{state.teamLogoData=reader.result;saveLocal();renderAll()};reader.readAsDataURL(f)}function uploadBanner(e){const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{state.teamBannerData=reader.result;saveLocal();renderAll()};reader.readAsDataURL(f)}function clearLogo(){state.teamLogoUrl='';state.teamLogoData='';saveLocal();renderAll()}function clearBanner(){state.teamBannerUrl='';state.teamBannerData='';saveLocal();renderAll()}function exportJSON(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(state.teamName||'team').replaceAll(' ','_')+'_cpl_team_planner_v1_0_0_rc8_15.json';a.click()}function importJSONFile(e){const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{try{state=JSON.parse(reader.result);saveLocal();renderAll();alert('JSON imported.')}catch(err){alert('Invalid JSON')}};reader.readAsText(f)}function importJSONText(){const txt=prompt('Paste full JSON here');if(!txt)return;try{state=JSON.parse(txt);saveLocal();renderAll();alert('JSON imported.')}catch(e){alert('Invalid JSON')}}function factoryReset(){
   if(!confirm('Factory reset all local data and restore embedded emuLate! baseline?'))return;
   localStorage.removeItem('teamPlannerStable');
   localStorage.removeItem('teamPlannerV100RC8_9_2');
