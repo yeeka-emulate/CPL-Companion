@@ -3399,10 +3399,19 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 
 
 
-/* ===== v1.1 RC12 visual week alignment fix ===== */
+/* ===== v1.1 RC12 header/grid alignment fix ===== */
 .analysisGrid.weekMode .analysisHeader,
 .analysisGrid.weekMode .analysisPlayerRow{
   grid-template-columns:var(--week-cols)!important;
+}
+.analysisGrid.weekMode .analysisWeekHead .weekTitle{
+  font-size:8.8px!important;
+  line-height:1!important;
+}
+.analysisGrid.weekMode .analysisWeekHead .weekDays{
+  font-size:7.7px!important;
+  line-height:1.05!important;
+  letter-spacing:-.02em;
 }
 
 </style>
@@ -3938,22 +3947,24 @@ function plannerWeeks(){
     .filter(b=>b._end>=0)
     .sort((a,b)=>a._start-b._start);
 
-  // RC12: stable visual anchor + first-block cadence.
-  // The grid always starts at current day, but its 7-day cadence is aligned on
-  // the first analysis block. We rebuild the 7-day intervals backwards from
-  // that first block to today, leaving only the first bucket shortened if needed.
+  // RC12 header/grid fix:
+  // The visual grid starts at current day, but the 7-day cadence is aligned on
+  // the first real analysis block. We rebuild full 7-day buckets backwards from
+  // that anchor. If today cuts a bucket, only the very first bucket is shortened.
+  // Headers display the exact bucket dates, not misleading calendar week numbers.
   let cursor=0;
   let index=0;
   const firstBlockStart=futureBlocks.length?Math.max(0,futureBlocks[0]._start):null;
   const cadenceAnchor=firstBlockStart!==null?firstBlockStart:0;
+
   const pushBucket=(abs,len)=>{
     if(len<=0||abs>horizonEnd)return;
     const start=fromAbsoluteDay(abs);
     const end=fromAbsoluteDay(Math.min(horizonEnd,abs+len-1));
     const crosses=start.season!==end.season;
     const weekInSeason=Math.floor((start.day-1)/7)+1;
-    const label=`S${start.season} W${weekInSeason}`;
-    const range=crosses?`S${start.season} D${start.day} → S${end.season} D${end.day}`:`D${start.day}–D${end.day}`;
+    const label=`S${start.season} D${start.day}`;
+    const range=crosses?`→ S${end.season} D${end.day} · ${len}d`:`→ D${end.day} · ${len}d`;
     out.push({index,abs,len,season:start.season,day:start.day,endSeason:end.season,endDay:end.day,week:weekInSeason,label,range,isGap:false});
     index++;
   };
@@ -4067,112 +4078,53 @@ function plannerBucketStartByIndex(index,anchorStart,anchorLen){
   if(index===0)return anchorStart;
   return anchorStart+anchorLen+(index-1)*7;
 }
-function analysisRangeOverlapsPlaced(start,duration,placed){
-  const end=start+Math.max(1,+duration||1)-1;
-  return placed.some(x=>start<=x.endAbs && end>=x.startAbs);
-}
-function analysisPlacedStartSeasonTotal(playerId,startSeason,placed){
-  return placed
-    .filter(x=>x.playerId===playerId && +x.startSeason===+startSeason)
-    .reduce((a,x)=>a+Math.max(1,+x.duration||1),0);
-}
-function canPlaceAnalysisItemAt(item,start,placed){
-  start=Math.max(0,+start||0);
-  const duration=Math.max(1,+item.duration||7);
-  const d=fromAbsoluteDay(start);
-  const overlaps=analysisRangeOverlapsPlaced(start,duration,placed);
-  const playerSeasonTotal=analysisPlacedStartSeasonTotal(item.playerId,d.season,placed)+duration;
-  return !overlaps && playerSeasonTotal<=14;
-}
-function describeRemovedAnalysisItem(item,reason){
-  const p=playerById(item.playerId);
-  const d=fromAbsoluteDay(Math.max(0,+item.preferredStart||+item.oldStart||0));
-  const label=`${p?p.name:'Unknown player'} · S${d.season} D${d.day} · ${Math.max(1,+item.duration||7)}d`;
-  return reason?`${label} (${reason})`:label;
-}
-function setAnalysisAdjustmentNotice(removed,movedCount=0){
-  if(!removed||!removed.length)return;
-  const moved=movedCount>0?`${movedCount} block${movedCount>1?'s were':' was'} recalibrated. `:'';
-  state.analysisAdjustmentNotice=`Analysis plan adjusted. ${moved}${removed.length} block${removed.length>1?'s were':' was'} removed because ${removed.length>1?'they could not':'it could not'} be placed without breaking analysis rules: ${removed.join(' | ')}. Please add ${removed.length>1?'them':'it'} back manually if needed.`;
-}
-function flushAnalysisAdjustmentNotice(){
-  if(!state.analysisAdjustmentNotice)return;
-  const msg=state.analysisAdjustmentNotice;
-  state.analysisAdjustmentNotice='';
-  showAnalysisError(msg);
-}
 function alignFollowingBlocksToNewAnchor(oldBlocks,editedId,candidate){
   const oldSorted=[...oldBlocks].sort((a,b)=>blockStartAbs(a)-blockStartAbs(b));
   const oldFirst=oldSorted[0];
-  if(!oldFirst)return [];
+  if(!oldFirst || oldFirst.id!==editedId)return;
 
   const oldStart=blockStartAbs(oldFirst);
+  const oldLen=Math.max(1,+oldFirst.durationDays||7);
   const newStart=absoluteDay(candidate.startSeason,candidate.startDay);
   const newLen=Math.max(1,+candidate.durationDays||7);
 
-  const candidateWasOldFirst=oldFirst.id===editedId;
-  const candidateBecomesNewFirst=!candidateWasOldFirst && newStart<=oldStart;
-  const changed=oldStart!==newStart || Math.max(1,+oldFirst.durationDays||7)!==newLen;
+  const changed=oldStart!==newStart || oldLen!==newLen;
+  if(!changed)return;
 
-  // RC12: delta-based recalibration, but no automatic long-distance pushing.
-  // If a follower cannot keep its recalibrated slot, remove only that block and warn the manager.
-  if(!candidateWasOldFirst && !candidateBecomesNewFirst)return [];
-  if(candidateWasOldFirst && !changed)return [];
-
-  const delta=newStart-oldStart;
+  // RC12_4: use oldBlocks only to calculate the previous bucket positions,
+  // but write the new dates into the real state.analysisBlocks objects.
   const currentById=Object.fromEntries((state.analysisBlocks||[]).map(b=>[b.id,b]));
-  const placed=[{
-    id:editedId,
-    playerId:candidate.playerId,
-    startAbs:newStart,
-    endAbs:newStart+newLen-1,
-    startSeason:+candidate.startSeason,
-    duration:newLen
-  }];
-  const removed=[];
-  let movedCount=0;
-
+  const placed=[];
   const followers=oldSorted
     .filter(b=>b.id!==editedId)
     .map(b=>({
       id:b.id,
-      playerId:b.playerId,
       oldStart:blockStartAbs(b),
-      duration:Math.max(1,+b.durationDays||7)
+      duration:Math.max(1,+b.durationDays||7),
+      bucketIndex:plannerBucketIndexForAbs(blockStartAbs(b),oldStart,oldLen)
     }))
-    .sort((a,b)=>a.oldStart-b.oldStart);
+    .sort((a,b)=>a.bucketIndex-b.bucketIndex || a.oldStart-b.oldStart);
 
   for(const item of followers){
     const realBlock=currentById[item.id];
     if(!realBlock)continue;
 
-    const preferred=Math.max(0,item.oldStart+delta);
-    item.preferredStart=preferred;
+    let idx=Math.max(1,item.bucketIndex);
+    let proposed=plannerBucketStartByIndex(idx,newStart,newLen);
 
-    if(!canPlaceAnalysisItemAt(item,preferred,placed)){
-      const reason=analysisRangeOverlapsPlaced(preferred,item.duration,placed)?'calendar conflict':'player season limit';
-      removed.push(describeRemovedAnalysisItem(item,reason));
-      state.analysisBlocks=state.analysisBlocks.filter(b=>b.id!==item.id);
-      continue;
+    // Keep blocks ordered and avoid one-analysis-at-a-time overlap.
+    while(placed.length && proposed<=placed[placed.length-1].endAbs){
+      idx++;
+      proposed=plannerBucketStartByIndex(idx,newStart,newLen);
     }
 
-    const d=fromAbsoluteDay(preferred);
-    if(realBlock.startSeason!==d.season || realBlock.startDay!==d.day)movedCount++;
+    const d=fromAbsoluteDay(proposed);
     realBlock.startSeason=d.season;
     realBlock.startDay=d.day;
+    // Keep each follower's duration untouched.
     realBlock.durationDays=item.duration;
-
-    placed.push({
-      id:item.id,
-      playerId:item.playerId,
-      startAbs:preferred,
-      endAbs:preferred+item.duration-1,
-      startSeason:d.season,
-      duration:item.duration
-    });
+    placed.push({id:item.id,startAbs:proposed,endAbs:proposed+item.duration-1});
   }
-  setAnalysisAdjustmentNotice(removed,movedCount);
-  return removed;
 }
 function applyAnalysisCandidate(id,candidate){
   const idx=state.analysisBlocks.findIndex(b=>b.id===id);
@@ -4180,10 +4132,10 @@ function applyAnalysisCandidate(id,candidate){
   if(idx>=0)state.analysisBlocks[idx]=candidate;
   else state.analysisBlocks.push(candidate);
 
-  // RC12:
-  // Snap followers only when the anchor meaningfully changes.
-  // First apply the anchor delta. If a follower cannot keep its recalibrated slot,
-  // remove only that follower and warn the manager instead of silently pushing it away.
+  // RC12_3:
+  // - normal blocks stay independent;
+  // - when the first block is edited, followers shift to the matching new grid bucket,
+  //   preserving gaps and order instead of being glued to the previous block.
   alignFollowingBlocksToNewAnchor(oldBlocks,id,candidate);
 
   // RC12.16: existing blocks that already started before today but are still active
@@ -4925,18 +4877,20 @@ function renderAnalysisForm(){
 function renderAnalysisTimeline(){
   const weeks=plannerWeeks();
   const weekForAbs=(abs)=>weeks.find(w=>abs>=w.abs && abs<=w.abs+(w.len||7)-1);
-  // RC12 visual fix: week columns must scale with their real duration.
-  // The first bucket can be shorter than 7 days; if columns stay equal width,
-  // blocks appear visually misaligned with the visible week headers.
-  const weekCols=weeks.map(w=>`${Math.max(18,(w.len||7)*6)}px`).join(' ');
-  let html=`<div class="analysisGrid weekMode" style="--weeks:${weeks.length};--week-cols:104px ${weekCols}">`;
-  html+=`<div class="analysisHeader"><div class="analysisCorner">Player / Week</div>${weeks.map((w,wi)=>`<div class="analysisWeekHead ${w.isGap?'gapBucket ':''}${wi===0||w.season!==weeks[wi-1].season?'seasonStart':''}" title="Start S${w.season} D${w.day}"><div class="weekTitle">${w.label}</div><div class="weekDays">${w.range}</div></div>`).join('')}</div>`;
+
+  // RC12 header/grid fix:
+  // Header and body use the exact same grid-template-columns. A shortened first
+  // bucket gets a shortened column, so labels/cells/blocks all share one scale.
+  const dayPx=7.4;
+  const weekCols=weeks.map(w=>`${Math.max(22,Math.round((w.len||7)*dayPx))}px`).join(' ');
+  let html=`<div class="analysisGrid weekMode" style="--weeks:${weeks.length};--week-cols:116px ${weekCols}">`;
+  html+=`<div class="analysisHeader"><div class="analysisCorner">Player / Period</div>${weeks.map((w,wi)=>`<div class="analysisWeekHead ${w.isGap?'gapBucket ':''}${wi===0||w.season!==weeks[wi-1].season?'seasonStart':''}" title="S${w.season} D${w.day} → S${w.endSeason} D${w.endDay}"><div class="weekTitle">${w.label}</div><div class="weekDays">${w.range}</div></div>`).join('')}</div>`;
   state.players.forEach((p,i)=>{
     const hue=playerColorHue(p,i);
     html+=`<div class="analysisPlayerRow" style="--h:${hue}"><div class="analysisPlayerName"><span class="miniDot"></span><span>${escapeHtml(p.name)}</span></div>`;
     weeks.forEach(w=>{
       const defaultDuration=w.index===0?w.len:7;
-      html+=`<div class="analysisCell ${w.isGap?'gapBucket ':''}${w.index===0||w.season!==weeks[w.index-1].season?'seasonStart':''}" ondragover="event.preventDefault()" ondrop="moveAnalysisBlock(event.dataTransfer.getData('text/plain'),'${p.id}',${w.abs})" onclick="setTrainingDraft('${p.id}',${w.season},${w.day},${defaultDuration})" title="${escapeHtml(p.name)} · ${w.label}"><span class="weekHint">${w.label}</span></div>`;
+      html+=`<div class="analysisCell ${w.isGap?'gapBucket ':''}${w.index===0||w.season!==weeks[w.index-1].season?'seasonStart':''}" ondragover="event.preventDefault()" ondrop="moveAnalysisBlock(event.dataTransfer.getData('text/plain'),'${p.id}',${w.abs})" onclick="setTrainingDraft('${p.id}',${w.season},${w.day},${defaultDuration})" title="${escapeHtml(p.name)} · S${w.season} D${w.day} → S${w.endSeason} D${w.endDay}"><span class="weekHint">${w.label}</span></div>`;
     });
     html+=`</div>`;
   });
@@ -5220,7 +5174,6 @@ function renderTraining(){
   renderAnalysisTimeline();
   renderAnalysisBlocks();
   renderSkillTrajectory();
-  flushAnalysisAdjustmentNotice();
 }
 function sourceLabel(source){
   const s=(source||'unknown').toLowerCase();
