@@ -778,6 +778,12 @@ body.editing #addPlayerEditBtn{
 .analysisForm{
   grid-template-columns:1.3fr .75fr .75fr .75fr auto auto!important;
 }
+
+/* ===== RC12 final timeline grid/header alignment ===== */
+.analysisGrid.weekMode .analysisHeader,
+.analysisGrid.weekMode .analysisPlayerRow{
+  grid-template-columns:var(--week-cols)!important;
+}
 .analysisGrid.weekMode{
   display:grid;
   min-width:max-content;
@@ -3951,7 +3957,7 @@ function plannerWeeks(){
   // The visual grid starts at current day, but the 7-day cadence is aligned on
   // the first real analysis block. We rebuild full 7-day buckets backwards from
   // that anchor. If today cuts a bucket, only the very first bucket is shortened.
-  // Headers display the exact bucket dates, not misleading calendar week numbers.
+  // Headers display date ranges like D7-D13, not start day + duration.
   let cursor=0;
   let index=0;
   const firstBlockStart=futureBlocks.length?Math.max(0,futureBlocks[0]._start):null;
@@ -3963,9 +3969,11 @@ function plannerWeeks(){
     const end=fromAbsoluteDay(Math.min(horizonEnd,abs+len-1));
     const crosses=start.season!==end.season;
     const weekInSeason=Math.floor((start.day-1)/7)+1;
-    const label=`S${start.season} D${start.day}`;
-    const range=crosses?`→ S${end.season} D${end.day} · ${len}d`:`→ D${end.day} · ${len}d`;
-    out.push({index,abs,len,season:start.season,day:start.day,endSeason:end.season,endDay:end.day,week:weekInSeason,label,range,isGap:false});
+    const label=crosses?`S${start.season}→S${end.season}`:`S${start.season}`;
+    const range=crosses?`D${start.day}→D${end.day}`:`D${start.day}-D${end.day}`;
+    const fullLabel=crosses?`S${start.season} D${start.day} → S${end.season} D${end.day}`:`S${start.season} D${start.day}-D${end.day}`;
+    const cellLabel=range;
+    out.push({index,abs,len,season:start.season,day:start.day,endSeason:end.season,endDay:end.day,week:weekInSeason,label,range,fullLabel,cellLabel,isGap:false});
     index++;
   };
 
@@ -4881,16 +4889,16 @@ function renderAnalysisTimeline(){
   // RC12 header/grid fix:
   // Header and body use the exact same grid-template-columns. A shortened first
   // bucket gets a shortened column, so labels/cells/blocks all share one scale.
-  const dayPx=7.4;
+  const dayPx=16;
   const weekCols=weeks.map(w=>`${Math.max(22,Math.round((w.len||7)*dayPx))}px`).join(' ');
-  let html=`<div class="analysisGrid weekMode" style="--weeks:${weeks.length};--week-cols:116px ${weekCols}">`;
-  html+=`<div class="analysisHeader"><div class="analysisCorner">Player / Period</div>${weeks.map((w,wi)=>`<div class="analysisWeekHead ${w.isGap?'gapBucket ':''}${wi===0||w.season!==weeks[wi-1].season?'seasonStart':''}" title="S${w.season} D${w.day} → S${w.endSeason} D${w.endDay}"><div class="weekTitle">${w.label}</div><div class="weekDays">${w.range}</div></div>`).join('')}</div>`;
+  let html=`<div class="analysisGrid weekMode" style="--weeks:${weeks.length};--week-cols:150px ${weekCols}">`;
+  html+=`<div class="analysisHeader"><div class="analysisCorner">Player / Period</div>${weeks.map((w,wi)=>`<div class="analysisWeekHead ${w.isGap?'gapBucket ':''}${wi===0||w.season!==weeks[wi-1].season?'seasonStart':''}" title="${w.fullLabel}"><div class="weekTitle">${w.label}</div><div class="weekDays">${w.range}</div></div>`).join('')}</div>`;
   state.players.forEach((p,i)=>{
     const hue=playerColorHue(p,i);
     html+=`<div class="analysisPlayerRow" style="--h:${hue}"><div class="analysisPlayerName"><span class="miniDot"></span><span>${escapeHtml(p.name)}</span></div>`;
     weeks.forEach(w=>{
       const defaultDuration=w.index===0?w.len:7;
-      html+=`<div class="analysisCell ${w.isGap?'gapBucket ':''}${w.index===0||w.season!==weeks[w.index-1].season?'seasonStart':''}" ondragover="event.preventDefault()" ondrop="moveAnalysisBlock(event.dataTransfer.getData('text/plain'),'${p.id}',${w.abs})" onclick="setTrainingDraft('${p.id}',${w.season},${w.day},${defaultDuration})" title="${escapeHtml(p.name)} · S${w.season} D${w.day} → S${w.endSeason} D${w.endDay}"><span class="weekHint">${w.label}</span></div>`;
+      html+=`<div class="analysisCell ${w.isGap?'gapBucket ':''}${w.index===0||w.season!==weeks[w.index-1].season?'seasonStart':''}" ondragover="event.preventDefault()" ondrop="moveAnalysisBlock(event.dataTransfer.getData('text/plain'),'${p.id}',${w.abs})" onclick="setTrainingDraft('${p.id}',${w.season},${w.day},${defaultDuration})" title="${escapeHtml(p.name)} · S${w.season} D${w.day} → S${w.endSeason} D${w.endDay}"><span class="weekHint">${w.cellLabel||w.range||w.label}</span></div>`;
     });
     html+=`</div>`;
   });
