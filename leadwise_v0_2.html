@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Leadwise — Budget Builder PME</title>
+<style>
+:root{
+  --bg:#f5f7fb; --panel:#ffffff; --ink:#172033; --muted:#697386; --line:#e6e9f0;
+  --brand:#3b82f6; --brand2:#1e40af; --ok:#16a34a; --warn:#f59e0b; --bad:#dc2626;
+  --soft:#eef5ff; --shadow:0 18px 45px rgba(16,24,40,.08); --radius:22px;
+}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial;background:var(--bg);color:var(--ink)}
+.app{display:grid;grid-template-columns:270px 1fr;min-height:100vh}.side{background:#0f172a;color:white;padding:24px 18px;position:sticky;top:0;height:100vh}.logo{display:flex;align-items:center;gap:12px;margin-bottom:28px}.mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#60a5fa,#f97316);display:grid;place-items:center;font-weight:900}.brand b{display:block;font-size:20px}.brand span{color:#b8c2d6;font-size:12px}.nav{display:flex;flex-direction:column;gap:7px}.nav button{border:0;background:transparent;color:#d7deec;text-align:left;padding:12px 14px;border-radius:14px;cursor:pointer;font-size:14px}.nav button:hover,.nav button.active{background:rgba(255,255,255,.1);color:#fff}.sideFooter{position:absolute;bottom:20px;left:18px;right:18px;color:#9aa7bd;font-size:12px;line-height:1.4}.main{padding:26px 34px 48px}.topbar{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-bottom:24px}.title h1{margin:0;font-size:28px}.title p{margin:6px 0 0;color:var(--muted)}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:#fff;border-radius:14px;padding:11px 14px;cursor:pointer;font-weight:700;color:var(--ink)}.btn.primary{background:var(--brand);border-color:var(--brand);color:white}.btn.orange{background:#f97316;border-color:#f97316;color:white}.btn.ghost{background:transparent}.page{display:none}.page.active{display:block}.grid{display:grid;gap:18px}.kpis{grid-template-columns:repeat(4,minmax(0,1fr))}.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}.card h3{margin:0 0 14px;font-size:15px}.kpi .label{color:var(--muted);font-size:13px}.kpi .value{font-size:28px;font-weight:900;margin:7px 0}.kpi .delta{font-size:12px;font-weight:800}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}.two{grid-template-columns:1.35fr .9fr}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.budgetLayout{grid-template-columns:320px 1fr}.method{border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:12px;cursor:pointer}.method.active{border-color:var(--brand);background:var(--soft)}.method b{display:block}.method span{color:var(--muted);font-size:12px}.formGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}label{display:block;font-size:12px;color:var(--muted);font-weight:800;margin-bottom:6px}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px 12px;font:inherit;background:#fff;color:var(--ink)}textarea{min-height:90px}.sectionTitle{display:flex;justify-content:space-between;align-items:center;margin:22px 0 10px}.sectionTitle h2{margin:0;font-size:20px}table{width:100%;border-collapse:collapse}th,td{text-align:left;border-bottom:1px solid var(--line);padding:11px 9px;font-size:13px}th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em}.pill{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;background:#eef2f7;font-weight:800;font-size:12px}.pill.ok{background:#dcfce7}.pill.bad{background:#fee2e2}.pill.warn{background:#fef3c7}.barwrap{height:10px;background:#edf1f7;border-radius:999px;overflow:hidden}.bar{height:100%;background:var(--brand);border-radius:999px}.insight{padding:14px;border-radius:16px;background:#f8fafc;border:1px solid var(--line);margin-bottom:10px}.insight b{display:block;margin-bottom:5px}.muted{color:var(--muted)}.drop{border:2px dashed #cbd5e1;border-radius:22px;padding:28px;text-align:center;background:#fff}.mini{font-size:12px;color:var(--muted)}.tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;cursor:pointer;font-weight:800}.tab.active{background:#0f172a;color:#fff}.chart{height:260px;display:flex;align-items:flex-end;gap:12px;padding-top:16px}.month{flex:1;display:flex;gap:4px;align-items:flex-end;height:220px}.col{flex:1;border-radius:8px 8px 0 0;background:#93c5fd}.col.actual{background:#f97316}.xlabel{font-size:10px;color:var(--muted);text-align:center;margin-top:7px}.toast{position:fixed;right:24px;bottom:24px;background:#0f172a;color:white;border-radius:16px;padding:14px 16px;box-shadow:var(--shadow);display:none;z-index:10}.scenario{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);padding:12px;border-radius:16px;margin-bottom:10px}.scenario.active{border-color:var(--brand);background:var(--soft)}
+@media(max-width:980px){.app{grid-template-columns:1fr}.side{height:auto;position:relative}.sideFooter{position:static;margin-top:24px}.main{padding:20px}.kpis,.two,.three,.budgetLayout,.formGrid{grid-template-columns:1fr}.topbar{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="logo"><div class="mark">L</div><div class="brand"><b>Leadwise</b><span>Budget Builder PME</span></div></div>
+    <nav class="nav" id="nav">
+      <button class="active" data-page="dashboard">📊 Dashboard</button>
+      <button data-page="builder">🧱 Budget Builder</button>
+      <button data-page="budget">📘 Budget</button>
+      <button data-page="actual">⚖️ Réalisé vs Budget</button>
+      <button data-page="forecast">🔮 Forecast</button>
+      <button data-page="imports">📁 Imports</button>
+      <button data-page="settings">⚙️ Paramétrage</button>
+    </nav>
+    <div class="sideFooter">V0.2 prototype produit<br>Stockage local navigateur • Données démo BTP</div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div class="title"><h1 id="pageTitle">Dashboard</h1><p id="pageSub">Vue de pilotage mensuelle — Bois Horizon Construction</p></div>
+      <div class="actions"><button class="btn" onclick="saveState()">💾 Sauvegarder</button><button class="btn orange" onclick="generateBudget()">✨ Générer budget</button><button class="btn primary" onclick="exportJSON()">Exporter JSON</button></div>
+    </div>
+
+    <section class="page active" id="dashboard">
+      <div class="grid kpis">
+        <div class="card kpi"><div class="label">CA budget annuel</div><div class="value" id="kpiCA">28,0 M€</div><div class="delta ok">+8,4% vs N-1</div></div>
+        <div class="card kpi"><div class="label">Résultat prévisionnel</div><div class="value" id="kpiResult">315 k€</div><div class="delta warn">1,1% du CA</div></div>
+        <div class="card kpi"><div class="label">Marge brute cible</div><div class="value" id="kpiMargin">38,0%</div><div class="delta ok">Méthode par drivers</div></div>
+        <div class="card kpi"><div class="label">Écart réalisé MTD</div><div class="value" id="kpiGap">-18 k€</div><div class="delta bad">à expliquer</div></div>
+      </div>
+      <div class="grid two" style="margin-top:18px">
+        <div class="card"><h3>Budget vs Réalisé mensuel</h3><div class="chart" id="chart"></div><div class="mini">Bleu = budget • Orange = réalisé importé</div></div>
+        <div class="card"><h3>Commentaires Leadwise</h3><div id="insights"></div></div>
+      </div>
+      <div class="grid two" style="margin-top:18px">
+        <div class="card"><h3>Top écarts</h3><table id="varianceTable"></table></div>
+        <div class="card"><h3>Avancement budget</h3><div id="budgetProgress"></div></div>
+      </div>
+    </section>
+
+    <section class="page" id="builder">
+      <div class="grid budgetLayout">
+        <div class="card"><h3>Méthodologie</h3><div id="methods"></div><button class="btn primary" style="width:100%" onclick="generateBudget()">Générer le budget</button></div>
+        <div class="card"><h3>Hypothèses générales</h3>
+          <div class="formGrid">
+            <div><label>CA N-1 (€)</label><input id="prevRevenue" type="number"></div>
+            <div><label>CA cible (€)</label><input id="targetRevenue" type="number"></div>
+            <div><label>Marge brute cible (%)</label><input id="grossMargin" type="number" step="0.1"></div>
+            <div><label>Effectif actuel</label><input id="headcount" type="number"></div>
+            <div><label>Recrutements prévus</label><input id="hires" type="number"></div>
+            <div><label>Augmentation moyenne (%)</label><input id="raise" type="number" step="0.1"></div>
+            <div><label>Inflation charges fixes (%)</label><input id="inflation" type="number" step="0.1"></div>
+            <div><label>Hausse prix matière (%)</label><input id="materialInflation" type="number" step="0.1"></div>
+            <div><label>Objectif économie frais fixes (€)</label><input id="fixedSaving" type="number"></div>
+          </div>
+          <div class="sectionTitle"><h2>Drivers par famille</h2><button class="btn" onclick="addDriver()">+ Driver</button></div>
+          <table id="driversTable"></table>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="budget">
+      <div class="card"><div class="sectionTitle"><h2>Budget généré</h2><button class="btn" onclick="generateBudget()">Recalculer</button></div><table id="budgetTable"></table></div>
+    </section>
+
+    <section class="page" id="actual">
+      <div class="grid two"><div class="card"><h3>Comparatif par famille</h3><table id="actualTable"></table></div><div class="card"><h3>Analyse automatique</h3><div id="actualInsights"></div></div></div>
+    </section>
+
+    <section class="page" id="forecast">
+      <div class="grid three"><div class="card kpi"><div class="label">Atterrissage CA</div><div class="value" id="fcRevenue"></div></div><div class="card kpi"><div class="label">Atterrissage résultat</div><div class="value" id="fcResult"></div></div><div class="card kpi"><div class="label">Écart au budget</div><div class="value" id="fcGap"></div></div></div>
+      <div class="card" style="margin-top:18px"><h3>Scénarios</h3><div id="scenarios"></div></div>
+    </section>
+
+    <section class="page" id="imports">
+      <div class="grid two"><div class="card"><h3>Importer un FEC / balance</h3><div class="drop"><p><b>Dépose ton FEC ici</b></p><p class="muted">ou sélectionne un fichier .txt / .csv</p><input type="file" id="fecInput" accept=".txt,.csv"></div><p class="mini">Lecture simplifiée : JournalCode, EcritureDate, CompteNum, CompteLib, Debit, Credit.</p></div><div class="card"><h3>Résultat import</h3><div id="importSummary">Aucun fichier importé.</div></div></div>
+    </section>
+
+    <section class="page" id="settings">
+      <div class="grid two"><div class="card"><h3>Société</h3><label>Nom</label><input id="companyName"><label style="margin-top:12px">Secteur</label><input id="companySector"></div><div class="card"><h3>Mapping comptable</h3><p class="muted">Prototype : mapping automatique par racine de compte.</p><table><tr><th>Racine</th><th>Famille</th></tr><tr><td>70</td><td>Chiffre d'affaires</td></tr><tr><td>60</td><td>Matières / achats</td></tr><tr><td>61-62</td><td>Charges externes</td></tr><tr><td>64</td><td>Personnel</td></tr><tr><td>66</td><td>Financier</td></tr></table></div></div>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const fmt=(v)=> new Intl.NumberFormat('fr-FR',{maximumFractionDigits:0}).format(v)+' €';
+const fmtK=(v)=>Math.abs(v)>=1e6?(v/1e6).toLocaleString('fr-FR',{maximumFractionDigits:1})+' M€':(v/1e3).toLocaleString('fr-FR',{maximumFractionDigits:0})+' k€';
+const state={company:{name:'Bois Horizon Construction',sector:'Construction bois / BTP'},method:'pme',assumptions:{prevRevenue:25830000,targetRevenue:28000000,grossMargin:38,headcount:45,hires:3,raise:2.4,inflation:3,materialInflation:4,fixedSaving:100000},drivers:[
+ {family:'Chiffre d’affaires',base:25830000,method:'CA cible',factor:8.4,locked:true},
+ {family:'Matières bois & quincaillerie',base:15950000,method:'Ratio marge brute',factor:4,locked:false},
+ {family:'Sous-traitance',base:1850000,method:'N-1 corrigé',factor:2,locked:false},
+ {family:'Personnel',base:2860000,method:'Effectif + augmentations',factor:9.1,locked:false},
+ {family:'Charges fixes',base:1540000,method:'Inflation - économies',factor:-3.1,locked:false},
+ {family:'Autres produits/charges',base:120000,method:'Stable',factor:0,locked:false}],budget:[],actual:{},fecRows:0};
+const methods=[['quick','Budget rapide','N-1 corrigé + inflation, idéal pour démarrer en 30 minutes.'],['pme','Budget PME','Hypothèses métier + drivers par famille. Le meilleur MVP.'],['advanced','Budget avancé','Drivers détaillés par services, contrats, recrutements et investissements.']];
+function toast(t){let el=document.getElementById('toast');el.textContent=t;el.style.display='block';setTimeout(()=>el.style.display='none',2200)}
+function bindNav(){document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.nav button,.page').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(b.dataset.page).classList.add('active');document.getElementById('pageTitle').textContent=b.textContent.replace(/[📊🧱📘⚖️🔮📁⚙️]/g,'').trim();render();});}
+function initForms(){Object.keys(state.assumptions).forEach(k=>{const el=document.getElementById(k); if(el){el.value=state.assumptions[k]; el.oninput=()=>{state.assumptions[k]=parseFloat(el.value)||0;renderDrivers();}}}); document.getElementById('companyName').value=state.company.name; document.getElementById('companySector').value=state.company.sector;}
+function renderMethods(){document.getElementById('methods').innerHTML=methods.map(m=>`<div class="method ${state.method==m[0]?'active':''}" onclick="state.method='${m[0]}';renderMethods()"><b>${m[1]}</b><span>${m[2]}</span></div>`).join('')}
+function renderDrivers(){document.getElementById('driversTable').innerHTML='<tr><th>Famille</th><th>Base N-1</th><th>Méthode</th><th>Facteur</th><th></th></tr>'+state.drivers.map((d,i)=>`<tr><td><input value="${d.family}" onchange="state.drivers[${i}].family=this.value"></td><td><input type="number" value="${d.base}" onchange="state.drivers[${i}].base=+this.value"></td><td><input value="${d.method}" onchange="state.drivers[${i}].method=this.value"></td><td><input type="number" step="0.1" value="${d.factor}" onchange="state.drivers[${i}].factor=+this.value">%</td><td><button class="btn" onclick="state.drivers.splice(${i},1);renderDrivers()">×</button></td></tr>`).join('')}
+function addDriver(){state.drivers.push({family:'Nouvelle famille',base:0,method:'À définir',factor:0,locked:false});renderDrivers()}
+function generateBudget(){const a=state.assumptions; const revenue=a.targetRevenue; const material=revenue*(1-a.grossMargin/100); const personnel=2860000*(1+a.raise/100)+(a.hires*52000); const fixed=1540000*(1+a.inflation/100)-a.fixedSaving; state.budget=[
+ {family:'Chiffre d’affaires',amount:revenue,type:'income',method:'CA cible défini dans les hypothèses'},
+ {family:'Matières bois & quincaillerie',amount:-material,type:'cost',method:'Calculé par marge brute cible'},
+ {family:'Sous-traitance',amount:-1850000*1.02,type:'cost',method:'N-1 corrigé'},
+ {family:'Personnel',amount:-personnel,type:'cost',method:'Effectif + recrutements + augmentations'},
+ {family:'Charges fixes',amount:-fixed,type:'cost',method:'Inflation moins économies ciblées'},
+ {family:'Autres produits/charges',amount:-120000,type:'cost',method:'Stable'}];
+ mockActual(); saveState(false); render(); toast('Budget généré')}
+function result(){return state.budget.reduce((s,b)=>s+b.amount,0)}
+function mockActual(){state.actual={'Chiffre d’affaires':2100000,'Matières bois & quincaillerie':-1350000,'Sous-traitance':-172000,'Personnel':-260000,'Charges fixes':-142000,'Autres produits/charges':-9000}}
+function renderDashboard(){const ca=state.budget.find(b=>b.type=='income')?.amount||0; const res=result(); document.getElementById('kpiCA').textContent=fmtK(ca); document.getElementById('kpiResult').textContent=fmtK(res); document.getElementById('kpiMargin').textContent=state.assumptions.grossMargin.toFixed(1).replace('.',',')+'%'; document.getElementById('kpiGap').textContent=fmtK(calcMonthlyGap()); renderChart(); renderInsights(); renderVariance(); renderProgress();}
+function calcMonthlyGap(){let monthlyBudget=result()/12; let actualRes=Object.values(state.actual).reduce((s,v)=>s+v,0); return actualRes-monthlyBudget}
+function renderChart(){const months=['Jan','Fév','Mar','Avr','Mai','Juin','Juil','Août','Sep','Oct','Nov','Déc']; const max=2600000; document.getElementById('chart').innerHTML=months.map((m,i)=>{let b=state.assumptions.targetRevenue/12; let a=i==0?2100000:(i<5?b*(.92+Math.random()*.14):0); return `<div style="flex:1"><div class="month"><div class="col" style="height:${b/max*220}px"></div><div class="col actual" style="height:${a/max*220}px;opacity:${a?1:.15}"></div></div><div class="xlabel">${m}</div></div>`}).join('')}
+function renderInsights(){const gap=calcMonthlyGap(); document.getElementById('insights').innerHTML=`<div class="insight"><b>${gap<0?'Résultat mensuel sous tension':'Résultat mensuel favorable'}</b><span class="muted">L'écart estimé est de ${fmtK(gap)}. Leadwise rattache principalement la dérive aux matières et à la sous-traitance.</span></div><div class="insight"><b>Budget construit par drivers</b><span class="muted">La marge brute cible pilote automatiquement le budget matière. Les frais fixes intègrent l'objectif d'économie.</span></div><div class="insight"><b>Prochaine action proposée</b><span class="muted">Valider les hypothèses de charges fixes poste par poste avant de figer le scénario Budget PME.</span></div>`}
+function renderVariance(){const rows=varianceRows(); document.getElementById('varianceTable').innerHTML='<tr><th>Poste</th><th>Écart MTD</th><th>Statut</th></tr>'+rows.map(r=>`<tr><td>${r.name}</td><td class="${r.gap<0?'bad':'ok'}">${fmtK(r.gap)}</td><td><span class="pill ${r.gap<0?'bad':'ok'}">${r.gap<0?'Défavorable':'Favorable'}</span></td></tr>`).join('')}
+function varianceRows(){return state.budget.map(b=>{let mb=b.amount/12; let a=state.actual[b.family]||0; return {name:b.family,gap:a-mb}}).sort((a,b)=>Math.abs(b.gap)-Math.abs(a.gap)).slice(0,6)}
+function renderProgress(){let items=[['Hypothèses générales',100],['Drivers métier',75],['Mapping comptable',40],['Commentaires auto',55]]; document.getElementById('budgetProgress').innerHTML=items.map(x=>`<div style="margin-bottom:14px"><div style="display:flex;justify-content:space-between"><b>${x[0]}</b><span class="muted">${x[1]}%</span></div><div class="barwrap"><div class="bar" style="width:${x[1]}%"></div></div></div>`).join('')}
+function renderBudget(){document.getElementById('budgetTable').innerHTML='<tr><th>Famille</th><th>Méthode</th><th>Budget annuel</th><th>Mensuel</th></tr>'+state.budget.map(b=>`<tr><td>${b.family}</td><td>${b.method}</td><td class="${b.amount<0?'bad':'ok'}">${fmt(b.amount)}</td><td>${fmt(b.amount/12)}</td></tr>`).join('')+`<tr><th colspan="2">Résultat prévisionnel</th><th>${fmt(result())}</th><th>${fmt(result()/12)}</th></tr>`}
+function renderActual(){document.getElementById('actualTable').innerHTML='<tr><th>Famille</th><th>Réalisé</th><th>Budget MTD</th><th>Écart</th></tr>'+state.budget.map(b=>{let a=state.actual[b.family]||0, mb=b.amount/12, g=a-mb; return `<tr><td>${b.family}</td><td>${fmt(a)}</td><td>${fmt(mb)}</td><td class="${g<0?'bad':'ok'}">${fmt(g)}</td></tr>`}).join(''); document.getElementById('actualInsights').innerHTML=varianceRows().slice(0,3).map(r=>`<div class="insight"><b>${r.name}</b><span class="muted">Impact mensuel estimé : ${fmtK(r.gap)}.</span></div>`).join('')}
+function renderForecast(){let ca=state.assumptions.targetRevenue, res=result()+calcMonthlyGap()*12; let gap=res-result(); document.getElementById('fcRevenue').textContent=fmtK(ca); document.getElementById('fcResult').textContent=fmtK(res); document.getElementById('fcGap').textContent=fmtK(gap); document.getElementById('scenarios').innerHTML=[['Budget PME',result(),true],['Stress matière +2%',result()-state.assumptions.targetRevenue*.012,false],['Plan économie +100k',result()+100000,false]].map(s=>`<div class="scenario ${s[2]?'active':''}"><div><b>${s[0]}</b><div class="mini">Résultat estimé ${fmtK(s[1])}</div></div><button class="btn">Activer</button></div>`).join('')}
+function renderImports(){document.getElementById('importSummary').innerHTML=state.fecRows?`<p><b>${state.fecRows}</b> lignes importées.</p><p>Réalisé Janvier mis à jour automatiquement par mapping compte.</p>`:'Aucun fichier importé.'}
+function render(){renderMethods(); renderDrivers(); renderDashboard(); renderBudget(); renderActual(); renderForecast(); renderImports();}
+function saveState(show=true){localStorage.setItem('leadwise_state',JSON.stringify(state)); if(show)toast('Sauvegardé en local')}
+function loadState(){try{let s=JSON.parse(localStorage.getItem('leadwise_state')); if(s)Object.assign(state,s)}catch(e){}}
+function exportJSON(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='leadwise-budget.json'; a.click();}
+document.getElementById('fecInput').addEventListener('change',async e=>{const file=e.target.files[0]; if(!file)return; const txt=await file.text(); parseFec(txt); render(); toast('FEC importé')});
+function parseFec(txt){const lines=txt.trim().split(/\r?\n/); state.fecRows=Math.max(0,lines.length-1); const sums={}; lines.slice(1).forEach(l=>{let p=l.split(/\t|;/); let compte=p[4]||p[3]||''; let debit=parseFloat((p[p.length-2]||'0').replace(',','.'))||0; let credit=parseFloat((p[p.length-1]||'0').replace(',','.'))||0; let root=compte.substring(0,2); let fam=root=='70'?'Chiffre d’affaires':root=='60'?'Matières bois & quincaillerie':root=='61'?'Sous-traitance':root=='62'?'Charges fixes':root=='64'?'Personnel':'Autres produits/charges'; sums[fam]=(sums[fam]||0)+(credit-debit)}); state.actual=Object.assign(state.actual,sums)}
+loadState(); if(!state.budget.length)generateBudget(); bindNav(); initForms(); render();
+</script>
+</body>
+</html>
