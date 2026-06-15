@@ -3341,6 +3341,44 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 }
 .aiMagicIcon .big{font-size:18px;color:#050505!important}
 .aiMagicIcon .small{font-size:12px;color:#050505!important;transform:translateY(-4px)}
+/* ===== v1.1 RC14 icon tile for AI planner button ===== */
+.aiIconTile{
+  width:52px;
+  height:52px;
+  flex:0 0 52px;
+  display:inline-grid;
+  place-items:center;
+  margin-right:12px;
+  border-radius:14px;
+  background:radial-gradient(circle at 30% 20%, rgba(255,150,30,.22), transparent 42%),linear-gradient(145deg,rgba(120,48,0,.92),rgba(70,25,0,.92));
+  border:1px solid rgba(255,190,70,.55);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16),inset 0 -8px 14px rgba(35,10,0,.22),0 6px 14px rgba(80,20,0,.20);
+}
+.aiIconImg{
+  width:38px;
+  height:38px;
+  object-fit:contain;
+  display:block;
+  filter:drop-shadow(0 2px 2px rgba(0,0,0,.18));
+}
+.timelineSuggestBtn{
+  display:inline-flex;
+  align-items:center;
+}
+@media(max-width:900px){
+  .aiIconTile{
+    width:38px;
+    height:38px;
+    flex-basis:38px;
+    border-radius:10px;
+    margin-right:9px;
+  }
+  .aiIconImg{
+    width:28px;
+    height:28px;
+  }
+}
+
 .trainingModeModalBackdrop{
   position:fixed;
   inset:0;
@@ -3602,6 +3640,38 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
   background:rgba(255,77,77,.08);
 }
 
+
+/* ===== RC14.2 current analysis prompt ===== */
+.currentAnalysisBox{
+  margin:12px 0;
+  padding:12px;
+  border:1px solid rgba(255,122,0,.24);
+  border-radius:12px;
+  background:rgba(255,122,0,.07);
+}
+.currentAnalysisToggle{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:900;
+  color:#fff;
+}
+.currentAnalysisInputs{
+  display:grid;
+  grid-template-columns:1fr 120px;
+  gap:10px;
+  margin-top:10px;
+}
+.currentAnalysisInputs label{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:900;
+}
+@media(max-width:760px){.currentAnalysisInputs{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -3641,7 +3711,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
           <label>Duration <input id="analysisDurationInput" type="number" min="1" max="7" value="7"></label>
           <div class="timelineFormActions"><button class="btn" id="analysisSubmitBtn" onclick="submitAnalysisForm()">Add block</button><button class="btn secondary" id="analysisCancelBtn" onclick="clearAnalysisSelection()" style="display:none">Cancel edit</button></div>
         </div>
-        <button class="btn aiSuggestBtn timelineSuggestBtn" onclick="openTrainingSuggestionModePopup()"><span class="aiMagicIcon" aria-hidden="true"><span class="small">✦</span><span class="big">✦</span><span class="small">✦</span></span>Suggest training plan</button>
+        <button class="btn aiSuggestBtn timelineSuggestBtn" onclick="openTrainingSuggestionModePopup()"><span class="aiIconTile" aria-hidden="true"><img class="aiIconImg" src="./magic-wand-white-transparent-v2-128.png" alt=""></span><span>Suggest training plan</span></button>
       </div>
       <div id="analysisError" class="analysisError"></div>
       <div id="trainingSuggestionPanel" class="trainingSuggestionPanel"></div>
@@ -4160,6 +4230,22 @@ function plannerWeeks(){
   return out;
 }
 function makeBlockId(){return'b_'+Math.random().toString(36).slice(2,10)}
+function cleanupMissingAnalysisPlayers(){
+  if(!Array.isArray(state.analysisBlocks))state.analysisBlocks=[];
+  const validIds=new Set((state.players||[]).map(p=>p.id));
+  const before=state.analysisBlocks.length;
+  state.analysisBlocks=state.analysisBlocks.filter(b=>b&&validIds.has(b.playerId));
+  const removed=before-state.analysisBlocks.length;
+  if(state.selectedAnalysisBlock&&!state.analysisBlocks.some(b=>b.id===state.selectedAnalysisBlock))state.selectedAnalysisBlock=null;
+  if(state.trainingDraft&&state.trainingDraft.playerId&&!validIds.has(state.trainingDraft.playerId)){
+    state.trainingDraft={playerId:state.players[0]?.id,startSeason:state.currentSeason,startDay:state.currentDay,durationDays:7};
+  }
+  if(removed>0){
+    state.trainingSuggestion=null;
+    state.lastAnalysisCleanupMessage=`${removed} analysis block${removed>1?'s':''} removed because the player no longer exists in the roster.`;
+  }
+  return removed;
+}
 function ensureAnalysisBlocks(){
   if(!Array.isArray(state.analysisBlocks))state.analysisBlocks=[];
   state.analysisBlocks.forEach(b=>{
@@ -4169,6 +4255,7 @@ function ensureAnalysisBlocks(){
     b.startDay=+b.startDay||+state.currentDay;
     b.durationDays=clampAnalysisDuration(b.durationDays);
   });
+  cleanupMissingAnalysisPlayers();
   normalizeAnalysisBlocksForCurrentDate();
 }
 function playerById(id){return state.players.find(p=>p.id===id)}
@@ -4326,12 +4413,13 @@ function normalizeAnalysisBlockSequence(){
   sortAnalysisBlocks();
 }
 function validateAnalysisPlan(allowPastActiveIds=new Set()){
+  cleanupMissingAnalysisPlayers();
   const occupied=new Map();
   const perPlayerStartSeason={};
 
   for(const b of state.analysisBlocks){
     const p=playerById(b.playerId);
-    if(!p)return{ok:false,msg:'One analysis block references a missing player.'};
+    if(!p)continue;
 
     const len=+state.seasonLength||35;
     const duration=clampAnalysisDuration(b.durationDays);
@@ -4448,6 +4536,7 @@ function applyAnalysisCandidate(id,candidate){
   return{ok:true,msg:''};
 }
 function validateAnalysisBlock(candidate,ignoreId=null){
+  cleanupMissingAnalysisPlayers();
   const len=+state.seasonLength||35;
   const start=absoluteDay(candidate.startSeason,candidate.startDay);
   const duration=clampAnalysisDuration(candidate.durationDays);
@@ -4569,17 +4658,16 @@ function plannerHorizonEndAbs(){
   const total=(+state.projectionHorizon+1)*len-(+state.currentDay||1);
   return Math.max(0,total);
 }
-function analysisFreeChunks(mode='safe'){
+function analysisFreeChunks(mode='safe',extraBlocks=[]){
   const startAbs=0;
   const endAbs=plannerHorizonEndAbs();
   const occupied=new Set();
-  if(mode==='safe'){
-    (state.analysisBlocks||[]).forEach(b=>{
-      blockDays(b).forEach(d=>{
-        if(d>=startAbs&&d<=endAbs)occupied.add(d);
-      });
+  const sourceBlocks=mode==='safe'?[...(state.analysisBlocks||[]),...(extraBlocks||[])]:[...(extraBlocks||[])];
+  sourceBlocks.forEach(b=>{
+    blockDays(b).forEach(d=>{
+      if(d>=startAbs&&d<=endAbs)occupied.add(d);
     });
-  }
+  });
   const chunks=[];
   let d=startAbs;
   while(d<=endAbs){
@@ -4616,6 +4704,24 @@ function simulateAnalysisGainForPlayer(p,duration,tempSkills=null){
   const delta=Math.max(0,rawRating(after)-before);
   const added=sum(after)-sum(base);
   return{delta,added,skills:after,pts};
+}
+function advanceTempSkillsToAbs(p,tempSkills,lastAbs,targetAbs){
+  if(!p||!tempSkills)return Math.max(0,+targetAbs||0);
+  let cursor=Math.max(0,+lastAbs||0);
+  const target=Math.max(cursor,+targetAbs||0);
+  const lim=cloneSkillMap(p.limits);
+  while(cursor<target){
+    const d=fromAbsoluteDay(cursor);
+    const nextSeasonStart=absoluteDay(d.season+1,1);
+    const next=Math.min(target,Math.max(cursor+1,nextSeasonStart));
+    const days=Math.max(0,next-cursor);
+    const netInfo=projectedBaseNetTrainingAtAbs(p,cursor);
+    const pts=(+netInfo.net||0)*days;
+    if(pts>=0)distribute(tempSkills,lim,pts);
+    else declineSkills(tempSkills,-pts);
+    cursor=next;
+  }
+  return target;
 }
 function projectedAgeForAbs(p,abs){
   const d=fromAbsoluteDay(+abs||0);
@@ -4725,17 +4831,34 @@ function setTrainingSuggestionMode(mode){
   state.trainingSuggestion=null;
   renderTraining();
 }
+function activeAnalysisBlockToday(){
+  return (state.analysisBlocks||[]).find(b=>blockStartAbs(b)<=0&&blockEndAbs(b)>=0&&playerById(b.playerId))||null;
+}
 function openTrainingSuggestionModePopup(){
   closeTrainingSuggestionModePopup();
+  ensureAnalysisBlocks();
+  const active=activeAnalysisBlockToday();
+  const activePlayer=active?playerById(active.playerId):null;
+  const defaultPlayerId=active?.playerId||state.trainingDraft?.playerId||state.players[0]?.id||'';
+  const defaultDays=active?Math.max(1,Math.min(MAX_ANALYSIS_BLOCK_DAYS,blockEndAbs(active)+1)):1;
+  const playerOptions=(state.players||[]).map(p=>`<option value="${p.id}" ${p.id===defaultPlayerId?'selected':''}>${escapeHtml(p.name)}</option>`).join('');
   const backdrop=document.createElement('div');
   backdrop.className='trainingModeModalBackdrop';
   backdrop.id='trainingModeModalBackdrop';
   backdrop.innerHTML=`<div class="trainingModeModal" role="dialog" aria-modal="true" aria-label="Suggest training plan mode">
     <h3>Suggest training plan</h3>
-    <div class="trainingModeModalIntro">Choose how the planner should build the recommendation. Nothing is applied yet: the next step is only a preview with an Apply suggestion button.</div>
+    <div class="trainingModeModalIntro">Before building the recommendation, tell the assistant if an analysis is already running today. Those remaining days will be locked first, then the suggested plan will start after it.</div>
+    <div class="currentAnalysisBox">
+      <label class="currentAnalysisToggle"><input id="currentAnalysisEnabled" type="checkbox" ${active?'checked':''}> A player is currently under analysis</label>
+      <div class="currentAnalysisInputs">
+        <label>Player <select id="currentAnalysisPlayerInput">${playerOptions}</select></label>
+        <label>Days left <input id="currentAnalysisDaysInput" type="number" min="1" max="7" value="${defaultDays}"></label>
+      </div>
+      ${activePlayer?`<div class="trainingSuggestionMeta">Detected from planner: ${escapeHtml(activePlayer.name)} has ${defaultDays} day${defaultDays>1?'s':''} left.</div>`:''}
+    </div>
     <div class="trainingModeModalChoices">
       <button class="trainingModeChoice" type="button" onclick="chooseTrainingSuggestionMode('safe')"><b>Safe</b><span>Fill gaps only. Existing future analysis blocks are preserved; the engine only uses free slots.</span></button>
-      <button class="trainingModeChoice" type="button" onclick="chooseTrainingSuggestionMode('optimal')"><b>Optimal</b><span>Replace current training plan. The engine rebuilds the future plan from scratch for the projection horizon.</span></button>
+      <button class="trainingModeChoice" type="button" onclick="chooseTrainingSuggestionMode('optimal')"><b>Optimal</b><span>Replace current training plan. The engine rebuilds the future plan from scratch, while keeping the current running analysis if declared above.</span></button>
     </div>
     <div class="trainingModeModalActions"><button class="btn secondary" onclick="closeTrainingSuggestionModePopup()">Cancel</button></div>
   </div>`;
@@ -4746,25 +4869,47 @@ function closeTrainingSuggestionModePopup(){
   const old=document.getElementById('trainingModeModalBackdrop');
   if(old)old.remove();
 }
+function readCurrentAnalysisFromModal(){
+  const enabled=document.getElementById('currentAnalysisEnabled')?.checked;
+  if(!enabled)return null;
+  const playerId=document.getElementById('currentAnalysisPlayerInput')?.value;
+  if(!playerById(playerId))return null;
+  const days=clampAnalysisDuration(document.getElementById('currentAnalysisDaysInput')?.value||1);
+  return{id:'current_'+todayKey().replaceAll('-',''),playerId,startSeason:+state.currentSeason,startDay:+state.currentDay,durationDays:days,current:true};
+}
 function chooseTrainingSuggestionMode(mode){
   state.trainingSuggestionMode=(mode==='optimal'?'optimal':'safe');
+  const current=readCurrentAnalysisFromModal();
   closeTrainingSuggestionModePopup();
-  generateTrainingSuggestion(state.trainingSuggestionMode);
+  generateTrainingSuggestion(state.trainingSuggestionMode,current);
 }
-function buildSuggestionSeedBlocks(mode){
-  if(mode==='optimal')return [];
-  return structuredClone((state.analysisBlocks||[]).filter(b=>blockEndAbs(b)>=0));
+function blockOverlaps(a,b){
+  return blockStartAbs(a)<=blockEndAbs(b)&&blockEndAbs(a)>=blockStartAbs(b);
 }
-function generateTrainingSuggestion(modeArg=null){
+function buildSuggestionSeedBlocks(mode,currentBlock=null){
+  let blocks=mode==='optimal'?[]:structuredClone((state.analysisBlocks||[]).filter(b=>blockEndAbs(b)>=0));
+  if(currentBlock){
+    blocks=blocks.filter(b=>!blockOverlaps(b,currentBlock));
+    blocks.push(structuredClone(currentBlock));
+  }
+  return blocks;
+}
+function generateTrainingSuggestion(modeArg=null,currentBlock=null){
   clearAnalysisError();
   ensureAnalysisBlocks();
   const mode=(modeArg||state.trainingSuggestionMode||'safe')==='optimal'?'optimal':'safe';
   state.trainingSuggestionMode=mode;
   const horizonEnd=plannerHorizonEndAbs();
-  const tempBlocks=buildSuggestionSeedBlocks(mode);
+  const tempBlocks=buildSuggestionSeedBlocks(mode,currentBlock);
   const tempSkills=Object.fromEntries(state.players.map(p=>[p.id,cloneSkillMap(p.skills)]));
+  const tempSkillAbs=Object.fromEntries(state.players.map(p=>[p.id,0]));
+  if(currentBlock&&tempSkills[currentBlock.playerId]){
+    const currentPlayer=playerById(currentBlock.playerId);
+    const currentSim=simulateAnalysisGainForPlayer(currentPlayer,currentBlock.durationDays,tempSkills[currentBlock.playerId]);
+    tempSkills[currentBlock.playerId]=currentSim.skills;
+  }
   const recs=[];
-  const chunks=analysisFreeChunks(mode);
+  const chunks=analysisFreeChunks(mode,currentBlock?[currentBlock]:[]);
 
   for(const chunk of chunks){
     let cursor=chunk.startAbs;
@@ -4785,6 +4930,7 @@ function generateTrainingSuggestion(modeArg=null){
 
       let best=null;
       state.players.forEach((p,index)=>{
+        tempSkillAbs[p.id]=advanceTempSkillsToAbs(p,tempSkills[p.id],tempSkillAbs[p.id],cursor);
         const used=analysisUsedByPlayerStartSeasonFromBlocks(p.id,startSeason,tempBlocks);
         const allowed=Math.max(0,14-used);
         const actualDuration=Math.min(duration,allowed);
@@ -4802,6 +4948,7 @@ function generateTrainingSuggestion(modeArg=null){
       const block={id:makeBlockId(),playerId:best.p.id,startSeason:startDate.season,startDay:startDate.day,durationDays:best.duration};
       tempBlocks.push(block);
       tempSkills[best.p.id]=best.info.sim.skills;
+      tempSkillAbs[best.p.id]=cursor;
       recs.push({
         id:block.id,
         playerId:best.p.id,
@@ -4831,6 +4978,8 @@ function generateTrainingSuggestion(modeArg=null){
   state.trainingSuggestion={
     generatedAt:todayKey(),
     mode,
+    currentAnalysisBlock:currentBlock?structuredClone(currentBlock):null,
+    currentAnalysisPlayerName:currentBlock?playerById(currentBlock.playerId)?.name:null,
     horizon:range,
     blocks:recs,
     note:recs.length
@@ -4850,8 +4999,19 @@ function applyTrainingSuggestion(){
   const blocks=suggestion?.blocks||[];
   if(!blocks.length)return;
   const oldBlocks=structuredClone(state.analysisBlocks||[]);
+  const current=suggestion.currentAnalysisBlock?structuredClone(suggestion.currentAnalysisBlock):null;
   if((suggestion.mode||'safe')==='optimal'){
     state.analysisBlocks=(state.analysisBlocks||[]).filter(b=>blockEndAbs(b)<0);
+  }
+  if(current){
+    state.analysisBlocks=(state.analysisBlocks||[]).filter(b=>!blockOverlaps(b,current));
+    state.analysisBlocks.push({
+      id:makeBlockId(),
+      playerId:current.playerId,
+      startSeason:+current.startSeason,
+      startDay:+current.startDay,
+      durationDays:clampAnalysisDuration(current.durationDays)
+    });
   }
   blocks.forEach(r=>{
     state.analysisBlocks.push({
@@ -4892,10 +5052,12 @@ function renderTrainingSuggestion(){
   const totalGain=blocks.reduce((a,b)=>a+(+b.gain||0),0);
   const lineupGain=blocks.filter(b=>state.players.findIndex(p=>p.id===b.playerId)<5).reduce((a,b)=>a+(+b.gain||0),0);
   const modeLabel=suggestion.mode==='optimal'?'Optimal rebuild':'Safe fill gaps';
+  const currentMeta=suggestion.currentAnalysisBlock?`<div class="trainingSuggestionMeta"><strong>Current analysis locked</strong> · ${escapeHtml(suggestion.currentAnalysisPlayerName||'Player')} · ${clampAnalysisDuration(suggestion.currentAnalysisBlock.durationDays)} day(s) left from S${suggestion.currentAnalysisBlock.startSeason} D${suggestion.currentAnalysisBlock.startDay}</div>`:'';
   el.innerHTML=`<div class="trainingSuggestionHead">
     <div>
       <div class="trainingSuggestionTitle">Suggested training plan</div>
       <div class="trainingSuggestionMeta"><strong>${modeLabel}</strong> · ${escapeHtml(suggestion.horizon||'')} · ${blocks.length} block(s) · expected base skill gain ~+${totalGain.toFixed(1)} · main lineup ~+${lineupGain.toFixed(1)}</div>
+      ${currentMeta}
       <div class="trainingSuggestionMeta">${escapeHtml(suggestion.note||'')}</div>
     </div>
     <div class="actions"><button class="btn" onclick="applyTrainingSuggestion()">Apply suggestion</button><button class="btn secondary" onclick="clearTrainingSuggestion()">Cancel</button></div>
@@ -5154,12 +5316,14 @@ function summarizePlayerTraining(p){
   return{training,analysis,decline,net:training+analysis-decline}
 }
 function renderTrainingSummary(){
+  const cleanupMsg=state.lastAnalysisCleanupMessage;
+  if(cleanupMsg)state.lastAnalysisCleanupMessage='';
   const planned=state.analysisBlocks.reduce((a,b)=>a+(+b.durationDays||0),0);
   const playersCovered=new Set(state.analysisBlocks.map(b=>b.playerId)).size;
   const summaries=state.players.map(p=>({p,...summarizePlayerTraining(p)}));
   const risk=summaries.filter(x=>x.net<0).sort((a,b)=>a.net-b.net)[0];
   const focus=state.players.map(p=>({p,days:state.analysisBlocks.filter(b=>b.playerId===p.id).reduce((a,b)=>a+(+b.durationDays||0),0)})).sort((a,b)=>b.days-a.days)[0];
-  analysisSummary.innerHTML=`<div class="kpi"><span class="small">Planned days</span><br><b>${planned}</b></div>
+  analysisSummary.innerHTML=`${cleanupMsg?`<div class="warning" style="grid-column:1 / -1;margin-bottom:10px">${escapeHtml(cleanupMsg)}</div>`:''}<div class="kpi"><span class="small">Planned days</span><br><b>${planned}</b></div>
     <div class="kpi"><span class="small">Players covered</span><br><b>${playersCovered}</b></div>
     <div class="kpi"><span class="small">Main focus</span><br><b>${focus&&focus.days?escapeHtml(focus.p.name):'—'}</b></div>
     <div class="kpi"><span class="small">Decline risk</span><br><b class="${risk?'warnText':''}">${risk?escapeHtml(risk.p.name)+' '+risk.net.toFixed(1):'None'}</b></div>`;
