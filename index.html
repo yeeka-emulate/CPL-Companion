@@ -5612,34 +5612,85 @@ function setGearRecommendationMode(mode){
   state.gearRecommendationMode=mode==='optimal'?'optimal':'available';
   saveLocal();renderGear();
 }
-function gearCandidateScoreForPlayer(p,item,currentBoosts={}){
-  const base={};skillOrder.forEach(k=>base[k]=Math.min(110,(+p.skills?.[k]||0)+(+currentBoosts[k]||0)));
-  const after={};skillOrder.forEach(k=>after[k]=Math.min(110,base[k]+(+item.boosts?.[k]||0)));
-  const ratingGain=rawRating(after)-rawRating(base);
-  const coreSkills=['aim','quick','det','awa','hand'];
-  let coreBefore105=0,coreAfter105=0,floorBefore=0,floorAfter=0,overcapPenalty=0;
-  skillOrder.forEach(k=>{
-    const b=base[k],a=after[k],add=(+item.boosts?.[k]||0);
-    floorBefore+=Math.min(100,b);
-    floorAfter+=Math.min(100,a);
-    if(coreSkills.includes(k)){
-      coreBefore105+=Math.min(105,b);
-      coreAfter105+=Math.min(105,a);
-    }
-    overcapPenalty+=Math.max(0,b+add-110)*1.8;
-  });
-  const floorGain=(floorAfter-floorBefore)*0.08;
-  const core105Gain=(coreAfter105-coreBefore105)*0.22;
-  const vals=skillOrder.map(k=>after[k]);
-  const spread=Math.max(...vals)-Math.min(...vals);
-  const coreAvg=coreSkills.reduce((a,k)=>a+(after[k]||0),0)/coreSkills.length;
-  let imbalancePenalty=Math.max(0,spread-32)*0.018;
-  if(coreAvg>=105){
-    imbalancePenalty+=Math.max(0,96-Math.min(...vals))*0.035;
-  }else{
-    imbalancePenalty*=0.25;
+function gearSkillTargets(){
+  // Gear engine target profile: core carries the team, secondary skills stay clean.
+  // Handling is useful, but should not become the default suffix everywhere.
+  return {aim:107,quick:107,det:106,awa:106,hand:103,tp:100,gms:100,mov:100};
+}
+function gearSkillSoftCaps(){
+  // Harder cumulative guardrail: an item is evaluated against the full current loadout,
+  // not in isolation. This prevents Grip/Swift/etc. stacking far beyond the intended target.
+  return {aim:108,quick:108,det:107,awa:107,hand:104,tp:101,gms:101,mov:101};
+}
+function gearSkillWeights(){
+  return {aim:1.4,quick:1.4,det:1.3,awa:1.2,hand:0.82,mov:0.5,gms:0.4,tp:0.4};
+}
+function gearEffectiveBaseSkills(p,currentBoosts={}){
+  const out={};
+  skillOrder.forEach(k=>out[k]=Math.min(110,(+p.skills?.[k]||0)+(+currentBoosts?.[k]||0)));
+  return out;
+}
+function gearApplyItem(base,item){
+  const out={...base};
+  skillOrder.forEach(k=>out[k]=Math.min(110,(+out[k]||0)+(+item?.boosts?.[k]||0)));
+  return out;
+}
+function gearMarginalUtilityForSkill(k,from,to){
+  const weights=gearSkillWeights(),targets=gearSkillTargets();
+  const target=targets[k]??100;
+  const isCore=['aim','quick','det','awa','hand'].includes(k);
+  let score=0;
+  const f=Math.min(110,Math.max(0,from||0));
+  const t=Math.min(115,Math.max(f,to||f));
+  for(let v=Math.floor(f)+1;v<=Math.floor(t);v++){
+    let m=1;
+    if(v<=100)m=isCore?1.18:0.95;
+    else if(k==='hand'&&v<=target)m=0.54;      // Handling is useful, not a suffix magnet.
+    else if(v<=target)m=isCore?1.00:0.35;
+    else if(k==='hand')m=0.025;               // above hand target: almost no marginal value.
+    else if(v<=110)m=isCore?0.18:0.06;
+    else m=-3;
+    score+=(weights[k]||0.5)*m;
   }
-  return ratingGain+core105Gain+floorGain-overcapPenalty-imbalancePenalty;
+  return score;
+}
+function gearCandidateScoreForPlayer(p,item,currentBoosts={}){
+  if(!item||item.uid==='none')return -999;
+  const base=gearEffectiveBaseSkills(p,currentBoosts);
+  const after=gearApplyItem(base,item);
+  let utility=0,overcapPenalty=0;
+  skillOrder.forEach(k=>{
+    const add=+item.boosts?.[k]||0;
+    utility+=gearMarginalUtilityForSkill(k,base[k],base[k]+add);
+    overcapPenalty+=Math.max(0,base[k]+add-110)*4.0;
+  });
+  // Tiny true-rating component: useful as a tiebreaker, never as the pilot.
+  const ratingGain=(rawRating(after)-rawRating(base))*0.24;
+  const core=['aim','quick','det','awa'];
+  const coreMin=Math.min(...core.map(k=>after[k]||0));
+  const secondary=['tp','gms','mov'];
+  const secMin=Math.min(...secondary.map(k=>after[k]||0));
+  const balancePenalty=Math.max(0,coreMin-108)*0.15 + Math.max(0,96-secMin)*0.015;
+  const caps=gearSkillSoftCaps();
+  let cumulativeOverTargetPenalty=0;
+  skillOrder.forEach(k=>{
+    const cap=caps[k]??101;
+    const beforeOver=Math.max(0,(base[k]||0)-cap);
+    const afterOver=Math.max(0,(after[k]||0)-cap);
+    const addedOver=Math.max(0,afterOver-beforeOver);
+    if(addedOver>0){
+      const mult=k==='hand'?2.4:(['tp','gms','mov'].includes(k)?1.25:1.05);
+      cumulativeOverTargetPenalty += ((afterOver*afterOver)-(beforeOver*beforeOver))*mult;
+    }
+  });
+  const handlingOverPush=Math.max(0,(after.hand||0)-104)*1.25;
+  const suffixSkill=item.suffix?Object.values(gearSuffixBoosts).find(s=>s.label===item.suffix)?.skill:null;
+  const suffixOverstackPenalty=suffixSkill&&(+currentBoosts?.[suffixSkill]||0)>0 ? 2.25+Math.max(0,(+currentBoosts?.[suffixSkill]||0)-1)*0.9 : 0;
+  const suffixOverCapPenalty=suffixSkill ? Math.max(0,(after[suffixSkill]||0)-(caps[suffixSkill]??101))*2.1 : 0;
+  const gripPenalty=item.suffix==='Grip'
+    ? (1.10 + Math.max(0,(base.hand||0)-98)*0.22 + Math.max(0,(+currentBoosts?.hand||0)-1)*1.15)
+    : 0;
+  return utility+ratingGain-overcapPenalty-balancePenalty-handlingOverPush-suffixOverstackPenalty-suffixOverCapPenalty-gripPenalty-cumulativeOverTargetPenalty;
 }
 function makeShopCandidate(base){
   return{uid:`shop_${base.id}`,baseId:base.id,name:base.name,slot:base.slot,boosts:cloneBoosts(base.boosts),source:'shop',durability:null,isSpecial:false,unlimited:true}
@@ -5670,52 +5721,95 @@ function gearCandidateAvailabilityBonus(mode,c,p){
   if(mode==='optimal'||!c)return 0;
   let bonus=0;
   if(c.source==='inventory'){
-    bonus+=c.isSpecial?2.05:0.35;
-    if((+c.durability||0)>=100)bonus+=0.08;
-    if((+c.durability||0)>0&&(+c.durability||0)<20)bonus-=0.06;
+    bonus+=c.isSpecial?0.55:0.15; // inventory is preferred, but scoring still decides
+    if((+c.durability||0)>=100)bonus+=0.05;
   }
-  if(c.source==='inventory'&&c.equippedBy){
-    const eq=normalizePlayerKeyForGear(c.equippedBy);
-    const pn=normalizePlayerKeyForGear(p?.name);
-    const rn=normalizePlayerKeyForGear(p?.realName);
-    if(eq&&(eq===pn||eq===rn||pn.includes(eq)||eq.includes(pn)))bonus+=c.isSpecial?0.65:0.25;
-  }
+  if(c.source==='inventory'&&c.equippedBy&&inventoryPlayerMatch(c,p))bonus+=c.isSpecial?0.45:0.10;
   return bonus;
+}
+function gearBestShopForPlayerSlot(p,slot,currentBoosts){
+  let best={uid:'none',name:'None',slot,boosts:{},source:'none',score:-999,baseScore:-999};
+  gearCatalog.filter(g=>g.id!=='none'&&g.slot===slot).forEach(base=>{
+    const c=makeShopCandidate(base);
+    const baseScore=gearCandidateScoreForPlayer(p,c,currentBoosts);
+    const score=baseScore;
+    if(score>best.score)best={...c,score,baseScore};
+  });
+  return best;
+}
+function gearChooseOptimalSlot(players,result,slot){
+  players.forEach((p,pi)=>{
+    const current=result[pi].boosts;
+    let best={uid:'none',name:'None',slot,boosts:{},source:'none',score:-999,baseScore:-999};
+    availableGearCandidates('optimal').filter(c=>c.slot===slot).forEach(c=>{
+      const baseScore=gearCandidateScoreForPlayer(p,c,current);
+      // Explicitly dampen secondary +4 specials in optimal; they should win only for weak secondary skills.
+      const secondaryBoost=(+c.boosts?.tp||0)+(+c.boosts?.gms||0)+(+c.boosts?.mov||0);
+      const secLevel=Math.min(...['tp','gms','mov'].map(k=>(+p.skills?.[k]||0)+(+current[k]||0)));
+      const secondaryPenalty=secondaryBoost>=4 && secLevel>=96 ? 0.75 : 0;
+      const score=baseScore-secondaryPenalty;
+      if(score>best.score)best={...c,score,baseScore};
+    });
+    gearCommitItem(result[pi],p,slot,best);
+  });
+}
+function gearChooseSoftSlot(players,result,slot,used){
+  // Baseline: best regular shop for everyone.
+  players.forEach((p,pi)=>{
+    const bestShop=gearBestShopForPlayerSlot(p,slot,result[pi].boosts);
+    result[pi].items[slot]=bestShop;
+    result[pi]._candidateForSlot=bestShop;
+  });
+  const inv=(state.gearInventory||[]).filter(c=>c&&c.slot===slot);
+  const proposals=[];
+  inv.forEach(c=>{
+    players.forEach((p,pi)=>{
+      if(used.has(c.uid))return;
+      const current=result[pi].boosts;
+      const shop=result[pi]._candidateForSlot;
+      const invScore=gearCandidateScoreForPlayer(p,c,current)+gearCandidateAvailabilityBonus('available',c,p);
+      const shopScore=gearCandidateScoreForPlayer(p,shop,current);
+      const delta=invScore-shopScore;
+      const already=inventoryPlayerMatch(c,p);
+      // Inventory special can replace shop if it is clearly better, almost equal, or already equipped by that player.
+      const threshold=c.isSpecial?(already?-0.85:-0.35):(already?-0.25:0.10);
+      if(delta>=threshold){
+        proposals.push({c,pi,score:delta+(already?0.5:0)+(c.isSpecial?0.12:0),delta,already});
+      }
+    });
+  });
+  proposals.sort((a,b)=>b.score-a.score);
+  const assignedPlayers=new Set();
+  proposals.forEach(pr=>{
+    if(used.has(pr.c.uid)||assignedPlayers.has(pr.pi))return;
+    result[pr.pi].items[slot]={...pr.c,score:pr.score,baseScore:pr.delta};
+    used.add(pr.c.uid);
+    assignedPlayers.add(pr.pi);
+  });
+  players.forEach((p,pi)=>{
+    const chosen=result[pi].items[slot]||result[pi]._candidateForSlot;
+    gearCommitItem(result[pi],p,slot,chosen);
+    delete result[pi]._candidateForSlot;
+  });
+}
+function gearCommitItem(row,p,slot,item){
+  const current=row.boosts;
+  const before=gearEffectiveBaseSkills(p,current);
+  row.items[slot]=item||{uid:'none',name:'None',slot,boosts:{},source:'none'};
+  if(item&&item.uid!=='none'){
+    skillOrder.forEach(k=>current[k]=Math.min(110,(+current[k]||0)+(+item.boosts?.[k]||0)));
+    const after=gearEffectiveBaseSkills(p,current);
+    row.ratingGain+=(rawRating(after)-rawRating(before));
+    row.score+=(+item.score||gearCandidateScoreForPlayer(p,item,current));
+  }
 }
 function chooseBestGearSetup(mode){
   const players=state.players||[];
-  const candidates=availableGearCandidates(mode);
-  const used=new Set();
   const result=players.map(p=>({player:p,items:{},boosts:{aim:0,hand:0,quick:0,det:0,awa:0,tp:0,gms:0,mov:0},score:0,ratingGain:0}));
+  const used=new Set();
   gearSlots.forEach(slot=>{
-    players.forEach((p,pi)=>{
-      const current=result[pi].boosts;
-      const currentRating=rawRating(Object.fromEntries(skillOrder.map(k=>[k,Math.min(110,(+p.skills?.[k]||0)+(+current[k]||0))])));
-      let best={uid:'none',name:'None',slot,boosts:{},source:'none',score:-999,baseScore:-999};
-      candidates.filter(c=>c.slot===slot && (c.unlimited||!used.has(c.uid))).forEach(c=>{
-        const baseScore=gearCandidateScoreForPlayer(p,c,current);
-        const sc=baseScore+gearCandidateAvailabilityBonus(mode,c,p);
-        const bestIsInventorySpecial=best.source==='inventory'&&best.isSpecial;
-        const candIsInventorySpecial=c.source==='inventory'&&c.isSpecial;
-        const bestIsInventory=best.source==='inventory';
-        const candIsInventory=c.source==='inventory';
-        const closeEnough=sc>=best.score-0.95;
-        const veryClose=sc>=best.score-0.55;
-        if(sc>best.score
-          || (candIsInventorySpecial&&!bestIsInventorySpecial&&closeEnough)
-          || (candIsInventory&&!bestIsInventory&&cand.isSpecial===best.isSpecial&&veryClose&&baseScore>=best.baseScore-0.2)){
-          best={...c,score:sc,baseScore};
-        }
-      });
-      if(best.uid!=='none'){
-        result[pi].items[slot]=best;
-        if(!best.unlimited)used.add(best.uid);
-        skillOrder.forEach(k=>current[k]=Math.min(110,(+current[k]||0)+(+best.boosts?.[k]||0)));
-        const afterRating=rawRating(Object.fromEntries(skillOrder.map(k=>[k,Math.min(110,(+p.skills?.[k]||0)+(+current[k]||0))])));
-        result[pi].ratingGain+=afterRating-currentRating;
-        result[pi].score+=best.score;
-      }else result[pi].items[slot]=best;
-    });
+    if(mode==='optimal')gearChooseOptimalSlot(players,result,slot);
+    else gearChooseSoftSlot(players,result,slot,used);
   });
   return result;
 }
@@ -5835,7 +5929,7 @@ function renderGearTotalRecommendation(i){
   const items=gearSlots.map(slot=>row.items?.[slot]).filter(x=>x&&x.uid!=='none');
   const specialCount=items.filter(x=>x.isSpecial).length;
   const covered=items.length&&gearSlots.every(slot=>{const item=row.items?.[slot];return !item||item.uid==='none'||gearSlotRecommendationCovered(i,slot,item)});
-  const tip=escapeHtml(`Soft recommendation only: nothing is equipped automatically. Estimated rating gain for this recommended set: ${row.ratingGain>=0?'+':''}${(+row.ratingGain||0).toFixed(1)}. Total gear boost: +${sum(row.boosts||{})}. Specials in recommendation: ${specialCount}. Scoring favors useful rating gain, core skills up to ~105, skills below 100, avoids wasted points above 110, and limits only extreme imbalance.`);
+  const tip=escapeHtml(`Soft recommendation only: nothing is equipped automatically. Estimated rating gain for this recommended set: ${row.ratingGain>=0?'+':''}${(+row.ratingGain||0).toFixed(1)}. Total gear boost: +${sum(row.boosts||{})}. Specials in recommendation: ${specialCount}. Scoring favors useful rating gain, core profile 107/106/103, skills below 100, avoids wasted points above 110, and limits only extreme imbalance.`);
   if(covered){
     return `<div class="gearTotalReco ok"><b>Reco:</b> <span class="gearRecoOkText">Best loadout equipped</span> <span class="gearRecoInfo" title="${tip}" data-tip="${tip}">i</span><br><span>${mode}</span></div>`;
   }
