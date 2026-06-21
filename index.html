@@ -3672,6 +3672,67 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 }
 @media(max-width:760px){.currentAnalysisInputs{grid-template-columns:1fr}}
 
+
+
+/* ===== RC14.5.4 Gear recommendation overlay ===== */
+.gearTopBar{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:10px}
+.gearTopBar .small{margin:0;max-width:900px}
+.gearAiBtn{display:inline-flex!important;align-items:center!important;gap:8px!important;padding:8px 12px!important;font-size:12px!important;white-space:nowrap;background:linear-gradient(180deg,#ff8d24,#e85f00)!important;color:#fff!important;border:0!important;box-shadow:0 8px 18px rgba(255,122,0,.16)}
+.gearAiBtn .aiIconTile{width:26px;height:26px;flex:0 0 26px;border-radius:8px;margin-right:0}.gearAiBtn .aiIconImg{width:20px;height:20px}
+.gearTable{min-width:980px}.gearTable th:nth-child(1){width:185px!important}.gearTable th:nth-child(6){width:128px!important}.gearPlayer{gap:8px}.gearPlayer .avatar{width:44px;height:44px;font-size:16px;border-radius:10px}.gearTable .pname{font-size:14px}.gearSelectBox{gap:6px}.gearSelectBox select{min-width:138px}.gearBoostTag{min-width:36px;padding:0 6px}
+.gearRecoHint{margin-top:6px;font-size:11px;color:#9fb0bb;line-height:1.25}
+.gearRecoHint b{color:#ffd166}.gearRecoHint .gearSpecialStar{margin-right:2px}.gearRecoHint.ok{color:#9dd45a}.gearRecoHint.ok b{color:#9dd45a}.gearRecoHint.ok .gearRecoOkText{color:#9dd45a;font-weight:950}
+.gearRecoInfo{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;margin-left:5px;border-radius:50%;border:1px solid rgba(255,255,255,.20);color:#cbd6dd;font-size:10px;font-weight:950;cursor:help;background:rgba(255,255,255,.05)}
+.gearTotalReco{position:relative}.gearRecoInfo[data-tip]{position:relative}.gearRecoInfo[data-tip]:hover:after{content:attr(data-tip);position:absolute;right:0;bottom:22px;width:260px;max-width:calc(100vw - 40px);padding:9px 10px;border:1px solid #2d4858;border-radius:10px;background:#07131c;color:#e8f1f6;font-size:11px;line-height:1.35;text-align:left;white-space:normal;box-shadow:0 12px 30px rgba(0,0,0,.38);z-index:30}
+.gearTotalReco{margin-top:5px;font-size:11px;color:#9fb0bb;font-weight:800;line-height:1.25}.gearTotalReco b{color:#ffb16a}.gearTotalReco.ok{color:#9dd45a}.gearTotalReco.ok b{color:#9dd45a}.gearTotalReco.ok .gearRecoOkText{color:#9dd45a;font-weight:950}
+.gearRecommendationSummaryLine{margin:0 0 10px;color:#9fb0bb;font-size:12px}.gearRecommendationSummaryLine b{color:#ffb16a}
+.gearModeModalIntro textarea{width:100%;min-height:230px;margin-top:8px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;line-height:1.35}
+.gearModeInlineChoices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}.gearModeInlineChoices label{display:block;border:1px solid #2d4858;border-radius:12px;padding:10px;background:#0a1720;cursor:pointer}.gearModeInlineChoices b{display:block;color:#fff;margin-bottom:4px}.gearModeInlineChoices span{display:block;color:#9fb0bb;font-size:12px;line-height:1.3}.gearModeInlineChoices input{margin-right:6px}
+@media(max-width:760px){.gearTopBar{display:block}.gearAiBtn{margin-top:10px;width:100%}.gearModeInlineChoices{grid-template-columns:1fr}.gearRecoHint{font-size:10.5px}}
+/* ===== RC14.5 Gear inventory optimizer ===== */
+.gearOptimizerGrid{display:grid;grid-template-columns:minmax(320px,420px) 1fr;gap:14px}
+.gearPasteBox textarea{width:100%;min-height:260px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;line-height:1.35}
+.gearModeTabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.gearModeTabs .btn{padding:9px 12px}
+.gearModeTabs .btn.active{box-shadow:0 0 0 2px rgba(255,122,0,.25);border-color:#ff7a00}
+.gearInvKpis{display:grid;grid-template-columns:repeat(4,minmax(90px,1fr));gap:8px;margin:10px 0}
+.gearInvKpi{background:#0a1720;border:1px solid #2d4858;border-radius:10px;padding:10px}
+.gearInvKpi b{display:block;font-size:22px;color:var(--orange);line-height:1}
+.gearInvKpi span{font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:900}
+.gearRecommendationLayout{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;align-items:start}
+.gearRecoCards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.gearRecoPlayer{border:1px solid #2d4858;border-radius:12px;background:#0a1720;overflow:hidden}
+.gearRecoPlayerHead{display:flex;gap:10px;align-items:center;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025)}
+.gearRecoPlayerHead .avatar{width:42px;height:42px;font-size:16px;border-radius:10px}
+.gearRecoScore{margin-left:auto;text-align:right}
+.gearRecoScore b{font-size:20px;color:var(--orange)}
+.gearRecoScore span{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;font-weight:900}
+.gearRecoSlot{display:grid;grid-template-columns:72px 1fr auto;gap:8px;align-items:center;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.055)}
+.gearRecoSlot:last-child{border-bottom:0}
+.gearRecoSlot .slot{font-size:10px;color:var(--muted);text-transform:uppercase;font-weight:950}
+.gearRecoSlot .item{font-weight:900}.gearSpecialName{color:#ffd166}.gearSpecialStar{color:#ffd166;font-weight:950;margin-right:3px}
+.gearRecoSlot .src{font-size:10px;border:1px solid #344b5c;border-radius:999px;padding:2px 6px;color:#d9e6ee;background:#0f202c;white-space:nowrap}
+.gearRecoSlot .src.inv{border-color:#315f32;color:#9dd45a;background:#0b1710}
+.gearRecoSlot .src.shop{border-color:#70420f;color:#ffb16a;background:#20150c}
+.gearRecoSlot .src.theory{border-color:#4a3fa3;color:#bcb7ff;background:#121027}
+.gearRecoSummary{display:grid;gap:10px}
+.gearRecoBox{border:1px solid #2d4858;border-radius:12px;background:#0a1720;padding:12px}
+.gearRecoBox h3{margin:0 0 8px;font-size:13px;text-transform:uppercase;color:#dbe4ea}
+.gearNeedList{display:grid;gap:6px}
+.gearNeedLine{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:6px}
+.gearNeedLine:last-child{border-bottom:0;padding-bottom:0}
+.gearNeedLine .needItem{font-weight:900}
+.gearNeedLine .needMeta{color:var(--muted);font-size:12px;text-align:right}
+.gearInvTableWrap{max-height:300px;overflow:auto;border:1px solid #2d4858;border-radius:10px}
+.gearInvTable td,.gearInvTable th{font-size:12px;padding:8px}
+.gearBalanceTag{display:inline-flex;align-items:center;gap:5px;font-size:11px;border-radius:999px;padding:3px 7px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);color:#d9e6ee;font-weight:900}
+@media(max-width:900px){
+  .gearOptimizerGrid,.gearRecommendationLayout{grid-template-columns:1fr}
+  .gearInvKpis{grid-template-columns:repeat(2,1fr)}
+  .gearRecoSlot{grid-template-columns:64px 1fr}
+  .gearRecoSlot .src{grid-column:2;justify-self:start}
+}
+
 </style>
 </head>
 <body>
@@ -3679,7 +3740,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 <header class="header heroHeader">
   <div class="heroCard" id="heroCard"><img id="heroBannerImg" class="heroBannerImg" alt="">
     <div class="heroOverlay">
-      <div class="brand heroBrand"><div id="logoBox" class="logoBox heroLogo"><div class="brandmark"></div></div><div><h1><span id="brandTeam">emuLate!</span> <span class="badge">v1.1 RC14</span></h1><div class="subtitle" id="brandCommunity">TEAM PLANNER</div></div></div>
+      <div class="brand heroBrand"><div id="logoBox" class="logoBox heroLogo"><div class="brandmark"></div></div><div><h1><span id="brandTeam">emuLate!</span> <span class="badge">v1.1 RC14.5.2</span></h1><div class="subtitle" id="brandCommunity">TEAM PLANNER</div></div></div>
       <div class="heroRight"><div class="cplDate" id="cplDateBadge">S12 · D22/35</div><button class="dataStatus" id="dataStatusBadge" type="button" onclick="confirmDataUpToDate()" title="Click after updating/importing your data">DATA CHECK</button></div>
       <nav class="tabs heroTabs">
   <button class="tab active" data-page-target="overview" onclick="showPage('overview',this)">Overview</button>
@@ -3746,7 +3807,20 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
   
 </section>
 
-<section id="gear" class="page"><div class="panel"><h2>Team gear loadout</h2><div class="body"><p class="small">Select one item per category and per player. Gear boosts are included in planner totals, without adding extra detail to the overview.</p><div class="gearTableWrap"><table class="gearTable"><thead><tr><th>Player</th><th>Mouse</th><th>Mousepad</th><th>Headset</th><th>Keyboard</th><th>Gear total</th></tr></thead><tbody id="gearRows"></tbody></table></div></div></div><div class="panel"><h2>Selected loadout details</h2><div class="body" id="gearDetails"></div></div></section>
+<section id="gear" class="page">
+  <div class="panel">
+    <h2>Team gear loadout</h2>
+    <div class="body">
+      <div class="gearTopBar">
+        <p class="small">Select one item per category and per player. Gear boosts are included in planner totals. Recommendations stay advisory until you manually equip items.</p>
+        <button class="btn gearAiBtn" onclick="openGearRecommendationPopup()"><span class="aiIconTile" aria-hidden="true"><img class="aiIconImg" src="./magic-wand-white-transparent-v2-128.png" alt=""></span><span>AI Gear Recommendation</span></button>
+      </div>
+      <div id="gearRecommendationSummaryLine" class="gearRecommendationSummaryLine"></div>
+      <div class="gearTableWrap"><table class="gearTable"><thead><tr><th>Player</th><th>Mouse</th><th>Mousepad</th><th>Headset</th><th>Keyboard</th><th>Gear total</th></tr></thead><tbody id="gearRows"></tbody></table></div>
+    </div>
+  </div>
+  <div class="panel"><h2>Selected loadout details</h2><div class="body" id="gearDetails"></div></div>
+</section>
 
 <section id="teamBuilder" class="page">
   <div class="panel" id="tbCandidatePanel">
@@ -3840,7 +3914,7 @@ html.cpl-mobile .pwaInstallBox{left:10px;right:10px;bottom:10px;border-radius:14
 
 <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.49.2"></script>
 <script>
-const defaultState={"version":"1.1.0-rc.14","editMode":false,"communityName":"","teamName":"emuLate!","teamLogoUrl":"https://media.cplmanager.com/teams/3207/logo_1778591724706.png","teamLogoData":"","teamBannerUrl":"https://media.cplmanager.com/teams/3207/banner_1778600601663.png","teamBannerData":"","currentSeason":12,"currentDay":26,"seasonLength":35,"projectionHorizon":8,"dataSeason":12,"dataDay":22,"players":[{"id":"p_jno9bx5v","name":"HaRtS-","realName":"Kristjan Koppel","raw":"HaRtS-\n\nKristjan Koppel\n26yo (day 12)\n\nC\nPL\n740\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nArmageddon\nGemini\nAlnitak\n\nTotal skill\n\n669\n/752\nAim\n\n93\n/94\nHandling\n\n93\n/96\nQuickness\n\n94\n/97\nDetermination\n\n94\n/94\n101\n\nAwareness\n\n97\n/97\n103\n\nTeamplay\n\n64\n/91\nGamesense\n\n64\n/90\nMovement\n\n70\n/93\nExperience\n25\n12 TO LVL 26\n\nLeadership\n13\n391 TO LVL 14\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\n\nFavorite map\ntrain","games":6,"heartFixed":"Fire","ls":13,"skills":{"aim":93,"hand":93,"quick":94,"det":94,"awa":97,"tp":64,"gms":64,"mov":70},"limits":{"aim":94,"hand":96,"quick":97,"det":94,"awa":97,"tp":91,"gms":90,"mov":93},"age":26,"day":12,"xp":25,"detectedTotal":669,"detectedLimit":752,"gear":{"mouse":"aurora","mousepad":"armageddon","headset":"gemini","keyboard":"alnitak"}},{"id":"p_rn3ommq9","name":"mSx-","realName":"Raimonds Mezs","raw":"mSx-\n\nRaimonds Mezs\n24yo (day 13)\n\nC\nPL\n1,082\nKick player\n\nSell player\n\nPrimary skills\nHero\nNoctron\nEnigma\nAlnitak\n\nTotal skill\n\n745\n/745\nAim\n\n95\n/95\n104\n\nHandling\n\n92\n/92\nQuickness\n\n94\n/94\n104\n\nDetermination\n\n94\n/94\n104\n\nAwareness\n\n94\n/94\n104\n\nTeamplay\n\n90\n/90\nGamesense\n\n95\n/95\n102\n\nMovement\n\n91\n/91\nExperience\n28\n354 TO LVL 29\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":451,"heartFixed":null,"ls":1,"skills":{"aim":95,"hand":92,"quick":94,"det":94,"awa":94,"tp":90,"gms":95,"mov":91},"limits":{"aim":95,"hand":92,"quick":94,"det":94,"awa":94,"tp":90,"gms":95,"mov":91},"age":24,"day":13,"xp":28,"detectedTotal":745,"detectedLimit":745,"gear":{"mouse":"hero","mousepad":"noctron","headset":"enigma","keyboard":"alnitak"}},{"id":"p_hdg9jjef","name":"R!Go-","realName":"Florian Koch","raw":"R!Go-\n\nFlorian Koch\n24yo (day 13)\n\nC\nPL\n861\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nCitus\nEnigma\nAlnitak\n\nTotal skill\n\n749\n/749\nAim\n\n91\n/91\nHandling\n\n93\n/93\nQuickness\n\n91\n/91\n101\n\nDetermination\n\n91\n/91\n100\n\nAwareness\n\n96\n/96\n103\n\nTeamplay\n\n96\n/96\n102\n\nGamesense\n\n93\n/93\nMovement\n\n98\n/98\n104\n\nExperience\n26\n324 TO LVL 27\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":394,"heartFixed":null,"ls":1,"skills":{"aim":91,"hand":93,"quick":91,"det":91,"awa":96,"tp":96,"gms":93,"mov":98},"limits":{"aim":91,"hand":93,"quick":91,"det":91,"awa":96,"tp":96,"gms":93,"mov":98},"age":24,"day":13,"xp":26,"detectedTotal":749,"detectedLimit":749,"gear":{"mouse":"aurora","mousepad":"citus","headset":"enigma","keyboard":"alnitak"}},{"id":"p_au4mk7f4","name":"MaT","realName":"Hiroshi Takahashi","raw":"MaT\n\nHiroshi Takahashi\n21yo (day 12)\n\nC\nPL\n884\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nArmageddon\nEnigma\nAlnitak\n\nTotal skill\n\n699\n/749\nAim\n\n94\n/94\n101\n\nHandling\n\n91\n/91\nQuickness\n\n94\n/94\n101\n\nDetermination\n\n95\n/95\n103\n\nAwareness\n\n93\n/93\n100\n\nTeamplay\n\n79\n/93\nGamesense\n\n63\n/99\nMovement\n\n90\n/90\nExperience\n21\n354 TO LVL 22\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":271,"heartFixed":null,"ls":1,"skills":{"aim":94,"hand":91,"quick":94,"det":95,"awa":93,"tp":79,"gms":63,"mov":90},"limits":{"aim":94,"hand":91,"quick":94,"det":95,"awa":93,"tp":93,"gms":99,"mov":90},"age":21,"day":12,"xp":21,"detectedTotal":699,"detectedLimit":749,"gear":{"mouse":"aurora","mousepad":"armageddon","headset":"enigma","keyboard":"alnitak"}},{"id":"p_n7msuog3","name":"ZywOo-","realName":"Frederick Scott","raw":"ZywOo- (370)\n\nFrederick Scott\n20yo (day 24)\n\nC\nPL\n844\nKick player\n\nSell player\n\nPrimary skills\n\n\n\n\n\nTotal skill\n\n590\n/752\nAim\n\n93\n/95\nHandling\n\n92\n/92\nQuickness\n\n93\n/94\nDetermination\n\n94\n/94\nAwareness\n\n70\n/97\nTeamplay\n\n39\n/89\nGamesense\n\n40\n/91\nMovement\n\n69\n/100\nExperience\n19\n209 TO LVL 20\n\nLeadership\n7\n418 TO LVL 8\n\nFame\nTalents\n18 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\nmill","games":163,"heartFixed":null,"ls":7,"skills":{"aim":93,"hand":92,"quick":93,"det":94,"awa":70,"tp":39,"gms":40,"mov":69},"limits":{"aim":95,"hand":92,"quick":94,"det":94,"awa":97,"tp":89,"gms":91,"mov":100},"age":20,"day":24,"xp":19,"detectedTotal":590,"detectedLimit":752,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"}},{"id":"p_od6l3e4n","name":"Happy-","realName":"Gabriel Rojas","raw":"Happy-\n\nGabriel Rojas\n34yo (day 6)\n\nC\nPL\n1,389\nstart bid\n\nC\nPL\n5,000\ndeadline\n\n2026-06-10 - 09:03\nPrimary skills\nAurora 3330\nNoctron\nEnigma\nAlnitak\n\nTotal skill\n\n740\n/746\nAim\n\n94\n/96\n101\n\nHandling\n\n96\n/96\n101\n\nQuickness\n\n92\n/92\n101\n\nDetermination\n\n93\n/93\n101\n\nAwareness\n\n94\n/95\n101\n\nTeamplay\n\n90\n/91\nGamesense\n\n87\n/89\nMovement\n\n94\n/94\n100\n\nExperience\n38\n448 TO LVL 39\n\nLeadership\n16\n83 TO LVL 17\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":355,"heartFixed":null,"ls":16,"skills":{"aim":94,"hand":96,"quick":92,"det":93,"awa":94,"tp":90,"gms":87,"mov":94},"limits":{"aim":96,"hand":96,"quick":92,"det":93,"awa":95,"tp":91,"gms":89,"mov":94},"age":34,"day":6,"xp":38,"detectedTotal":740,"detectedLimit":746,"gear":{"mouse":"aurora","mousepad":"noctron","headset":"enigma","keyboard":"alnitak"}}],"analysisPlan":{"12":{"p_harts":2,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"13":{"p_harts":2,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"14":{"p_harts":1,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"15":{"p_harts":0,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"16":{"p_harts":0,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"17":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"18":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"19":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"20":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0}},"analysisBlocks":[{"id":"b_7swzdfc2","playerId":"p_jno9bx5v","startSeason":12,"startDay":22,"durationDays":7},{"id":"b_jhppvgzi","playerId":"p_n7msuog3","startSeason":12,"startDay":29,"durationDays":7},{"id":"b_qccd5gub","playerId":"p_jno9bx5v","startSeason":13,"startDay":1,"durationDays":7},{"id":"b_39np5wm6","playerId":"p_n7msuog3","startSeason":13,"startDay":8,"durationDays":7},{"id":"b_t4qaaj0o","playerId":"p_n7msuog3","startSeason":13,"startDay":15,"durationDays":7},{"id":"b_c0haucit","playerId":"p_au4mk7f4","startSeason":13,"startDay":22,"durationDays":7},{"id":"b_fwkfaui4","playerId":"p_jno9bx5v","startSeason":13,"startDay":29,"durationDays":7},{"id":"b_z2k452z8","playerId":"p_n7msuog3","startSeason":14,"startDay":1,"durationDays":7},{"id":"b_t7bfvu3y","playerId":"p_n7msuog3","startSeason":14,"startDay":8,"durationDays":7},{"id":"b_2kg06jtn","playerId":"p_n7msuog3","startSeason":15,"startDay":1,"durationDays":7}],"trainingDraft":{"playerId":"p_jno9bx5v","startSeason":12,"startDay":22,"durationDays":7},"selectedAnalysisBlock":null,"analysisBlocksOpen":false,"hiddenTrajectoryPlayers":[],"candidatePool":[{"id":"p_nrn4dwo9","name":"Domagoj","realName":"from Chinelo Vuitton","raw":"Domagoj\nfrom Chinelo Vuitton\nDomagoj Zoric\n20yo (day 17)\n\nC\nPL\n639\n0\nlast bid\n\nC\nPL\n22,000\nby\nCyber rpa4u\n\ndeadline\n\n2026-06-10 - 07:26 (1m left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n608\n/732\nAim\n\n90\n/92\nHandling\n\n95\n/95\nQuickness\n\n91\n/93\nDetermination\n\n96\n/96\nAwareness\n\n98\n/99\nTeamplay\n\n26\n/85\nGamesense\n\n23\n/83\nMovement\n\n89\n/89\nExperience\n20\n481 TO LVL 21\n\nLeadership\n5\n453 TO LVL 6\n\nFame\nTalents\n19 points\nSpecial abilities\nFavorite weapon\n\nFavorite map\nmill","games":0,"heartFixed":null,"ls":5,"skills":{"aim":90,"hand":95,"quick":91,"det":96,"awa":98,"tp":26,"gms":23,"mov":89},"limits":{"aim":92,"hand":95,"quick":93,"det":96,"awa":99,"tp":85,"gms":83,"mov":89},"age":20,"day":17,"xp":20,"detectedTotal":608,"detectedLimit":732,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_e2fynz1x","name":"Player #211341","realName":"from Free agent","raw":"Player #211341\nfrom Free agent\nElias Svensson\n33yo (day 28)\n\nC\nPL\n734\n0\nstart bid\n\nC\nPL\n1\ndeadline\n\n2026-06-10 - 10:00 (1hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n707\n/750\nAim\n\n88\n/95\nHandling\n\n89\n/97\nQuickness\n\n93\n/93\nDetermination\n\n93\n/94\nAwareness\n\n89\n/91\nTeamplay\n\n89\n/95\nGamesense\n\n85\n/94\nMovement\n\n81\n/91\nExperience\n38\n215 TO LVL 39\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n37 points\nSpecial abilities\nNo special skill\nFavorite weapon\n\nFavorite map\nmill","games":0,"heartFixed":null,"ls":1,"skills":{"aim":88,"hand":89,"quick":93,"det":93,"awa":89,"tp":89,"gms":85,"mov":81},"limits":{"aim":95,"hand":97,"quick":93,"det":94,"awa":91,"tp":95,"gms":94,"mov":91},"age":33,"day":28,"xp":38,"detectedTotal":707,"detectedLimit":750,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"starter","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_ogjybm6r","name":"Player #211343","realName":"from Free agent","raw":"Player #211343\nfrom Free agent\nJi-ho Seo\n32yo (day 17)\n\nC\nPL\n687\n0\nstart bid\n\nC\nPL\n1\ndeadline\n\n2026-06-10 - 10:32 (1hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n688\n/742\nAim\n\n75\n/95\nHandling\n\n81\n/90\nQuickness\n\n84\n/93\nDetermination\n\n87\n/94\nAwareness\n\n95\n/95\nTeamplay\n\n84\n/92\nGamesense\n\n89\n/90\nMovement\n\n93\n/93\nExperience\n36\n225 TO LVL 37\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n35 points\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle","games":0,"heartFixed":null,"ls":1,"skills":{"aim":75,"hand":81,"quick":84,"det":87,"awa":95,"tp":84,"gms":89,"mov":93},"limits":{"aim":95,"hand":90,"quick":93,"det":94,"awa":95,"tp":92,"gms":90,"mov":93},"age":32,"day":17,"xp":36,"detectedTotal":688,"detectedLimit":742,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_gx24irah","name":"Leone™","realName":"from Bandits","raw":"Leone™\nfrom Bandits\nEdoardo Leone\n25yo (day 22)\n\nC\nPL\n876\n15\nlast bid\n\nC\nPL\n8\nby\nᴄʏʙᴇʀᴋᴏɴɢᴢ\n\ndeadline\n\n2026-06-10 - 12:01 (3hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n745\n/744\nAim\n\n92\n/92\nHandling\n\n91\n/91\nQuickness\n\n92\n/92\nDetermination\n\n93\n/93\nAwareness\n\n96\n/96\nTeamplay\n\n95\n/95\nGamesense\n\n96\n/96\nMovement\n\n90\n/90\nExperience\n23\n35 TO LVL 24\n\nLeadership\n15\n406 TO LVL 16\n\nFame\nTalents\n22 points\nSpecial abilities\nFavorite weapon\n\nFavorite map\ntrain","games":0,"heartFixed":null,"ls":15,"skills":{"aim":92,"hand":91,"quick":92,"det":93,"awa":96,"tp":95,"gms":96,"mov":90},"limits":{"aim":92,"hand":91,"quick":92,"det":93,"awa":96,"tp":95,"gms":96,"mov":90},"age":25,"day":22,"xp":23,"detectedTotal":745,"detectedLimit":744,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_cqp45ywc","name":"Player #211355","realName":"from Free agent","raw":"Player #211355\nfrom Free agent\nJuraj Kiss\n30yo (day 9)\n\nC\nPL\n695\n0\nstart bid\n\nC\nPL\n1\ndeadline\n\n2026-06-10 - 13:44 (4hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n658\n/743\nAim\n\n87\n/92\nHandling\n\n73\n/90\nQuickness\n\n88\n/95\nDetermination\n\n70\n/93\nAwareness\n\n79\n/90\nTeamplay\n\n87\n/94\nGamesense\n\n81\n/94\nMovement\n\n93\n/95\nExperience\n33\n479 TO LVL 34\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n32 points\nSpecial abilities\nNo special skill\nFavorite weapon\n\nFavorite map\ncastle","games":0,"heartFixed":null,"ls":1,"skills":{"aim":87,"hand":73,"quick":88,"det":70,"awa":79,"tp":87,"gms":81,"mov":93},"limits":{"aim":92,"hand":90,"quick":95,"det":93,"awa":90,"tp":94,"gms":94,"mov":95},"age":30,"day":9,"xp":33,"detectedTotal":658,"detectedLimit":743,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_64rljmhi","name":"ioRek- (361)","realName":"Noah Nielsen","raw":"ioRek- (361)\n\nNoah Nielsen\n19yo (day 29)\n\nDrop rookie\nPrimary skills\nTotal skill\n\n568\n/741\nAim\n\n87\n/92\nHandling\n\n88\n/88\nQuickness\n\n92\n/92\nDetermination\n\n91\n/92\nAwareness\n\n67\n/98\nTeamplay\n\n28\n/92\nGamesense\n\n45\n/90\nMovement\n\n70\n/97\nExperience\n18\n222 TO LVL 19\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":0,"heartFixed":null,"ls":1,"skills":{"aim":87,"hand":88,"quick":92,"det":91,"awa":67,"tp":28,"gms":45,"mov":70},"limits":{"aim":92,"hand":88,"quick":92,"det":92,"awa":98,"tp":92,"gms":90,"mov":97},"age":19,"day":29,"xp":18,"detectedTotal":568,"detectedLimit":741,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"academy","intent":"starter","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_xtg47adm","name":"OzStriker (361)","realName":"Rimantas Juknevicius","raw":"OzStriker (361)\n\nRimantas Juknevicius\n19yo (day 10)\n\nDrop rookie\nPrimary skills\nTotal skill\n\n532\n/740\nAim\n\n91\n/92\nHandling\n\n81\n/88\nQuickness\n\n94\n/94\nDetermination\n\n91\n/91\nAwareness\n\n62\n/95\nTeamplay\n\n36\n/93\nGamesense\n\n29\n/96\nMovement\n\n48\n/91\nExperience\n17\n235 TO LVL 18\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":0,"heartFixed":null,"ls":1,"skills":{"aim":91,"hand":81,"quick":94,"det":91,"awa":62,"tp":36,"gms":29,"mov":48},"limits":{"aim":92,"hand":88,"quick":94,"det":91,"awa":95,"tp":93,"gms":96,"mov":91},"age":19,"day":10,"xp":17,"detectedTotal":532,"detectedLimit":740,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"academy","intent":"undecided","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_td0loqei","name":"Maarek- (370)","realName":"Eymen Polat","raw":"Maarek- (370)\n\nEymen Polat\n16yo (day 1)\n\nDrop rookie\nPrimary skills\nTotal skill\n\n378\n/746\nAim\n\n93\n/93\nHandling\n\n76\n/92\nQuickness\n\n27\n/94\nDetermination\n\n35\n/92\nAwareness\n\n34\n/92\nTeamplay\n\n31\n/97\nGamesense\n\n36\n/99\nMovement\n\n46\n/87\nExperience\n7\n479 TO LVL 8\n\nLeadership\n1\n63 TO LVL 2\n\nFame\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle","games":0,"heartFixed":null,"ls":1,"skills":{"aim":93,"hand":76,"quick":27,"det":35,"awa":34,"tp":31,"gms":36,"mov":46},"limits":{"aim":93,"hand":92,"quick":94,"det":92,"awa":92,"tp":97,"gms":99,"mov":87},"age":16,"day":1,"xp":7,"detectedTotal":378,"detectedLimit":746,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"academy","intent":"undecided","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}}],"compareView":"ceiling","coef":{"aim":1.4,"quick":1.4,"det":1.3,"awa":1.2,"hand":1,"mov":1,"gms":0.5,"tp":0.4},"engine":{"matchesPerSeason":65,"trainingPerDay":0.8,"analysisBonus":2.6,"daysPerSeason":35,"daysPerWeek":7,"lsGrowth":1.25,"xpLevelsPerSeason":1.75,"declineStartAge":28,"declinePerAgeDay":0.2},"hearts":{"Small":0.005,"Medium":0.01,"Big":0.03,"Golden":0.05,"Fire":0.04,"Platinium":0.08,"Platinum":0.08},"rosterPlanOpen":false};
+const defaultState={"version":"1.1.0-rc.14.6.12-gear-safe","editMode":false,"communityName":"","teamName":"emuLate!","teamLogoUrl":"https://media.cplmanager.com/teams/3207/logo_1778591724706.png","teamLogoData":"","teamBannerUrl":"https://media.cplmanager.com/teams/3207/banner_1778600601663.png","teamBannerData":"","currentSeason":12,"currentDay":26,"seasonLength":35,"projectionHorizon":8,"dataSeason":12,"dataDay":22,"players":[{"id":"p_jno9bx5v","name":"HaRtS-","realName":"Kristjan Koppel","raw":"HaRtS-\n\nKristjan Koppel\n26yo (day 12)\n\nC\nPL\n740\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nArmageddon\nGemini\nAlnitak\n\nTotal skill\n\n669\n/752\nAim\n\n93\n/94\nHandling\n\n93\n/96\nQuickness\n\n94\n/97\nDetermination\n\n94\n/94\n101\n\nAwareness\n\n97\n/97\n103\n\nTeamplay\n\n64\n/91\nGamesense\n\n64\n/90\nMovement\n\n70\n/93\nExperience\n25\n12 TO LVL 26\n\nLeadership\n13\n391 TO LVL 14\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\n\nFavorite map\ntrain","games":6,"heartFixed":"Fire","ls":13,"skills":{"aim":93,"hand":93,"quick":94,"det":94,"awa":97,"tp":64,"gms":64,"mov":70},"limits":{"aim":94,"hand":96,"quick":97,"det":94,"awa":97,"tp":91,"gms":90,"mov":93},"age":26,"day":12,"xp":25,"detectedTotal":669,"detectedLimit":752,"gear":{"mouse":"aurora","mousepad":"armageddon","headset":"gemini","keyboard":"alnitak"}},{"id":"p_rn3ommq9","name":"mSx-","realName":"Raimonds Mezs","raw":"mSx-\n\nRaimonds Mezs\n24yo (day 13)\n\nC\nPL\n1,082\nKick player\n\nSell player\n\nPrimary skills\nHero\nNoctron\nEnigma\nAlnitak\n\nTotal skill\n\n745\n/745\nAim\n\n95\n/95\n104\n\nHandling\n\n92\n/92\nQuickness\n\n94\n/94\n104\n\nDetermination\n\n94\n/94\n104\n\nAwareness\n\n94\n/94\n104\n\nTeamplay\n\n90\n/90\nGamesense\n\n95\n/95\n102\n\nMovement\n\n91\n/91\nExperience\n28\n354 TO LVL 29\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":451,"heartFixed":null,"ls":1,"skills":{"aim":95,"hand":92,"quick":94,"det":94,"awa":94,"tp":90,"gms":95,"mov":91},"limits":{"aim":95,"hand":92,"quick":94,"det":94,"awa":94,"tp":90,"gms":95,"mov":91},"age":24,"day":13,"xp":28,"detectedTotal":745,"detectedLimit":745,"gear":{"mouse":"hero","mousepad":"noctron","headset":"enigma","keyboard":"alnitak"}},{"id":"p_hdg9jjef","name":"R!Go-","realName":"Florian Koch","raw":"R!Go-\n\nFlorian Koch\n24yo (day 13)\n\nC\nPL\n861\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nCitus\nEnigma\nAlnitak\n\nTotal skill\n\n749\n/749\nAim\n\n91\n/91\nHandling\n\n93\n/93\nQuickness\n\n91\n/91\n101\n\nDetermination\n\n91\n/91\n100\n\nAwareness\n\n96\n/96\n103\n\nTeamplay\n\n96\n/96\n102\n\nGamesense\n\n93\n/93\nMovement\n\n98\n/98\n104\n\nExperience\n26\n324 TO LVL 27\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":394,"heartFixed":null,"ls":1,"skills":{"aim":91,"hand":93,"quick":91,"det":91,"awa":96,"tp":96,"gms":93,"mov":98},"limits":{"aim":91,"hand":93,"quick":91,"det":91,"awa":96,"tp":96,"gms":93,"mov":98},"age":24,"day":13,"xp":26,"detectedTotal":749,"detectedLimit":749,"gear":{"mouse":"aurora","mousepad":"citus","headset":"enigma","keyboard":"alnitak"}},{"id":"p_au4mk7f4","name":"MaT","realName":"Hiroshi Takahashi","raw":"MaT\n\nHiroshi Takahashi\n21yo (day 12)\n\nC\nPL\n884\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nArmageddon\nEnigma\nAlnitak\n\nTotal skill\n\n699\n/749\nAim\n\n94\n/94\n101\n\nHandling\n\n91\n/91\nQuickness\n\n94\n/94\n101\n\nDetermination\n\n95\n/95\n103\n\nAwareness\n\n93\n/93\n100\n\nTeamplay\n\n79\n/93\nGamesense\n\n63\n/99\nMovement\n\n90\n/90\nExperience\n21\n354 TO LVL 22\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":271,"heartFixed":null,"ls":1,"skills":{"aim":94,"hand":91,"quick":94,"det":95,"awa":93,"tp":79,"gms":63,"mov":90},"limits":{"aim":94,"hand":91,"quick":94,"det":95,"awa":93,"tp":93,"gms":99,"mov":90},"age":21,"day":12,"xp":21,"detectedTotal":699,"detectedLimit":749,"gear":{"mouse":"aurora","mousepad":"armageddon","headset":"enigma","keyboard":"alnitak"}},{"id":"p_n7msuog3","name":"ZywOo-","realName":"Frederick Scott","raw":"ZywOo- (370)\n\nFrederick Scott\n20yo (day 24)\n\nC\nPL\n844\nKick player\n\nSell player\n\nPrimary skills\n\n\n\n\n\nTotal skill\n\n590\n/752\nAim\n\n93\n/95\nHandling\n\n92\n/92\nQuickness\n\n93\n/94\nDetermination\n\n94\n/94\nAwareness\n\n70\n/97\nTeamplay\n\n39\n/89\nGamesense\n\n40\n/91\nMovement\n\n69\n/100\nExperience\n19\n209 TO LVL 20\n\nLeadership\n7\n418 TO LVL 8\n\nFame\nTalents\n18 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\nmill","games":163,"heartFixed":null,"ls":7,"skills":{"aim":93,"hand":92,"quick":93,"det":94,"awa":70,"tp":39,"gms":40,"mov":69},"limits":{"aim":95,"hand":92,"quick":94,"det":94,"awa":97,"tp":89,"gms":91,"mov":100},"age":20,"day":24,"xp":19,"detectedTotal":590,"detectedLimit":752,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"}},{"id":"p_od6l3e4n","name":"Happy-","realName":"Gabriel Rojas","raw":"Happy-\n\nGabriel Rojas\n34yo (day 6)\n\nC\nPL\n1,389\nstart bid\n\nC\nPL\n5,000\ndeadline\n\n2026-06-10 - 09:03\nPrimary skills\nAurora 3330\nNoctron\nEnigma\nAlnitak\n\nTotal skill\n\n740\n/746\nAim\n\n94\n/96\n101\n\nHandling\n\n96\n/96\n101\n\nQuickness\n\n92\n/92\n101\n\nDetermination\n\n93\n/93\n101\n\nAwareness\n\n94\n/95\n101\n\nTeamplay\n\n90\n/91\nGamesense\n\n87\n/89\nMovement\n\n94\n/94\n100\n\nExperience\n38\n448 TO LVL 39\n\nLeadership\n16\n83 TO LVL 17\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":355,"heartFixed":null,"ls":16,"skills":{"aim":94,"hand":96,"quick":92,"det":93,"awa":94,"tp":90,"gms":87,"mov":94},"limits":{"aim":96,"hand":96,"quick":92,"det":93,"awa":95,"tp":91,"gms":89,"mov":94},"age":34,"day":6,"xp":38,"detectedTotal":740,"detectedLimit":746,"gear":{"mouse":"aurora","mousepad":"noctron","headset":"enigma","keyboard":"alnitak"}}],"analysisPlan":{"12":{"p_harts":2,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"13":{"p_harts":2,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"14":{"p_harts":1,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"15":{"p_harts":0,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"16":{"p_harts":0,"p_msx":0,"p_zywoo":2,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"17":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"18":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"19":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0},"20":{"p_harts":0,"p_msx":0,"p_zywoo":0,"p_mat":0,"p_rigo":0,"p_recruit1":0,"p_recruit2":0,"p_thupxx49":0}},"analysisBlocks":[{"id":"b_7swzdfc2","playerId":"p_jno9bx5v","startSeason":12,"startDay":22,"durationDays":7},{"id":"b_jhppvgzi","playerId":"p_n7msuog3","startSeason":12,"startDay":29,"durationDays":7},{"id":"b_qccd5gub","playerId":"p_jno9bx5v","startSeason":13,"startDay":1,"durationDays":7},{"id":"b_39np5wm6","playerId":"p_n7msuog3","startSeason":13,"startDay":8,"durationDays":7},{"id":"b_t4qaaj0o","playerId":"p_n7msuog3","startSeason":13,"startDay":15,"durationDays":7},{"id":"b_c0haucit","playerId":"p_au4mk7f4","startSeason":13,"startDay":22,"durationDays":7},{"id":"b_fwkfaui4","playerId":"p_jno9bx5v","startSeason":13,"startDay":29,"durationDays":7},{"id":"b_z2k452z8","playerId":"p_n7msuog3","startSeason":14,"startDay":1,"durationDays":7},{"id":"b_t7bfvu3y","playerId":"p_n7msuog3","startSeason":14,"startDay":8,"durationDays":7},{"id":"b_2kg06jtn","playerId":"p_n7msuog3","startSeason":15,"startDay":1,"durationDays":7}],"trainingDraft":{"playerId":"p_jno9bx5v","startSeason":12,"startDay":22,"durationDays":7},"selectedAnalysisBlock":null,"analysisBlocksOpen":false,"hiddenTrajectoryPlayers":[],"candidatePool":[{"id":"p_nrn4dwo9","name":"Domagoj","realName":"from Chinelo Vuitton","raw":"Domagoj\nfrom Chinelo Vuitton\nDomagoj Zoric\n20yo (day 17)\n\nC\nPL\n639\n0\nlast bid\n\nC\nPL\n22,000\nby\nCyber rpa4u\n\ndeadline\n\n2026-06-10 - 07:26 (1m left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n608\n/732\nAim\n\n90\n/92\nHandling\n\n95\n/95\nQuickness\n\n91\n/93\nDetermination\n\n96\n/96\nAwareness\n\n98\n/99\nTeamplay\n\n26\n/85\nGamesense\n\n23\n/83\nMovement\n\n89\n/89\nExperience\n20\n481 TO LVL 21\n\nLeadership\n5\n453 TO LVL 6\n\nFame\nTalents\n19 points\nSpecial abilities\nFavorite weapon\n\nFavorite map\nmill","games":0,"heartFixed":null,"ls":5,"skills":{"aim":90,"hand":95,"quick":91,"det":96,"awa":98,"tp":26,"gms":23,"mov":89},"limits":{"aim":92,"hand":95,"quick":93,"det":96,"awa":99,"tp":85,"gms":83,"mov":89},"age":20,"day":17,"xp":20,"detectedTotal":608,"detectedLimit":732,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_e2fynz1x","name":"Player #211341","realName":"from Free agent","raw":"Player #211341\nfrom Free agent\nElias Svensson\n33yo (day 28)\n\nC\nPL\n734\n0\nstart bid\n\nC\nPL\n1\ndeadline\n\n2026-06-10 - 10:00 (1hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n707\n/750\nAim\n\n88\n/95\nHandling\n\n89\n/97\nQuickness\n\n93\n/93\nDetermination\n\n93\n/94\nAwareness\n\n89\n/91\nTeamplay\n\n89\n/95\nGamesense\n\n85\n/94\nMovement\n\n81\n/91\nExperience\n38\n215 TO LVL 39\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n37 points\nSpecial abilities\nNo special skill\nFavorite weapon\n\nFavorite map\nmill","games":0,"heartFixed":null,"ls":1,"skills":{"aim":88,"hand":89,"quick":93,"det":93,"awa":89,"tp":89,"gms":85,"mov":81},"limits":{"aim":95,"hand":97,"quick":93,"det":94,"awa":91,"tp":95,"gms":94,"mov":91},"age":33,"day":28,"xp":38,"detectedTotal":707,"detectedLimit":750,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"starter","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_ogjybm6r","name":"Player #211343","realName":"from Free agent","raw":"Player #211343\nfrom Free agent\nJi-ho Seo\n32yo (day 17)\n\nC\nPL\n687\n0\nstart bid\n\nC\nPL\n1\ndeadline\n\n2026-06-10 - 10:32 (1hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n688\n/742\nAim\n\n75\n/95\nHandling\n\n81\n/90\nQuickness\n\n84\n/93\nDetermination\n\n87\n/94\nAwareness\n\n95\n/95\nTeamplay\n\n84\n/92\nGamesense\n\n89\n/90\nMovement\n\n93\n/93\nExperience\n36\n225 TO LVL 37\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n35 points\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle","games":0,"heartFixed":null,"ls":1,"skills":{"aim":75,"hand":81,"quick":84,"det":87,"awa":95,"tp":84,"gms":89,"mov":93},"limits":{"aim":95,"hand":90,"quick":93,"det":94,"awa":95,"tp":92,"gms":90,"mov":93},"age":32,"day":17,"xp":36,"detectedTotal":688,"detectedLimit":742,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_gx24irah","name":"Leone™","realName":"from Bandits","raw":"Leone™\nfrom Bandits\nEdoardo Leone\n25yo (day 22)\n\nC\nPL\n876\n15\nlast bid\n\nC\nPL\n8\nby\nᴄʏʙᴇʀᴋᴏɴɢᴢ\n\ndeadline\n\n2026-06-10 - 12:01 (3hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n745\n/744\nAim\n\n92\n/92\nHandling\n\n91\n/91\nQuickness\n\n92\n/92\nDetermination\n\n93\n/93\nAwareness\n\n96\n/96\nTeamplay\n\n95\n/95\nGamesense\n\n96\n/96\nMovement\n\n90\n/90\nExperience\n23\n35 TO LVL 24\n\nLeadership\n15\n406 TO LVL 16\n\nFame\nTalents\n22 points\nSpecial abilities\nFavorite weapon\n\nFavorite map\ntrain","games":0,"heartFixed":null,"ls":15,"skills":{"aim":92,"hand":91,"quick":92,"det":93,"awa":96,"tp":95,"gms":96,"mov":90},"limits":{"aim":92,"hand":91,"quick":92,"det":93,"awa":96,"tp":95,"gms":96,"mov":90},"age":25,"day":22,"xp":23,"detectedTotal":745,"detectedLimit":744,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_cqp45ywc","name":"Player #211355","realName":"from Free agent","raw":"Player #211355\nfrom Free agent\nJuraj Kiss\n30yo (day 9)\n\nC\nPL\n695\n0\nstart bid\n\nC\nPL\n1\ndeadline\n\n2026-06-10 - 13:44 (4hs left)\n\nUnlist\n\nPlace bid\nPrimary skills\nTotal skill\n\n658\n/743\nAim\n\n87\n/92\nHandling\n\n73\n/90\nQuickness\n\n88\n/95\nDetermination\n\n70\n/93\nAwareness\n\n79\n/90\nTeamplay\n\n87\n/94\nGamesense\n\n81\n/94\nMovement\n\n93\n/95\nExperience\n33\n479 TO LVL 34\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n32 points\nSpecial abilities\nNo special skill\nFavorite weapon\n\nFavorite map\ncastle","games":0,"heartFixed":null,"ls":1,"skills":{"aim":87,"hand":73,"quick":88,"det":70,"awa":79,"tp":87,"gms":81,"mov":93},"limits":{"aim":92,"hand":90,"quick":95,"det":93,"awa":90,"tp":94,"gms":94,"mov":95},"age":30,"day":9,"xp":33,"detectedTotal":658,"detectedLimit":743,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"transfer","intent":"watch","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_64rljmhi","name":"ioRek- (361)","realName":"Noah Nielsen","raw":"ioRek- (361)\n\nNoah Nielsen\n19yo (day 29)\n\nDrop rookie\nPrimary skills\nTotal skill\n\n568\n/741\nAim\n\n87\n/92\nHandling\n\n88\n/88\nQuickness\n\n92\n/92\nDetermination\n\n91\n/92\nAwareness\n\n67\n/98\nTeamplay\n\n28\n/92\nGamesense\n\n45\n/90\nMovement\n\n70\n/97\nExperience\n18\n222 TO LVL 19\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":0,"heartFixed":null,"ls":1,"skills":{"aim":87,"hand":88,"quick":92,"det":91,"awa":67,"tp":28,"gms":45,"mov":70},"limits":{"aim":92,"hand":88,"quick":92,"det":92,"awa":98,"tp":92,"gms":90,"mov":97},"age":19,"day":29,"xp":18,"detectedTotal":568,"detectedLimit":741,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"academy","intent":"starter","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_xtg47adm","name":"OzStriker (361)","realName":"Rimantas Juknevicius","raw":"OzStriker (361)\n\nRimantas Juknevicius\n19yo (day 10)\n\nDrop rookie\nPrimary skills\nTotal skill\n\n532\n/740\nAim\n\n91\n/92\nHandling\n\n81\n/88\nQuickness\n\n94\n/94\nDetermination\n\n91\n/91\nAwareness\n\n62\n/95\nTeamplay\n\n36\n/93\nGamesense\n\n29\n/96\nMovement\n\n48\n/91\nExperience\n17\n235 TO LVL 18\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":0,"heartFixed":null,"ls":1,"skills":{"aim":91,"hand":81,"quick":94,"det":91,"awa":62,"tp":36,"gms":29,"mov":48},"limits":{"aim":92,"hand":88,"quick":94,"det":91,"awa":95,"tp":93,"gms":96,"mov":91},"age":19,"day":10,"xp":17,"detectedTotal":532,"detectedLimit":740,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"academy","intent":"undecided","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}},{"id":"p_td0loqei","name":"Maarek- (370)","realName":"Eymen Polat","raw":"Maarek- (370)\n\nEymen Polat\n16yo (day 1)\n\nDrop rookie\nPrimary skills\nTotal skill\n\n378\n/746\nAim\n\n93\n/93\nHandling\n\n76\n/92\nQuickness\n\n27\n/94\nDetermination\n\n35\n/92\nAwareness\n\n34\n/92\nTeamplay\n\n31\n/97\nGamesense\n\n36\n/99\nMovement\n\n46\n/87\nExperience\n7\n479 TO LVL 8\n\nLeadership\n1\n63 TO LVL 2\n\nFame\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle","games":0,"heartFixed":null,"ls":1,"skills":{"aim":93,"hand":76,"quick":27,"det":35,"awa":34,"tp":31,"gms":36,"mov":46},"limits":{"aim":93,"hand":92,"quick":94,"det":92,"awa":92,"tp":97,"gms":99,"mov":87},"age":16,"day":1,"xp":7,"detectedTotal":378,"detectedLimit":746,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"},"source":"academy","intent":"undecided","compareTo":"p_jno9bx5v","plannedRole":"watch","limitPlan":{}}],"compareView":"ceiling","coef":{"aim":1.4,"quick":1.4,"det":1.3,"awa":1.2,"hand":1,"mov":1,"gms":0.5,"tp":0.4},"engine":{"matchesPerSeason":65,"trainingPerDay":0.8,"analysisBonus":2.6,"daysPerSeason":35,"daysPerWeek":7,"lsGrowth":1.25,"xpLevelsPerSeason":1.75,"declineStartAge":28,"declinePerAgeDay":0.2},"hearts":{"Small":0.005,"Medium":0.01,"Big":0.03,"Golden":0.05,"Fire":0.04,"Platinium":0.08,"Platinum":0.08},"rosterPlanOpen":false};
 const defaultPlayers=[{"id":"p_jno9bx5v","name":"HaRtS-","realName":"Kristjan Koppel","raw":"HaRtS-\n\nKristjan Koppel\n26yo (day 12)\n\nC\nPL\n740\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nArmageddon\nGemini\nAlnitak\n\nTotal skill\n\n669\n/752\nAim\n\n93\n/94\nHandling\n\n93\n/96\nQuickness\n\n94\n/97\nDetermination\n\n94\n/94\n101\n\nAwareness\n\n97\n/97\n103\n\nTeamplay\n\n64\n/91\nGamesense\n\n64\n/90\nMovement\n\n70\n/93\nExperience\n25\n12 TO LVL 26\n\nLeadership\n13\n391 TO LVL 14\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\n\nFavorite map\ntrain","games":6,"heartFixed":"Fire","ls":13,"skills":{"aim":93,"hand":93,"quick":94,"det":94,"awa":97,"tp":64,"gms":64,"mov":70},"limits":{"aim":94,"hand":96,"quick":97,"det":94,"awa":97,"tp":91,"gms":90,"mov":93},"age":26,"day":12,"xp":25,"detectedTotal":669,"detectedLimit":752,"gear":{"mouse":"aurora","mousepad":"armageddon","headset":"gemini","keyboard":"alnitak"}},{"id":"p_rn3ommq9","name":"mSx-","realName":"Raimonds Mezs","raw":"mSx-\n\nRaimonds Mezs\n24yo (day 13)\n\nC\nPL\n1,082\nKick player\n\nSell player\n\nPrimary skills\nHero\nNoctron\nEnigma\nAlnitak\n\nTotal skill\n\n745\n/745\nAim\n\n95\n/95\n104\n\nHandling\n\n92\n/92\nQuickness\n\n94\n/94\n104\n\nDetermination\n\n94\n/94\n104\n\nAwareness\n\n94\n/94\n104\n\nTeamplay\n\n90\n/90\nGamesense\n\n95\n/95\n102\n\nMovement\n\n91\n/91\nExperience\n28\n354 TO LVL 29\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":451,"heartFixed":null,"ls":1,"skills":{"aim":95,"hand":92,"quick":94,"det":94,"awa":94,"tp":90,"gms":95,"mov":91},"limits":{"aim":95,"hand":92,"quick":94,"det":94,"awa":94,"tp":90,"gms":95,"mov":91},"age":24,"day":13,"xp":28,"detectedTotal":745,"detectedLimit":745,"gear":{"mouse":"hero","mousepad":"noctron","headset":"enigma","keyboard":"alnitak"}},{"id":"p_hdg9jjef","name":"R!Go-","realName":"Florian Koch","raw":"R!Go-\n\nFlorian Koch\n24yo (day 13)\n\nC\nPL\n861\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nCitus\nEnigma\nAlnitak\n\nTotal skill\n\n749\n/749\nAim\n\n91\n/91\nHandling\n\n93\n/93\nQuickness\n\n91\n/91\n101\n\nDetermination\n\n91\n/91\n100\n\nAwareness\n\n96\n/96\n103\n\nTeamplay\n\n96\n/96\n102\n\nGamesense\n\n93\n/93\nMovement\n\n98\n/98\n104\n\nExperience\n26\n324 TO LVL 27\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":394,"heartFixed":null,"ls":1,"skills":{"aim":91,"hand":93,"quick":91,"det":91,"awa":96,"tp":96,"gms":93,"mov":98},"limits":{"aim":91,"hand":93,"quick":91,"det":91,"awa":96,"tp":96,"gms":93,"mov":98},"age":24,"day":13,"xp":26,"detectedTotal":749,"detectedLimit":749,"gear":{"mouse":"aurora","mousepad":"citus","headset":"enigma","keyboard":"alnitak"}},{"id":"p_au4mk7f4","name":"MaT","realName":"Hiroshi Takahashi","raw":"MaT\n\nHiroshi Takahashi\n21yo (day 12)\n\nC\nPL\n884\nKick player\n\nSell player\n\nPrimary skills\nAurora 3330\nArmageddon\nEnigma\nAlnitak\n\nTotal skill\n\n699\n/749\nAim\n\n94\n/94\n101\n\nHandling\n\n91\n/91\nQuickness\n\n94\n/94\n101\n\nDetermination\n\n95\n/95\n103\n\nAwareness\n\n93\n/93\n100\n\nTeamplay\n\n79\n/93\nGamesense\n\n63\n/99\nMovement\n\n90\n/90\nExperience\n21\n354 TO LVL 22\n\nLeadership\n1\n500 TO LVL 2\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map","games":271,"heartFixed":null,"ls":1,"skills":{"aim":94,"hand":91,"quick":94,"det":95,"awa":93,"tp":79,"gms":63,"mov":90},"limits":{"aim":94,"hand":91,"quick":94,"det":95,"awa":93,"tp":93,"gms":99,"mov":90},"age":21,"day":12,"xp":21,"detectedTotal":699,"detectedLimit":749,"gear":{"mouse":"aurora","mousepad":"armageddon","headset":"enigma","keyboard":"alnitak"}},{"id":"p_n7msuog3","name":"ZywOo-","realName":"Frederick Scott","raw":"ZywOo- (370)\n\nFrederick Scott\n20yo (day 24)\n\nC\nPL\n844\nKick player\n\nSell player\n\nPrimary skills\n\n\n\n\n\nTotal skill\n\n590\n/752\nAim\n\n93\n/95\nHandling\n\n92\n/92\nQuickness\n\n93\n/94\nDetermination\n\n94\n/94\nAwareness\n\n70\n/97\nTeamplay\n\n39\n/89\nGamesense\n\n40\n/91\nMovement\n\n69\n/100\nExperience\n19\n209 TO LVL 20\n\nLeadership\n7\n418 TO LVL 8\n\nFame\nTalents\n18 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\nmill","games":163,"heartFixed":null,"ls":7,"skills":{"aim":93,"hand":92,"quick":93,"det":94,"awa":70,"tp":39,"gms":40,"mov":69},"limits":{"aim":95,"hand":92,"quick":94,"det":94,"awa":97,"tp":89,"gms":91,"mov":100},"age":20,"day":24,"xp":19,"detectedTotal":590,"detectedLimit":752,"gear":{"mouse":"none","mousepad":"none","headset":"none","keyboard":"none"}},{"id":"p_od6l3e4n","name":"Happy-","realName":"Gabriel Rojas","raw":"Happy-\n\nGabriel Rojas\n34yo (day 6)\n\nC\nPL\n1,389\nstart bid\n\nC\nPL\n5,000\ndeadline\n\n2026-06-10 - 09:03\nPrimary skills\nAurora 3330\nNoctron\nEnigma\nAlnitak\n\nTotal skill\n\n740\n/746\nAim\n\n94\n/96\n101\n\nHandling\n\n96\n/96\n101\n\nQuickness\n\n92\n/92\n101\n\nDetermination\n\n93\n/93\n101\n\nAwareness\n\n94\n/95\n101\n\nTeamplay\n\n90\n/91\nGamesense\n\n87\n/89\nMovement\n\n94\n/94\n100\n\nExperience\n38\n448 TO LVL 39\n\nLeadership\n16\n83 TO LVL 17\n\nFame\nTalents\n0 available\nSpecial abilities\nFavorite weapon\n\nFavorite map\ncastle\nA\nB","games":355,"heartFixed":null,"ls":16,"skills":{"aim":94,"hand":96,"quick":92,"det":93,"awa":94,"tp":90,"gms":87,"mov":94},"limits":{"aim":96,"hand":96,"quick":92,"det":93,"awa":95,"tp":91,"gms":89,"mov":94},"age":34,"day":6,"xp":38,"detectedTotal":740,"detectedLimit":746,"gear":{"mouse":"aurora","mousepad":"noctron","headset":"enigma","keyboard":"alnitak"}}];
 const skillOrder=['aim','hand','quick','det','awa','tp','gms','mov'];
 const MAX_ANALYSIS_BLOCK_DAYS=7;
@@ -3863,6 +3937,48 @@ function clampAnalysisDuration(v){return Math.min(MAX_ANALYSIS_BLOCK_DAYS,Math.m
 {id:'pulsar',name:'Pulsar',slot:'keyboard',boosts:{det:1,mov:4}},
 {id:'mintaka',name:'Mintaka',slot:'keyboard',boosts:{det:1,mov:2}}
 ];const gearById=Object.fromEntries(gearCatalog.map(g=>[g.id,g]));
+function gearSpecialPrefix(item){return item&&item.isSpecial?'★ ':''}
+function gearDisplayName(item){if(!item)return 'None';return `${gearSpecialPrefix(item)}${item.name||'None'}`}
+function gearNameHtml(item){return item&&item.isSpecial?`<span class="gearSpecialName"><span class="gearSpecialStar">★</span>${escapeHtml(item.name||'Special gear')}</span>`:escapeHtml(item?.name||'None')}
+function resolveGearItem(id){
+  if(!id||id==='none')return gearById.none;
+  if(gearById[id])return gearById[id];
+  const inv=(state.gearInventory||[]).find(x=>x&&x.uid===id);
+  if(inv)return inv;
+  const sim=resolvePossibleSpecialGear(id);
+  if(sim)return sim;
+  const rec=Array.isArray(state.gearRecommendation)?state.gearRecommendation:[];
+  for(const row of rec){
+    for(const slot of gearSlots){
+      const item=row?.items?.[slot];
+      if(item&&(item.uid===id||item.id===id))return item;
+    }
+  }
+  return gearById.none;
+}
+function resolvePossibleSpecialGear(id){
+  const m=String(id||'').match(/^sim_([^_]+(?:_[^_]+)*)_(precision|grip|edge|resolve|hawk|synergy|oracle|swift)$/);
+  if(!m)return null;
+  const base=gearById[m[1]];
+  if(!base||base.id==='none')return null;
+  return makePossibleSpecialGear(base,m[2]);
+}
+function makePossibleSpecialGear(base,suffixKey){
+  const suffix=gearSuffixBoosts[suffixKey];
+  if(!base||!suffix)return null;
+  const boosts=cloneBoosts(base.boosts);
+  boosts[suffix.skill]+=(+suffix.boost||0);
+  return{uid:`sim_${base.id}_${suffixKey}`,id:`sim_${base.id}_${suffixKey}`,baseId:base.id,name:`${base.name} ${suffix.label}`,slot:base.slot,boosts,source:'simulation',durability:null,isSpecial:true,unlimited:true,suffix:suffix.label}
+}
+function gearSameItem(a,b){
+  if(!a||!b)return false;
+  if((a.id&&b.id&&a.id===b.id)||(a.uid&&b.uid&&a.uid===b.uid))return true;
+  if((a.slot||'')!==(b.slot||''))return false;
+  if((a.baseId||a.id)!==(b.baseId||b.id))return false;
+  const sa=String(a.suffix||'').toLowerCase(),sb=String(b.suffix||'').toLowerCase();
+  if(sa!==sb)return false;
+  return skillOrder.every(k=>(+a.boosts?.[k]||0)===(+b.boosts?.[k]||0));
+}
 const specialCatalog=[
   {id:'loyal',name:'Loyal',icon:'💗',effect:'Hearts 25% faster'},
   {id:'antisocial',name:'Antisocial',icon:'🖤',effect:'Hearts 25% slower'},
@@ -3893,7 +4009,7 @@ function uid(){return'p_'+Math.random().toString(36).slice(2,10)}function season
   }catch(e){console.error('showPage render failed',id,e);}
 }
 
-function saveLocal(){state.version='1.1.0-rc.14';localStorage.setItem('teamPlannerStable',JSON.stringify(state));localStorage.setItem('teamPlannerV110RC13',JSON.stringify(state));localStorage.setItem('teamPlannerV110RC1',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC13_9_2',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC13_9_1',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC13_9',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC13_7',JSON.stringify(state));localStorage.setItem('teamPlannerV6260',JSON.stringify(state));localStorage.setItem('teamPlannerV6250',JSON.stringify(state));localStorage.setItem('teamPlannerV6240',JSON.stringify(state));localStorage.setItem('teamPlannerV6230',JSON.stringify(state));localStorage.setItem('teamPlannerV6220',JSON.stringify(state));localStorage.setItem('teamPlannerV6210',JSON.stringify(state));localStorage.setItem('teamPlannerV6200',JSON.stringify(state));localStorage.setItem('teamPlannerV6180',JSON.stringify(state));localStorage.setItem('teamPlannerV6170',JSON.stringify(state));localStorage.setItem('teamPlannerV6160',JSON.stringify(state));localStorage.setItem('teamPlannerV6150',JSON.stringify(state));localStorage.setItem('teamPlannerV6140',JSON.stringify(state));localStorage.setItem('teamPlannerV6130',JSON.stringify(state));localStorage.setItem('teamPlannerV6120',JSON.stringify(state));localStorage.setItem('teamPlannerV6110',JSON.stringify(state));localStorage.setItem('teamPlannerV6100',JSON.stringify(state));localStorage.setItem('teamPlannerV615',JSON.stringify(state))}function normalizeStateAfterLoad(){
+function saveLocal(){state.version='1.1.0-rc.14.6.12-gear-safe';localStorage.setItem('teamPlannerStable',JSON.stringify(state));localStorage.setItem('teamPlannerV110RC13',JSON.stringify(state));localStorage.setItem('teamPlannerV110RC1',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC13_9_2',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC13_9_1',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC13_9',JSON.stringify(state));localStorage.setItem('teamPlannerV100RC13_7',JSON.stringify(state));localStorage.setItem('teamPlannerV6260',JSON.stringify(state));localStorage.setItem('teamPlannerV6250',JSON.stringify(state));localStorage.setItem('teamPlannerV6240',JSON.stringify(state));localStorage.setItem('teamPlannerV6230',JSON.stringify(state));localStorage.setItem('teamPlannerV6220',JSON.stringify(state));localStorage.setItem('teamPlannerV6210',JSON.stringify(state));localStorage.setItem('teamPlannerV6200',JSON.stringify(state));localStorage.setItem('teamPlannerV6180',JSON.stringify(state));localStorage.setItem('teamPlannerV6170',JSON.stringify(state));localStorage.setItem('teamPlannerV6160',JSON.stringify(state));localStorage.setItem('teamPlannerV6150',JSON.stringify(state));localStorage.setItem('teamPlannerV6140',JSON.stringify(state));localStorage.setItem('teamPlannerV6130',JSON.stringify(state));localStorage.setItem('teamPlannerV6120',JSON.stringify(state));localStorage.setItem('teamPlannerV6110',JSON.stringify(state));localStorage.setItem('teamPlannerV6100',JSON.stringify(state));localStorage.setItem('teamPlannerV615',JSON.stringify(state))}function normalizeStateAfterLoad(){
   if(!state.players || !Array.isArray(state.players) || state.players.length===0){
     state.players = structuredClone(defaultPlayers);
   }
@@ -3913,7 +4029,7 @@ function saveLocal(){state.version='1.1.0-rc.14';localStorage.setItem('teamPlann
     if(p.xp===undefined)p.xp=0;if(!Array.isArray(p.specials))p.specials=[];p.specials=[...new Set(p.specials.filter(id=>specialById[id]))].slice(0,2);
   });
   if(state.editMode===undefined)state.editMode=false;/* v1.1.0-rc.13 keep edit state during render */
-  state.version='1.1.0-rc.14';
+  state.version='1.1.0-rc.14.6.12-gear-safe';
   if(!state.analysisPlan || typeof state.analysisPlan!=="object")state.analysisPlan={};if(!Array.isArray(state.analysisBlocks))state.analysisBlocks=[];if(!state.trainingDraft)state.trainingDraft=null;if(state.trainingSuggestion===undefined)state.trainingSuggestion=null;if(!state.trainingSuggestionMode)state.trainingSuggestionMode="safe";if(state.selectedAnalysisBlock===undefined)state.selectedAnalysisBlock=null;if(state.analysisBlocksOpen===undefined)state.analysisBlocksOpen=false;if(!Array.isArray(state.hiddenTrajectoryPlayers))state.hiddenTrajectoryPlayers=[];
   if(!Array.isArray(state.candidatePool))state.candidatePool=[];
   if(state.rosterPlanOpen===undefined)state.rosterPlanOpen=false;
@@ -5154,7 +5270,41 @@ function projectedAgeAtSeason(p,s){if(p.age===null||p.age===undefined||p.age==='
 function declineRateAtAge(age,p=null){if(age===null||age===undefined||age==='—')return 0;return Math.max(0,(+age-playerDeclineStartAge(p))*(+state.engine.declinePerAgeDay||.2))}
 function declineSkills(sk,pts){pts=Math.max(0,+pts||0);const keys=skillOrder.filter(k=>(+sk[k]||0)>0);while(pts>.0001&&keys.some(k=>sk[k]>.0001)){const open=keys.filter(k=>sk[k]>.0001);const step=pts/open.length;let used=0;open.forEach(k=>{const sub=Math.min(step,sk[k]);sk[k]-=sub;used+=sub});pts-=used;if(used<.0001)break}}
 function seasonNetTrainingPoints(p,s){const days=daysForSeason(s);const age=projectedAgeAtSeason(p,s);const analysisDays=analysisDaysForPlayerSeason(p.id,s);const baseTraining=(+state.engine.trainingPerDay||0)*days+(+state.engine.analysisBonus||0)*analysisDays;const training=baseTraining*playerTrainingMultiplier(p);const decline=declineRateAtAge(age,p)*days;return{training,decline,analysisDays,net:training-decline,age,days}}
-function distribute(sk,lim,pts){for(const pair of priorities){while(pts>.0001){const open=pair.filter(k=>sk[k]<lim[k]-.0001);if(!open.length)break;const step=pts/open.length;let used=0;open.forEach(k=>{const add=Math.min(step,lim[k]-sk[k]);sk[k]+=add;used+=add});pts-=used;if(used<.0001)break}}}function leaderBonusAt(targetSeason){const leader=state.players[0];if(!leader)return 0;const growth=Math.max(0,targetSeason-state.currentSeason)*state.engine.lsGrowth*playerLsGrowthMultiplier(leader);return((+leader.ls||0)+growth)*.002}function gearItemsForSlot(slot){return gearCatalog.filter(g=>g.id==='none'||g.slot===slot)}function gearItemTotal(item){return item?skillOrder.reduce((a,k)=>a+(+item.boosts?.[k]||0),0):0}function gearItemBoostText(item){const parts=skillOrder.filter(k=>(+item.boosts?.[k]||0)>0).map(k=>`+${item.boosts[k]} ${labels[k]}`);return parts.length?parts.join(' '):'+0'}function gearItemLabel(id){const item=gearById[id]||gearById.none;return item.id==='none'?'None':`${item.name} (${gearItemBoostText(item)})`}function ensureGear(){state.players.forEach(p=>{if(!p.gear)p.gear={};gearSlots.forEach(slot=>{if(!p.gear[slot])p.gear[slot]='none';if(!gearById[p.gear[slot]] || (p.gear[slot]!=='none' && gearById[p.gear[slot]].slot!==slot))p.gear[slot]='none'})})}function gearBoostMap(p){const out={aim:0,hand:0,quick:0,det:0,awa:0,tp:0,gms:0,mov:0};if(!p||!p.gear)return out;gearSlots.forEach(slot=>{const item=gearById[p.gear[slot]];if(!item||item.id==='none')return;skillOrder.forEach(k=>out[k]+=(+item.boosts?.[k]||0))});return out}function gearTotal(p){const m=gearBoostMap(p);return sum(m)}function gearTooltip(p){const m=gearBoostMap(p);const lines=skillOrder.filter(k=>m[k]>0).map(k=>`${labels[k]} +${m[k]}`);return lines.length?lines.join('\n'):'No gear boost'}function setGear(playerIndex,slot,itemId){const p=state.players[playerIndex];if(!p)return;if(!p.gear)p.gear={};p.gear[slot]=itemId||'none';saveLocal();renderAll()}function gearOptions(slot,current){return gearItemsForSlot(slot).map(item=>`<option value="${item.id}" ${current===item.id?'selected':''}>${gearItemLabel(item.id)}</option>`).join('')}function skillMapRows(map,p=null){
+function distribute(sk,lim,pts){for(const pair of priorities){while(pts>.0001){const open=pair.filter(k=>sk[k]<lim[k]-.0001);if(!open.length)break;const step=pts/open.length;let used=0;open.forEach(k=>{const add=Math.min(step,lim[k]-sk[k]);sk[k]+=add;used+=add});pts-=used;if(used<.0001)break}}}function leaderBonusAt(targetSeason){const leader=state.players[0];if(!leader)return 0;const growth=Math.max(0,targetSeason-state.currentSeason)*state.engine.lsGrowth*playerLsGrowthMultiplier(leader);return((+leader.ls||0)+growth)*.002}function gearItemsForSlot(slot){
+  const regular=gearCatalog.filter(g=>g.id==='none'||g.slot===slot);
+  const specialInv=(state.gearInventory||[]).filter(x=>x&&x.isSpecial&&x.slot===slot).map(x=>({...x,id:x.uid}));
+  const recItems=[];
+  const seen=new Set(specialInv.map(x=>x.uid||x.id));
+  (Array.isArray(state.gearRecommendation)?state.gearRecommendation:[]).forEach(row=>{
+    const item=row?.items?.[slot];
+    if(item&&item.isSpecial&&item.uid&&!seen.has(item.uid)){
+      recItems.push({...item,id:item.uid});
+      seen.add(item.uid);
+    }
+  });
+  const allSpecials=gearCatalog.filter(g=>g.id!=='none'&&g.slot===slot).flatMap(base=>Object.keys(gearSuffixBoosts).map(s=>makePossibleSpecialGear(base,s))).filter(Boolean);
+  return regular.concat(specialInv,recItems,allSpecials)
+}
+function gearOptionGroupsForSlot(slot){
+  const regular=gearCatalog.filter(g=>g.id==='none'||g.slot===slot);
+  const specialInv=(state.gearInventory||[]).filter(x=>x&&x.isSpecial&&x.slot===slot).map(x=>({...x,id:x.uid}));
+  const recItems=[];
+  const seen=new Set(specialInv.map(x=>x.uid||x.id));
+  (Array.isArray(state.gearRecommendation)?state.gearRecommendation:[]).forEach(row=>{
+    const item=row?.items?.[slot];
+    if(item&&item.isSpecial&&item.uid&&!seen.has(item.uid)){
+      recItems.push({...item,id:item.uid});
+      seen.add(item.uid);
+    }
+  });
+  const allSpecials=gearCatalog.filter(g=>g.id!=='none'&&g.slot===slot).flatMap(base=>Object.keys(gearSuffixBoosts).map(s=>makePossibleSpecialGear(base,s))).filter(Boolean);
+  return[
+    {label:'Regular gear',items:regular},
+    {label:'Specials — inventory / recommendation',items:specialInv.concat(recItems)},
+    {label:'All possible specials — simulation',items:allSpecials}
+  ];
+}
+function gearItemTotal(item){return item?skillOrder.reduce((a,k)=>a+(+item.boosts?.[k]||0),0):0}function gearItemBoostText(item){const parts=skillOrder.filter(k=>(+item?.boosts?.[k]||0)>0).map(k=>`+${item.boosts[k]} ${labels[k]}`);return parts.length?parts.join(' '):'+0'}function gearItemLabel(id){const item=resolveGearItem(id);return item.id==='none'?'None':`${gearDisplayName(item)} (${gearItemBoostText(item)})`}function ensureGear(){state.players.forEach(p=>{if(!p.gear)p.gear={};gearSlots.forEach(slot=>{if(!p.gear[slot])p.gear[slot]='none';const item=resolveGearItem(p.gear[slot]);if(!item||item.id==='none'||item.slot!==slot)p.gear[slot]='none'})})}function gearBoostMap(p){const out={aim:0,hand:0,quick:0,det:0,awa:0,tp:0,gms:0,mov:0};if(!p||!p.gear)return out;gearSlots.forEach(slot=>{const item=resolveGearItem(p.gear[slot]);if(!item||item.id==='none')return;skillOrder.forEach(k=>out[k]+=(+item.boosts?.[k]||0))});return out}function gearTotal(p){const m=gearBoostMap(p);return sum(m)}function gearTooltip(p){const m=gearBoostMap(p);const lines=skillOrder.filter(k=>m[k]>0).map(k=>`${labels[k]} +${m[k]}`);return lines.length?lines.join('\n'):'No gear boost'}function setGear(playerIndex,slot,itemId){const p=state.players[playerIndex];if(!p)return;if(!p.gear)p.gear={};p.gear[slot]=itemId||'none';saveLocal();renderAll()}function gearOptions(slot,current){return gearOptionGroupsForSlot(slot).map(group=>{const opts=group.items.map(item=>{const id=item.id||item.uid;return `<option value="${id}" ${current===id?'selected':''}>${gearItemLabel(id)}</option>`}).join('');return opts?`<optgroup label="${escapeHtml(group.label)}">${opts}</optgroup>`:''}).join('')}function skillMapRows(map,p=null){
   return skillOrder.map(k=>{
     const boost=+(map[k]||0);
     const base=p&&p.skills?Math.round(+p.skills[k]||0):null;
@@ -5288,7 +5438,459 @@ function renderOverview(){
       <td class="rating">${x.eff.toFixed(1)}</td>
     </tr>`}).join('')}</tbody></table></div>`;
 }
-function renderGear(){ensureGear();if(!gearRows||!gearDetails)return;gearRows.innerHTML=state.players.map((p,i)=>{const total=gearTotal(p);return`<tr class="clickable ${i===selected?'selected':''}" onclick="selected=${i};renderAll()"><td><div class="gearPlayer">${avatar(p)}<div><div class="pname">${escapeHtml(p.name||'Player')}</div></div></div></td>${gearSlots.map(slot=>{const cur=p.gear?.[slot]||'none';const item=gearById[cur]||gearById.none;const total=gearItemTotal(item);return`<td title="${item.id==='none'?'No item':gearTooltip({gear:{[slot]:cur}})}"><div class="gearSelectBox"><select onclick="event.stopPropagation()" onchange="setGear(${i},'${slot}',this.value)">${gearOptions(slot,cur)}</select><span class="gearBoostTag">+${total}</span></div></td>`}).join('')}<td><div class="gearTotal ${total?'':'zero'}" title="${gearTooltip(p)}">+${total}</div></td></tr>`}).join('');const p=state.players[selected]||state.players[0];if(!p){gearDetails.innerHTML='<div class="small">No player selected.</div>';return}const map=gearBoostMap(p),total=sum(map);gearDetails.innerHTML=`<div class="gearDetailsGrid"><div class="selectedGearCard"><div class="playerCardTop">${avatar(p)}<div><div class="pname">${escapeHtml(p.name||'Player')}</div><div class="meta">Selected loadout</div><div class="playerStats"><span>Total gear <b>+${total}</b></span><span>Rating impact <b>+${(rawRating(Object.fromEntries(skillOrder.map(k=>[k,(p.skills[k]||0)+(map[k]||0)])))-rawRating(p.skills)).toFixed(1)}</b></span></div></div></div><div class="gearNote">Gear boosts are included in Skill, Eff. Total and Rating calculations.</div></div><div><div class="gearCurrent">${gearSlots.map(slot=>{const item=gearById[p.gear?.[slot]||'none']||gearById.none;return`<div class="gearItemCard"><div class="slot">${gearSlotLabels[slot]}</div><div class="name">${item.name}</div><div class="boost" title="${gearItemBoostText(item)}">+${gearItemTotal(item)}</div></div>`}).join('')}</div><br><h3 style="margin:0 0 10px">Skill boost breakdown</h3><div class="boostBreakdown detailed">${skillMapRows(map,p)}</div><div class="gearGrandTotal"><span>Total gear boost</span><b>+${total}</b></div></div></div>`}
+
+const gearNameAliases={
+  'aquila fly':'aquila_fly','cyborg':'cyborg','hero':'hero','aurora':'aurora','aurora 3330':'aurora',
+  'armageddon':'armageddon','aj pad':'aj_pad','noctron':'noctron','citus':'citus','singularity':'singularity',
+  'enigma':'enigma','gemini':'gemini','pentagon':'pentagon','alnitak':'alnitak','quasar rgb':'quasar_rgb',
+  'pulsar':'pulsar','mintaka':'mintaka'
+};
+const gearSuffixBoosts={
+  precision:{label:'Precision',skill:'aim',boost:1},
+  grip:{label:'Grip',skill:'hand',boost:2},
+  edge:{label:'Edge',skill:'quick',boost:1},
+  resolve:{label:'Resolve',skill:'det',boost:1},
+  hawk:{label:'Hawk',skill:'awa',boost:1},
+  synergy:{label:'Synergy',skill:'tp',boost:4},
+  oracle:{label:'Oracle',skill:'gms',boost:4},
+  swift:{label:'Swift',skill:'mov',boost:4}
+};
+function normalizeGearName(v){return String(v||'').toLowerCase().replace(/\s+/g,' ').trim()}
+function cloneBoosts(boosts){const out={};skillOrder.forEach(k=>out[k]=+(boosts?.[k]||0));return out}
+function addBoost(a,b){const out=cloneBoosts(a);skillOrder.forEach(k=>out[k]+=(+b?.[k]||0));return out}
+function gearTextKey(v){return String(v||'').toLowerCase().replace(/\s+/g,' ').trim()}
+function parseGearFullName(fullName){
+  const clean=String(fullName||'').replace(/\s+/g,' ').trim();
+  if(!clean)return null;
+  const words=clean.split(' ');
+  const suffixKey=gearTextKey(words[words.length-1]);
+  const suffix=gearSuffixBoosts[suffixKey]||null;
+  const baseName=suffix?words.slice(0,-1).join(' '):clean;
+  const baseId=gearNameAliases[gearTextKey(baseName)]||gearNameAliases[gearTextKey(clean)];
+  const base=gearById[baseId];
+  if(!base||base.id==='none')return null;
+  const boosts=cloneBoosts(base.boosts);
+  if(suffix)boosts[suffix.skill]+=(+suffix.boost||0);
+  return{
+    baseId:base.id,
+    baseName:base.name,
+    name:clean,
+    slot:base.slot,
+    boosts,
+    suffix:suffix?suffix.label:'',
+    isSpecial:!!suffix
+  }
+}
+function gearBoostTextFromMap(boosts){
+  const parts=skillOrder.filter(k=>(+boosts?.[k]||0)>0).map(k=>`+${boosts[k]} ${labels[k]}`);
+  return parts.length?parts.join(' '):'+0';
+}
+function ensureGearInventory(){
+  if(!state.gearInventory)state.gearInventory=[];
+  if(!state.gearRecommendationMode)state.gearRecommendationMode='available';
+}
+function parseGearInventoryLines(raw){
+  const ignored=new Set(['Item','Bought On','Durability','Stat increase','Equipped by','Action']);
+  const dateRe=/^\d{4}-\d{2}-\d{2}$/;
+  const cleanToken=x=>String(x||'').replace(/\u00a0/g,' ').replace(/\s+/g,' ').trim();
+  const tokens=String(raw||'')
+    .split(/\t|\r?\n/)
+    .map(cleanToken)
+    .filter(Boolean);
+  const items=[];
+  let block=[];
+  function isHeader(x){return ignored.has(x)}
+  function isControl(x){return !x || x==='Equip' || x==='Sell' || dateRe.test(x) || /^[-+]?\d+$/.test(x) || /^\+\d+/.test(x) || isHeader(x)}
+  function flushBlock(rawBlock){
+    const b=rawBlock.map(cleanToken).filter(Boolean).filter(x=>!isHeader(x));
+    if(!b.length)return;
+    const dateIdx=b.findIndex(x=>dateRe.test(x));
+    if(dateIdx<0)return;
+
+    // CPL inventory export structure is stable:
+    // line before date -2 = base/family name, line before date -1 = REAL gear name (with suffix if special).
+    // Example: Aurora 3330 / Aurora 3330 Edge / 2026-05-23 / 47 / +1 / +2 / +1 / R!Go- / Sell
+    const nameLines=b.slice(0,dateIdx).filter(x=>!isControl(x));
+    const baseRaw=nameLines[0]||'';
+    const realRaw=nameLines.length>=2 ? nameLines[1] : (nameLines[0]||'');
+    let parsed=parseGearFullName(realRaw);
+
+    // Safety net: if the second line failed but the first one parses, keep the item rather than dropping the block.
+    if(!parsed && baseRaw)parsed=parseGearFullName(baseRaw);
+    if(!parsed)return;
+
+    let j=dateIdx+1;
+    let durability=0;
+    if(j<b.length && /^-?\d+$/.test(b[j])){durability=+b[j];j++;}
+    const statLines=[];
+    while(j<b.length && /^\+\d+/.test(b[j])){statLines.push(b[j]);j++;}
+    let equippedBy='';
+    while(j<b.length && b[j]!=='Sell'){
+      const v=b[j];
+      if(v!=='Equip' && !dateRe.test(v) && !/^\+\d+/.test(v) && !/^[-+]?\d+$/.test(v) && !isHeader(v))equippedBy=v;
+      j++;
+    }
+    const uid=`inv_${items.length}_${gearTextKey(parsed.name).replace(/[^a-z0-9]+/g,'_')}_${durability}_${dateIdx}`;
+    items.push({...parsed,uid,source:'inventory',durability,equippedBy,boughtOn:b[dateIdx],rawName:realRaw,baseRaw,statLines});
+  }
+
+  tokens.forEach(t=>{
+    block.push(t);
+    if(t==='Sell'){
+      flushBlock(block);
+      block=[];
+    }
+  });
+  // Last block without Sell, just in case the paste is truncated.
+  flushBlock(block);
+  return items;
+}
+function inventoryPlayerMatch(item,p){
+  if(!item||!item.equippedBy||!p)return false;
+  const eq=normalizePlayerKeyForGear(item.equippedBy);
+  const pn=normalizePlayerKeyForGear(p.name);
+  const rn=normalizePlayerKeyForGear(p.realName);
+  return !!eq && (eq===pn || eq===rn || (pn&&eq.includes(pn)) || (pn&&pn.includes(eq)) || (rn&&eq.includes(rn)) || (rn&&rn.includes(eq)));
+}
+function syncEquippedGearFromInventory(){
+  const items=(state.gearInventory||[]).filter(x=>x&&x.slot&&x.equippedBy);
+  if(!items.length||!Array.isArray(state.players))return 0;
+  let changed=0;
+  state.players.forEach(p=>{
+    if(!p.gear)p.gear={};
+    gearSlots.forEach(slot=>{
+      const matches=items.filter(it=>it.slot===slot&&inventoryPlayerMatch(it,p));
+      if(!matches.length)return;
+      // CPL player paste only exposes the regular family name. Inventory paste is the source of truth.
+      // For specials, select the inventory UID so the real suffix/boost is active.
+      // For regular gear, keep the catalog base id instead of an inventory UID, otherwise the dropdown can look empty.
+      matches.sort((a,b)=>(b.isSpecial-a.isSpecial)||((+b.durability||0)-(+a.durability||0))||String(b.name||'').localeCompare(String(a.name||'')));
+      const best=matches[0];
+      const target=best.isSpecial ? best.uid : (best.baseId||best.id||'none');
+      if(target&&p.gear[slot]!==target){p.gear[slot]=target;changed++;}
+    });
+  });
+  return changed;
+}
+function gearParsedInventoryHtml(){
+  const items=state.gearInventory||[];
+  if(!items.length)return '';
+  const specials=items.filter(x=>x.isSpecial).length;
+  const bySlot=Object.fromEntries(gearSlots.map(s=>[s,[]]));
+  items.forEach(it=>{if(bySlot[it.slot])bySlot[it.slot].push(it)});
+  const summary=`<details class="gearParsedDetails" style="margin-top:8px;border:1px solid rgba(255,255,255,.10);border-radius:10px;padding:8px 10px;background:rgba(0,0,0,.14)"><summary style="cursor:pointer;color:#9fb0bb"><b>Parsed inventory:</b> ${items.length} item(s) · <b>${specials}</b> special(s) · <b>${items.filter(x=>x.equippedBy).length}</b> equipped <span style="float:right">Click to inspect</span></summary>`;
+  const slots=gearSlots.map(slot=>{
+    const arr=[...(bySlot[slot]||[])].sort((a,b)=>(b.isSpecial-a.isSpecial)||((b.durability||0)-(a.durability||0))||String(a.name).localeCompare(String(b.name)));
+    const rows=arr.length?arr.map(it=>`<div style="padding:6px 0;border-top:1px solid rgba(255,255,255,.08)"><b>${it.isSpecial?'★ ':''}${gearNameHtml(it)}</b> <span style="color:#9fb0bb">${it.durability??'?'}d</span><br><span style="color:#9fb0bb">${gearBoostTextFromMap(it.boosts)}</span>${it.rawName&&it.rawName!==it.name?`<br><span style="color:#6f7f88">raw: ${escapeHtml(it.rawName)}</span>`:''}${it.equippedBy?`<br><span style="color:#78d88a">Equipped by ${escapeHtml(it.equippedBy)}</span>`:''}</div>`).join(''):'<div style="color:#9fb0bb">No item detected.</div>';
+    return `<div style="min-width:220px;flex:1"><h4 style="margin:8px 0;color:#cdd7dd">${gearSlotLabels[slot]} · ${arr.length}</h4>${rows}</div>`;
+  }).join('');
+  const warn=specials?'':`<div style="margin-top:8px;color:#ffb16a">No special detected. Recommendation cannot use inventory specials until this number is greater than 0.</div>`;
+  return `${summary}<div style="display:flex;gap:12px;align-items:flex-start;overflow:auto;margin-top:8px">${slots}</div>${warn}</details>`;
+}
+function parseGearInventoryFromPaste(){
+  ensureGearInventory();
+  const box=document.getElementById('gearInventoryPaste');
+  const raw=box?box.value:'';
+  const items=parseGearInventoryLines(raw);
+  state.gearInventory=items;
+  state.lastGearInventoryPaste=raw;
+  syncEquippedGearFromInventory();
+  saveLocal();
+  renderGear();
+  const status=document.getElementById('gearInventoryStatus');
+  if(status)status.innerHTML=`Parsed <b>${items.length}</b> item(s). ${items.filter(x=>x.isSpecial).length} special(s), ${items.filter(x=>!x.isSpecial).length} regular(s).`;
+}
+function clearGearInventory(){
+  state.gearInventory=[];
+  state.lastGearInventoryPaste='';
+  const box=document.getElementById('gearInventoryPaste');
+  if(box)box.value='';
+  saveLocal();renderGear();
+}
+function setGearRecommendationMode(mode){
+  ensureGearInventory();
+  state.gearRecommendationMode=mode==='optimal'?'optimal':'available';
+  saveLocal();renderGear();
+}
+function gearCandidateScoreForPlayer(p,item,currentBoosts={}){
+  const base={};skillOrder.forEach(k=>base[k]=Math.min(110,(+p.skills?.[k]||0)+(+currentBoosts[k]||0)));
+  const after={};skillOrder.forEach(k=>after[k]=Math.min(110,base[k]+(+item.boosts?.[k]||0)));
+  const ratingGain=rawRating(after)-rawRating(base);
+  const coreSkills=['aim','quick','det','awa','hand'];
+  let coreBefore105=0,coreAfter105=0,floorBefore=0,floorAfter=0,overcapPenalty=0;
+  skillOrder.forEach(k=>{
+    const b=base[k],a=after[k],add=(+item.boosts?.[k]||0);
+    floorBefore+=Math.min(100,b);
+    floorAfter+=Math.min(100,a);
+    if(coreSkills.includes(k)){
+      coreBefore105+=Math.min(105,b);
+      coreAfter105+=Math.min(105,a);
+    }
+    overcapPenalty+=Math.max(0,b+add-110)*1.8;
+  });
+  const floorGain=(floorAfter-floorBefore)*0.08;
+  const core105Gain=(coreAfter105-coreBefore105)*0.22;
+  const vals=skillOrder.map(k=>after[k]);
+  const spread=Math.max(...vals)-Math.min(...vals);
+  const coreAvg=coreSkills.reduce((a,k)=>a+(after[k]||0),0)/coreSkills.length;
+  let imbalancePenalty=Math.max(0,spread-32)*0.018;
+  if(coreAvg>=105){
+    imbalancePenalty+=Math.max(0,96-Math.min(...vals))*0.035;
+  }else{
+    imbalancePenalty*=0.25;
+  }
+  return ratingGain+core105Gain+floorGain-overcapPenalty-imbalancePenalty;
+}
+function makeShopCandidate(base){
+  return{uid:`shop_${base.id}`,baseId:base.id,name:base.name,slot:base.slot,boosts:cloneBoosts(base.boosts),source:'shop',durability:null,isSpecial:false,unlimited:true}
+}
+function makeTheoryCandidate(base,suffixKey){
+  const suffix=gearSuffixBoosts[suffixKey];
+  const boosts=cloneBoosts(base.boosts);
+  boosts[suffix.skill]+=(+suffix.boost||0);
+  return{uid:`theory_${base.id}_${suffixKey}`,baseId:base.id,name:`${base.name} ${suffix.label}`,slot:base.slot,boosts,source:'theory',durability:null,isSpecial:true,unlimited:true,suffix:suffix.label}
+}
+function availableGearCandidates(mode){
+  const inv=(state.gearInventory||[]).filter(x=>x&&x.slot);
+  const regularShop=gearCatalog.filter(g=>g.id!=='none').map(makeShopCandidate);
+  if(mode==='optimal'){
+    const theory=[];
+    gearCatalog.filter(g=>g.id!=='none').forEach(base=>{
+      Object.keys(gearSuffixBoosts).forEach(s=>theory.push(makeTheoryCandidate(base,s)));
+      theory.push(makeShopCandidate(base));
+    });
+    return theory;
+  }
+  return inv.concat(regularShop);
+}
+function normalizePlayerKeyForGear(v){
+  return String(v||'').toLowerCase().replace(/[™®]/g,'').replace(/[^a-z0-9]+/g,'').trim();
+}
+function gearCandidateAvailabilityBonus(mode,c,p){
+  if(mode==='optimal'||!c)return 0;
+  let bonus=0;
+  if(c.source==='inventory'){
+    bonus+=c.isSpecial?2.05:0.35;
+    if((+c.durability||0)>=100)bonus+=0.08;
+    if((+c.durability||0)>0&&(+c.durability||0)<20)bonus-=0.06;
+  }
+  if(c.source==='inventory'&&c.equippedBy){
+    const eq=normalizePlayerKeyForGear(c.equippedBy);
+    const pn=normalizePlayerKeyForGear(p?.name);
+    const rn=normalizePlayerKeyForGear(p?.realName);
+    if(eq&&(eq===pn||eq===rn||pn.includes(eq)||eq.includes(pn)))bonus+=c.isSpecial?0.65:0.25;
+  }
+  return bonus;
+}
+function chooseBestGearSetup(mode){
+  const players=state.players||[];
+  const candidates=availableGearCandidates(mode);
+  const used=new Set();
+  const result=players.map(p=>({player:p,items:{},boosts:{aim:0,hand:0,quick:0,det:0,awa:0,tp:0,gms:0,mov:0},score:0,ratingGain:0}));
+  gearSlots.forEach(slot=>{
+    players.forEach((p,pi)=>{
+      const current=result[pi].boosts;
+      const currentRating=rawRating(Object.fromEntries(skillOrder.map(k=>[k,Math.min(110,(+p.skills?.[k]||0)+(+current[k]||0))])));
+      let best={uid:'none',name:'None',slot,boosts:{},source:'none',score:-999,baseScore:-999};
+      candidates.filter(c=>c.slot===slot && (c.unlimited||!used.has(c.uid))).forEach(c=>{
+        const baseScore=gearCandidateScoreForPlayer(p,c,current);
+        const sc=baseScore+gearCandidateAvailabilityBonus(mode,c,p);
+        const bestIsInventorySpecial=best.source==='inventory'&&best.isSpecial;
+        const candIsInventorySpecial=c.source==='inventory'&&c.isSpecial;
+        const bestIsInventory=best.source==='inventory';
+        const candIsInventory=c.source==='inventory';
+        const closeEnough=sc>=best.score-0.95;
+        const veryClose=sc>=best.score-0.55;
+        if(sc>best.score
+          || (candIsInventorySpecial&&!bestIsInventorySpecial&&closeEnough)
+          || (candIsInventory&&!bestIsInventory&&cand.isSpecial===best.isSpecial&&veryClose&&baseScore>=best.baseScore-0.2)){
+          best={...c,score:sc,baseScore};
+        }
+      });
+      if(best.uid!=='none'){
+        result[pi].items[slot]=best;
+        if(!best.unlimited)used.add(best.uid);
+        skillOrder.forEach(k=>current[k]=Math.min(110,(+current[k]||0)+(+best.boosts?.[k]||0)));
+        const afterRating=rawRating(Object.fromEntries(skillOrder.map(k=>[k,Math.min(110,(+p.skills?.[k]||0)+(+current[k]||0))])));
+        result[pi].ratingGain+=afterRating-currentRating;
+        result[pi].score+=best.score;
+      }else result[pi].items[slot]=best;
+    });
+  });
+  return result;
+}
+function buildGearRecommendation(){
+  ensureGearInventory();
+  state.gearRecommendation=chooseBestGearSetup(state.gearRecommendationMode||'available');
+  saveLocal();
+  renderGear();
+}
+function gearSourceClass(src){return src==='inventory'?'inv':src==='shop'?'shop':src==='theory'?'theory':''}
+function gearSourceLabel(item){
+  if(!item||item.uid==='none')return 'None';
+  if(item.source==='inventory')return item.equippedBy?`Inv · ${item.equippedBy}`:`Inv · ${item.durability??'?'}d`;
+  if(item.source==='shop')return 'Shop';
+  if(item.source==='theory')return 'Theory';
+  return String(item.source||'');
+}
+
+function openGearRecommendationPopup(){
+  closeGearRecommendationPopup();
+  ensureGearInventory();
+  const mode=state.gearRecommendationMode||'available';
+  const backdrop=document.createElement('div');
+  backdrop.className='trainingModeModalBackdrop';
+  backdrop.id='gearRecommendationModalBackdrop';
+  const pasted=escapeHtml(state.lastGearInventoryPaste||'');
+  backdrop.innerHTML=`<div class="trainingModeModal" role="dialog" aria-modal="true" aria-label="AI Gear Recommendation">
+    <h3>AI Gear Recommendation</h3>
+    <div class="trainingModeModalIntro gearModeModalIntro">Paste your CPL gear inventory, then choose how ambitious the recommendation should be.
+      <textarea id="gearInventoryPasteModal" placeholder="Paste CPL gear inventory table here...">${pasted}</textarea>
+      <div id="gearInventoryStatus" class="small" style="margin-top:8px"></div>
+    </div>
+    <div class="gearModeInlineChoices">
+      <label><input type="radio" name="gearRecoModeModal" value="available" ${mode==='optimal'?'':'checked'}><b>Soft recommendation</b><span>Uses parsed inventory first, then adds regular shop gear only. Specials are limited to what you actually own.</span></label>
+      <label><input type="radio" name="gearRecoModeModal" value="optimal" ${mode==='optimal'?'checked':''}><b>Optimal recommendation</b><span>Ignores stock limits and tests all regular + special suffix possibilities.</span></label>
+    </div>
+    <div class="trainingModeModalActions"><button class="btn secondary" onclick="closeGearRecommendationPopup()">Cancel</button><button class="btn" onclick="applyGearRecommendationFromPopup()">Build recommendation</button></div>
+  </div>`;
+  backdrop.addEventListener('click',e=>{if(e.target===backdrop)closeGearRecommendationPopup()});
+  document.body.appendChild(backdrop);
+}
+function closeGearRecommendationPopup(){
+  const old=document.getElementById('gearRecommendationModalBackdrop');
+  if(old)old.remove();
+}
+function applyGearRecommendationFromPopup(){
+  ensureGearInventory();
+  const box=document.getElementById('gearInventoryPasteModal');
+  const raw=box?box.value:'';
+  const selectedMode=document.querySelector('input[name="gearRecoModeModal"]:checked')?.value||'available';
+  const items=parseGearInventoryLines(raw);
+  state.gearInventory=items;
+  state.lastGearInventoryPaste=raw;
+  syncEquippedGearFromInventory();
+  state.gearRecommendationMode=selectedMode==='optimal'?'optimal':'available';
+  state.gearRecommendation=chooseBestGearSetup(state.gearRecommendationMode);
+  saveLocal();
+  closeGearRecommendationPopup();
+  renderGear();
+}
+function gearRecommendationForIndex(i){
+  const rec=state.gearRecommendation;
+  if(!Array.isArray(rec)||!rec[i])return null;
+  return rec[i];
+}
+function gearRecommendationReason(p,item,row){
+  if(!item||item.uid==='none')return 'No recommendation for this slot.';
+  const boosts=skillOrder.filter(k=>(+item.boosts?.[k]||0)>0).map(k=>`${labels[k]} +${item.boosts[k]}`).join(', ');
+  const low=skillOrder.filter(k=>(+p.skills?.[k]||0)<100).map(k=>labels[k]).slice(0,3).join(', ');
+  const source=item.source==='inventory'?'available in your inventory':item.source==='shop'?'regular shop purchase':item.source==='theory'||item.source==='simulation'?'theoretical special gear':'candidate';
+  return `Recommended as ${source}. Boosts ${boosts||'no skill'}. Scoring favors rating gain, pushes weak skills toward 100${low?` (${low})`:''}, avoids wasting points above 110, and penalizes extreme imbalance.`;
+}
+function gearBoostSignature(item){
+  if(!item)return '';
+  return skillOrder.map(k=>`${k}:${+item.boosts?.[k]||0}`).join('|');
+}
+function gearNameSignature(item){
+  return String(gearDisplayName(item)||item?.name||'').toLowerCase().replace(/\s+/g,' ').trim();
+}
+function gearRecommendationEquippedByPlayer(p,item){
+  if(!p||!item||item.uid==='none')return false;
+  if(item.source==='inventory'&&item.equippedBy){
+    const eq=normalizePlayerKeyForGear(item.equippedBy);
+    const pn=normalizePlayerKeyForGear(p.name);
+    const rn=normalizePlayerKeyForGear(p.realName);
+    if(eq&&(eq===pn||eq===rn||pn.includes(eq)||eq.includes(pn)))return true;
+  }
+  return false;
+}
+function gearSlotRecommendationCovered(i,slot,item){
+  const p=state.players?.[i];
+  if(!p||!item||item.uid==='none')return false;
+  const currentId=p.gear?.[slot]||'none';
+  if(currentId==='none')return false;
+  const current=resolveGearItem(currentId);
+  if(!current||current.id==='none')return false;
+  if(currentId===item.uid||currentId===item.id)return true;
+  if((current.baseId&&item.baseId&&current.baseId===item.baseId)&&gearBoostSignature(current)===gearBoostSignature(item))return true;
+  if(gearNameSignature(current)===gearNameSignature(item)&&gearBoostSignature(current)===gearBoostSignature(item))return true;
+  return false;
+}
+function renderGearSlotRecommendation(i,slot){
+  const row=gearRecommendationForIndex(i);
+  const item=row?.items?.[slot];
+  if(!item||item.uid==='none')return '';
+  const covered=gearSlotRecommendationCovered(i,slot,item);
+  if(covered){
+    return `<div class="gearRecoHint ok"><b>Reco:</b> <span class="gearRecoOkText">Best item equipped</span></div>`;
+  }
+  const src=gearSourceLabel(item);
+  return `<div class="gearRecoHint"><b>Reco:</b> ${gearNameHtml(item)} <span title="${escapeHtml(gearBoostTextFromMap(item.boosts))}">${gearBoostTextFromMap(item.boosts)}</span><br><span>${escapeHtml(src)}</span></div>`;
+}
+function renderGearTotalRecommendation(i){
+  const row=gearRecommendationForIndex(i);
+  if(!row)return '';
+  const mode=state.gearRecommendationMode==='optimal'?'theoretical':'available';
+  const items=gearSlots.map(slot=>row.items?.[slot]).filter(x=>x&&x.uid!=='none');
+  const specialCount=items.filter(x=>x.isSpecial).length;
+  const covered=items.length&&gearSlots.every(slot=>{const item=row.items?.[slot];return !item||item.uid==='none'||gearSlotRecommendationCovered(i,slot,item)});
+  const tip=escapeHtml(`Soft recommendation only: nothing is equipped automatically. Estimated rating gain for this recommended set: ${row.ratingGain>=0?'+':''}${(+row.ratingGain||0).toFixed(1)}. Total gear boost: +${sum(row.boosts||{})}. Specials in recommendation: ${specialCount}. Scoring favors useful rating gain, core skills up to ~105, skills below 100, avoids wasted points above 110, and limits only extreme imbalance.`);
+  if(covered){
+    return `<div class="gearTotalReco ok"><b>Reco:</b> <span class="gearRecoOkText">Best loadout equipped</span> <span class="gearRecoInfo" title="${tip}" data-tip="${tip}">i</span><br><span>${mode}</span></div>`;
+  }
+  return `<div class="gearTotalReco"><b>Reco +${sum(row.boosts||{})}</b> · ${row.ratingGain>=0?'+':''}${(+row.ratingGain||0).toFixed(1)} rating <span class="gearRecoInfo" title="${tip}" data-tip="${tip}">i</span><br><span>${mode}</span></div>`;
+}
+function renderGearRecommendationSummaryLine(){
+  const el=document.getElementById('gearRecommendationSummaryLine');
+  if(!el)return;
+  const rec=Array.isArray(state.gearRecommendation)?state.gearRecommendation:null;
+  const diag=gearParsedInventoryHtml();
+  if(!rec){el.innerHTML=diag;return;}
+  const totalGain=rec.reduce((a,r)=>a+(+r.ratingGain||0),0);
+  const mode=state.gearRecommendationMode==='optimal'?'Optimal recommendation':'Soft recommendation';
+  const specials=rec.reduce((a,r)=>a+gearSlots.filter(slot=>r.items?.[slot]?.isSpecial).length,0);
+  el.innerHTML=`Recommendation: <b>${mode}</b> · team rating impact <b>${totalGain>=0?'+':''}${totalGain.toFixed(1)}</b> · special items <b>${specials}</b>. Recommendation only; manual equip required.${diag}`;
+}
+function renderGearInventoryTools(){
+  ensureGearInventory();
+  const box=document.getElementById('gearInventoryPaste');
+  if(box && !box.value && state.lastGearInventoryPaste)box.value=state.lastGearInventoryPaste;
+  const mode=state.gearRecommendationMode||'available';
+  const b1=document.getElementById('gearRecoAvailableBtn'),b2=document.getElementById('gearRecoOptimalBtn');
+  if(b1)b1.classList.toggle('active',mode==='available');
+  if(b2)b2.classList.toggle('active',mode==='optimal');
+  const items=state.gearInventory||[];
+  const kpis=document.getElementById('gearInventoryKpis');
+  if(kpis)kpis.innerHTML=`<div class="gearInvKpi"><b>${items.length}</b><span>Inventory</span></div><div class="gearInvKpi"><b>${items.filter(x=>x.isSpecial).length}</b><span>Specials</span></div><div class="gearInvKpi"><b>${items.filter(x=>!x.isSpecial).length}</b><span>Regular</span></div><div class="gearInvKpi"><b>${items.filter(x=>x.equippedBy).length}</b><span>Equipped</span></div>`;
+  const preview=document.getElementById('gearInventoryPreview');
+  if(preview){
+    preview.innerHTML=items.length?`<div class="gearInvTableWrap"><table class="gearInvTable"><thead><tr><th>Item</th><th>Slot</th><th>Boost</th><th>Dur.</th><th>Equipped</th></tr></thead><tbody>${items.map(it=>`<tr><td>${gearNameHtml(it)}${it.isSpecial?` <span class="gearBalanceTag">special</span>`:''}</td><td>${gearSlotLabels[it.slot]||it.slot}</td><td>${gearBoostTextFromMap(it.boosts)}</td><td>${it.durability??''}</td><td>${escapeHtml(it.equippedBy||'—')}</td></tr>`).join('')}</tbody></table></div>`:'<div class="small">No parsed inventory yet.</div>';
+  }
+  const rec=document.getElementById('gearRecommendation');
+  if(rec)rec.innerHTML=renderGearRecommendationHtml();
+}
+function renderGearRecommendationHtml(){
+  const mode=state.gearRecommendationMode||'available';
+  const setup=state.gearRecommendation&&Array.isArray(state.gearRecommendation)?state.gearRecommendation:chooseBestGearSetup(mode);
+  const needs={};
+  setup.forEach(r=>gearSlots.forEach(slot=>{
+    const item=r.items?.[slot];
+    if(!item||item.source!=='shop')return;
+    const key=item.name;
+    if(!needs[key])needs[key]={count:0,slot:item.slot,boosts:item.boosts};
+    needs[key].count++;
+  }));
+  const theoryCount=setup.reduce((a,r)=>a+gearSlots.filter(slot=>r.items?.[slot]?.source==='theory').length,0);
+  const invCount=setup.reduce((a,r)=>a+gearSlots.filter(slot=>r.items?.[slot]?.source==='inventory').length,0);
+  const shopCount=setup.reduce((a,r)=>a+gearSlots.filter(slot=>r.items?.[slot]?.source==='shop').length,0);
+  const totalGain=setup.reduce((a,r)=>a+(+r.ratingGain||0),0);
+  return `<div class="gearRecommendationLayout"><div class="gearRecoCards">${setup.map(r=>`<div class="gearRecoPlayer"><div class="gearRecoPlayerHead">${avatar(r.player)}<div><div class="pname">${escapeHtml(r.player.name||'Player')}</div><div class="small">Recommended loadout</div></div><div class="gearRecoScore"><b>+${sum(r.boosts)}</b><span>${r.ratingGain>=0?'+':''}${r.ratingGain.toFixed(1)} rating</span></div></div>${gearSlots.map(slot=>{const item=r.items?.[slot]||{name:'None',boosts:{},source:'none'};return`<div class="gearRecoSlot"><div class="slot">${gearSlotLabels[slot]}</div><div><div class="item">${gearNameHtml(item)}</div><div class="small">${gearBoostTextFromMap(item.boosts)}</div></div><div class="src ${gearSourceClass(item.source)}">${escapeHtml(gearSourceLabel(item))}</div></div>`}).join('')}</div>`).join('')}</div><div class="gearRecoSummary"><div class="gearRecoBox"><h3>Recommendation summary</h3><div class="gearNeedList"><div class="gearNeedLine"><span class="needItem">Mode</span><span class="needMeta">${mode==='optimal'?'Optimal recommendation':'Soft recommendation'}</span></div><div class="gearNeedLine"><span class="needItem">Team rating gain</span><span class="needMeta">${totalGain>=0?'+':''}${totalGain.toFixed(1)}</span></div><div class="gearNeedLine"><span class="needItem">Inventory / Shop / Theory</span><span class="needMeta">${invCount} / ${shopCount} / ${theoryCount}</span></div></div></div><div class="gearRecoBox"><h3>${mode==='optimal'?'Optimal items used':'Regular shop to buy'}</h3><div class="gearNeedList">${mode==='optimal'?`<div class="gearNeedLine"><span class="needItem">${theoryCount} special recommendation(s)</span><span class="needMeta">Uses all potential suffixes</span></div>`:(Object.keys(needs).length?Object.entries(needs).sort((a,b)=>b[1].count-a[1].count).map(([name,n])=>`<div class="gearNeedLine"><span class="needItem">${escapeHtml(name)} ×${n.count}</span><span class="needMeta">${gearSlotLabels[n.slot]} · ${gearBoostTextFromMap(n.boosts)}</span></div>`).join(''):'<div class="small">No regular shop purchase needed for the current recommendation.</div>')}</div></div><div class="warning">Recommendation only. It does not equip gear and does not change player stats elsewhere until you manually select items in the loadout table.</div></div></div>`;
+}
+
+function renderGear(){ensureGear();if(!gearRows||!gearDetails)return;renderGearRecommendationSummaryLine();gearRows.innerHTML=state.players.map((p,i)=>{const total=gearTotal(p);return`<tr class="clickable ${i===selected?'selected':''}" onclick="selected=${i};renderAll()"><td><div class="gearPlayer">${avatar(p)}<div><div class="pname">${escapeHtml(p.name||'Player')}</div></div></div></td>${gearSlots.map(slot=>{const cur=p.gear?.[slot]||'none';const item=resolveGearItem(cur);const total=gearItemTotal(item);return`<td title="${item.id==='none'?'No item':gearTooltip({gear:{[slot]:cur}})}"><div class="gearSelectBox"><select onclick="event.stopPropagation()" onchange="setGear(${i},'${slot}',this.value)">${gearOptions(slot,cur)}</select><span class="gearBoostTag">+${total}</span></div>${renderGearSlotRecommendation(i,slot)}</td>`}).join('')}<td><div class="gearTotal ${total?'':'zero'}" title="${gearTooltip(p)}">+${total}</div>${renderGearTotalRecommendation(i)}</td></tr>`}).join('');const p=state.players[selected]||state.players[0];if(!p){gearDetails.innerHTML='<div class="small">No player selected.</div>';return}const map=gearBoostMap(p),total=sum(map);gearDetails.innerHTML=`<div class="gearDetailsGrid"><div class="selectedGearCard"><div class="playerCardTop">${avatar(p)}<div><div class="pname">${escapeHtml(p.name||'Player')}</div><div class="meta">Selected loadout</div><div class="playerStats"><span>Total gear <b>+${total}</b></span><span>Rating impact <b>+${(rawRating(Object.fromEntries(skillOrder.map(k=>[k,(p.skills[k]||0)+(map[k]||0)])))-rawRating(p.skills)).toFixed(1)}</b></span></div></div></div><div class="gearNote">Gear boosts are included in Skill, Eff. Total and Rating calculations. AI recommendations shown in the table are advisory until manually selected.</div></div><div><div class="gearCurrent">${gearSlots.map(slot=>{const item=resolveGearItem(p.gear?.[slot]||'none');return`<div class="gearItemCard"><div class="slot">${gearSlotLabels[slot]}</div><div class="name">${gearNameHtml(item)}</div><div class="boost" title="${gearItemBoostText(item)}">+${gearItemTotal(item)}</div></div>`}).join('')}</div><br><h3 style="margin:0 0 10px">Skill boost breakdown</h3><div class="boostBreakdown detailed">${skillMapRows(map,p)}</div><div class="gearGrandTotal"><span>Total gear boost</span><b>+${total}</b></div></div></div>`
+  renderGearInventoryTools();
+}
 function simulatePlayerDaily(p){
   const points=plannerDays();
   let sk=JSON.parse(JSON.stringify(p.skills));
@@ -6509,14 +7111,14 @@ function renderAll(){normalizeStateAfterLoad();applyAutoGameDate();ensureGear();
   localStorage.removeItem('teamPlannerV100RC13_9');
   localStorage.removeItem('teamPlannerV100RC13_7');
   state=structuredClone(defaultState);
-  state.version='1.1.0-rc.14';
+  state.version='1.1.0-rc.14.6.12-gear-safe';
   selected=0;
   selectedCandidateId=null;
   renderAll();
 }function loadDefaults(){
   if(!confirm('Restore the embedded emuLate! baseline data? This will replace current roster, builder candidates, analysis plan and settings.'))return;
   state=structuredClone(defaultState);
-  state.version='1.1.0-rc.14';
+  state.version='1.1.0-rc.14.6.12-gear-safe';
   selected=0;
   selectedCandidateId=null;
   renderAll();
@@ -6561,6 +7163,7 @@ function addOrUpdate(p){
 }function addParsedPlayers(){
   if(!parsedPlayers.length){alert('Nothing to add.');return}
   parsedPlayers.forEach(addOrUpdate);
+  syncEquippedGearFromInventory();
   const importedCount=parsedPlayers.length;
   parsedPlayers=[];
   if(typeof cplPaste!=='undefined' && cplPaste)cplPaste.value='';
@@ -6804,5 +7407,134 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
+
+<script>
+(function(){
+  function _cplCleanToken(x){return String(x||'').replace(/\u00a0/g,' ').replace(/\s+/g,' ').trim();}
+  function _cplNormText(x){return String(x||'').replace(/\u00a0/g,' ').replace(/\s+/g,' ').trim().toLowerCase();}
+  function _cplDate(x){return /^\d{4}-\d{2}-\d{2}$/.test(String(x||''));}
+  function _cplIsHeader(x){return new Set(['Item','Bought On','Durability','Stat increase','Equipped by','Action']).has(x);}
+  function _cplIsControl(x){return !x || x==='Equip' || x==='Sell' || _cplDate(x) || /^[-+]?\d+$/.test(x) || /^\+\d+/.test(x) || _cplIsHeader(x);}
+  function _cplSuffixFromName(name){
+    const parts=_cplCleanToken(name).split(' ').filter(Boolean);
+    if(!parts.length)return null;
+    const key=_cplNormText(parts[parts.length-1]);
+    return gearSuffixBoosts && gearSuffixBoosts[key] ? {key,def:gearSuffixBoosts[key]} : null;
+  }
+  function _cplStripSuffix(name){
+    const s=_cplSuffixFromName(name);
+    if(!s)return _cplCleanToken(name);
+    const parts=_cplCleanToken(name).split(' ').filter(Boolean);
+    parts.pop();
+    return parts.join(' ');
+  }
+  function _cplBaseIdFromName(name){
+    const cleaned=_cplCleanToken(name);
+    const stripped=_cplStripSuffix(cleaned);
+    const candidates=[stripped,cleaned];
+    for(const c of candidates){
+      const id=gearNameAliases && gearNameAliases[_cplNormText(c)];
+      if(id)return id;
+    }
+    const low=_cplNormText(stripped);
+    const byCatalog=(gearCatalog||[]).find(g=>g&&g.id!=='none'&&_cplNormText(g.name)===low);
+    return byCatalog?byCatalog.id:null;
+  }
+  function _cplParseGearFullName(fullName){
+    const clean=_cplCleanToken(fullName);
+    if(!clean)return null;
+    const suffix=_cplSuffixFromName(clean);
+    const baseId=_cplBaseIdFromName(clean);
+    const base=baseId && gearById ? gearById[baseId] : null;
+    if(!base||base.id==='none')return null;
+    const boosts=cloneBoosts(base.boosts);
+    if(suffix)boosts[suffix.def.skill]+=(+suffix.def.boost||0);
+    return {
+      baseId:base.id,
+      baseName:base.name,
+      name:clean,
+      slot:base.slot,
+      boosts,
+      suffix:suffix?suffix.def.label:'',
+      isSpecial:!!suffix
+    };
+  }
+  function _cplForceSpecial(parsed, realRaw, baseRaw){
+    const suffix=_cplSuffixFromName(realRaw);
+    if(!suffix)return parsed;
+    const baseId=(parsed&&parsed.baseId)||_cplBaseIdFromName(realRaw)||_cplBaseIdFromName(baseRaw);
+    const base=baseId && gearById ? gearById[baseId] : null;
+    if(!base||base.id==='none')return parsed;
+    const boosts=cloneBoosts(base.boosts);
+    boosts[suffix.def.skill]+=(+suffix.def.boost||0);
+    return {
+      ...(parsed||{}),
+      id:'inv_special_'+base.id+'_'+suffix.key,
+      baseId:base.id,
+      baseName:base.name,
+      name:_cplCleanToken(realRaw),
+      slot:base.slot,
+      boosts,
+      suffix:suffix.def.label,
+      isSpecial:true
+    };
+  }
+  window.parseGearInventoryLines=function(raw){
+    const tokens=String(raw||'').split(/\t|\r?\n/).map(_cplCleanToken).filter(Boolean);
+    const items=[];
+    let block=[];
+    function flush(rawBlock){
+      const b=rawBlock.map(_cplCleanToken).filter(Boolean).filter(x=>!_cplIsHeader(x));
+      if(!b.length)return;
+      const dateIdx=b.findIndex(_cplDate);
+      if(dateIdx<0)return;
+      const nameLines=b.slice(0,dateIdx).filter(x=>!_cplIsControl(x));
+      const baseRaw=nameLines[0]||'';
+      const realRaw=nameLines.length>=2?nameLines[1]:baseRaw;
+      let parsed=_cplParseGearFullName(realRaw)||_cplParseGearFullName(baseRaw);
+      parsed=_cplForceSpecial(parsed,realRaw,baseRaw);
+      if(!parsed)return;
+      let j=dateIdx+1;
+      let durability=0;
+      if(j<b.length && /^-?\d+$/.test(b[j])){durability=+b[j];j++;}
+      const statLines=[];
+      while(j<b.length && /^\+\d+/.test(b[j])){statLines.push(b[j]);j++;}
+      let equippedBy='';
+      while(j<b.length && b[j]!=='Sell'){
+        const v=b[j];
+        if(v!=='Equip' && !_cplDate(v) && !/^\+\d+/.test(v) && !/^[-+]?\d+$/.test(v) && !_cplIsHeader(v)) equippedBy=v;
+        j++;
+      }
+      const uid='inv_'+items.length+'_'+_cplNormText(parsed.name).replace(/[^a-z0-9]+/g,'_')+'_'+durability+'_'+dateIdx;
+      items.push({...parsed,uid,source:'inventory',durability,equippedBy,boughtOn:b[dateIdx],rawName:realRaw,baseRaw,statLines});
+    }
+    tokens.forEach(t=>{block.push(t); if(t==='Sell'){flush(block); block=[];}});
+    flush(block);
+    return items;
+  };
+  const _oldApplyGearRecommendationFromPopup=window.applyGearRecommendationFromPopup;
+  window.applyGearRecommendationFromPopup=function(){
+    try{
+      ensureGearInventory();
+      const box=document.getElementById('gearInventoryPasteModal');
+      const raw=box?box.value:'';
+      const selectedMode=document.querySelector('input[name="gearRecoModeModal"]:checked')?.value||'available';
+      const items=window.parseGearInventoryLines(raw);
+      state.gearInventory=items;
+      state.lastGearInventoryPaste=raw;
+      state.gearRecommendationMode=selectedMode==='optimal'?'optimal':'available';
+      if(typeof syncEquippedGearFromInventory==='function')syncEquippedGearFromInventory();
+      state.gearRecommendation=chooseBestGearSetup(state.gearRecommendationMode);
+      saveLocal();
+      closeGearRecommendationPopup();
+      renderAll();
+    }catch(err){
+      console.error('Gear recommendation failed',err);
+      alert('Gear recommendation failed: '+(err&&err.message?err.message:String(err)));
+    }
+  };
+})();
+</script>
+
 </body>
 </html>
